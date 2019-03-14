@@ -1,5 +1,5 @@
 # klassenapp-ios
-Die iOS Version der KlassenApp. Geschrieben in Swift
+Die iOS Version der KlassenApp. Geschrieben in Swift.
 
 ## Verwendungszweck:
 Diese App wurde für eine Schulklasse programmiert, um Hausaufgaben, Arbeiten, etc. schnell sehen zu können.
