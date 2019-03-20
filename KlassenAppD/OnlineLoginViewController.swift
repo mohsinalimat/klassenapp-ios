@@ -8,8 +8,6 @@
 
 import UIKit
 import FirebaseAuth
-//import ChatCamp
-//import PusherChatkit
 
 class OnlineLoginViewController: UIViewController {
 
@@ -88,20 +86,6 @@ class OnlineLoginViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
-    /*func newUpdatealert (title: String, message: String) {
-     let nUA = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-     
-     nUA.addAction(UIAlertAction(title: "Installieren", style: UIAlertAction.Style.default, handler: { (nUAInstall) in
-     UIApplication.shared.openURL(NSURL(string: "https://klassenappd-team.github.io/iosdownload.html")! as URL)
-     }))
-     nUA.addAction(UIAlertAction(title: "Dieses mal nicht mehr fragen", style: UIAlertAction.Style.default, handler: { (nUACanel2) in
-     LastVC.UpdateReminderSession = "1"
-     nUA.dismiss(animated: true, completion: nil)
-     }))
-     self.present(nUA, animated: true, completion: nil)
-     }*/
-    
   func noDisplayName (title: String, message: String) {
         let nDN = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
@@ -132,20 +116,8 @@ class OnlineLoginViewController: UIViewController {
         }))
         self.present(nDN, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
 }
-
-//extension ViewController: PCChatManagerDelegate {}

@@ -73,22 +73,6 @@ class MoreViewController: UIViewController {
                 
                 if versionCurrent.compare(NewestBuildDBLE!, options: .numeric) == .orderedAscending {
                     self.UpdateCenterBtn.badgeString = "1"
-                    
-                    /*if LastVC.UpdateReminderSession != "1" {
-                     var NewestBuildDBLES = NewestBuildDB.value as! String
-                     LastVC.NEWUPDATEVERDB = NewestBuildDBLES
-                     let introPage = FirstViewController.bulletinNWUP()
-                     self.bulletinManager = BLTNItemManager(rootItem: introPage)
-                     self.bulletinManager.showBulletin(above: self)
-                     /*while LastVC.showUCC == "0" {
-                     if LastVC.showUC == "1" {
-                     LastVC.showUCC == "1"
-                     self.performSegue(withIdentifier: "gotoupdatecenter", sender: nil)
-                     }
-                     }*/
-                     
-                     //self.newUpdatealert(title: "Neues Update", message: "Es gibt eine neue Version der App (Version \(NewestBuildDBLES))")
-                     }*/
                 }
             }
         }

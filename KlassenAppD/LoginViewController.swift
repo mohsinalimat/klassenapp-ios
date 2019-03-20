@@ -41,7 +41,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             var pass = passcode.value as? String
             if self.PassCodeInput.text == pass {
                 UserDefaults.standard.set(1, forKey: "Checker")
-                self.performSegue(withIdentifier: "loginsegue", sender: nil)
+                //self.performSegue(withIdentifier: "loginsegue", sender: nil)
+                self.performSegue(withIdentifier: "logintohome", sender: nil)
             }
             else {
                 self.ErrorOutputLabel.text = "Der Pincode ist falsch"
@@ -122,20 +123,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if UserDefaults.standard.integer(forKey: "TouchIDVerification") == 1 {
             LoginTouchIDOut.isEnabled = true
         }
-        
-        // self.view.backgroundColor = UIColor.darkGray
-        
-      /*  if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
-                
-            })
-        } else {
-            // Fallback on earlier versions
-        }*/
-        
-
         // Do any additional setup after loading the view.
-      
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
@@ -158,7 +146,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.performSegue(withIdentifier: "havetoreadinfos", sender: nil)
         }*/
         if UserDefaults.standard.integer(forKey: "Checker") == 1 {
-             self.performSegue(withIdentifier: "loginsegue", sender: nil)
+             //self.performSegue(withIdentifier: "loginsegue", sender: nil)
+            self.performSegue(withIdentifier: "logintohome", sender: nil)
         }
         else {
         }
@@ -168,34 +157,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
-            self.performSegue(withIdentifier: "loginsegue", sender: nil)
+            //self.performSegue(withIdentifier: "loginsegue", sender: nil)
+            self.performSegue(withIdentifier: "logintohome", sender: nil)
         }
         
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "loginsegue", sender: nil)
+            //self.performSegue(withIdentifier: "loginsegue", sender: nil)
+            self.performSegue(withIdentifier: "logintohome", sender: nil)
         }
-        
-       
-        
-        
-        
-        /*if UserDefaults.standard.string(forKey: "ThxText") != "1" {
-            self.ThxAlert(title: "Bitte lesen!", message: "Vielen Dank, dass du diese App heruntergeladen hast. Wir möchten uns auch bedanken für das positive Feedback das wir nach der Veröffentlichung bekommen haben. Das ist einfach Klasse! Wir danken jedem Benutzer dieser App.")
-            UserDefaults.standard.set("1", forKey: "ThxText")
-        }*/
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func createAlert (title: String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

@@ -64,6 +64,7 @@
 		3AC9003C214D0BC2002E7C3D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003B214D0BC2002E7C3D /* ChatViewController.swift */; };
 		3AC9003E214D182C002E7C3D /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003D214D182C002E7C3D /* ChatHelper.swift */; };
 		3AC90040214D1D9B002E7C3D /* TVCChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003F214D1D9B002E7C3D /* TVCChat.swift */; };
+		3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF16F922414B660087217A /* HomeViewController.swift */; };
 		3AE1F8822152910C004A25BD /* TimeTableMondayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1F8812152910C004A25BD /* TimeTableMondayViewController.swift */; };
 		3AE1F8842152911F004A25BD /* TimeTableTuesdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1F8832152911F004A25BD /* TimeTableTuesdayViewController.swift */; };
 		3AE1F88621529128004A25BD /* TimeTableWednesdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1F88521529128004A25BD /* TimeTableWednesdayViewController.swift */; };
@@ -230,6 +231,7 @@
 		3ADA9CBF218CDA35001D2C30 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADA9CC1218CDA75001D2C30 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADA9CC3218CDAA1001D2C30 /* Pods_KlassenAppD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_KlassenAppD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ADF16F922414B660087217A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3AE1F8812152910C004A25BD /* TimeTableMondayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableMondayViewController.swift; sourceTree = "<group>"; };
 		3AE1F8832152911F004A25BD /* TimeTableTuesdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableTuesdayViewController.swift; sourceTree = "<group>"; };
 		3AE1F88521529128004A25BD /* TimeTableWednesdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableWednesdayViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				3AC0BE8D207BD5A700980088 /* LoginViewController.swift */,
 				3AC90039214C3969002E7C3D /* OnlineLoginViewController.swift */,
 				3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */,
+				3ADF16F922414B660087217A /* HomeViewController.swift */,
 				3A0F5710207BD0B700D9F701 /* FirstViewController.swift */,
 				3A0F5712207BD0B700D9F701 /* SecondViewController.swift */,
 				3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */,
@@ -904,6 +907,7 @@
 				3A37CC632193666D003F7BF8 /* Woche2EditViewController.swift in Sources */,
 				3A9C7BD12177ABB20071D37E /* HABMViewController.swift in Sources */,
 				7A73788720CEA64D003D78A8 /* Woche3ViewController.swift in Sources */,
+				3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */,
 				3AF69297219896790092FB6B /* ListTableViewCell.swift in Sources */,
 				7A5F0E3520F9DD4100747AB2 /* FoodWeViewController.swift in Sources */,
 				3AE1F88621529128004A25BD /* TimeTableWednesdayViewController.swift in Sources */,

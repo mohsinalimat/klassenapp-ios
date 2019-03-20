@@ -60,6 +60,15 @@ class UpdateCenterViewController: UIViewController {
         menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 30.0)
         view.addSubview(menuButton)
         //HomeWorkShortID
+        let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
+            // Do some action
+            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeID") as? HomeViewController
+            {
+                self.present(vc, animated: true, completion: nil)
+            }
+            print("btn1")
+        }
         let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
             // Do some action
             //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
@@ -145,10 +154,10 @@ class UpdateCenterViewController: UIViewController {
         
         
         if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item8, item9])
+            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item5, item6, item8, item9])
         }
         else {
-            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item9])
+            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item5, item6, item9])
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)

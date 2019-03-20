@@ -1,66 +1,20 @@
 //
-//  RememberViewController.swift
+//  HomeViewController.swift
 //  KlassenAppD
 //
-//  Created by Adrian Baumgart on 27.09.18.
-//  Copyright © 2018 Adrian Baumgart. All rights reserved.
+//  Created by Adrian Baumgart on 19.03.19.
+//  Copyright © 2019 Adrian Baumgart. All rights reserved.
 //
 
 import UIKit
+import Firebase
 import ExpandingMenu
-import FirebaseAuth
 
-class RememberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    @IBOutlet weak var backgroundTitleView: UIView!
-    @IBOutlet weak var TitleLabel: UILabel!
-    
-    var LIST: [String] = []
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LIST.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "listcell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            cell!.textLabel!.textColor = UIColor.white
-            cell!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            cell!.textLabel!.textColor = UIColor.black
-            cell!.backgroundColor = UIColor.white
-        }
-        //if itemNames.count != 0 {
-        // let cell = UITableViewCell(style: .default, reuseIdentifier: "listcell")
-        cell!.textLabel?.text = LIST[indexPath.row]
-        // }
-        return cell!
-    }
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) {
-            LIST.remove(at: indexPath.row)
-            UserDefaults.standard.set(self.LIST, forKey: "RememberList")
-            //  print(self.LIST)
-            self.TableViewRemember.reloadData()
-            // handle delete (by removing the data from your array and updating the tableview)
-        }
-    }
-    
-    
-    @IBOutlet weak var TableViewRemember: UITableView!
-    
-    @IBAction func AddBtn(_ sender: Any)
-    {
-        AddITEM(title: "Hinzufügen", message: "Gib hier etwas ein")
-       // bulletinManager.showBulletin(above: self)
-    }
+class HomeViewController: UIViewController {
+
+    @IBOutlet weak var HomeTitle: UILabel!
+    @IBOutlet weak var HomeTitleBackground: UIView!
+    @IBOutlet weak var HomeTV: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let menuButtonSize: CGSize = CGSize(width: 64.0, height: 50.0)
@@ -77,6 +31,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 30.0)
         view.addSubview(menuButton)
         //HomeWorkShortID
+        //homeID
         let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
             // Do some action
             //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
@@ -171,71 +126,103 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item5, item6, item7, item8])
+            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item7, item8, item9])
         }
         else {
-            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item5, item6, item7])
+            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item7, item9])
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            backgroundTitleView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
-            TitleLabel.textColor = UIColor.white
-            TableViewRemember.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            // ChatMSGTF.tintColor = UIColor.white
+            HomeTitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
+            HomeTitle.textColor = UIColor.white
+            HomeTV.textColor = UIColor.white
+            HomeTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             UIApplication.shared.statusBarStyle = .lightContent
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
-            backgroundTitleView.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:0.8)
-            TitleLabel.textColor = UIColor.black
-            TableViewRemember.backgroundColor = UIColor.white
-            // ChatMSGTF.tintColor = UIColor.black
+            HomeTitleBackground.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:0.8)
+            HomeTitle.textColor = UIColor.black
+            HomeTV.textColor = UIColor.black
+            HomeTV.backgroundColor = UIColor.white
             UIApplication.shared.statusBarStyle = .default
         }
-        LIST.removeAll()
-        LIST = (UserDefaults.standard.stringArray(forKey: "RememberList"))  ?? [String]()
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUSnap) in
+            let LDUSNAP = LDUSnap.value as? String
+            HomeViewController.HomeVar.LDU = LDUSNAP!
+        }
+        ref.child("homework").child("bismorgen").child("hausaufgaben").observeSingleEvent(of: .value) { (HABMINFOSNAP) in
+            let HABMINFOLE = HABMINFOSNAP.value as? String
+            HomeViewController.HomeVar.HabmText = HABMINFOLE!
+        }
+        ref.child("homework").child("bismorgen").child("updatetime").observeSingleEvent(of: .value) { (HABMLDUSNAP) in
+            let HABMLDULE = HABMLDUSNAP.value as! String
+            HomeViewController.HomeVar.HabmTime = HABMLDULE
+        }
+        ref.child("news").child("news1").observeSingleEvent(of: .value) { (News1Snap) in
+            let NEWS1SNAP = News1Snap.value as? String
+            HomeViewController.HomeVar.News1 = NEWS1SNAP!
+        }
+        ref.child("news").child("newsL").observeSingleEvent(of: .value) { (NewsLSnap) in
+            let NEWSLSNAP = NewsLSnap.value as? String
+            HomeViewController.HomeVar.NewsL = NEWSLSNAP!
+        }
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
+            let NEWESTBUILD = NewestBuildDB.value as? String
+            HomeViewController.HomeVar.NewestVersion = NEWESTBUILD!
+        }
+        let dictionary = Bundle.main.infoDictionary!
+        let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
+        
+        if versionCurrent.compare(HomeViewController.HomeVar.NewestVersion, options: .numeric) == .orderedAscending {
+            HomeViewController.HomeVar.NewVersionAvailable = "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)"
+        }
+        else {
+            HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
+        }
+        ref.child("arbeiten").child("Arbeit1").child("label").observeSingleEvent(of: .value) { (Test1LabelSnap) in
+            let TEST1LABELSNAP = Test1LabelSnap.value as? String
+            HomeViewController.HomeVar.NextEvent = TEST1LABELSNAP!
+            self.setToTV()
+        }
+
+        // Do any additional setup after loading the view.
     }
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
 
+       // if HomeVar.HabmTime != "" && HomeVar.HabmText != "" && HomeVar.NextEvent != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NewestVersion != "" && HomeVar.NewVersionAvailable != "" && HomeVar.LDU != ""
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func setToTV() {
+        HomeTV.text = "Hausaufgaben bis morgen: \(HomeViewController.HomeVar.HabmText)\n\n-HABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nLDU: \(HomeViewController.HomeVar.LDU)"
+    }
+    
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
     
-    func AddITEM (title: String, message: String) { //Adds a item
-        let AI = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        AI.addTextField(
-            configurationHandler: {(textField: UITextField!) in
-                textField.placeholder = "Neu"
-        })
-        AI.addAction(UIAlertAction(title: "Hinzufügen", style: UIAlertAction.Style.default, handler: { (AIAdd) in //Adds new item to list
-            if let textFields = AI.textFields {
-                let theTextFields = textFields as [UITextField]
-                var enteredText = theTextFields[0].text
-                if enteredText != "" {
-                    self.LIST.append(enteredText ?? "")
-                    UserDefaults.standard.set(self.LIST, forKey: "RememberList")
-                  //  print(self.LIST)
-                    self.TableViewRemember.reloadData()
-                    
-                    
-                    AI.dismiss(animated: true, completion: nil)
-                }
-            }
-            
-        }))
-        AI.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertAction.Style.default, handler: { (AIdismiss) in //Cancel action and dismiss alert
-            AI.dismiss(animated: true, completion: nil)
-        }))
-        self.present(AI, animated: true, completion: nil)
+    struct HomeVar {
+        static var HabmText = ""
+        static var HabmTime = ""
+        static var NextEvent = ""
+        static var Finished = ""
+        static var News1 = ""
+        static var NewsL = ""
+        static var NewestVersion = ""
+        static var NewVersionAvailable = ""
+        static var LDU = ""
     }
-    
 
 }
-
-

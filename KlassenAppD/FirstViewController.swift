@@ -165,6 +165,16 @@ class FirstViewController: UIViewController {
         menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 30.0)
         view.addSubview(menuButton)
         //HomeWorkShortID
+        //homeID
+        let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
+            // Do some action
+            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeID") as? HomeViewController
+            {
+                self.present(vc, animated: true, completion: nil)
+            }
+            print("btn1")
+        }
         let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
             // Do some action
             //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
@@ -250,10 +260,10 @@ class FirstViewController: UIViewController {
         
         
         if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item1, item2, item3, item4, item5, item6, item7, item8, item9])
+            menuButton.addMenuItems([item00, item1, item2, item3, item4, item5, item6, item7, item8, item9])
         }
         else {
-            menuButton.addMenuItems([item1, item2, item3, item4, item5, item6, item7, item9])
+            menuButton.addMenuItems([item00, item1, item2, item3, item4, item5, item6, item7, item9])
         }
         NUView.isHidden = true
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
@@ -278,41 +288,6 @@ class FirstViewController: UIViewController {
             LastVC.LastVCV = "0"
             self.tabBarController?.selectedIndex = 0
         }
-        
-        /*NetworkManager.isUnreachable { (_) in
-            var Week1Label = UserDefaults.standard.string(forKey: "UDW1Btn")
-            var Week2Label = UserDefaults.standard.string(forKey: "UDW2Btn")
-            var Week3Label = UserDefaults.standard.string(forKey: "UDW3Btn")
-            var Week4Label = UserDefaults.standard.string(forKey: "UDW4Btn")
-            if Week1Label == nil {
-                self.Week1Out.setTitle("Keine Daten vorhanden", for: .normal)
-            }
-            else {
-                self.Week1Out.setTitle("S: " + Week1Label!, for: .normal)
-            }
-            if Week2Label == nil {
-                self.Week2Out.setTitle("Keine Daten vorhanden", for: .normal)
-            }
-            else {
-                self.Week2Out.setTitle("S: " + Week2Label!, for: .normal)
-            }
-            if Week3Label == nil {
-                self.Week3Out.setTitle("Keine Daten vorhanden", for: .normal)
-            }
-            else {
-                self.Week3Out.setTitle("S: " + Week3Label!, for: .normal)
-            }
-            if Week4Label == nil {
-                self.Week4Out.setTitle("Keine Daten vorhanden", for: .normal)
-            }
-            else {
-                self.Week4Out.setTitle("S: " + Week4Label!, for: .normal)
-            }
-            let nointernetbanner = NotificationBanner(title: "Kein Internet", subtitle: "Dein Gerät ist nicht mit dem Internet verbunden.", style: .warning)
-            nointernetbanner.show()
-        }*/
-    
-        
         let ref: DatabaseReference = Database.database().reference()
        /* Week2Out.setTitle("S: \(Week2Label)", for: .normal)
         Week3Out.setTitle("S: \(Week3Label)", for: .normal)
@@ -347,44 +322,6 @@ class FirstViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
-    
-    /*func postToken(Token: [String: AnyObject]) {
-        print("FCM Token: \(Token)")
-        let dbref = Database.database().reference()
-        dbref.child("fcmToken").child(Messaging.messaging().fcmToken!).setValue(Token)
-    }*/
-    
-   /* func CheckConnection() {
-        CIView.isHidden = false
-        CIIndicator.isHidden = false
-        CIIndicator.startAnimating()
-       /* UIView.animate(withDuration: 1.5, animations: {
-            self.CIView.alpha = 1.0
-        })*/
-        
-        let connectedRef = Database.database().reference(withPath: ".info/connected")
-        connectedRef.observe(.value, with: { snapshot in
-            if snapshot.value as? Bool ?? false {
-                print("Connected")
-                self.CIIndicator.stopAnimating()
-                self.CIIndicator.isHidden = true
-                self.CIView.backgroundColor = UIColor(red: 0.3333, green: 0.8667, blue: 0, alpha: 1.0)
-                self.CILabel.text = "Verbunden!"
-            } else {
-                print("Not connected")
-                self.CIIndicator.stopAnimating()
-                self.CIIndicator.isHidden = true
-                self.CIView.backgroundColor = UIColor(red: 0.7686, green: 0, blue: 0, alpha: 1.0)
-                self.CILabel.text = "Nicht verbunden!"
-            }
-        })
-        
-       // sleep(2)
-        UIView.animate(withDuration: 3.0) {
-            self.CIView.alpha = 0.0
-        }
-        //CIView.isHidden = true
-    }*/
     func playTutorial() {
        /* if let SiriShortcutTUTO = Bundle.main.path(forResource: "KlassenApp3.0Video2", ofType: "mov") {
             let SiriShortcutVideo = AVPlayer(url: URL(fileURLWithPath: SiriShortcutTUTO))
@@ -405,10 +342,10 @@ class FirstViewController: UIViewController {
             tabItem.badgeValue = nil
         }
         
-        if UserDefaults.standard.string(forKey: "PasscodeUpdate") != "true" {
+        /*if UserDefaults.standard.string(forKey: "PasscodeUpdate") != "true" {
             Cheat1(title: "Neues (wichtiges) Update!", message: "Der Login wurde verändert. Der Pincode lautet: 1907")
             UserDefaults.standard.set("true", forKey: "PasscodeUpdate")
-        }
+        }*/
         
         var ref: DatabaseReference!
         
@@ -417,15 +354,7 @@ class FirstViewController: UIViewController {
             let LDUCLE = LDUCSnap.value as? String
             self.LDULabel.text = "Letztes Datenbankupdate: " + LDUCLE!
         }
-  /*     if UserDefaults.standard.string(forKey: "Intro3.0(V3)") != "alreadysaw" {
-            //playTutorial()
-            UserDefaults.standard.set("alreadysaw", forKey: "Intro3.0(V3)")
-            UIApplication.shared.openURL(NSURL(string: "https://klassenappd-team.github.io/files/KlassenApp3.0Video3.mov")! as URL)
-        }*/
         
-        //CheckConnection()
-        
-
         NUView.isHidden = true
         if UserDefaults.standard.integer(forKey: "Checker") != 1 && UserDefaults.standard.string(forKey: "TEALOGGER") != "tea" && UserDefaults.standard.string(forKey: "EDITOR") != "1" {
             if Auth.auth().currentUser == nil {
@@ -473,56 +402,8 @@ class FirstViewController: UIViewController {
         if LastVC.ShortDirect == "TimeTableShort" {
             self.performSegue(withIdentifier: "hwtoTTshort", sender: nil)
         }
-        
-        /*if #available(iOS 12.0, *) {
-            let HomeworkShortcutActivity = NSUserActivity(activityType: "com.adrianbaumgart.KlassenAppDREA1234.SiriShortcutHomework")
-            HomeworkShortcutActivity.title = "Was sind die Hausaufgaben für diese Woche?"
-            HomeworkShortcutActivity.isEligibleForSearch = true
-            HomeworkShortcutActivity.isEligibleForPrediction = true
-            self.userActivity = HomeworkShortcutActivity
-            self.userActivity?.becomeCurrent()
-        } else {
-            // Fallback on earlier versions
-        }
-        
-            if #available(iOS 12.0, *) {
-            let TestShortcutActivity = NSUserActivity(activityType: "com.adrianbaumgart.KlassenAppDREA1234.SiriShortcutNextTest")
-            TestShortcutActivity.title = "Was findet als nächstes in der Schule statt?"
-            TestShortcutActivity.isEligibleForSearch = true
-            TestShortcutActivity.isEligibleForPrediction = true
-            self.userActivity = TestShortcutActivity
-            self.userActivity?.becomeCurrent()
-        } else {
-            // Fallback on earlier versions
-        }*/
-        
-        
-        
-        
-       /* let dictionary = Bundle.main.infoDictionary!
-        let buildCurrent = dictionary["CFBundleVersion"] as! String
-        var buildInt: Int!
-        buildInt = Int(buildCurrent)
-        print("Curennt Build: \(buildCurrent)")
-        let eee = "0"
-        
-        if buildCurrent.compare(eee, options: .numeric) == .orderedAscending {
-            print("N1")
-        }*/
-        
-
-        
-        
-        //ref = Database.database().reference()
-        
-        /*  ref.child("standardData").child("iosUpdateAv").observeSingleEvent(of: .value) { (NewUpdateSnap) in
-         let NewUpdateLE = NewUpdateSnap.value as? Int
-         if NewUpdateLE! > LastVC.CurrentVersion {
-         self.newUpdatealert(title: "Neues Update", message: "Es ist ein neues Update verfügbar. Wir empfehlen es zu installieren.")
-         }
-         } */
         var bundleID = Bundle.main.bundleIdentifier as! String
-        if bundleID == "com.adrianbaumgart.KlassenAppDREA1234" {
+       /* if bundleID == "com.adrianbaumgart.KlassenAppDREA1234" {
        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
             var NewestBuildDBLE = NewestBuildDB.value as? String
             let dictionary = Bundle.main.infoDictionary!
@@ -570,7 +451,7 @@ class FirstViewController: UIViewController {
                 }
             }
         }
-        }
+        }*/
       /* if bundleID == "com.adrianbaumgart.KlassenAppDREA1234" {
         if UserDefaults.standard.string(forKey: "FirstLaunch2.0") != "1" {
             let ChangelogUpdate = FirstViewController.bulletinWelcomeNV()
