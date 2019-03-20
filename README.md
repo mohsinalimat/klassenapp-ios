@@ -1,8 +1,8 @@
 # klassenapp-ios
-Die iOS Version der KlassenApp. Geschrieben in Swift
+Die iOS Version der KlassenApp. Geschrieben in Swift.
 
 ## Verwendungszweck:
-Diese App wurde für eine Schulklasse programmiert, um Hausaufgaben, Arbeiten, etc. schnell sehen zu können. Deswegen ist 
+Diese App wurde für eine Schulklasse programmiert, um Hausaufgaben, Arbeiten, etc. schnell sehen zu können.
 ## Verwendete Pods:
 1. Firebase/* - Google (https://firebase.google.com/)
 2. Fabric - Fabric (https://get.fabric.io/)
