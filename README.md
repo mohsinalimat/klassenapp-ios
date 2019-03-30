@@ -21,5 +21,3 @@ Diese App wurde für eine Schulklasse programmiert, um Hausaufgaben, Arbeiten, e
 15. PinCodeTextField - tkach (https://github.com/tkach/PinCodeTextField)
 ## Lizenz:
 Dieses Projekt ist durch folgende Lizenz geschützt: GNU Affero General Public License v3.0 (GNU AGPLv3). Mehr Informationen befinden sich in der Datei "LICENSE".
-## Dateien, welche ignoriert werden können:
--Die Datei "Buglist" ist nur eine Liste mit Bugs für den Programmierer, damit er weiß, welche Fehler sich in der App befinden.
