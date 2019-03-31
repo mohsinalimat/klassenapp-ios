@@ -12,6 +12,9 @@ import ExpandingMenu
 
 class HomeViewController: UIViewController {
 
+    let TextSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+    
+    @IBOutlet weak var TestLabel: UILabel!
     @IBOutlet weak var HomeTitle: UILabel!
     @IBOutlet weak var HomeTitleBackground: UIView!
     @IBOutlet weak var HomeTV: UITextView!
@@ -147,6 +150,11 @@ class HomeViewController: UIViewController {
             HomeTV.backgroundColor = UIColor.white
             UIApplication.shared.statusBarStyle = .default
         }
+        var titles = HomeViewController.Titles.self
+        let TitleSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
+        HomeViewController.Titles.Habm = NSMutableAttributedString(string: "Hausaufgaben bis morgen: ", attributes: TitleSizeAttr)
+       /* titles.HabmTime = NSMutableAttributedString(string: "HABM-Updatezeit", attributes: TitleSizeAttr)
+        titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: <#T##[NSAttributedString.Key : Any]?#>)*/
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
@@ -154,22 +162,27 @@ class HomeViewController: UIViewController {
         ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUSnap) in
             let LDUSNAP = LDUSnap.value as? String
             HomeViewController.HomeVar.LDU = LDUSNAP!
+          //  HomeViewController.HomeVar.LDU = NSMutableAttributedString(string: LDUSNAP!, attributes: self.TextSizeAttr)
         }
         ref.child("homework").child("bismorgen").child("hausaufgaben").observeSingleEvent(of: .value) { (HABMINFOSNAP) in
             let HABMINFOLE = HABMINFOSNAP.value as? String
             HomeViewController.HomeVar.HabmText = HABMINFOLE!
+           // HomeViewController.HomeVar.HabmText = NSMutableAttributedString(string: HABMINFOLE!, attributes: self.TitleSizeAttr)
         }
         ref.child("homework").child("bismorgen").child("updatetime").observeSingleEvent(of: .value) { (HABMLDUSNAP) in
             let HABMLDULE = HABMLDUSNAP.value as! String
             HomeViewController.HomeVar.HabmTime = HABMLDULE
+            //HomeViewController.HomeVar.HabmTime = NSMutableAttributedString(string: HABMLDULE, attributes: self.TextSizeAttr)
         }
         ref.child("news").child("news1").observeSingleEvent(of: .value) { (News1Snap) in
             let NEWS1SNAP = News1Snap.value as? String
             HomeViewController.HomeVar.News1 = NEWS1SNAP!
+            //HomeViewController.HomeVar.News1 = NSMutableAttributedString(string: NEWS1SNAP!, attributes: self.TextSizeAttr)
         }
         ref.child("news").child("newsL").observeSingleEvent(of: .value) { (NewsLSnap) in
             let NEWSLSNAP = NewsLSnap.value as? String
             HomeViewController.HomeVar.NewsL = NEWSLSNAP!
+            //HomeViewController.HomeVar.NewsL = NSMutableAttributedString(string: NEWSLSNAP!, attributes: self.TextSizeAttr)
         }
         ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
             let NEWESTBUILD = NewestBuildDB.value as? String
@@ -180,6 +193,7 @@ class HomeViewController: UIViewController {
         
         if versionCurrent.compare(HomeViewController.HomeVar.NewestVersion, options: .numeric) == .orderedAscending {
             HomeViewController.HomeVar.NewVersionAvailable = "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)"
+            //HomeViewController.HomeVar.NewVersionAvailable = NSMutableAttributedString(string: "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)", attributes: self.TextSizeAttr)
         }
         else {
             HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
@@ -194,12 +208,18 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let attr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 50)]
+        let string1 = "hi1"
+        TestLabel.text = string1
+        //sleep(5000)
+        let string2 = NSMutableAttributedString(string: "hi2", attributes: attr)
+        TestLabel.attributedText = string2
 
        // if HomeVar.HabmTime != "" && HomeVar.HabmText != "" && HomeVar.NextEvent != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NewestVersion != "" && HomeVar.NewVersionAvailable != "" && HomeVar.LDU != ""
     }
     
     func setToTV() {
-        HomeTV.text = "Hausaufgaben bis morgen: \(HomeViewController.HomeVar.HabmText)\n\n-HABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nLDU: \(HomeViewController.HomeVar.LDU)"
+        HomeTV.text = "Hausaufgaben bis morgen:\n\(HomeViewController.HomeVar.HabmText)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nHABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\nLDU: \(HomeViewController.HomeVar.LDU)"
     }
     
 
@@ -214,6 +234,7 @@ class HomeViewController: UIViewController {
     */
     
     struct HomeVar {
+        static var Full = NSMutableAttributedString()
         static var HabmText = ""
         static var HabmTime = ""
         static var NextEvent = ""
@@ -223,6 +244,16 @@ class HomeViewController: UIViewController {
         static var NewestVersion = ""
         static var NewVersionAvailable = ""
         static var LDU = ""
+    }
+    struct Titles {
+        static var Habm = NSMutableAttributedString()
+        static var HabmTime = NSMutableAttributedString()
+        static var News = NSMutableAttributedString()
+        static var NewsAdmin = NSMutableAttributedString()
+        static var NewsLehrer = NSMutableAttributedString()
+        static var NextEvent = NSMutableAttributedString()
+        static var Update = NSMutableAttributedString()
+        static var LDU = NSMutableAttributedString()
     }
 
 }

@@ -17,9 +17,9 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod 'ReachabilitySwift'
 pod 'Alamofire'
-pod 'BulletinBoard'
-pod 'NotificationBannerSwift'
-pod 'RevealingSplashView'
+pod 'NotificationBannerSwift', "~> 2.0.0"
+pod "BulletinBoard", "~> 3.0.0"
+pod 'RevealingSplashView', "~> 0.6.0"
 pod "MIBadgeButton-Swift", :git => 'https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git', :branch => 'master'
 pod 'SwipeableTabBarController'
 pod 'ExpandingMenu', '~> 0.4'

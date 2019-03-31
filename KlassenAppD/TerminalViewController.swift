@@ -88,18 +88,18 @@ class TerminalViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(TerminalViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(TerminalViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        /*NotificationCenter.default.addObserver(self, selector: #selector(TerminalViewController.keyboardWillShow), name: UIResponder.NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TerminalViewController.keyboardWillHide), name: UIResponder.NSNotification.Name.UIKeyboardWillHide, object: nil)
         UIApplication.shared.statusBarStyle = .lightContent
         self.TerminalWindow.layoutManager.allowsNonContiguousLayout = false
         var stringLength:Int = self.TerminalWindow.text.characters.count
         self.TerminalWindow.scrollRangeToVisible(NSMakeRange(stringLength-1, 0))
         TerminalWindow.text = "KlassenApp Terminal V1.0\nDas ist nur ein Easter Egg. Einen wirklichen Sinn hat das Terminal nicht, jedoch werde ich regelmäßig Befehle hinzufügen! Manche Befehle sind sogar sinnvoll! :)\n\nFür Hilfe, schreibe \"help\"\n\nKlassenApp:~ user$ "
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.*/
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+       /* if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
                 let keyboardHeight = keyboardSize.height
                 let heightbefore = view.frame.origin.y
@@ -108,10 +108,10 @@ class TerminalViewController: UIViewController {
                     view.frame.origin.y -= keyboardHeight
                 }
             }
-        }
+        }*/
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
+ /*   @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
                 let keyboardHeight = keyboardSize.height
@@ -121,7 +121,7 @@ class TerminalViewController: UIViewController {
                 }
             }
         }
-    }
+    }*/
     
 
     /*

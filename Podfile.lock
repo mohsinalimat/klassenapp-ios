@@ -10,7 +10,7 @@ PODS:
     - AppCenter/Core
   - AppCenter/Push (1.10.1):
     - AppCenter/Core
-  - BulletinBoard (2.0.2)
+  - BulletinBoard (3.0.0)
   - Crashlytics (3.10.7):
     - Fabric (~> 1.7.11)
   - ExpandingMenu (0.4.0)
@@ -138,22 +138,22 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - JGProgressHUD (2.0.3)
   - leveldb-library (1.20)
-  - MarqueeLabel/Swift (3.2.0)
+  - MarqueeLabel/Swift (3.2.1)
   - MIBadgeButton-Swift (0.5)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NotificationBannerSwift (1.7.1):
+  - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
-    - SnapKit (~> 4.0.1)
+    - SnapKit (~> 4.2.0)
   - PinCodeTextField (0.1.0)
   - Protobuf (3.6.1)
   - ReachabilitySwift (4.2.1)
   - Result (3.2.4)
-  - RevealingSplashView (0.5.0)
-  - SnapKit (4.0.1)
+  - RevealingSplashView (0.6.0)
+  - SnapKit (4.2.0)
   - SwipeableTabBarController (1.4.0)
   - TrueTime (5.0.0):
     - Result (~> 3.0)
@@ -162,7 +162,7 @@ DEPENDENCIES:
   - Alamofire
   - AppCenter
   - AppCenter/Push
-  - BulletinBoard
+  - BulletinBoard (~> 3.0.0)
   - Crashlytics
   - ExpandingMenu (~> 0.4)
   - Fabric
@@ -178,10 +178,10 @@ DEPENDENCIES:
   - Firebase/Storage
   - JGProgressHUD
   - MIBadgeButton-Swift (from `https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git`, branch `master`)
-  - NotificationBannerSwift
+  - NotificationBannerSwift (~> 2.0.0)
   - PinCodeTextField
   - ReachabilitySwift
-  - RevealingSplashView
+  - RevealingSplashView (~> 0.6.0)
   - SwipeableTabBarController
   - TrueTime
 
@@ -238,7 +238,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AppCenter: 6b3254458592514c5af262473732aeda48d58d58
-  BulletinBoard: a4a3022789e5202167127c3231975313c1d76c51
+  BulletinBoard: 927f4f9fd22503ceecd71bfc830fd65d5996593a
   Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
   ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
   Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
@@ -247,7 +247,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 2a84b6b325792a4319ef71ee18819dcba08d2fd7
-  FirebaseCrash: fd373fbf5f9d1e235a984f2c7e446a5f26b968e8
+  FirebaseCrash: 011365f2c0dfac64315109103ed350bacfcdc03f
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
   FirebaseFunctions: 6c03d7c5d62520be4678dc3fb7957654aab82b4f
   FirebaseInAppMessaging: 6a2e8c3cfa6327dc5a495fe9f4fd45604d82fc58
@@ -262,19 +262,19 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
   MIBadgeButton-Swift: 9e57309b00b168d75ca8fecb45bc75124a8ffddf
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NotificationBannerSwift: 5d0191ae57c4b38e484dab4912e32d1ed99fce61
+  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   PinCodeTextField: a3c39be58bde3ed1d6888d0fb1d88b0a4a2277cc
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   ReachabilitySwift: 35720ffea59c1c76d15f885be77fd33e33985427
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RevealingSplashView: 0794eecad3a8983ac11a1fe474e9a9b51b926780
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwipeableTabBarController: 3a393aa51f1c49c4517b05047c2688a6175c634c
   TrueTime: 8fcd3bbbee664a46ab093ac22882eef4aab26229
 
-PODFILE CHECKSUM: 7d200224730c72aece98b2effefc11c54cde84c7
+PODFILE CHECKSUM: b00eb65fc36c29ce6072d0265ede4df8fcc1326c
 
 COCOAPODS: 1.5.3
