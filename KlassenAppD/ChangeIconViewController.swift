@@ -15,9 +15,9 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var InfoTV: UITableView!
     // var icons:[String] = ["AppIcon", "AppIconGray", "AppIconGold", "AppIconGreen", "AppIconPink"]
     
-    var icons = [UIImage(named: "AppIconNormalIco"),UIImage(named: "AppIconGrayIco"),UIImage(named: "AppIconGoldIco"),UIImage(named: "AppIconGreenIco"),UIImage(named: "AppIconPinkIco"),UIImage(named: "AppIconBlueIco"),UIImage(named: "AppIconCustomIco")]
+    var icons = [UIImage(named: "AppIconCurrentIco"),UIImage(named: "AppIconRedGoldIco"),UIImage(named: "AppIconGrayIco"),UIImage(named: "AppIconGoldIco"),UIImage(named: "AppIconGreenIco"),UIImage(named: "AppIconPinkIco"),UIImage(named: "AppIconBlueIco"),UIImage(named: "AppIconCustomIco")]
     
-    var numicon = ["1", "2", "3", "4", "5", "6", "7"]
+    var numicon = ["1", "2", "3", "4", "5", "6", "7", "8"]
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
@@ -87,6 +87,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
                 // Fallback on earlier versions
             }
         }
+            //AppIconRedGoldIco
         else if cellnum == "2" {
             if #available(iOS 10.3, *) {
                 if UIApplication.shared.supportsAlternateIcons {
@@ -95,7 +96,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
                     print("you cannot change this app's icon")
                     return
                 }
-                UIApplication.shared.setAlternateIconName("AppIconGrayIco") { (err:Error?) in
+                UIApplication.shared.setAlternateIconName("AppIconRedGoldIco") { (err:Error?) in
                     print("set icon error：\(String(describing: err))")
                 }
             } else {
@@ -110,7 +111,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
                     print("you cannot change this app's icon")
                     return
                 }
-                UIApplication.shared.setAlternateIconName("AppIconGoldIco") { (err:Error?) in
+                UIApplication.shared.setAlternateIconName("AppIconGrayIco") { (err:Error?) in
                     print("set icon error：\(String(describing: err))")
                 }
             } else {
@@ -125,7 +126,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
                     print("you cannot change this app's icon")
                     return
                 }
-                UIApplication.shared.setAlternateIconName("AppIconGreenIco") { (err:Error?) in
+                UIApplication.shared.setAlternateIconName("AppIconGoldIco") { (err:Error?) in
                     print("set icon error：\(String(describing: err))")
                 }
             } else {
@@ -140,7 +141,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
                     print("you cannot change this app's icon")
                     return
                 }
-                UIApplication.shared.setAlternateIconName("AppIconPinkIco") { (err:Error?) in
+                UIApplication.shared.setAlternateIconName("AppIconGreenIco") { (err:Error?) in
                     print("set icon error：\(String(describing: err))")
                 }
             } else {
@@ -155,7 +156,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
                     print("you cannot change this app's icon")
                     return
                 }
-                UIApplication.shared.setAlternateIconName("AppIconBlueIco") { (err:Error?) in
+                UIApplication.shared.setAlternateIconName("AppIconPinkIco") { (err:Error?) in
                     print("set icon error：\(String(describing: err))")
                 }
             } else {
@@ -163,6 +164,21 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         else if cellnum == "7" {
+            if #available(iOS 10.3, *) {
+                if UIApplication.shared.supportsAlternateIcons {
+                    print("you can change this app's icon")
+                }else {
+                    print("you cannot change this app's icon")
+                    return
+                }
+                UIApplication.shared.setAlternateIconName("AppIconBlueIco") { (err:Error?) in
+                    print("set icon error：\(String(describing: err))")
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        else if cellnum == "8" {
             if #available(iOS 10.3, *) {
                 if UIApplication.shared.supportsAlternateIcons {
                     print("you can change this app's icon")

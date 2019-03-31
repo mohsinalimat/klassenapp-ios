@@ -136,7 +136,12 @@ class SettingsViewController: UIViewController {
     }
     @IBAction func MailContactBtn(_ sender: Any)
     {
-        print("testMail")
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: "mailto:mail@klassenappd.de")!)
+        } else {
+            UIApplication.shared.openURL(URL(string: "https://google.de")!)
+        }
+     /*   print("testMail")
         let email = "mail@klassenappd.de"
         if let url = URL(string: "mailto:\(email)") {
             if #available(iOS 10.0, *) {
@@ -144,7 +149,7 @@ class SettingsViewController: UIViewController {
             } else {
                 UIApplication.shared.openURL(url)
             }
-        }
+        }*/
         //UIApplication.shared.openURL(NSURL(string: "mailto:mail@klassenappd.de")! as URL)
         /*if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: "https://klassenappd-team.github.io/")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
@@ -295,7 +300,7 @@ class SettingsViewController: UIViewController {
             menuButton.addMenuItems([item00, item0, item1, item2, item3, item5, item6, item7, item9, item10])
         }
         else {
-            menuButton.addMenuItems([item0, item1, item2, item3, item5, item6, item7, item9])
+            menuButton.addMenuItems([item00, item0, item1, item2, item3, item5, item6, item7, item9])
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)

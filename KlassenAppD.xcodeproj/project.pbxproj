@@ -39,6 +39,8 @@
 		3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A82CDE6218E0CC2009DE910 /* Main.storyboard */; };
 		3A8342B7217BC08B0059477E /* UpdateCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8342B6217BC08B0059477E /* UpdateCenterViewController.swift */; };
 		3A8F67CC21260CF500CA4BFC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F67CB21260CF500CA4BFC /* NetworkManager.swift */; };
+		3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */; };
+		3A9192BD22511C8C00ED32F9 /* AppIconRedGoldIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */; };
 		3A9C7BD12177ABB20071D37E /* HABMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9C7BD02177ABB20071D37E /* HABMViewController.swift */; };
 		3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */; };
 		3AA0E64221FA02C90012ED20 /* ChangeAppIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */; };
@@ -176,6 +178,8 @@
 		3A82CDE7218E0CC2009DE910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A8342B6217BC08B0059477E /* UpdateCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCenterViewController.swift; sourceTree = "<group>"; };
 		3A8F67CB21260CF500CA4BFC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCurrentIco.png; sourceTree = "<group>"; };
+		3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconRedGoldIco.png; sourceTree = "<group>"; };
 		3A99D713210BAC3B0038CE25 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		3A99D728210BAEC40038CE25 /* KlassenAppD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlassenAppD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9C7BD02177ABB20071D37E /* HABMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HABMViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 		3A0F570D207BD0B700D9F701 /* KlassenAppD */ = {
 			isa = PBXGroup;
 			children = (
+				3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */,
+				3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */,
 				3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */,
 				3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */,
 				3AA0E64E21FA117F0012ED20 /* AppIconPinkIco.png */,
@@ -686,9 +692,11 @@
 				3AA0E64B21FA11710012ED20 /* AppIconGoldIco.png in Resources */,
 				3AA0E64D21FA11790012ED20 /* AppIconGreenIco.png in Resources */,
 				3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */,
+				3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */,
 				3A0F5718207BD0B700D9F701 /* Assets.xcassets in Resources */,
 				3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */,
 				3AA0E65121FA16EE0012ED20 /* AppIconNormalIco.png in Resources */,
+				3A9192BD22511C8C00ED32F9 /* AppIconRedGoldIco.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1087,7 +1095,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G8434KY9GR;
 				INFOPLIST_FILE = KlassenAppDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adrianbaumgart.KlassenAppDTests;
@@ -1104,7 +1112,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G8434KY9GR;
 				INFOPLIST_FILE = KlassenAppDUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adrianbaumgart.KlassenAppDUITests;
@@ -1214,7 +1222,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G8434KY9GR;
 				INFOPLIST_FILE = KlassenAppDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adrianbaumgart.KlassenAppDTests;
@@ -1231,7 +1239,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G8434KY9GR;
 				INFOPLIST_FILE = KlassenAppDUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adrianbaumgart.KlassenAppDUITests;

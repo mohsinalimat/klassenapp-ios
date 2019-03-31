@@ -56,6 +56,13 @@
 					<string>AppIconPinkIco</string>
 				</array>
 			</dict>
+			<key>AppIconRedGoldIco</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>AppIconRedGoldIco</string>
+				</array>
+			</dict>
 		</dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
@@ -87,7 +94,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.0.0</string>
+	<string>4.1.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -100,7 +107,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1349</string>
+	<string>1388</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
