@@ -9,8 +9,16 @@
 import UIKit
 import Firebase
 import ExpandingMenu
+import BLTNBoard
 
 class HomeViewController: UIViewController {
+    
+    var timer: Timer!
+    
+    lazy var bulletinManager: BLTNItemManager = {
+        let introPage = FirstViewController.bulletinNWUP()
+        return BLTNItemManager(rootItem: introPage)
+    }()
 
     let TextSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
     
@@ -198,16 +206,88 @@ class HomeViewController: UIViewController {
         else {
             HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
         }
+        
+         let date = Date()
+         let calendar = Calendar.current
+         
+         let currentday = calendar.component(.weekday, from: date)
+         
+         print(currentday)
+        
+        /* So = 1
+         Mo = 2
+         Di = 3
+         Mi = 4
+         Do = 5
+         Fr = 6
+         Sa = 7 */
+        
+        if currentday == 2 {
+            ref.child("Speiseplan").child("monday").observeSingleEvent(of: .value) { (MondayFoodSnap) in
+                let MondayFood = MondayFoodSnap.value as? String
+                HomeViewController.HomeVar.essenHeute = MondayFood!
+            }
+        }
+        else if currentday == 3 {
+            ref.child("Speiseplan").child("Tuesday").observeSingleEvent(of: .value) { (TuesdayFoodSnap) in
+                let TuesdayFood = TuesdayFoodSnap.value as? String
+                HomeViewController.HomeVar.essenHeute = TuesdayFood!
+            }
+        }
+        else if currentday == 4 {
+            ref.child("Speiseplan").child("Wednesday").observeSingleEvent(of: .value) { (WednesdayFoodSnap) in
+                let WednesdayFood = WednesdayFoodSnap.value as? String
+                HomeViewController.HomeVar.essenHeute = WednesdayFood!
+            }
+        }
+        else if currentday == 5 {
+            ref.child("Speiseplan").child("Thursday").observeSingleEvent(of: .value) { (ThursdayFoodSnap) in
+                let ThursdayFood = ThursdayFoodSnap.value as? String
+                HomeViewController.HomeVar.essenHeute = ThursdayFood!
+            }
+        }
+        else if currentday == 6 {
+            ref.child("Speiseplan").child("Friday").observeSingleEvent(of: .value) { (FridayFoodSnap) in
+                let FridayFood = FridayFoodSnap.value as? String
+                HomeViewController.HomeVar.essenHeute = FridayFood!
+            }
+        }
+        else if currentday == 7 || currentday == 1 {
+            HomeViewController.HomeVar.essenHeute = "Kein Essen heute!"
+        }
+        
+        ref.child("Speiseplan").child("Datum").observeSingleEvent(of: .value) { (FoodDateSnap) in
+            let FoodDate = FoodDateSnap.value as? String
+            HomeViewController.HomeVar.essenDate = FoodDate!
+        }
+        
         ref.child("arbeiten").child("Arbeit1").child("label").observeSingleEvent(of: .value) { (Test1LabelSnap) in
             let TEST1LABELSNAP = Test1LabelSnap.value as? String
             HomeViewController.HomeVar.NextEvent = TEST1LABELSNAP!
-            self.setToTV()
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
+
         }
 
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
+            let NEWESTBUILD = NewestBuildDB.value as? String
+            HomeViewController.HomeVar.NewestVersion = NEWESTBUILD!
+            let dictionary = Bundle.main.infoDictionary!
+            let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
+            if versionCurrent.compare(NEWESTBUILD!, options: .numeric) == .orderedAscending {
+                //HomeViewController.HomeVar.NewVersionAvailable = NSMutableAttributedString(string: "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)", attributes: self.TextSizeAttr)
+                if HomeVar.UpdateReminderSession != "1" {
+                    //bulletinManager = BLTNItemManager(rootItem: introPage)
+                    self.bulletinManager.showBulletin(above: self)
+                }
+            }
+        }
         let attr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 50)]
         let string1 = "hi1"
         TestLabel.text = string1
@@ -218,8 +298,40 @@ class HomeViewController: UIViewController {
        // if HomeVar.HabmTime != "" && HomeVar.HabmText != "" && HomeVar.NextEvent != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NewestVersion != "" && HomeVar.NewVersionAvailable != "" && HomeVar.LDU != ""
     }
     
-    func setToTV() {
-        HomeTV.text = "Hausaufgaben bis morgen:\n\(HomeViewController.HomeVar.HabmText)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nHABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\nLDU: \(HomeViewController.HomeVar.LDU)"
+    @objc func setToTV() {
+        if HomeVar.essenDate != "" && HomeVar.essenHeute != "" && HomeVar.HabmText != "" && HomeVar.HabmTime != "" && HomeVar.LDU != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NextEvent != "" {
+        HomeTV.text = "Hausaufgaben bis morgen:\n\(HomeViewController.HomeVar.HabmText)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nEssen heute:\n\(HomeViewController.HomeVar.essenHeute)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nHABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\nSpeiseplan-Updatezeit: \(HomeViewController.HomeVar.essenDate)\nLDU: \(HomeViewController.HomeVar.LDU)"
+            timer.invalidate()
+        }
+    }
+    
+    static func bulletinNWUP() -> BLTNPageItem {
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
+            var NewestBuildDBLES = NewestBuildDB.value as! String
+            HomeViewController.HomeVar.NewestVersion = NewestBuildDBLES
+        }
+        let NewestBuildDBLE = HomeViewController.HomeVar.NewestVersion
+        let nUABpage = BLTNPageItem(title: "Neues Update verfügbar")
+        nUABpage.image = UIImage(named: "DownloadCloud")
+        nUABpage.descriptionText = "Ein neues Update ist verfügbar. Schau im Updatecenter für mehr Informationen vorbei."
+        nUABpage.actionButtonTitle = "Ok"
+        nUABpage.actionHandler = { (item: BLTNActionItem) in
+            HomeVar.UpdateReminderSession = "1"
+            item.manager?.dismissBulletin()
+            //updatecenterid
+            /*let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+             let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "updatecenterid") as UIViewController
+             self.window = UIWindow(frame: UIScreen.main.bounds)
+             self.window?.rootViewController = initialViewControlleripad
+             self.window?.makeKeyAndVisible()*/
+        }
+        nUABpage.dismissalHandler = { (item: BLTNItem) in
+            HomeVar.UpdateReminderSession = "1"
+        }
+        return nUABpage
     }
     
 
@@ -235,6 +347,9 @@ class HomeViewController: UIViewController {
     
     struct HomeVar {
         static var Full = NSMutableAttributedString()
+        static var essenHeute = ""
+        static var essenDate = ""
+        static var UpdateReminderSession = "0"
         static var HabmText = ""
         static var HabmTime = ""
         static var NextEvent = ""

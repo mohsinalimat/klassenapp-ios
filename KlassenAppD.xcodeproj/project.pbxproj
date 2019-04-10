@@ -338,7 +338,6 @@
 		3A0F570D207BD0B700D9F701 /* KlassenAppD */ = {
 			isa = PBXGroup;
 			children = (
-				3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */,
 				3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */,
 				3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */,
 				3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */,
@@ -349,6 +348,7 @@
 				3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */,
 				3AC0BE8D207BD5A700980088 /* LoginViewController.swift */,
 				3AC90039214C3969002E7C3D /* OnlineLoginViewController.swift */,
+				3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */,
 				3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */,
 				3ADF16F922414B660087217A /* HomeViewController.swift */,
 				3A0F5710207BD0B700D9F701 /* FirstViewController.swift */,
@@ -638,6 +638,9 @@
 							};
 							com.apple.Push = {
 								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
 							};
 							com.apple.Siri = {
 								enabled = 1;
