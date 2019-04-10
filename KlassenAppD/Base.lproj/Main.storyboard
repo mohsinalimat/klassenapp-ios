@@ -3980,7 +3980,7 @@ Das KlassenAppD-Team
                                         <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="0.0017316030307565899" green="0.2512987022730675" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3992,7 +3992,7 @@ Das KlassenAppD-Team
                                         <color key="value" red="0.43816510120000002" green="0.0" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="updatedUnderlineColor">
-                                        <color key="value" red="1" green="0.53045744289999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.43816510120000002" green="0.0" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
                                         <real key="value" value="35"/>
@@ -4832,7 +4832,7 @@ Das KlassenAppD-Team
         <segue reference="sdx-GM-y9I"/>
         <segue reference="qGg-s9-3Xc"/>
         <segue reference="LCf-HC-T7g"/>
-        <segue reference="aHd-bT-ugZ"/>
+        <segue reference="2L5-vt-QT5"/>
         <segue reference="Zph-zf-OvC"/>
         <segue reference="k8d-tn-yE4"/>
         <segue reference="mFC-Gd-nXh"/>
