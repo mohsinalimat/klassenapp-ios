@@ -113,14 +113,6 @@ class FoodViewController: UIViewController {
             }
             print("btn7")
         }
-        let item8 = ExpandingMenuItem(size: menuButtonSize, title: "Chat", image: UIImage(named: "chat")!, highlightedImage: UIImage(named: "chat")!, backgroundImage: UIImage(named: "chat"), backgroundHighlightedImage: UIImage(named: "chat")) { () -> Void in
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chatID") as? ChatViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            // Do some action
-            print("btn8")
-        }
         let item9 = ExpandingMenuItem(size: menuButtonSize, title: "Liste", image: UIImage(named: "checked")!, highlightedImage: UIImage(named: "checked")!, backgroundImage: UIImage(named: "checked"), backgroundHighlightedImage: UIImage(named: "checked")) { () -> Void in
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rememberID") as? RememberViewController
             {
@@ -132,7 +124,7 @@ class FoodViewController: UIViewController {
         
         
         if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item6, item7, item8, item9])
+            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item6, item7, item9])
         }
         else {
             menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item6, item7, item9])

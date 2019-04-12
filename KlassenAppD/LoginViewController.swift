@@ -15,7 +15,6 @@ import Fabric
 import Crashlytics
 import RevealingSplashView
 import PinCodeTextField
-//import ChatCamp
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -41,7 +40,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             var pass = passcode.value as? String
             if self.PassCodeInput.text == pass {
                 UserDefaults.standard.set(1, forKey: "Checker")
-                //self.performSegue(withIdentifier: "loginsegue", sender: nil)
                 self.performSegue(withIdentifier: "logintohome", sender: nil)
             }
             else {
@@ -64,7 +62,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if #available(iOS 10.0, *) {
                 context.localizedCancelTitle = "Benutzername/Passwort eingeben"
             } else {
-                // Fallback on earlier versions
             }
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
                 context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Bitte verwende TouchID/FaceID, um dich anzumelden") { (TouchIDLoginSuccess, TouchIDLoginError) in
@@ -123,7 +120,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if UserDefaults.standard.integer(forKey: "TouchIDVerification") == 1 {
             LoginTouchIDOut.isEnabled = true
         }
-        // Do any additional setup after loading the view.
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
@@ -142,28 +138,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
             self.performSegue(withIdentifier: "startwelcomeTourSegue", sender: nil)
         }
-       /* if UserDefaults.standard.string(forKey: "ReadInfos") != "1" {
-            self.performSegue(withIdentifier: "havetoreadinfos", sender: nil)
-        }*/
         if UserDefaults.standard.integer(forKey: "Checker") == 1 {
-             //self.performSegue(withIdentifier: "loginsegue", sender: nil)
             self.performSegue(withIdentifier: "logintohome", sender: nil)
         }
         else {
-        }
-        
-        if UserDefaults.standard.string(forKey: "TEALOGGER") == "tea" {
-            self.performSegue(withIdentifier: "logintotea", sender: nil)
-        }
-        
-        if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
-            //self.performSegue(withIdentifier: "loginsegue", sender: nil)
-            self.performSegue(withIdentifier: "logintohome", sender: nil)
-        }
-        
-        if Auth.auth().currentUser != nil {
-            //self.performSegue(withIdentifier: "loginsegue", sender: nil)
-            self.performSegue(withIdentifier: "logintohome", sender: nil)
         }
     }
     
@@ -175,7 +153,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    func alertforteacher (title: String, message:String) {
+  /*  func alertforteacher (title: String, message:String) {
         let alertTea = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
         alertTea.addAction(UIAlertAction(title: "Schüleransicht (alle Funktionen)", style: UIAlertAction.Style.default, handler: { (TeaTouchSuS) in
@@ -193,15 +171,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             alertTea.dismiss(animated: true, completion: nil)
         }))
         self.present(alertTea, animated: true, completion: nil)
-    }
-    func ThxAlert (title: String, message:String) {
-        let THA = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        THA.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (alertButtonClickedThx) in
-            THA.dismiss(animated: true, completion: nil)
-        }))
-        self.present(THA, animated: true, completion: nil)
-    }
+    }*/
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
