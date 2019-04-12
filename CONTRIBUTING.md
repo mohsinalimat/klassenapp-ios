@@ -7,6 +7,7 @@ Table of Contents:
 2. [How can I contribute](#how-can-i-contribute)
 * [Create an issue](#create-an-issue)
 * [Modifying the app](#modifying-the-app)
+
 3.[Questions](#questions)
 
 ## Code of Conduct
