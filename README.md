@@ -2,7 +2,7 @@
 The iOS Version of the KlassenApp (english: "ClassApp")
 
 ## Usage:
-This app was programmed for a school class to see homework, tests, etc. quickly.
+This app was programmed for a school class to have an overview over homework, tests, etc. quickly.
 ## Used Libraries (CocoaPods):
 1. Firebase/* - Google (https://firebase.google.com/)
 2. Fabric - Fabric (https://get.fabric.io/)
