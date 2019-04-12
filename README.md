@@ -1,9 +1,9 @@
 # klassenapp-ios
-Die iOS Version der KlassenApp. Geschrieben in Swift.
+The iOS Version of the KlassenApp (english: "ClassApp")
 
-## Verwendungszweck:
-Diese App wurde für eine Schulklasse programmiert, um Hausaufgaben, Arbeiten, etc. schnell sehen zu können.
-## Verwendete Bibliotheken (CocoaPods):
+## Usage:
+This app was programmed for a school class to see homework, tests, etc. quickly.
+## Used Libraries (CocoaPods):
 1. Firebase/* - Google (https://firebase.google.com/)
 2. Fabric - Fabric (https://get.fabric.io/)
 3. Crashlytics - Fabric (https://get.fabric.io/)
@@ -19,5 +19,7 @@ Diese App wurde für eine Schulklasse programmiert, um Hausaufgaben, Arbeiten, e
 13. TrueTime - instacart (https://github.com/instacart/TrueTime.swift)
 14. Appcenter - Microsoft (https://azure.microsoft.com/de-de/services/app-center/)
 15. PinCodeTextField - tkach (https://github.com/tkach/PinCodeTextField)
-## Lizenz:
-Dieses Projekt ist durch folgende Lizenz geschützt: GNU Affero General Public License v3.0 (GNU AGPLv3). Mehr Informationen befinden sich in der Datei "LICENSE".
+## Code of Conduct:
+If you want to contribute, please have a look at our Code of Conduct. (And follow these rules of course!)
+## License:
+This project is protected by the following license: GNU Affero General Public License v3.0 (GNU AGPLv3). More information can be found in the file "LICENSE".
