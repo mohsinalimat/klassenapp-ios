@@ -57,6 +57,6 @@ Please DO NOT delete existing comments in the code.
 
 ## Questions
 
-If you have any questions, please feel free to contact me via E-Mail: [developer@adrianbaumgart.de](mailto:developer@adrianbaumgart.de)
+If you have any questions, feel free to contact me via E-Mail: [developer@adrianbaumgart.de](mailto:developer@adrianbaumgart.de)
 
 
