@@ -23,3 +23,5 @@ This app was programmed for a school class to see homework, tests, etc. quickly.
 If you want to contribute, please have a look at our [Code of Conduct](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CODE_OF_CONDUCT.md) and our [Contributing](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CONTRIBUTING.md) file.
 ## License:
 This project is protected by the following license: GNU Affero General Public License v3.0 (GNU AGPLv3). More information can be found in the file "LICENSE".
+
+## If something is not working or if you have a question, please feel free to contact me via E-Mail: [developer@adrianbaumgart.de](mailto:developer@adrianbaumgart.de).
