@@ -1,6 +1,6 @@
 # Contributing to KlassenApp for iOS
 
-First off, thanks for taking the time to contribute!🎉👍
+First off, thanks for taking the time to contribute! We really appreciate any help🎉👍
 
 Table of Contents:
 1. [Code of Conduct](#code-of-conduct)
