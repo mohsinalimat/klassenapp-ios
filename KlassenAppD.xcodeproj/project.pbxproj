@@ -10,7 +10,6 @@
 		28E5C1FB94B1E6B370C4A4C5 /* Pods_KlassenAppD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA9CC3218CDAA1001D2C30 /* Pods_KlassenAppD.framework */; };
 		3A01738720EE6C67005AEDFA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A01738620EE6C67005AEDFA /* NewsViewController.swift */; };
 		3A0AA43B215D13CB00458415 /* RememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AA43A215D13CB00458415 /* RememberViewController.swift */; };
-		3A0C6BEA22205A8E004B5771 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C6BE922205A8E004B5771 /* TerminalViewController.swift */; };
 		3A0F570F207BD0B700D9F701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F570E207BD0B700D9F701 /* AppDelegate.swift */; };
 		3A0F5711207BD0B700D9F701 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F5710207BD0B700D9F701 /* FirstViewController.swift */; };
 		3A0F5713207BD0B700D9F701 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F5712207BD0B700D9F701 /* SecondViewController.swift */; };
@@ -18,13 +17,8 @@
 		3A0F571B207BD0B700D9F701 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0F5719207BD0B700D9F701 /* LaunchScreen.storyboard */; };
 		3A0F5726207BD0B700D9F701 /* KlassenAppDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F5725207BD0B700D9F701 /* KlassenAppDTests.swift */; };
 		3A0F5731207BD0B700D9F701 /* KlassenAppDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F5730207BD0B700D9F701 /* KlassenAppDUITests.swift */; };
-		3A10DDD4218C951500F447ED /* DDMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10DDD3218C951500F447ED /* DDMViewController.swift */; };
 		3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A12FAC32125856600276495 /* GoogleService-Info.plist */; };
 		3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A37CC5E21935D6D003F7BF8 /* MBProgressHUD.m */; };
-		3A37CC612193665F003F7BF8 /* Woche1EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37CC602193665F003F7BF8 /* Woche1EditViewController.swift */; };
-		3A37CC632193666D003F7BF8 /* Woche2EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37CC622193666D003F7BF8 /* Woche2EditViewController.swift */; };
-		3A37CC6521936678003F7BF8 /* Woche3EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37CC6421936678003F7BF8 /* Woche3EditViewController.swift */; };
-		3A37CC6721936689003F7BF8 /* Woche4EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37CC6621936689003F7BF8 /* Woche4EditViewController.swift */; };
 		3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */; };
 		3A4917BB215539600070ED5F /* ButtonDesignStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4917BA215539600070ED5F /* ButtonDesignStandard.swift */; };
 		3A57BB2420D5630000CF5110 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A57BB2320D5630000CF5110 /* Test1ViewController.swift */; };
@@ -57,13 +51,9 @@
 		3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE4216503FB00395E99 /* MGSwipeButton.m */; };
 		3AAC661E213C71C300472F63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAC661D213C71C200472F63 /* AVFoundation.framework */; };
 		3AB1F51D20EE83BD001A9166 /* InformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */; };
-		3AB1F51F20EF9245001A9166 /* NewsTeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1F51E20EF9245001A9166 /* NewsTeaViewController.swift */; };
-		3AB5F0F22167E2E700506CDA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB5F0F12167E2E700506CDA /* UserViewController.swift */; };
 		3AB5F0F42167E44600506CDA /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB5F0F32167E44600506CDA /* ChangePasswordViewController.swift */; };
 		3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */; };
 		3AC0BE8E207BD5A700980088 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0BE8D207BD5A700980088 /* LoginViewController.swift */; };
-		3AC9003A214C3969002E7C3D /* OnlineLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC90039214C3969002E7C3D /* OnlineLoginViewController.swift */; };
-		3AC9003C214D0BC2002E7C3D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003B214D0BC2002E7C3D /* ChatViewController.swift */; };
 		3AC9003E214D182C002E7C3D /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003D214D182C002E7C3D /* ChatHelper.swift */; };
 		3AC90040214D1D9B002E7C3D /* TVCChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003F214D1D9B002E7C3D /* TVCChat.swift */; };
 		3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF16F922414B660087217A /* HomeViewController.swift */; };
@@ -78,7 +68,6 @@
 		3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */; };
 		3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */; };
 		3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */; };
-		3AF16284216A2E2200432015 /* RememberTD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF16283216A2E2200432015 /* RememberTD.swift */; };
 		3AF69297219896790092FB6B /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF69296219896790092FB6B /* ListTableViewCell.swift */; };
 		49235CA6B9C6B32C538019D5 /* Pods_KlassenAppD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A512F7D20D6881E007138D3 /* Pods_KlassenAppD.framework */; };
 		676E8642C723D75792FD0928 /* Pods_KlassenAppDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F47FC3AF3B5F58E5354C8BD /* Pods_KlassenAppDUITests.framework */; };
@@ -142,7 +131,6 @@
 		2F47FC3AF3B5F58E5354C8BD /* Pods_KlassenAppDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KlassenAppDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01738620EE6C67005AEDFA /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		3A0AA43A215D13CB00458415 /* RememberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberViewController.swift; sourceTree = "<group>"; };
-		3A0C6BE922205A8E004B5771 /* TerminalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		3A0F570E207BD0B700D9F701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A0F5710207BD0B700D9F701 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3A0F5712207BD0B700D9F701 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -153,14 +141,9 @@
 		3A0F5727207BD0B700D9F701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A0F5730207BD0B700D9F701 /* KlassenAppDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlassenAppDUITests.swift; sourceTree = "<group>"; };
 		3A0F5732207BD0B700D9F701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A10DDD3218C951500F447ED /* DDMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDMViewController.swift; sourceTree = "<group>"; };
 		3A12FAC32125856600276495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A37CC5D21935D6D003F7BF8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3A37CC5E21935D6D003F7BF8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		3A37CC602193665F003F7BF8 /* Woche1EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woche1EditViewController.swift; sourceTree = "<group>"; };
-		3A37CC622193666D003F7BF8 /* Woche2EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woche2EditViewController.swift; sourceTree = "<group>"; };
-		3A37CC6421936678003F7BF8 /* Woche3EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woche3EditViewController.swift; sourceTree = "<group>"; };
-		3A37CC6621936689003F7BF8 /* Woche4EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woche4EditViewController.swift; sourceTree = "<group>"; };
 		3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationViewController.swift; sourceTree = "<group>"; };
 		3A4917BA215539600070ED5F /* ButtonDesignStandard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDesignStandard.swift; sourceTree = "<group>"; };
 		3A57BB2320D5630000CF5110 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +183,6 @@
 		3AABCEE4216503FB00395E99 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		3AAC661D213C71C200472F63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsViewController.swift; sourceTree = "<group>"; };
-		3AB1F51E20EF9245001A9166 /* NewsTeaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTeaViewController.swift; sourceTree = "<group>"; };
 		3AB1F53B20F0C0D5001A9166 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1F53D20F0C0DA001A9166 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1F53F20F0CB24001A9166 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,15 +203,12 @@
 		3AB1F55F20F0CE47001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "../../../Library/Developer/Xcode/DerivedData/KlassenAppD-empxejqbojuntkgyaqxemtxiqwal/Build/Products/Release-iphoneos/nanopb/nanopb.framework"; sourceTree = "<group>"; };
 		3AB1F56120F0CE68001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "../../../Library/Developer/Xcode/DerivedData/KlassenAppD-hibrokssbrokvtcfgvwavcecqnyp/Build/Products/Debug-iphonesimulator/nanopb/nanopb.framework"; sourceTree = "<group>"; };
 		3AB1F56320F0CEA2001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
-		3AB5F0F12167E2E700506CDA /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		3AB5F0F32167E44600506CDA /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3ABFEF2F207D049800900935 /* KlassenAppD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KlassenAppD.entitlements; sourceTree = "<group>"; };
 		3AC0BE8D207BD5A700980088 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3AC8809B210F2FD90077B67E /* KlassenAppDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlassenAppDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC8809C210F2FD90077B67E /* KlassenAppDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlassenAppDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AC90039214C3969002E7C3D /* OnlineLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineLoginViewController.swift; sourceTree = "<group>"; };
-		3AC9003B214D0BC2002E7C3D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3AC9003D214D182C002E7C3D /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
 		3AC9003F214D1D9B002E7C3D /* TVCChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCChat.swift; sourceTree = "<group>"; };
 		3ADA9CBF218CDA35001D2C30 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,7 +226,6 @@
 		3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBugViewController.swift; sourceTree = "<group>"; };
 		3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeLGViewController.swift; sourceTree = "<group>"; };
 		3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInformationsViewController.swift; sourceTree = "<group>"; };
-		3AF16283216A2E2200432015 /* RememberTD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberTD.swift; sourceTree = "<group>"; };
 		3AF69296219896790092FB6B /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		3D6E1F712B4E48DA8A4E9137 /* Pods-KlassenAppD.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlassenAppD.beta.xcconfig"; path = "Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD.beta.xcconfig"; sourceTree = "<group>"; };
 		67BDC8C3900CAA0B9C9B9561 /* Pods-KlassenAppD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlassenAppD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -346,41 +324,30 @@
 				3AA0E64A21FA11710012ED20 /* AppIconGoldIco.png */,
 				3AA0E64821FA11560012ED20 /* AppIconBlueIco.png */,
 				3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */,
-				3AC0BE8D207BD5A700980088 /* LoginViewController.swift */,
-				3AC90039214C3969002E7C3D /* OnlineLoginViewController.swift */,
 				3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */,
+				3AC0BE8D207BD5A700980088 /* LoginViewController.swift */,
 				3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */,
 				3ADF16F922414B660087217A /* HomeViewController.swift */,
 				3A0F5710207BD0B700D9F701 /* FirstViewController.swift */,
 				3A0F5712207BD0B700D9F701 /* SecondViewController.swift */,
 				3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */,
-				3AC9003B214D0BC2002E7C3D /* ChatViewController.swift */,
 				3AF69296219896790092FB6B /* ListTableViewCell.swift */,
-				3AB5F0F12167E2E700506CDA /* UserViewController.swift */,
 				3AB5F0F32167E44600506CDA /* ChangePasswordViewController.swift */,
 				3A01738620EE6C67005AEDFA /* NewsViewController.swift */,
-				3AB1F51E20EF9245001A9166 /* NewsTeaViewController.swift */,
 				7A5F0E2C20F9D60A00747AB2 /* MoreViewController.swift */,
-				3AF16283216A2E2200432015 /* RememberTD.swift */,
 				3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */,
 				7A4A1EBD20FA75E5004E482D /* WholeTabBarController.swift */,
 				3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */,
 				3A9C7BD02177ABB20071D37E /* HABMViewController.swift */,
 				3A8342B6217BC08B0059477E /* UpdateCenterViewController.swift */,
-				3A10DDD3218C951500F447ED /* DDMViewController.swift */,
 				3A37CC5D21935D6D003F7BF8 /* MBProgressHUD.h */,
 				3A37CC5E21935D6D003F7BF8 /* MBProgressHUD.m */,
 				3A82CDE6218E0CC2009DE910 /* Main.storyboard */,
-				3A0C6BE922205A8E004B5771 /* TerminalViewController.swift */,
 				3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */,
 				3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */,
 				3AA4A91421D657AF000240CC /* InfosAppTableViewController.swift */,
 				3AA4A91021D6533F000240CC /* AppInfosTableViewCell.swift */,
 				3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */,
-				3A37CC602193665F003F7BF8 /* Woche1EditViewController.swift */,
-				3A37CC622193666D003F7BF8 /* Woche2EditViewController.swift */,
-				3A37CC6421936678003F7BF8 /* Woche3EditViewController.swift */,
-				3A37CC6621936689003F7BF8 /* Woche4EditViewController.swift */,
 				3AE1F88B21529148004A25BD /* TimeTableDays */,
 				3A57BB2320D5630000CF5110 /* Test1ViewController.swift */,
 				3A57BB2520D5631F00CF5110 /* Test2ViewController.swift */,
@@ -886,23 +853,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A0C6BEA22205A8E004B5771 /* TerminalViewController.swift in Sources */,
 				3AC0BE8E207BD5A700980088 /* LoginViewController.swift in Sources */,
 				7A5F0E3320F9DD3800747AB2 /* FoodTuViewController.swift in Sources */,
 				3AE1F88A21529140004A25BD /* TimeTableFridayViewController.swift in Sources */,
 				3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */,
 				7A4A1EBE20FA75E5004E482D /* WholeTabBarController.swift in Sources */,
 				7A73788520CEA641003D78A8 /* Woche2ViewController.swift in Sources */,
-				3AF16284216A2E2200432015 /* RememberTD.swift in Sources */,
 				3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */,
 				3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */,
 				3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */,
 				3A0F5713207BD0B700D9F701 /* SecondViewController.swift in Sources */,
 				3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */,
-				3A37CC6521936678003F7BF8 /* Woche3EditViewController.swift in Sources */,
 				3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */,
 				3A01738720EE6C67005AEDFA /* NewsViewController.swift in Sources */,
-				3A10DDD4218C951500F447ED /* DDMViewController.swift in Sources */,
 				3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */,
 				3AE242F42137113000953BF4 /* WelcomeSettingsViewController.swift in Sources */,
 				3AC9003E214D182C002E7C3D /* ChatHelper.swift in Sources */,
@@ -911,11 +874,9 @@
 				3A57BB2A20D5632D00CF5110 /* Test4ViewController.swift in Sources */,
 				3AB1F51D20EE83BD001A9166 /* InformationsViewController.swift in Sources */,
 				3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */,
-				3AB5F0F22167E2E700506CDA /* UserViewController.swift in Sources */,
 				3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */,
 				3AC90040214D1D9B002E7C3D /* TVCChat.swift in Sources */,
 				7A5F0E3B20F9E34E00747AB2 /* FoodViewController.swift in Sources */,
-				3A37CC632193666D003F7BF8 /* Woche2EditViewController.swift in Sources */,
 				3A9C7BD12177ABB20071D37E /* HABMViewController.swift in Sources */,
 				7A73788720CEA64D003D78A8 /* Woche3ViewController.swift in Sources */,
 				3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */,
@@ -943,15 +904,10 @@
 				3A82CDDF218E0A75009DE910 /* FoodFrViewController.swift in Sources */,
 				3A8F67CC21260CF500CA4BFC /* NetworkManager.swift in Sources */,
 				3AE242ED213710E000953BF4 /* Welcome1ViewController.swift in Sources */,
-				3AC9003A214C3969002E7C3D /* OnlineLoginViewController.swift in Sources */,
-				3A37CC6721936689003F7BF8 /* Woche4EditViewController.swift in Sources */,
 				3AB5F0F42167E44600506CDA /* ChangePasswordViewController.swift in Sources */,
 				3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */,
 				3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */,
-				3AB1F51F20EF9245001A9166 /* NewsTeaViewController.swift in Sources */,
 				7A73788320CEA629003D78A8 /* Woche1ViewController.swift in Sources */,
-				3A37CC612193665F003F7BF8 /* Woche1EditViewController.swift in Sources */,
-				3AC9003C214D0BC2002E7C3D /* ChatViewController.swift in Sources */,
 				7A5F0E3120F9DD2A00747AB2 /* FoodMoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
