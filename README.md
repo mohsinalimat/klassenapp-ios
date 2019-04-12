@@ -19,7 +19,7 @@ This app was programmed for a school class to see homework, tests, etc. quickly.
 13. TrueTime - instacart (https://github.com/instacart/TrueTime.swift)
 14. Appcenter - Microsoft (https://azure.microsoft.com/de-de/services/app-center/)
 15. PinCodeTextField - tkach (https://github.com/tkach/PinCodeTextField)
-## Code of Conduct:
-If you want to contribute, please have a look at our Code of Conduct. (And follow these rules of course!)
+## Code of Conduct / Contribute:
+If you want to contribute, please have a look at our [Code of Conduct](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CODE_OF_CONDUCT.md) and our [Contributing](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CONTRIBUTING.md) file.
 ## License:
 This project is protected by the following license: GNU Affero General Public License v3.0 (GNU AGPLv3). More information can be found in the file "LICENSE".
