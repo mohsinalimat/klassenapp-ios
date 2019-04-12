@@ -3,6 +3,7 @@
 First off, thanks for taking the time to contribute! We really appreciate any help🎉👍
 
 Table of Contents:
+
 [Code of Conduct](#code-of-conduct)
 
 [How can I contribute](#how-can-i-contribute)
