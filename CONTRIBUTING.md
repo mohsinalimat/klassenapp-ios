@@ -3,12 +3,15 @@
 First off, thanks for taking the time to contribute! We really appreciate any help🎉👍
 
 Table of Contents:
-1. [Code of Conduct](#code-of-conduct)
-2. [How can I contribute](#how-can-i-contribute)
-* [Create an issue](#create-an-issue)
-* [Modifying the app](#modifying-the-app)
+[Code of Conduct](#code-of-conduct)
 
-3.[Questions](#questions)
+[How can I contribute](#how-can-i-contribute)
+  * [Create an issue](#create-an-issue)
+  * [Modifying the app](#modifying-the-app)
+    * [Installation](#installation)
+    * [Uploading](#uploading)
+    
+[Questions](#questions)
 
 ## Code of Conduct
 
@@ -29,7 +32,7 @@ Please use our templates to create an issue
 
 You will need an Apple Computer for this.
 
-#### Installation / Setup:
+#### Installation
 1. Fork this repository.
 2. Clone the forked repository to your local computer.
 3. If not already done, install [CocoaPods](https://cocoapods.org/).
@@ -37,7 +40,7 @@ You will need an Apple Computer for this.
 * Run "pod install" to install all libraries
 5. If finished, open the following file: "KlassenAppD.xcworkspace" (DO NOT USE THE "KlassenAppD.xcodeproj"!)
 
-#### Uploading:
+#### Uploading
 1. Push the finished product to your forked repository.
 2. Create a pull request.
 * Go to [our repository](https://github.com/AdriBoy21/klassenapp-ios).
