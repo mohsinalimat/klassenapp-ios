@@ -105,14 +105,6 @@ class FoodViewController: UIViewController {
             }
             print("btn6")
         }
-        let item7 = ExpandingMenuItem(size: menuButtonSize, title: "Updatecenter", image: UIImage(named: "downloadsign")!, highlightedImage: UIImage(named: "downloadsign")!, backgroundImage: UIImage(named: "downloadsign"), backgroundHighlightedImage: UIImage(named: "downloadsign")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "updatecenterid") as? UpdateCenterViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn7")
-        }
         let item9 = ExpandingMenuItem(size: menuButtonSize, title: "Liste", image: UIImage(named: "checked")!, highlightedImage: UIImage(named: "checked")!, backgroundImage: UIImage(named: "checked"), backgroundHighlightedImage: UIImage(named: "checked")) { () -> Void in
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rememberID") as? RememberViewController
             {
@@ -124,10 +116,10 @@ class FoodViewController: UIViewController {
         
         
         if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item6, item7, item9])
+            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item6, item9])
         }
         else {
-            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item6, item7, item9])
+            menuButton.addMenuItems([item00, item0, item1, item2, item3, item4, item6, item9])
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)

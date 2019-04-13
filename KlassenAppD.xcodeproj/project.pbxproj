@@ -29,6 +29,7 @@
 		3A5B8AB921FBB7F900669F2B /* AppIconCustomIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */; };
 		3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */; };
 		3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A75AB4C2152973700EED57A /* TimeTableViewController.swift */; };
+		3A7CD63522611DDB00B71E4F /* UpdateAvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CD63422611DDB00B71E4F /* UpdateAvailableViewController.swift */; };
 		3A82CDDF218E0A75009DE910 /* FoodFrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82CDDE218E0A75009DE910 /* FoodFrViewController.swift */; };
 		3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A82CDE6218E0CC2009DE910 /* Main.storyboard */; };
 		3A8342B7217BC08B0059477E /* UpdateCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8342B6217BC08B0059477E /* UpdateCenterViewController.swift */; };
@@ -54,6 +55,10 @@
 		3AB5F0F42167E44600506CDA /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB5F0F32167E44600506CDA /* ChangePasswordViewController.swift */; };
 		3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */; };
 		3AC0BE8E207BD5A700980088 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0BE8D207BD5A700980088 /* LoginViewController.swift */; };
+		3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9902261E7390048030A /* UIViewController+Utils.swift */; };
+		3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9912261E7390048030A /* UIVIew+Utils.swift */; };
+		3AC1E9952261F0E10048030A /* PanelMaterial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */; };
+		3AC1E9972261F13F0048030A /* PanelMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9962261F13E0048030A /* PanelMaterial.swift */; };
 		3AC9003E214D182C002E7C3D /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003D214D182C002E7C3D /* ChatHelper.swift */; };
 		3AC90040214D1D9B002E7C3D /* TVCChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9003F214D1D9B002E7C3D /* TVCChat.swift */; };
 		3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF16F922414B660087217A /* HomeViewController.swift */; };
@@ -157,6 +162,7 @@
 		3A6E99C3213B30B9009EB57E /* KlassenAppD-beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KlassenAppD-beta.entitlements"; sourceTree = "<group>"; };
 		3A75AB4C2152973700EED57A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		3A7C41BE21275C010099D805 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7CD63422611DDB00B71E4F /* UpdateAvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailableViewController.swift; sourceTree = "<group>"; };
 		3A82CDDE218E0A75009DE910 /* FoodFrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodFrViewController.swift; sourceTree = "<group>"; };
 		3A82CDE7218E0CC2009DE910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A8342B6217BC08B0059477E /* UpdateCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCenterViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +213,10 @@
 		3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3ABFEF2F207D049800900935 /* KlassenAppD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KlassenAppD.entitlements; sourceTree = "<group>"; };
 		3AC0BE8D207BD5A700980088 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3AC1E9902261E7390048030A /* UIViewController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		3AC1E9912261E7390048030A /* UIVIew+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+Utils.swift"; sourceTree = "<group>"; };
+		3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMaterial.storyboard; sourceTree = "<group>"; };
+		3AC1E9962261F13E0048030A /* PanelMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelMaterial.swift; sourceTree = "<group>"; };
 		3AC8809B210F2FD90077B67E /* KlassenAppDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlassenAppDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC8809C210F2FD90077B67E /* KlassenAppDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlassenAppDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC9003D214D182C002E7C3D /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
@@ -316,6 +326,8 @@
 		3A0F570D207BD0B700D9F701 /* KlassenAppD */ = {
 			isa = PBXGroup;
 			children = (
+				3AC1E9912261E7390048030A /* UIVIew+Utils.swift */,
+				3AC1E9902261E7390048030A /* UIViewController+Utils.swift */,
 				3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */,
 				3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */,
 				3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */,
@@ -327,6 +339,9 @@
 				3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */,
 				3AC0BE8D207BD5A700980088 /* LoginViewController.swift */,
 				3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */,
+				3A7CD63422611DDB00B71E4F /* UpdateAvailableViewController.swift */,
+				3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */,
+				3AC1E9962261F13E0048030A /* PanelMaterial.swift */,
 				3ADF16F922414B660087217A /* HomeViewController.swift */,
 				3A0F5710207BD0B700D9F701 /* FirstViewController.swift */,
 				3A0F5712207BD0B700D9F701 /* SecondViewController.swift */,
@@ -660,6 +675,7 @@
 				3A0F571B207BD0B700D9F701 /* LaunchScreen.storyboard in Resources */,
 				3AA0E64921FA11560012ED20 /* AppIconBlueIco.png in Resources */,
 				3AA0E64B21FA11710012ED20 /* AppIconGoldIco.png in Resources */,
+				3AC1E9952261F0E10048030A /* PanelMaterial.storyboard in Resources */,
 				3AA0E64D21FA11790012ED20 /* AppIconGreenIco.png in Resources */,
 				3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */,
 				3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */,
@@ -781,6 +797,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/CardPresentationController/CardPresentationController.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -789,14 +806,18 @@
 				"${BUILT_PRODUCTS_DIR}/MIBadgeButton-Swift/MIBadgeButton_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/PinCodeTextField/PinCodeTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SparrowKit/SparrowKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeableTabBarController/SwipeableTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/TrueTime/TrueTime.framework",
+				"${BUILT_PRODUCTS_DIR}/WhatsNewKit/WhatsNewKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -804,6 +825,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardPresentationController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -812,14 +834,18 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MIBadgeButton_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinCodeTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SparrowKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeableTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrueTime.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WhatsNewKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -862,6 +888,7 @@
 				3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */,
 				3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */,
 				3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */,
+				3A7CD63522611DDB00B71E4F /* UpdateAvailableViewController.swift in Sources */,
 				3A0F5713207BD0B700D9F701 /* SecondViewController.swift in Sources */,
 				3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */,
 				3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */,
@@ -876,6 +903,7 @@
 				3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */,
 				3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */,
 				3AC90040214D1D9B002E7C3D /* TVCChat.swift in Sources */,
+				3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */,
 				7A5F0E3B20F9E34E00747AB2 /* FoodViewController.swift in Sources */,
 				3A9C7BD12177ABB20071D37E /* HABMViewController.swift in Sources */,
 				7A73788720CEA64D003D78A8 /* Woche3ViewController.swift in Sources */,
@@ -884,6 +912,8 @@
 				7A5F0E3520F9DD4100747AB2 /* FoodWeViewController.swift in Sources */,
 				3AE1F88621529128004A25BD /* TimeTableWednesdayViewController.swift in Sources */,
 				7A5F0E2D20F9D60A00747AB2 /* MoreViewController.swift in Sources */,
+				3AC1E9972261F13F0048030A /* PanelMaterial.swift in Sources */,
+				3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */,
 				3AE1F8822152910C004A25BD /* TimeTableMondayViewController.swift in Sources */,
 				3AA4A91521D657AF000240CC /* InfosAppTableViewController.swift in Sources */,
 				7A5F0E3720F9DD4800747AB2 /* FoodThViewController.swift in Sources */,
