@@ -1,0 +1,567 @@
+
+/* Class = "UITextView"; text = "Woche 1 Download..."; ObjectID = "07v-Zo-yH2"; */
+"07v-Zo-yH2.text" = "Woche 1 Download...";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "0Sa-A5-J35"; */
+"0Sa-A5-J35.text" = "Download...";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "0TY-NC-GZ0"; */
+"0TY-NC-GZ0.text" = "Download...";
+
+/* Class = "UITextView"; text = "Woche 4 Download..."; ObjectID = "0dk-oP-88L"; */
+"0dk-oP-88L.text" = "Woche 4 Download...";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "0ei-NA-wCI"; */
+"0ei-NA-wCI.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "Freitag"; ObjectID = "0oD-H4-dF9"; */
+"0oD-H4-dF9.normalTitle" = "Freitag";
+
+/* Class = "UITextView"; text = "-Hausaufgaben: Lasse dir die Hausaufgaben der letzten 4 Wochen anzeigen.\n\n-Arbeiten & Termine: direkten Überblick über die nächten 5 Arbeiten oder Termine, mit Datum und Informationen.\n\n-Neuigkeiten: Sollte sich etwas ändern, oder es kann nicht den anderen Kategorien zugeteilt werden, steht es in den Neuigkeiten. Diese können auch von den Lehrern bearbeitet werden.\n\n-Speiseplan: Du weißt nicht, was es heute zu essen gibt? Hier siehst du den Speiseplan der Milchbar für die aktuelle Woche."; ObjectID = "0yO-96-Qgx"; */
+"0yO-96-Qgx.text" = "-Hausaufgaben: Lasse dir die Hausaufgaben der letzten 4 Wochen anzeigen.\n\n-Arbeiten & Termine: direkten Überblick über die nächten 5 Arbeiten oder Termine, mit Datum und Informationen.\n\n-Neuigkeiten: Sollte sich etwas ändern, oder es kann nicht den anderen Kategorien zugeteilt werden, steht es in den Neuigkeiten. Diese können auch von den Lehrern bearbeitet werden.\n\n-Speiseplan: Du weißt nicht, was es heute zu essen gibt? Hier siehst du den Speiseplan der Milchbar für die aktuelle Woche.";
+
+/* Class = "UITextView"; text = "Woche 2 Download..."; ObjectID = "1Ho-1Z-deM"; */
+"1Ho-1Z-deM.text" = "Woche 2 Download...";
+
+/* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "1Wh-on-IA8"; */
+"1Wh-on-IA8.normalTitle" = "Datendownload...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "1du-GB-7uv"; */
+"1du-GB-7uv.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Download..."; ObjectID = "1vZ-6D-LAF"; */
+"1vZ-6D-LAF.normalTitle" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "2CL-5O-Cme"; */
+"2CL-5O-Cme.normalTitle" = "<--";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "2F4-gB-8kL"; */
+"2F4-gB-8kL.text" = "Download...";
+
+/* Class = "UILabel"; text = "Hausaufgaben bis morgen"; ObjectID = "2eD-kO-yIQ"; */
+"2eD-kO-yIQ.text" = "Hausaufgaben bis morgen";
+
+/* Class = "UIButton"; normalTitle = "Weiter"; ObjectID = "3CJ-OW-jXZ"; */
+"3CJ-OW-jXZ.normalTitle" = "Weiter";
+
+/* Class = "UIButton"; normalTitle = "Weiter"; ObjectID = "3Ck-9S-3ql"; */
+"3Ck-9S-3ql.normalTitle" = "Weiter";
+
+/* Class = "UILabel"; text = "TouchID/FaceID im Loginscreen:"; ObjectID = "3Rg-7V-IXG"; */
+"3Rg-7V-IXG.text" = "TouchID/FaceID im Loginscreen:";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "3bJ-mc-gjd"; */
+"3bJ-mc-gjd.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Zurück"; ObjectID = "3h9-uj-gXM"; */
+"3h9-uj-gXM.normalTitle" = "Zurück";
+
+/* Class = "UITextView"; text = "Woche 3 Download..."; ObjectID = "3wm-eV-17H"; */
+"3wm-eV-17H.text" = "Woche 3 Download...";
+
+/* Class = "UITextView"; text = "Woche 2 Download..."; ObjectID = "4EQ-Jj-S2m"; */
+"4EQ-Jj-S2m.text" = "Woche 2 Download...";
+
+/* Class = "UILabel"; text = "Arbeit 1:"; ObjectID = "4LJ-16-IKC"; */
+"4LJ-16-IKC.text" = "Arbeit 1:";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "4Rj-ZA-2Ow"; */
+"4Rj-ZA-2Ow.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "55g-LQ-w3D"; */
+"55g-LQ-w3D.normalTitle" = "<--";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "5Vl-6E-Bdw"; */
+"5Vl-6E-Bdw.text" = "Title";
+
+/* Class = "UITextField"; placeholder = "Passwort"; ObjectID = "5vx-gO-U3E"; */
+"5vx-gO-U3E.placeholder" = "Passwort";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "5za-yf-Qev"; */
+"5za-yf-Qev.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Download..."; ObjectID = "6Mj-ce-bc3"; */
+"6Mj-ce-bc3.normalTitle" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "6de-Nn-FPq"; */
+"6de-Nn-FPq.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Donnerstag"; ObjectID = "6hV-KX-hWt"; */
+"6hV-KX-hWt.normalTitle" = "Donnerstag";
+
+/* Class = "UILabel"; text = "Download..."; ObjectID = "6kq-6H-HsT"; */
+"6kq-6H-HsT.text" = "Download...";
+
+/* Class = "UILabel"; text = "Noch mehr Informationen"; ObjectID = "709-gj-KtO"; */
+"709-gj-KtO.text" = "Noch mehr Informationen";
+
+/* Class = "UIButton"; normalTitle = "Elternzettel für den Chat"; ObjectID = "780-E4-vMj"; */
+"780-E4-vMj.normalTitle" = "Elternzettel für den Chat";
+
+/* Class = "UIButton"; normalTitle = "Montag"; ObjectID = "7O9-Gh-u15"; */
+"7O9-Gh-u15.normalTitle" = "Montag";
+
+/* Class = "UILabel"; text = "Mittwoch"; ObjectID = "8QW-w6-KJo"; */
+"8QW-w6-KJo.text" = "Mittwoch";
+
+/* Class = "UILabel"; text = "Home"; ObjectID = "8hJ-PD-5RQ"; */
+"8hJ-PD-5RQ.text" = "Home";
+
+/* Class = "UILabel"; text = "Hausaufgaben - Woche 4"; ObjectID = "8xM-0o-88Z"; */
+"8xM-0o-88Z.text" = "Hausaufgaben - Woche 4";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "A2j-gi-PZd"; */
+"A2j-gi-PZd.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Zurück"; ObjectID = "Avc-yv-34i"; */
+"Avc-yv-34i.normalTitle" = "Zurück";
+
+/* Class = "UITextView"; text = "Woche 1 Download..."; ObjectID = "Awi-CP-gYW"; */
+"Awi-CP-gYW.text" = "Woche 1 Download...";
+
+/* Class = "UILabel"; text = "Informationen"; ObjectID = "BLq-pR-nwo"; */
+"BLq-pR-nwo.text" = "Informationen";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "CDl-D6-lTo"; */
+"CDl-D6-lTo.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Online Login"; ObjectID = "CKy-AW-PEe"; */
+"CKy-AW-PEe.normalTitle" = "Online Login";
+
+/* Class = "UILabel"; text = "Darkmode:"; ObjectID = "CTb-Bw-KxW"; */
+"CTb-Bw-KxW.text" = "Darkmode:";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Crw-OS-wry"; */
+"Crw-OS-wry.text" = "Title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DGp-Qe-Rua"; */
+"DGp-Qe-Rua.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "DNc-nD-hLk"; */
+"DNc-nD-hLk.normalTitle" = "<--";
+
+/* Class = "UILabel"; text = "Essen Mittwoch"; ObjectID = "DR2-J6-huT"; */
+"DR2-J6-huT.text" = "Essen Mittwoch";
+
+/* Class = "UIButton"; normalTitle = "Zurück"; ObjectID = "E38-sh-mVJ"; */
+"E38-sh-mVJ.normalTitle" = "Zurück";
+
+/* Class = "UILabel"; text = "Neuigkeiten"; ObjectID = "EyR-TT-QGh"; */
+"EyR-TT-QGh.text" = "Neuigkeiten";
+
+/* Class = "UITextView"; text = "Woche 1 Download..."; ObjectID = "FMH-96-C7A"; */
+"FMH-96-C7A.text" = "Woche 1 Download...";
+
+/* Class = "UIButton"; normalTitle = "Donnerstag"; ObjectID = "Fc7-pQ-Bzq"; */
+"Fc7-pQ-Bzq.normalTitle" = "Donnerstag";
+
+/* Class = "UILabel"; text = "Einstellungen"; ObjectID = "Fcu-MQ-neG"; */
+"Fcu-MQ-neG.text" = "Einstellungen";
+
+/* Class = "UILabel"; text = "Arbeiten & Termine"; ObjectID = "GYT-Qn-cTg"; */
+"GYT-Qn-cTg.text" = "Arbeiten & Termine";
+
+/* Class = "UIButton"; normalTitle = "Download..."; ObjectID = "Gjb-1U-gpU"; */
+"Gjb-1U-gpU.normalTitle" = "Download...";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "H1K-g1-nBf"; */
+"H1K-g1-nBf.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "Hfh-eb-oGu"; */
+"Hfh-eb-oGu.normalTitle" = "<--";
+
+/* Class = "UILabel"; text = "verbinden..."; ObjectID = "HhA-KI-J5P"; */
+"HhA-KI-J5P.text" = "verbinden...";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "I0s-7d-Ate"; */
+"I0s-7d-Ate.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "IeQ-Pq-A4W"; */
+"IeQ-Pq-A4W.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Los gehts!"; ObjectID = "Kik-9t-Ttl"; */
+"Kik-9t-Ttl.normalTitle" = "Los gehts!";
+
+/* Class = "UITextView"; text = "Woche 4 Download..."; ObjectID = "L1H-SF-xif"; */
+"L1H-SF-xif.text" = "Woche 4 Download...";
+
+/* Class = "UIButton"; normalTitle = "Mittwoch"; ObjectID = "L4F-YY-LKE"; */
+"L4F-YY-LKE.normalTitle" = "Mittwoch";
+
+/* Class = "UILabel"; text = "Und fertig! Viel Spaß beim Verwenden der App"; ObjectID = "LDO-Nl-4E2"; */
+"LDO-Nl-4E2.text" = "Und fertig! Viel Spaß beim Verwenden der App";
+
+/* Class = "UILabel"; text = "Download..."; ObjectID = "LEK-tY-bRl"; */
+"LEK-tY-bRl.text" = "Download...";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "LW0-NZ-hQL"; */
+"LW0-NZ-hQL.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "Dienstag"; ObjectID = "LpC-iN-FP1"; */
+"LpC-iN-FP1.normalTitle" = "Dienstag";
+
+/* Class = "UIButton"; normalTitle = "Dienstag"; ObjectID = "Lz0-9V-iIF"; */
+"Lz0-9V-iIF.normalTitle" = "Dienstag";
+
+/* Class = "UILabel"; text = "Und noch mehr!"; ObjectID = "MgM-cL-I9x"; */
+"MgM-cL-I9x.text" = "Und noch mehr!";
+
+/* Class = "UILabel"; text = "Essen Freitag"; ObjectID = "MjN-7B-8ad"; */
+"MjN-7B-8ad.text" = "Essen Freitag";
+
+/* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "Mkk-Hi-lgx"; */
+"Mkk-Hi-lgx.normalTitle" = "Datendownload...";
+
+/* Class = "UILabel"; text = "Arbeit 2:"; ObjectID = "Moh-rv-rP9"; */
+"Moh-rv-rP9.text" = "Arbeit 2:";
+
+/* Class = "UIButton"; normalTitle = "Zurück"; ObjectID = "Mrh-uj-SKN"; */
+"Mrh-uj-SKN.normalTitle" = "Zurück";
+
+/* Class = "UILabel"; text = "Benachrichtigung"; ObjectID = "NaN-7O-QCs"; */
+"NaN-7O-QCs.text" = "Benachrichtigung";
+
+/* Class = "UILabel"; text = "Letztes Datenbankupdate: "; ObjectID = "NjP-S2-Ajz"; */
+"NjP-S2-Ajz.text" = "Letztes Datenbankupdate: ";
+
+/* Class = "UITextView"; text = "Du hast einen Fehler gefunden oder hast eine Idee? Du kannst alles zur App an uns via WhatsApp senden oder den \"Kontakt via Website\"-Knopf in den Einstellungen verwenden."; ObjectID = "Nr5-Uz-Fxq"; */
+"Nr5-Uz-Fxq.text" = "Du hast einen Fehler gefunden oder hast eine Idee? Du kannst alles zur App an uns via WhatsApp senden oder den \"Kontakt via Website\"-Knopf in den Einstellungen verwenden.";
+
+/* Class = "UILabel"; text = "Informationen"; ObjectID = "Oe3-rx-Q2z"; */
+"Oe3-rx-Q2z.text" = "Informationen";
+
+/* Class = "UILabel"; text = "Liste"; ObjectID = "OxH-UN-bMb"; */
+"OxH-UN-bMb.text" = "Liste";
+
+/* Class = "UILabel"; text = "Arbeit 3:"; ObjectID = "PK4-PW-ebE"; */
+"PK4-PW-ebE.text" = "Arbeit 3:";
+
+/* Class = "UITextView"; text = "Ein neues Update ist verfügbar! Wenn du es installieren willst, klicke auf \"Anzeigen\", wenn du diese Nachricht bis zum nächsten Neustart nicht mehr sehen willst, klicke auf \"Nicht jetzt\""; ObjectID = "PbH-RX-j5S"; */
+"PbH-RX-j5S.text" = "Ein neues Update ist verfügbar! Wenn du es installieren willst, klicke auf \"Anzeigen\", wenn du diese Nachricht bis zum nächsten Neustart nicht mehr sehen willst, klicke auf \"Nicht jetzt\"";
+
+/* Class = "UIButton"; normalTitle = "Weiter"; ObjectID = "PcS-MH-1w0"; */
+"PcS-MH-1w0.normalTitle" = "Weiter";
+
+/* Class = "UILabel"; text = "Essen Donnerstag"; ObjectID = "PkQ-zp-aCw"; */
+"PkQ-zp-aCw.text" = "Essen Donnerstag";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "PlO-WS-DAz"; */
+"PlO-WS-DAz.text" = "Download...";
+
+/* Class = "UILabel"; text = "Download..."; ObjectID = "QEZ-s4-Uqm"; */
+"QEZ-s4-Uqm.text" = "Download...";
+
+/* Class = "UITextView"; text = "Woche 1 Download..."; ObjectID = "QNL-po-GKk"; */
+"QNL-po-GKk.text" = "Woche 1 Download...";
+
+/* Class = "UITextView"; text = "Woche 3 Download..."; ObjectID = "QTB-nZ-PCp"; */
+"QTB-nZ-PCp.text" = "Woche 3 Download...";
+
+/* Class = "UITextView"; text = "Hier findest du einige Informationen zur App:\n\n1. Wir (das KlassenAppD-Team) erfassen oder speichern keine persönlichen Daten wie: deinen echten Namen, deinen Standort, …\n\n2. Diese App verwendet den Service „Firebase“ von Google. Dieser Service ist zuständig für:\n\n - die Datenbank, in der Hausaufgaben und Arbeiten gespeichert sind.\n\n- anonyme Nutzerdaten (Anzahl der Datenbankabfragen)\n\n3. Der Service „Fabric“, welcher in der App verwendet wird, sammelt und versendet Daten, falls die App abstützen sollte, damit wir den Fehler zeitnah beheben können. \n\n4. Die Funktion „Login mit TouchID“ ist lokal auf unterstützten Geräten verfügbar. Diese Daten werden nicht online gespeichert.\n\n5. Diese App benötigt eine Internetverbindung, damit die Datenbankeinträge heruntergeladen werden können.\n\nDie Icons für die Tableiste sind von icons8.de\n\nVielen Dank fürs Lesen und viel Spaß bei der Verwendung der App!\n\nDas KlassenAppD-Team\n"; ObjectID = "QZl-lZ-A32"; */
+"QZl-lZ-A32.text" = "Hier findest du einige Informationen zur App:\n\n1. Wir (das KlassenAppD-Team) erfassen oder speichern keine persönlichen Daten wie: deinen echten Namen, deinen Standort, …\n\n2. Diese App verwendet den Service „Firebase“ von Google. Dieser Service ist zuständig für:\n\n - die Datenbank, in der Hausaufgaben und Arbeiten gespeichert sind.\n\n- anonyme Nutzerdaten (Anzahl der Datenbankabfragen)\n\n3. Der Service „Fabric“, welcher in der App verwendet wird, sammelt und versendet Daten, falls die App abstützen sollte, damit wir den Fehler zeitnah beheben können. \n\n4. Die Funktion „Login mit TouchID“ ist lokal auf unterstützten Geräten verfügbar. Diese Daten werden nicht online gespeichert.\n\n5. Diese App benötigt eine Internetverbindung, damit die Datenbankeinträge heruntergeladen werden können.\n\nDie Icons für die Tableiste sind von icons8.de\n\nVielen Dank fürs Lesen und viel Spaß bei der Verwendung der App!\n\nDas KlassenAppD-Team\n";
+
+/* Class = "UITextView"; text = "Woche 3 Download..."; ObjectID = "QgO-JF-ltf"; */
+"QgO-JF-ltf.text" = "Woche 3 Download...";
+
+/* Class = "UIButton"; normalTitle = "Freitag"; ObjectID = "Qh2-Zf-CIi"; */
+"Qh2-Zf-CIi.normalTitle" = "Freitag";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "QwY-gD-t2W"; */
+"QwY-gD-t2W.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "R9S-wG-Ai9"; */
+"R9S-wG-Ai9.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Informationstext"; ObjectID = "R9y-zr-l5h"; */
+"R9y-zr-l5h.normalTitle" = "Informationstext";
+
+/* Class = "UILabel"; text = "Arbeit 5:"; ObjectID = "RQ9-Jk-XAk"; */
+"RQ9-Jk-XAk.text" = "Arbeit 5:";
+
+/* Class = "UILabel"; text = "Nächste Arbeiten & Termine"; ObjectID = "RiF-Sp-RQo"; */
+"RiF-Sp-RQo.text" = "Nächste Arbeiten & Termine";
+
+/* Class = "UIButton"; normalTitle = "Appicon ändern"; ObjectID = "T1U-DK-jT1"; */
+"T1U-DK-jT1.normalTitle" = "Appicon ändern";
+
+/* Class = "UITextView"; text = "Woche 4 Download..."; ObjectID = "TVq-rq-qVh"; */
+"TVq-rq-qVh.text" = "Woche 4 Download...";
+
+/* Class = "UIButton"; normalTitle = "Montag"; ObjectID = "U3H-Mu-Enr"; */
+"U3H-Mu-Enr.normalTitle" = "Montag";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "Ubs-b4-uR2"; */
+"Ubs-b4-uR2.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "UhV-YP-gGT"; */
+"UhV-YP-gGT.normalTitle" = "<--";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "UrL-RD-p9M"; */
+"UrL-RD-p9M.text" = "Download...";
+
+/* Class = "UILabel"; text = "Passwort:"; ObjectID = "V1Z-jy-hfI"; */
+"V1Z-jy-hfI.text" = "Passwort:";
+
+/* Class = "UILabel"; text = "Arbeit 4:"; ObjectID = "V1u-uF-ZCk"; */
+"V1u-uF-ZCk.text" = "Arbeit 4:";
+
+/* Class = "UILabel"; text = "Damit du direkt loslegen kannst, kannst du hier einige Einstellungen ändern"; ObjectID = "VKB-fq-CsC"; */
+"VKB-fq-CsC.text" = "Damit du direkt loslegen kannst, kannst du hier einige Einstellungen ändern";
+
+/* Class = "UIButton"; normalTitle = "Weiter"; ObjectID = "WMc-Kr-jU9"; */
+"WMc-Kr-jU9.normalTitle" = "Weiter";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "Wjn-kO-tFg"; */
+"Wjn-kO-tFg.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "SWITCH_NAV_TYPE"; ObjectID = "XAa-Oi-nkn"; */
+"XAa-Oi-nkn.normalTitle" = "SWITCH_NAV_TYPE";
+
+/* Class = "UITextView"; text = "Woche 3 Download..."; ObjectID = "XFr-yC-PuF"; */
+"XFr-yC-PuF.text" = "Woche 3 Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "XO2-6G-BxB"; */
+"XO2-6G-BxB.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Appinformationen"; ObjectID = "XOH-3S-962"; */
+"XOH-3S-962.normalTitle" = "Appinformationen";
+
+/* Class = "UILabel"; text = "App-Version:"; ObjectID = "Y3z-be-MRQ"; */
+"Y3z-be-MRQ.text" = "App-Version:";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "Ydb-yo-dem"; */
+"Ydb-yo-dem.normalTitle" = "<--";
+
+/* Class = "UILabel"; text = "Klicke rechts auf den Knopf, um fortzufahren"; ObjectID = "Ywh-Us-5uZ"; */
+"Ywh-Us-5uZ.text" = "Klicke rechts auf den Knopf, um fortzufahren";
+
+/* Class = "UIButton"; normalTitle = "Ich habe diese Informationen gelesen"; ObjectID = "ZGO-1d-RQJ"; */
+"ZGO-1d-RQJ.normalTitle" = "Ich habe diese Informationen gelesen";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "ZKw-Tg-2Yo"; */
+"ZKw-Tg-2Yo.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Download..."; ObjectID = "ZS7-ST-IiS"; */
+"ZS7-ST-IiS.normalTitle" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "Zdz-Nk-SKR"; */
+"Zdz-Nk-SKR.normalTitle" = "Datendownload...";
+
+/* Class = "UITextView"; text = "Woche 4 Download..."; ObjectID = "aAO-9F-TRR"; */
+"aAO-9F-TRR.text" = "Woche 4 Download...";
+
+/* Class = "UILabel"; text = "Aktuelle Woche:"; ObjectID = "azv-Yp-Fgg"; */
+"azv-Yp-Fgg.text" = "Aktuelle Woche:";
+
+/* Class = "UILabel"; text = "Hausaufgaben - Woche 1"; ObjectID = "c9J-gY-4ia"; */
+"c9J-gY-4ia.text" = "Hausaufgaben - Woche 1";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "ceN-lg-uzf"; */
+"ceN-lg-uzf.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "chc-nV-0ul"; */
+"chc-nV-0ul.normalTitle" = "Datendownload...";
+
+/* Class = "UILabel"; text = "Hausaufgaben - Woche 3"; ObjectID = "dNU-Zn-n3I"; */
+"dNU-Zn-n3I.text" = "Hausaufgaben - Woche 3";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "dYs-Lt-Xu9"; */
+"dYs-Lt-Xu9.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "ekZ-2N-672"; */
+"ekZ-2N-672.normalTitle" = "<--";
+
+/* Class = "UILabel"; text = "Stundenplan"; ObjectID = "eqH-C2-Cfk"; */
+"eqH-C2-Cfk.text" = "Stundenplan";
+
+/* Class = "UITextView"; text = "Woche 2 Download..."; ObjectID = "f1q-dQ-OYP"; */
+"f1q-dQ-OYP.text" = "Woche 2 Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "f8B-mn-8MR"; */
+"f8B-mn-8MR.normalTitle" = "<--";
+
+/* Class = "UILabel"; text = "Informationen"; ObjectID = "faR-cc-vaP"; */
+"faR-cc-vaP.text" = "Informationen";
+
+/* Class = "UIButton"; normalTitle = "Ausloggen"; ObjectID = "fgy-Nr-vhH"; */
+"fgy-Nr-vhH.normalTitle" = "Ausloggen";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "fnl-m9-pYK"; */
+"fnl-m9-pYK.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "ftU-Ys-liD"; */
+"ftU-Ys-liD.normalTitle" = "Datendownload...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "gDV-CS-Kdf"; */
+"gDV-CS-Kdf.normalTitle" = "<--";
+
+/* Class = "UITextView"; text = "Hier findest du einige Informationen zur App:\n\n1. Wir (das KlassenAppD-Team) erfassen oder speichern keine persönlichen Daten wie: deinen echten Namen, deinen Standort, …\n\n2. Diese App verwendet den Service „Firebase“ von Google. Dieser Service ist zuständig für:\n\n - die Datenbank, in der Hausaufgaben und Arbeiten gespeichert sind.\n\n- anonyme Nutzerdaten (Anzahl der Datenbankabfragen)\n\n3. Der Service „Fabric“, welcher in der App verwendet wird, sammelt und versendet Daten, falls die App abstützen sollte, damit wir den Fehler zeitnah beheben können. \n\n4. Die Funktion „Login mit TouchID“ ist lokal auf unterstützten Geräten verfügbar. Diese Daten werden nicht online gespeichert.\n\n5. Diese App benötigt eine Internetverbindung, damit die Datenbankeinträge heruntergeladen werden können.\n\nDie Icons für die Tableiste sind von icons8.de\n\nVielen Dank fürs Lesen und viel Spaß bei der Verwendung der App!\n\nDas KlassenAppD-Team\n"; ObjectID = "gk7-BT-3Ul"; */
+"gk7-BT-3Ul.text" = "Hier findest du einige Informationen zur App:\n\n1. Wir (das KlassenAppD-Team) erfassen oder speichern keine persönlichen Daten wie: deinen echten Namen, deinen Standort, …\n\n2. Diese App verwendet den Service „Firebase“ von Google. Dieser Service ist zuständig für:\n\n - die Datenbank, in der Hausaufgaben und Arbeiten gespeichert sind.\n\n- anonyme Nutzerdaten (Anzahl der Datenbankabfragen)\n\n3. Der Service „Fabric“, welcher in der App verwendet wird, sammelt und versendet Daten, falls die App abstützen sollte, damit wir den Fehler zeitnah beheben können. \n\n4. Die Funktion „Login mit TouchID“ ist lokal auf unterstützten Geräten verfügbar. Diese Daten werden nicht online gespeichert.\n\n5. Diese App benötigt eine Internetverbindung, damit die Datenbankeinträge heruntergeladen werden können.\n\nDie Icons für die Tableiste sind von icons8.de\n\nVielen Dank fürs Lesen und viel Spaß bei der Verwendung der App!\n\nDas KlassenAppD-Team\n";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "glv-t8-7mc"; */
+"glv-t8-7mc.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "gpX-YE-DAW"; */
+"gpX-YE-DAW.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Login mit TouchID/FaceID"; ObjectID = "gud-2E-o9p"; */
+"gud-2E-o9p.normalTitle" = "Login mit TouchID/FaceID";
+
+/* Class = "UILabel"; text = "Letztes Update:"; ObjectID = "gun-Dw-J7r"; */
+"gun-Dw-J7r.text" = "Letztes Update:";
+
+/* Class = "UITextView"; text = "Woche 3 Download..."; ObjectID = "hH9-0X-YSv"; */
+"hH9-0X-YSv.text" = "Woche 3 Download...";
+
+/* Class = "UITextView"; text = "Woche 4 Download..."; ObjectID = "j8n-4e-Z1g"; */
+"j8n-4e-Z1g.text" = "Woche 4 Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "jDN-dS-ZWC"; */
+"jDN-dS-ZWC.normalTitle" = "<--";
+
+/* Class = "UILabel"; text = "Download..."; ObjectID = "jh5-La-Wma"; */
+"jh5-La-Wma.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "jsq-Xd-eQS"; */
+"jsq-Xd-eQS.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Benutzername:"; ObjectID = "k9K-YN-pT6"; */
+"k9K-YN-pT6.text" = "Benutzername:";
+
+/* Class = "UILabel"; text = "Donnerstag"; ObjectID = "kwJ-1k-sZg"; */
+"kwJ-1k-sZg.text" = "Donnerstag";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "lbq-gA-JsV"; */
+"lbq-gA-JsV.text" = "-";
+
+/* Class = "UITextView"; text = "Woche 1 Download..."; ObjectID = "lpB-IP-xa9"; */
+"lpB-IP-xa9.text" = "Woche 1 Download...";
+
+/* Class = "UILabel"; text = "Essen Dienstag"; ObjectID = "lud-vc-KwS"; */
+"lud-vc-KwS.text" = "Essen Dienstag";
+
+/* Class = "UITextView"; text = "---"; ObjectID = "lwL-cV-1id"; */
+"lwL-cV-1id.text" = "---";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "m8D-OA-D3e"; */
+"m8D-OA-D3e.text" = "Title";
+
+/* Class = "UITextView"; text = "Woche 2 Download..."; ObjectID = "miM-9p-N3Z"; */
+"miM-9p-N3Z.text" = "Woche 2 Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "ncg-Lf-7zq"; */
+"ncg-Lf-7zq.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Zurück"; ObjectID = "noD-vU-wzl"; */
+"noD-vU-wzl.normalTitle" = "Zurück";
+
+/* Class = "UILabel"; text = "Freitag"; ObjectID = "ogw-i5-oB1"; */
+"ogw-i5-oB1.text" = "Freitag";
+
+/* Class = "UILabel"; text = "Essen Montag"; ObjectID = "ojr-Tv-uJ6"; */
+"ojr-Tv-uJ6.text" = "Essen Montag";
+
+/* Class = "UILabel"; text = "Montag"; ObjectID = "pd0-xK-obV"; */
+"pd0-xK-obV.text" = "Montag";
+
+/* Class = "UIButton"; normalTitle = "Nicht jetzt"; ObjectID = "pjA-BS-txW"; */
+"pjA-BS-txW.normalTitle" = "Nicht jetzt";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "pu8-WE-d1P"; */
+"pu8-WE-d1P.text" = "Download...";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "pv9-0T-ekY"; */
+"pv9-0T-ekY.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "Kontakt via Mail"; ObjectID = "pxz-c6-1kI"; */
+"pxz-c6-1kI.normalTitle" = "Kontakt via Mail";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "qDh-kv-KbI"; */
+"qDh-kv-KbI.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "qTW-ee-flH"; */
+"qTW-ee-flH.normalTitle" = "<--";
+
+/* Class = "UIButton"; normalTitle = "Mittwoch"; ObjectID = "qUr-zU-0K8"; */
+"qUr-zU-0K8.normalTitle" = "Mittwoch";
+
+/* Class = "UILabel"; text = "Download..."; ObjectID = "qcU-IU-kIl"; */
+"qcU-IU-kIl.text" = "Download...";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "rUE-GU-p9R"; */
+"rUE-GU-p9R.text" = "Title";
+
+/* Class = "UILabel"; text = "Hausaufgaben - Woche 2"; ObjectID = "rdv-Sx-qnv"; */
+"rdv-Sx-qnv.text" = "Hausaufgaben - Woche 2";
+
+/* Class = "UILabel"; text = "Dienstag"; ObjectID = "rlI-RK-Gak"; */
+"rlI-RK-Gak.text" = "Dienstag";
+
+/* Class = "UILabel"; text = "Was kann die App?"; ObjectID = "ryA-Vf-qlv"; */
+"ryA-Vf-qlv.text" = "Was kann die App?";
+
+/* Class = "UILabel"; text = "Siri Shortcuts Hausaufgaben vorlesen"; ObjectID = "sRQ-ad-R9J"; */
+"sRQ-ad-R9J.text" = "Siri Shortcuts Hausaufgaben vorlesen";
+
+/* Class = "UIButton"; normalTitle = "Dynamic Darkmode"; ObjectID = "saJ-0d-i78"; */
+"saJ-0d-i78.normalTitle" = "Dynamic Darkmode";
+
+/* Class = "UILabel"; text = "Neues Update verfügbar"; ObjectID = "saz-Gw-mq4"; */
+"saz-Gw-mq4.text" = "Neues Update verfügbar";
+
+/* Class = "UIButton"; normalTitle = "Anzeigen"; ObjectID = "t0K-F6-m79"; */
+"t0K-F6-m79.normalTitle" = "Anzeigen";
+
+/* Class = "UILabel"; text = "Speiseplan"; ObjectID = "t4w-ij-0V6"; */
+"t4w-ij-0V6.text" = "Speiseplan";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "toy-tB-zuv"; */
+"toy-tB-zuv.text" = "Download...";
+
+/* Class = "UILabel"; text = "Appicon ändern"; ObjectID = "uhn-7F-h0G"; */
+"uhn-7F-h0G.text" = "Appicon ändern";
+
+/* Class = "UILabel"; text = "Willkommen bei der KlassenApp"; ObjectID = "v5J-Y1-cFB"; */
+"v5J-Y1-cFB.text" = "Willkommen bei der KlassenApp";
+
+/* Class = "UILabel"; text = "Hausaufgaben"; ObjectID = "vy8-1E-MbV"; */
+"vy8-1E-MbV.text" = "Hausaufgaben";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "w7J-fq-8gE"; */
+"w7J-fq-8gE.text" = "Login";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "wqO-fd-Q0h"; */
+"wqO-fd-Q0h.text" = "Title";
+
+/* Class = "UITextField"; placeholder = "Benutzername"; ObjectID = "xZL-Bd-fZO"; */
+"xZL-Bd-fZO.placeholder" = "Benutzername";
+
+/* Class = "UILabel"; text = "Darkmode:"; ObjectID = "xiF-Ru-RpU"; */
+"xiF-Ru-RpU.text" = "Darkmode:";
+
+/* Class = "UILabel"; text = "Einstellungen"; ObjectID = "xrh-fO-KMc"; */
+"xrh-fO-KMc.text" = "Einstellungen";
+
+/* Class = "UITextView"; text = "Woche 2 Download..."; ObjectID = "y53-xS-tlI"; */
+"y53-xS-tlI.text" = "Woche 2 Download...";
+
+/* Class = "UIButton"; normalTitle = "Siri Shorcut Tutorial abspielen"; ObjectID = "yGT-LD-Gue"; */
+"yGT-LD-Gue.normalTitle" = "Siri Shorcut Tutorial abspielen";
+
+/* Class = "UIButton"; normalTitle = "<--"; ObjectID = "yy6-Wl-7nT"; */
+"yy6-Wl-7nT.normalTitle" = "<--";
+
+/* Class = "UITextView"; text = "Download..."; ObjectID = "z41-Bu-6xK"; */
+"z41-Bu-6xK.text" = "Download...";
+
+/* Class = "UIButton"; normalTitle = "Weiter"; ObjectID = "zgd-yE-CA9"; */
+"zgd-yE-CA9.normalTitle" = "Weiter";
+
+/* Class = "UITextView"; text = "Wir sorgen dafür dass alle Daten in der App vollständig und richtig sind, aber du solltest dich nicht nur auf die App verlassen. Wir machen auch Fehler. Schreibe immer alle Informationen aus dem Unterricht mit. Sollte etwas fehlen, schreibe uns dies und wir werden es hinzufügen."; ObjectID = "zq4-ku-W0N"; */
+"zq4-ku-W0N.text" = "Wir sorgen dafür dass alle Daten in der App vollständig und richtig sind, aber du solltest dich nicht nur auf die App verlassen. Wir machen auch Fehler. Schreibe immer alle Informationen aus dem Unterricht mit. Sollte etwas fehlen, schreibe uns dies und wir werden es hinzufügen.";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "zw4-bL-jbG"; */
+"zw4-bL-jbG.text" = "Title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zxu-6i-yv8"; */
+"zxu-6i-yv8.text" = "Label";
