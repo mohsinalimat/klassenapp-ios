@@ -11,11 +11,11 @@ import UIKit
 class ButtonDesignStandard: UIButton {
 
     
-    var cornerRadius: CGFloat = 50.0 {
+    /*var cornerRadius: CGFloat = 50.0 {
         didSet {
             layer.cornerRadius = cornerRadius
         }
-    }
+    }*/
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

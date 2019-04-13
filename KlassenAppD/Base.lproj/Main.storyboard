@@ -2612,11 +2612,11 @@ Das KlassenAppD-Team
                                     </mask>
                                 </variation>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Download..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qDh-kv-KbI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Download..." translatesAutoresizingMaskIntoConstraints="NO" id="qDh-kv-KbI">
                                 <rect key="frame" x="16" y="124" width="382" height="716"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YD1-QX-OKg">
@@ -3646,19 +3646,19 @@ Das KlassenAppD-Team
         <image name="user_male" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W32-bG-t1c"/>
+        <segue reference="PD1-Lu-u68"/>
         <segue reference="aR8-Ij-6gD"/>
         <segue reference="sSK-k4-yRb"/>
         <segue reference="sdx-GM-y9I"/>
         <segue reference="qGg-s9-3Xc"/>
-        <segue reference="LCf-HC-T7g"/>
+        <segue reference="SIb-Cu-pCz"/>
         <segue reference="2L5-vt-QT5"/>
         <segue reference="k8d-tn-yE4"/>
-        <segue reference="mFC-Gd-nXh"/>
+        <segue reference="CWB-NU-f9q"/>
         <segue reference="uJB-8g-Kim"/>
         <segue reference="eJf-nC-S4s"/>
         <segue reference="5Wa-tr-TLK"/>
-        <segue reference="aAE-IP-Agu"/>
+        <segue reference="AVZ-QL-x4a"/>
         <segue reference="8Db-OZ-F7d"/>
     </inferredMetricsTieBreakers>
 </document>

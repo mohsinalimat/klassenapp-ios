@@ -10,10 +10,13 @@ import UIKit
 import Firebase
 import ExpandingMenu
 import BLTNBoard
+import WhatsNewKit
+import Panels
 
 class HomeViewController: UIViewController {
-    
+    lazy var panelManager = Panels(target: self)
     var timer: Timer!
+    var disappearUpdate: Timer!
     
     lazy var bulletinManager: BLTNItemManager = {
         let introPage = FirstViewController.bulletinNWUP()
@@ -110,14 +113,6 @@ class HomeViewController: UIViewController {
             }
             print("btn6")
         }
-        let item7 = ExpandingMenuItem(size: menuButtonSize, title: "Updatecenter", image: UIImage(named: "downloadsign")!, highlightedImage: UIImage(named: "downloadsign")!, backgroundImage: UIImage(named: "downloadsign"), backgroundHighlightedImage: UIImage(named: "downloadsign")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "updatecenterid") as? UpdateCenterViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn7")
-        }
         let item9 = ExpandingMenuItem(size: menuButtonSize, title: "Liste", image: UIImage(named: "checked")!, highlightedImage: UIImage(named: "checked")!, backgroundImage: UIImage(named: "checked"), backgroundHighlightedImage: UIImage(named: "checked")) { () -> Void in
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rememberID") as? RememberViewController
             {
@@ -129,10 +124,10 @@ class HomeViewController: UIViewController {
         
         
         if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item7, item9])
+            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item9])
         }
         else {
-            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item7, item9])
+            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item9])
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
@@ -150,6 +145,7 @@ class HomeViewController: UIViewController {
             HomeTV.backgroundColor = UIColor.white
             UIApplication.shared.statusBarStyle = .default
         }
+        //            NSAttributedString.Key.foregroundColor: UIColor.white
         var titles = HomeViewController.Titles.self
         let TitleSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
         HomeViewController.Titles.Habm = NSMutableAttributedString(string: "Hausaufgaben bis morgen: ", attributes: TitleSizeAttr)
@@ -259,6 +255,9 @@ class HomeViewController: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
 
         }
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -276,23 +275,129 @@ class HomeViewController: UIViewController {
                 //HomeViewController.HomeVar.NewVersionAvailable = NSMutableAttributedString(string: "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)", attributes: self.TextSizeAttr)
                 if HomeVar.UpdateReminderSession != "1" {
                     //bulletinManager = BLTNItemManager(rootItem: introPage)
-                    self.bulletinManager.showBulletin(above: self)
+                    let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
+                    var panelConfiguration = PanelConfiguration(size: .half)
+                    panelConfiguration.animateEntry = true
+                    self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.panelManager.show(panel: panel, config: panelConfiguration)
+                    }
                 }
             }
         }
-        let attr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 50)]
+        let attr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
+        
         let string1 = "hi1"
         TestLabel.text = string1
         //sleep(5000)
         let string2 = NSMutableAttributedString(string: "hi2", attributes: attr)
         TestLabel.attributedText = string2
+        
+       // panelConfiguration.animateEntry = true
+        let dictionary = Bundle.main.infoDictionary!
+        let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
+        if UserDefaults.standard.string(forKey: "\(versionCurrent)") != "1" {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                HomeVar.WhatsNewConfig = WhatsNewViewController.Configuration(theme: .darkRed)
+            }
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                HomeVar.WhatsNewConfig = WhatsNewViewController.Configuration(theme: .whiteRed)
+            }
+            
+            HomeVar.WhatsNewConfig.itemsView.contentMode = .center
+            let whatsNew = WhatsNew(
+                // The Title
+                title: "Version \(versionCurrent)",
+                // The features you want to showcase
+                items: [
+                    WhatsNew.Item(
+                        title: "Updatemenü",
+                        subtitle: "Ein neues Updatemenü, falls ein Update verfügbar ist. Das Updatecenter wurde entfernt.",
+                        image: UIImage(named: "downloadcloudnew")
+                    ),
+                    WhatsNew.Item(
+                        title: "Changelogseite nach Updates",
+                        subtitle: "Nach jedem Update erscheint dieses Fenster mit den Änderungen.",
+                        image: UIImage(named: "icons8-neu-30")
+                    ),
+                    WhatsNew.Item(
+                        title: "Designänderungen",
+                        subtitle: "Eine überarbeitete Homeseite mit größeren Titeln.",
+                        image: UIImage(named: "ball_point_pen")
+                    ),
+                    WhatsNew.Item(
+                        title: "Open Source",
+                        subtitle: "Die KlassenApp iOS ist ab sofort Open Source. Das heißt, dass du den Code der App sehen und bearbeiten kannst. Der Link und Informationen befinden sich im Downloadbereich der Website.",
+                        image: UIImage(named: "icons8-github-30")
+                    )
+                    
+                ]
+            )
+            
+            // Initialize WhatsNewViewController with WhatsNew
+            let whatsNewViewController = WhatsNewViewController(
+                whatsNew: whatsNew,
+                configuration: HomeVar.WhatsNewConfig
+            )
+            
+            // Present it
+            self.present(whatsNewViewController, animated: true)
+            UserDefaults.standard.set("1", forKey: "\(versionCurrent)")
+        }
+        
+       /* let controller = UpdateAvailableView()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        transitionDelegate.customHeight = 40
+        transitionDelegate.swipeToDismissEnabled = true
+        controller.transitioningDelegate = transitionDelegate
+        controller.modalPresentationStyle = .custom
+        controller.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller, animated: true, completion: nil)*/
 
        // if HomeVar.HabmTime != "" && HomeVar.HabmText != "" && HomeVar.NextEvent != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NewestVersion != "" && HomeVar.NewVersionAvailable != "" && HomeVar.LDU != ""
     }
     
+    @objc func removeUpdateMessage() {
+        if HomeVar.UpdateReminderSession == "1" {
+            print("yes")
+            panelManager.dismiss()
+            disappearUpdate.invalidate()
+        }
+        else {
+            print("no")
+        }
+    }
+    
     @objc func setToTV() {
         if HomeVar.essenDate != "" && HomeVar.essenHeute != "" && HomeVar.HabmText != "" && HomeVar.HabmTime != "" && HomeVar.LDU != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NextEvent != "" {
-        HomeTV.text = "Hausaufgaben bis morgen:\n\(HomeViewController.HomeVar.HabmText)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nEssen heute:\n\(HomeViewController.HomeVar.essenHeute)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nHABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\nSpeiseplan-Updatezeit: \(HomeViewController.HomeVar.essenDate)\nLDU: \(HomeViewController.HomeVar.LDU)"
+            let formattedString = NSMutableAttributedString()
+            formattedString
+                .bold("Hausaufgaben bis morgen:")
+                .normal("\n\(HomeViewController.HomeVar.HabmText)\n\n")
+                .bold("Neuigkeiten:")
+                .normal("\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\n")
+                .bold("Nächstes Event: ")
+                .normal("\(HomeViewController.HomeVar.NextEvent)\n\n")
+                .bold("Essen heute:")
+                .normal("\n\(HomeViewController.HomeVar.essenHeute)\n\n")
+                .bold("Update: ")
+                .normal("\(HomeViewController.HomeVar.NewVersionAvailable)\n\n")
+                .bold("HABM-Updatezeit: ")
+                .normal("\(HomeViewController.HomeVar.HabmTime)\n")
+                .bold("Speiseplanwoche: ")
+                .normal("\(HomeViewController.HomeVar.essenDate)\n")
+                .bold("LDU: ")
+                .normal("\(HomeViewController.HomeVar.LDU)")
+            HomeTV.attributedText = formattedString
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                HomeTV.textColor = UIColor.white
+                HomeTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+            }
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                HomeTV.textColor = UIColor.black
+                HomeTV.backgroundColor = UIColor.white
+            }
+       /* HomeTV.text = "Hausaufgaben bis morgen:\n\(HomeViewController.HomeVar.HabmText)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nEssen heute:\n\(HomeViewController.HomeVar.essenHeute)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nHABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\nSpeiseplanwoche: \(HomeViewController.HomeVar.essenDate)\nLDU: \(HomeViewController.HomeVar.LDU)"*/
             timer.invalidate()
         }
     }
@@ -339,6 +444,7 @@ class HomeViewController: UIViewController {
     
     struct HomeVar {
         static var Full = NSMutableAttributedString()
+        static var WhatsNewConfig = WhatsNewViewController.Configuration()
         static var essenHeute = ""
         static var essenDate = ""
         static var UpdateReminderSession = "0"
@@ -363,4 +469,23 @@ class HomeViewController: UIViewController {
         static var LDU = NSMutableAttributedString()
     }
 
+}
+
+extension NSMutableAttributedString {
+    @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
+        let attrs: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "Arial", size: 17)]
+        let boldString = NSMutableAttributedString(string:text, attributes: attrs)
+        append(boldString)
+        
+        return self
+    }
+    
+    @discardableResult func normal(_ text: String) -> NSMutableAttributedString {
+        let attrs2: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Arial", size: 14)!]
+        let normal = NSAttributedString(string: text, attributes: attrs2)
+        append(normal)
+        
+        return self
+    }
 }
