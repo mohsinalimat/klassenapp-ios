@@ -1,0 +1,194 @@
+{
+    "colors" : {
+        "UIExtendedSRGBColorSpace 1 0.541176 0.501961 1" : {
+            "red" : 255,
+            "green" : 138,
+            "blue" : 128
+        },
+        "UIExtendedSRGBColorSpace 1 0.0901961 0.266667 1" : {
+            "red" : 255,
+            "green" : 45,
+            "blue" : 85
+        },
+        "UIExtendedSRGBColorSpace 1 0.176471 0.333333 1" : {
+            "red" : 255,
+            "green" : 45,
+            "blue" : 85
+        },
+        "UIExtendedSRGBColorSpace 0.835294 0 0 1" : {
+            "red" : 213,
+            "green" : 0,
+            "blue" : 0
+        },
+        "UIExtendedSRGBColorSpace 0.72549 0.964706 0.792157 1" : {
+            "red" : 185,
+            "green" : 246,
+            "blue" : 202
+        },
+        "UIExtendedSRGBColorSpace 0 0.901961 0.462745 1" : {
+            "red" : 0,
+            "green" : 230,
+            "blue" : 118
+        },
+        "UIExtendedSRGBColorSpace 0 0.784314 0.32549 1" : {
+            "red" : 0,
+            "green" : 200,
+            "blue" : 83
+        },
+        "UIExtendedSRGBColorSpace 0.917647 0.501961 0.988235 1" : {
+            "red" : 234,
+            "green" : 128,
+            "blue" : 252
+        },
+        "UIExtendedSRGBColorSpace 0.835294 0 0.976471 1" : {
+            "red" : 213,
+            "green" : 0,
+            "blue" : 249
+        },
+        "UIExtendedSRGBColorSpace 0.666667 0 1 1" : {
+            "red" : 170,
+            "green" : 0,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0.666667 2.39808e-07 1 1" : {
+            "red" : 170,
+            "green" : 0,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 1 1 0.552941 1" : {
+            "red" : 255,
+            "green" : 255,
+            "blue" : 141
+        },
+        "UIExtendedSRGBColorSpace 1 0.917647 0 1" : {
+            "red" : 255,
+            "green" : 234,
+            "blue" : 0
+        },
+        "UIExtendedSRGBColorSpace 1 0.839216 0 1" : {
+            "red" : 255,
+            "green" : 214,
+            "blue" : 0
+        },
+        "UIExtendedSRGBColorSpace 0.701961 0.533333 1 1" : {
+            "red" : 179,
+            "green" : 136,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0.396078 0.121569 1 1" : {
+            "red" : 101,
+            "green" : 31,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0.384314 0 0.917647 1" : {
+            "red" : 98,
+            "green" : 0,
+            "blue" : 234
+        },
+        "UIExtendedSRGBColorSpace 1 0.819608 0.501961 1" : {
+            "red" : 255,
+            "green" : 209,
+            "blue" : 128
+        },
+        "UIExtendedSRGBColorSpace 1 0.568627 0 1" : {
+            "red" : 255,
+            "green" : 145,
+            "blue" : 0
+        },
+        "UIExtendedSRGBColorSpace 1 0.427451 0 1" : {
+            "red" : 255,
+            "green" : 109,
+            "blue" : 0
+        },
+        "UIExtendedSRGBColorSpace 0.54902 0.619608 1 1" : {
+            "red" : 140,
+            "green" : 158,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0 0.690196 1 1" : {
+            "red" : 0,
+            "green" : 176,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0 0.568627 0.917647 1" : {
+            "red" : 0,
+            "green" : 145,
+            "blue" : 234
+        },
+        "UIExtendedSRGBColorSpace 1 0.619608 0.501961 1" : {
+            "red" : 255,
+            "green" : 158,
+            "blue" : 128
+        },
+        "UIExtendedSRGBColorSpace 1 0.239216 0 1" : {
+            "red" : 255,
+            "green" : 61,
+            "blue" : 0
+        },
+        "UIExtendedSRGBColorSpace 0.866667 0.172549 0 1" : {
+            "red" : 221,
+            "green" : 44,
+            "blue" : 0
+        },
+        "UIExtendedSRGBColorSpace 0.501961 0.847059 1 1" : {
+            "red" : 128,
+            "green" : 216,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0 0.690196 1 1" : {
+            "red" : 0,
+            "green" : 176,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0 0.568627 0.917647 1" : {
+            "red" : 0,
+            "green" : 145,
+            "blue" : 234
+        },
+        "UIExtendedSRGBColorSpace 0.737255 0.666667 0.643137 1" : {
+            "red" : 188,
+            "green" : 170,
+            "blue" : 164
+        },
+        "UIExtendedSRGBColorSpace 0.47451 0.333333 0.282353 1" : {
+            "red" : 121,
+            "green" : 85,
+            "blue" : 72
+        },
+        "UIExtendedSRGBColorSpace 0.305882 0.203922 0.180392 1" : {
+            "red" : 78,
+            "green" : 52,
+            "blue" : 46
+        },
+        "UIExtendedSRGBColorSpace 0.517647 1 1 1" : {
+            "red" : 132,
+            "green" : 255,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0 0.898039 1 1" : {
+            "red" : 0,
+            "green" : 229,
+            "blue" : 255
+        },
+        "UIExtendedSRGBColorSpace 0 0.721569 0.831373 1" : {
+            "red" : 0,
+            "green" : 184,
+            "blue" : 212
+        },
+        "UIExtendedSRGBColorSpace 0.741176 0.741176 0.741176 1" : {
+            "red" : 189,
+            "green" : 189,
+            "blue" : 189
+        },
+        "UIExtendedSRGBColorSpace 0.380392 0.380392 0.380392 1" : {
+            "red" : 97,
+            "green" : 97,
+            "blue" : 97
+        },
+        "UIExtendedSRGBColorSpace 0.129412 0.129412 0.129412 1" : {
+            "red" : 33,
+            "green" : 33,
+            "blue" : 33
+        }
+    }
+}

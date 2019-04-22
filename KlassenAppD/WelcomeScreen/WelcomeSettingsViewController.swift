@@ -20,7 +20,7 @@ class WelcomeSettingsViewController: UIViewController {
             WelcomeSettingsTitle.textColor = UIColor.white
             SettingsMessage.textColor = UIColor.white
             WelcomeDarkmodeLabel.textColor = UIColor.white
-            WelcomeTouchIDNote.textColor = UIColor.white
+            // WelcomeTouchIDNote.textColor = UIColor.white
             UIApplication.shared.statusBarStyle = .lightContent
             UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
         }
@@ -29,7 +29,7 @@ class WelcomeSettingsViewController: UIViewController {
             WelcomeSettingsTitle.textColor = UIColor.black
             SettingsMessage.textColor = UIColor.black
             WelcomeDarkmodeLabel.textColor = UIColor.black
-            WelcomeTouchIDNote.textColor = UIColor.black
+           // WelcomeTouchIDNote.textColor = UIColor.black
             UIApplication.shared.statusBarStyle = .default
             UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
             
@@ -44,7 +44,7 @@ class WelcomeSettingsViewController: UIViewController {
             WelcomeSettingsTitle.textColor = UIColor.white
             SettingsMessage.textColor = UIColor.white
             WelcomeDarkmodeLabel.textColor = UIColor.white
-            WelcomeTouchIDNote.textColor = UIColor.white
+            // WelcomeTouchIDNote.textColor = UIColor.white
             WelcomeDarkmodeOut.setOn(true, animated: false)
             UIApplication.shared.statusBarStyle = .lightContent
         }
@@ -54,7 +54,7 @@ class WelcomeSettingsViewController: UIViewController {
             WelcomeSettingsTitle.textColor = UIColor.black
             SettingsMessage.textColor = UIColor.black
             WelcomeDarkmodeLabel.textColor = UIColor.black
-            WelcomeTouchIDNote.textColor = UIColor.black
+           // WelcomeTouchIDNote.textColor = UIColor.black
             WelcomeDarkmodeOut.setOn(false, animated: false)
             UIApplication.shared.statusBarStyle = .default
         }

@@ -11,7 +11,8 @@ import FirebaseDatabase
 
 class AppInfosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var n1:[String] = ["Appname: KlassenApp", "Appversion: \(AppInfoPublic.version) (Build \(AppInfoPublic.build))", "Website: klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "Verwendete Bibliotheken:\n-Firebase:\n  -Firebase/Core\n  -Firebase/Database\n  -Firebase/Auth\n  -Firebase/Storage\n  -Firebase/Crash\n  -Firebase/Messaging\n  -Firebase/InAppMessagingDisplay\n  -Firebase/Performance\n  -Firebase/Functions\n\n-Fabric\n-Crashlytics\n-ReachabilitySwift\n-Alamofire\n-BulletinBoard\n-NotificationBannerSwift\n-RevealingSplashView\n-SendBidSDK\n-MiBadgeButton-Swift\n-SwipeableTabBarController\n-ExpandingMenu\n-JGProgressHUD\n-TrueTime", "Vielen Dank an:\n-Die Klasse 8d\n-Xcode\n-Apple\n-Swift\n-Google\n-GitHub\n-Fabric\n-ashleymills\n-Almaofire\n-alexaubry\n-Daltron\n-PiXeL16\n-SendBird\n-mustafaibrahim989\n-marcosgriselli\n-monoqlo\n-JonasGessner\n-instacart", "© Adrian Baumgart, 2019"]
+    @IBOutlet weak var TitleBar: UIView!
+    var n1:[String] = ["Appname: KlassenApp", "Appversion: \(AppInfoPublic.version) (Build \(AppInfoPublic.build))", "Website: klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "GitHub-Link: https://github.com/AdriBoy21/klassenapp-ios", "© Adrian Baumgart, 2019"]
    /* var n2:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase\n-Fabric\n-Crashlytics\n-ReachabilitySwift\n-Alamofire\n-BulletinBoard\n-NotificationBannerSwift\n-RevealingSplashView\n-SendBidSDK\n-MiBadgeButton-Swift\n-SwipeableTabBarController\n-ExpandingMenu\n-SendBirdSDK\n-JGProgressHUD\n-TrueTime"]
     var n3:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase -Fabric -Crashlytics -ReachabilitySwift -Alamofire -BulletinBoard -NotificationBannerSwift -RevealingSplashView\n-SendBidSDK -MiBadgeButton-Swift -SwipeableTabBarController\n-ExpandingMenu -SendBirdSDK -JGProgressHUD -TrueTime"]*/
     @IBOutlet weak var TItle: UILabel!
@@ -29,7 +30,7 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //infocell
-        var cell = tableView.dequeueReusableCell(withIdentifier: "infocell", for: indexPath) as? AppInfosTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "infocell", for: indexPath) as? AppInfosTableViewCell
         cell?.TitleName.text = n1[indexPath.row]
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             cell!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
@@ -54,6 +55,9 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var InfoTV: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             TitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
