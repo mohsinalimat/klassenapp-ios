@@ -54,6 +54,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var Week4Out: UIButton!
     @IBOutlet weak var HomeworkLabel: UILabel!
     @IBOutlet weak var backgroundTitleView: UIView!
+    @IBOutlet weak var TitleBarOut: UIView!
     
     @IBAction func Week1Btn(_ sender: Any)
     {
@@ -139,8 +140,37 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
        // CIView.isHidden = true
         super.viewDidLoad()
-        var hi = UIDevice.current.identifierForVendor?.uuidString
-        print(hi)
+        
+        //self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
+        if UserDefaults.standard.string(forKey: "ButtonColor") != nil && UserDefaults.standard.string(forKey: "ButtonColor") != "" {
+         self.Week1Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            
+            self.Week2Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            
+            self.Week3Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            
+            self.Week4Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+        }
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            self.TitleBarOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        }
+        
+       /* print(UserDefaults.standard.string(forKey: "TitleBarColor")!)
+        print("sep")
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != "" && UserDefaults.standard.string(forKey: "TitleBarColor") != nil {
+            var backgroundCOLOR = (UserDefaults.standard.string(forKey: "TitleBarColor") as! String)
+            print(backgroundCOLOR)
+            TitleBarOut.backgroundColor = backgroundCOLOR as? UIColor
+        }
+        if UserDefaults.standard.string(forKey: "ButtonColor") != "" && UserDefaults.standard.string(forKey: "ButtonColor") != nil {
+            var backgroundCOLOR = (UserDefaults.standard.string(forKey: "ButtonColor") as! String)
+            print(backgroundCOLOR)
+            Week1Out.backgroundColor = backgroundCOLOR as? UIColor
+            Week1Out.backgroundColor = backgroundCOLOR as? UIColor
+            Week2Out.backgroundColor = backgroundCOLOR as? UIColor
+            Week3Out.backgroundColor = backgroundCOLOR as? UIColor
+            Week4Out.backgroundColor = backgroundCOLOR as? UIColor
+        }*/
         let menuButtonSize: CGSize = CGSize(width: 64.0, height: 50.0)
         print(self.view.frame.height)
         let menuButton = ExpandingMenuButton(frame: CGRect(origin: CGPoint.zero, size: menuButtonSize), image: UIImage(named: "menulines")!, rotatedImage: UIImage(named: "menulines")!)
@@ -786,6 +816,14 @@ class FirstViewController: UIViewController {
         static var showUC = "0"
         static var showUCC = "0"
         static var Cheat1 = 0
+    }
+    struct CustomColors {
+        static var tbred = 0
+        static var tbgreen = 0
+        static var tbblue = 0
+        static var bred = 0
+        static var bgreen = 0
+        static var bblue = 0
     }
 
  }

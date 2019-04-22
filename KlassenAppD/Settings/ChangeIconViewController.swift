@@ -10,6 +10,7 @@ import UIKit
 
 class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var TitleBar: UIView!
     @IBOutlet weak var TitleBackground: UIView!
     @IBOutlet weak var TItle: UILabel!
     @IBOutlet weak var InfoTV: UITableView!
@@ -20,6 +21,9 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
     var numicon = ["1", "2", "3", "4", "5", "6", "7", "8"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             TitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)

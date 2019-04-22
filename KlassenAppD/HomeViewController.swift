@@ -12,6 +12,8 @@ import ExpandingMenu
 import BLTNBoard
 import WhatsNewKit
 import Panels
+import SAConfettiView
+import EZAlertController
 
 class HomeViewController: UIViewController {
     lazy var panelManager = Panels(target: self)
@@ -25,12 +27,16 @@ class HomeViewController: UIViewController {
 
     let TextSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
     
+    @IBOutlet weak var TitleBar: UIView!
     @IBOutlet weak var TestLabel: UILabel!
     @IBOutlet weak var HomeTitle: UILabel!
     @IBOutlet weak var HomeTitleBackground: UIView!
     @IBOutlet weak var HomeTV: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        }
         let menuButtonSize: CGSize = CGSize(width: 64.0, height: 50.0)
         print(self.view.frame.height)
         let menuButton = ExpandingMenuButton(frame: CGRect(origin: CGPoint.zero, size: menuButtonSize), image: UIImage(named: "menulines")!, rotatedImage: UIImage(named: "menulines")!)
@@ -154,6 +160,39 @@ class HomeViewController: UIViewController {
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
+        
+        ref.child("standardData").child("birthday1EventStarted").observe(.value) { (birthdaysnap) in
+            let BDSnap = birthdaysnap.value as? String
+            if BDSnap == "1" {
+                if UserDefaults.standard.integer(forKey: "FirstBD") != 1 {
+                    let confettiView = SAConfettiView(frame: self.view.bounds)
+                    //frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 116)
+                    confettiView.type = .Confetti
+                    self.view.addSubview(confettiView)
+                    confettiView.startConfetti()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                        // Put your code which should be executed with a delay here
+                        confettiView.stopConfetti()
+                        confettiView.removeFromSuperview()
+                        EZAlertController.alert("Hallo", message: "Entschuldigung für die Störung, aber bitte lies dir die nächsten Nachrichten durch.", acceptMessage: "Weiter") { () -> () in
+                            EZAlertController.alert("Nachricht", message: "Diese Woche feiert die KlassenApp ihren ersten Geburtstag.", acceptMessage: "Weiter") { () -> () in
+                                EZAlertController.alert("Nachricht", message: "Ich möchte mich bedanken, dass ihr die App seit einem Jahr verwendet.", acceptMessage: "Weiter") { () -> () in
+                                    EZAlertController.alert("Nachricht", message: "Ohne euch würde die App nicht dort sein, wo sie jetzt steht.", acceptMessage: "Weiter") { () -> () in
+                                        EZAlertController.alert("Nachricht", message: "Jetzt viel Spaß bei der Verwendung der App! Auf ein neues Jahr!")
+                                    }
+                                }
+                            }
+                        }
+                    })
+                    UserDefaults.standard.set(1, forKey: "FirstBD")
+                }
+                let confettiView2 = SAConfettiView(frame: self.HomeTitleBackground.bounds)
+                //frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 116)
+                confettiView2.type = .Confetti
+                self.HomeTitleBackground.addSubview(confettiView2)
+                confettiView2.startConfetti()
+            }
+        }
         
         ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUSnap) in
             let LDUSNAP = LDUSnap.value as? String
@@ -311,26 +350,15 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Updatemenü",
-                        subtitle: "Ein neues Updatemenü, falls ein Update verfügbar ist. Das Updatecenter wurde entfernt.",
-                        image: UIImage(named: "downloadcloudnew")
+                        title: "Farbauswahl V.1",
+                        subtitle: "In den Einstellungen kann man nun die Farben für einige Objekte der KlassenApp einstellen. Derzeit werden Knöpfe und die Farbleisten unter dem Titel unterstützt. Mehr Optionen folgen.",
+                        image: UIImage(named: "icons8-zeichen-palette-30")
                     ),
                     WhatsNew.Item(
-                        title: "Changelogseite nach Updates",
-                        subtitle: "Nach jedem Update erscheint dieses Fenster mit den Änderungen.",
-                        image: UIImage(named: "icons8-neu-30")
-                    ),
-                    WhatsNew.Item(
-                        title: "Designänderungen",
-                        subtitle: "Eine überarbeitete Homeseite mit größeren Titeln.",
-                        image: UIImage(named: "ball_point_pen")
-                    ),
-                    WhatsNew.Item(
-                        title: "Open Source",
-                        subtitle: "Die KlassenApp iOS ist ab sofort Open Source. Das heißt, dass du den Code der App sehen und bearbeiten kannst. Der Link und Informationen befinden sich im Downloadbereich der Website.",
-                        image: UIImage(named: "icons8-github-30")
+                        title: "Vorbereitung",
+                        subtitle: "Die Vorbereitungen auf einen wichtigen Tag der KlassenApp sind vorerst abgeschlossen. Änderungen vorbehalten. Bitte lade zukünftige Updates herunter, damit auch alles nach Plan läuft. :)",
+                        image: UIImage(named: "icons8-hilfe-30")
                     )
-                    
                 ]
             )
             

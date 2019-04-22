@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28E5C1FB94B1E6B370C4A4C5 /* Pods_KlassenAppD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA9CC3218CDAA1001D2C30 /* Pods_KlassenAppD.framework */; };
 		3A01738720EE6C67005AEDFA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A01738620EE6C67005AEDFA /* NewsViewController.swift */; };
 		3A0AA43B215D13CB00458415 /* RememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AA43A215D13CB00458415 /* RememberViewController.swift */; };
 		3A0F570F207BD0B700D9F701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F570E207BD0B700D9F701 /* AppDelegate.swift */; };
@@ -18,6 +17,7 @@
 		3A0F5726207BD0B700D9F701 /* KlassenAppDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F5725207BD0B700D9F701 /* KlassenAppDTests.swift */; };
 		3A0F5731207BD0B700D9F701 /* KlassenAppDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F5730207BD0B700D9F701 /* KlassenAppDUITests.swift */; };
 		3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A12FAC32125856600276495 /* GoogleService-Info.plist */; };
+		3A19530622648F95006C4FC5 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A19530522648F95006C4FC5 /* colors.json */; };
 		3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A37CC5E21935D6D003F7BF8 /* MBProgressHUD.m */; };
 		3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */; };
 		3A57BB2420D5630000CF5110 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A57BB2320D5630000CF5110 /* Test1ViewController.swift */; };
@@ -27,6 +27,8 @@
 		3A57BB2C20D5633D00CF5110 /* Test5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A57BB2B20D5633D00CF5110 /* Test5ViewController.swift */; };
 		3A5B8AB921FBB7F900669F2B /* AppIconCustomIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */; };
 		3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */; };
+		3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */; };
+		3A7135672263625B0017838A /* ChangeColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */; };
 		3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A75AB4C2152973700EED57A /* TimeTableViewController.swift */; };
 		3A82CDDF218E0A75009DE910 /* FoodFrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82CDDE218E0A75009DE910 /* FoodFrViewController.swift */; };
 		3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A82CDE6218E0CC2009DE910 /* Main.storyboard */; };
@@ -67,7 +69,6 @@
 		3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */; };
 		3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */; };
 		3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */; };
-		49235CA6B9C6B32C538019D5 /* Pods_KlassenAppD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A512F7D20D6881E007138D3 /* Pods_KlassenAppD.framework */; };
 		676E8642C723D75792FD0928 /* Pods_KlassenAppDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F47FC3AF3B5F58E5354C8BD /* Pods_KlassenAppDUITests.framework */; };
 		7940003BFBB15BC36F93C365 /* Pods_KlassenAppDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E77634D9E4F7E1B0D8BD74 /* Pods_KlassenAppDTests.framework */; };
 		7A5F0E3120F9DD2A00747AB2 /* FoodMoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F0E3020F9DD2A00747AB2 /* FoodMoViewController.swift */; };
@@ -138,6 +139,7 @@
 		3A0F5730207BD0B700D9F701 /* KlassenAppDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlassenAppDUITests.swift; sourceTree = "<group>"; };
 		3A0F5732207BD0B700D9F701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A12FAC32125856600276495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A19530522648F95006C4FC5 /* colors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		3A2CB0A722623AD5002F0E0A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		3A2CB0A822623AD5002F0E0A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3A37CC5D21935D6D003F7BF8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -152,6 +154,8 @@
 		3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenachrichtigungViewController.swift; sourceTree = "<group>"; };
 		3A5D31E22164DF020064B9EA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A6E99C3213B30B9009EB57E /* KlassenAppD-beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KlassenAppD-beta.entitlements"; sourceTree = "<group>"; };
+		3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorMenuViewController.swift; sourceTree = "<group>"; };
+		3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorPickerViewController.swift; sourceTree = "<group>"; };
 		3A75AB4C2152973700EED57A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		3A7C41BE21275C010099D805 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A82CDDE218E0A75009DE910 /* FoodFrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodFrViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +182,7 @@
 		3AABCEE3216503FB00395E99 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
 		3AABCEE4216503FB00395E99 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		3AAC661D213C71C200472F63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsViewController.swift; sourceTree = "<group>"; };
+		3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InformationsViewController.swift; path = ../HomeworkWeeks/InformationsViewController.swift; sourceTree = "<group>"; };
 		3AB1F53B20F0C0D5001A9166 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1F53D20F0C0DA001A9166 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1F53F20F0CB24001A9166 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,8 +273,6 @@
 			files = (
 				3AAC661E213C71C300472F63 /* AVFoundation.framework in Frameworks */,
 				97E732A5F252C794ECFF6ECB /* Pods_KlassenAppD.framework in Frameworks */,
-				49235CA6B9C6B32C538019D5 /* Pods_KlassenAppD.framework in Frameworks */,
-				28E5C1FB94B1E6B370C4A4C5 /* Pods_KlassenAppD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +404,6 @@
 		3A2CB09E226235B9002F0E0A /* HomeworkWeeks */ = {
 			isa = PBXGroup;
 			children = (
-				3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */,
 				7A73788220CEA629003D78A8 /* Woche1ViewController.swift */,
 				7A73788420CEA641003D78A8 /* Woche2ViewController.swift */,
 				7A73788620CEA64D003D78A8 /* Woche3ViewController.swift */,
@@ -457,7 +458,9 @@
 		3A2CB0A422623759002F0E0A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				3A71356522635BA60017838A /* ChangeColor */,
 				3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */,
+				3AB1F51C20EE83BD001A9166 /* InformationsViewController.swift */,
 				3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */,
 				3AA4A91421D657AF000240CC /* InfosAppTableViewController.swift */,
 				3AA4A91021D6533F000240CC /* AppInfosTableViewCell.swift */,
@@ -481,6 +484,16 @@
 				3A2CB0A5226237FF002F0E0A /* UpdateNotification */,
 			);
 			path = Panels;
+			sourceTree = "<group>";
+		};
+		3A71356522635BA60017838A /* ChangeColor */ = {
+			isa = PBXGroup;
+			children = (
+				3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */,
+				3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */,
+				3A19530522648F95006C4FC5 /* colors.json */,
+			);
+			path = ChangeColor;
 			sourceTree = "<group>";
 		};
 		3AABCEE0216503FB00395E99 /* MGSwipe */ = {
@@ -649,8 +662,8 @@
 		3A0F5703207BD0B700D9F701 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Adrian Baumgart";
 				TargetAttributes = {
 					3A0F570A207BD0B700D9F701 = {
@@ -704,6 +717,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 				de,
 			);
@@ -730,6 +744,7 @@
 				3A0F571B207BD0B700D9F701 /* LaunchScreen.storyboard in Resources */,
 				3AA0E64921FA11560012ED20 /* AppIconBlueIco.png in Resources */,
 				3AA0E64B21FA11710012ED20 /* AppIconGoldIco.png in Resources */,
+				3A19530622648F95006C4FC5 /* colors.json in Resources */,
 				3AC1E9952261F0E10048030A /* PanelMaterial.storyboard in Resources */,
 				3AA0E64D21FA11790012ED20 /* AppIconGreenIco.png in Resources */,
 				3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */,
@@ -795,15 +810,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInAppMessagingDisplay/InAppMessagingDisplayResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/InAppMessagingDisplayResources.bundle",
 			);
@@ -853,11 +864,15 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/CardPresentationController/CardPresentationController.framework",
+				"${BUILT_PRODUCTS_DIR}/EZAlertController/EZAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IGColorPicker/IGColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/MIBadgeButton-Swift/MIBadgeButton_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
@@ -867,6 +882,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SparrowKit/SparrowKit.framework",
@@ -881,11 +897,15 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardPresentationController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MIBadgeButton_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
@@ -895,6 +915,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SparrowKit.framework",
@@ -961,6 +982,7 @@
 				3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */,
 				7A5F0E3520F9DD4100747AB2 /* FoodWeViewController.swift in Sources */,
 				3AE1F88621529128004A25BD /* TimeTableWednesdayViewController.swift in Sources */,
+				3A7135672263625B0017838A /* ChangeColorPickerViewController.swift in Sources */,
 				3AC1E9972261F13F0048030A /* PanelMaterial.swift in Sources */,
 				3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */,
 				3AE1F8822152910C004A25BD /* TimeTableMondayViewController.swift in Sources */,
@@ -969,6 +991,7 @@
 				3A57BB2420D5630000CF5110 /* Test1ViewController.swift in Sources */,
 				3A57BB2620D5631F00CF5110 /* Test2ViewController.swift in Sources */,
 				3A0AA43B215D13CB00458415 /* RememberViewController.swift in Sources */,
+				3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */,
 				3AA4A91121D6533F000240CC /* AppInfosTableViewCell.swift in Sources */,
 				3AA0E64221FA02C90012ED20 /* ChangeAppIconTableViewCell.swift in Sources */,
 				3A0F5711207BD0B700D9F701 /* FirstViewController.swift in Sources */,
@@ -1101,7 +1124,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF44F0E3EFB170828376B74D /* Pods-KlassenAppD.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APP_DISPLAY_NAME = KlassenApp;
 				APP_ICON = Assets/AppIcon;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1227,7 +1249,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 67BDC8C3900CAA0B9C9B9561 /* Pods-KlassenAppD.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APP_DISPLAY_NAME = KlassenApp;
 				APP_ICON = Assets/AppIcon;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
