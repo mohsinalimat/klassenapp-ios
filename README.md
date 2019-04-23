@@ -25,6 +25,10 @@ This app was programmed for a school class to have an overview over homework, te
 19. CardPresentationController - radianttap (https://github.com/radianttap/CardPresentationController)
 20. WhatsNewKit - SvenTiigi (https://github.com/SvenTiigi/WhatsNewKit)
 21. IGColorPicker - iGenius-Srl (https://github.com/iGenius-Srl/IGColorPicker)
+22. SAConfettiView - sudeepag (https://github.com/sudeepag/SAConfettiView)
+23. EZAlertContoller - thellimist (https://github.com/thellimist/EZAlertController)
+24. GDPerformanceView-Swift - dani-gavrilov (https://github.com/dani-gavrilov/GDPerformanceView-Swift)
+
 ## Code of Conduct / Contribute:
 If you want to contribute, please have a look at our [Code of Conduct](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CODE_OF_CONDUCT.md) and our [Contributing](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CONTRIBUTING.md) file.
 as described in the [Code of Conduct](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CODE_OF_CONDUCT.md), please report any unacceptable behavior to developer@adrianbaumgart.de. We do not tolerate unacceptable behavior and any bad behavior will be tracked and removed.
