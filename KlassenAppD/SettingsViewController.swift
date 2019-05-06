@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController {
     //Labels for Darkmode
     @IBAction func ElternzettelChatBtn(_ sender: Any)
     {
-        UIApplication.shared.openURL(NSURL(string: "https://klassenappd-team.github.io/files/ElternzettelChat.pdf")! as URL)
+       // UIApplication.shared.openURL(NSURL(string: "https://klassenappd-team.github.io/files/ElternzettelChat.pdf")! as URL)
     }
     
     @IBOutlet weak var SettingsLabel: UILabel!
@@ -255,14 +255,14 @@ class SettingsViewController: UIViewController {
             }
             print("btn3")
         }
-        let item4 = ExpandingMenuItem(size: menuButtonSize, title: "Einstellungen", image: UIImage(named: "settings")!, highlightedImage: UIImage(named: "settings")!, backgroundImage: UIImage(named: "settings"), backgroundHighlightedImage: UIImage(named: "settings")) { () -> Void in
+       /* let item4 = ExpandingMenuItem(size: menuButtonSize, title: "Einstellungen", image: UIImage(named: "settings")!, highlightedImage: UIImage(named: "settings")!, backgroundImage: UIImage(named: "settings"), backgroundHighlightedImage: UIImage(named: "settings")) { () -> Void in
             // Do some action
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settingsID") as? SettingsViewController
             {
                 self.present(vc, animated: true, completion: nil)
             }
             print("btn4")
-        }
+        }*/
         let item5 = ExpandingMenuItem(size: menuButtonSize, title: "Speiseplan", image: UIImage(named: "icons8-restaurant-filled-50")!, highlightedImage: UIImage(named: "icons8-restaurant-filled-50")!, backgroundImage: UIImage(named: "icons8-restaurant-filled-50"), backgroundHighlightedImage: UIImage(named: "icons8-restaurant-filled-50")) { () -> Void in
             // Do some action
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FOODID") as? FoodViewController

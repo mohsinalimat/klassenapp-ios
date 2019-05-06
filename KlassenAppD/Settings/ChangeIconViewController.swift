@@ -16,9 +16,9 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var InfoTV: UITableView!
     // var icons:[String] = ["AppIcon", "AppIconGray", "AppIconGold", "AppIconGreen", "AppIconPink"]
     
-    var icons = [UIImage(named: "AppIconCurrentIco"),UIImage(named: "AppIconRedGoldIco"),UIImage(named: "AppIconGrayIco"),UIImage(named: "AppIconGoldIco"),UIImage(named: "AppIconGreenIco"),UIImage(named: "AppIconPinkIco"),UIImage(named: "AppIconBlueIco"),UIImage(named: "AppIconCustomIco")]
+    var icons = [UIImage(named: "AppIconCurrentIco"),UIImage(named: "AppIconRedGoldIco"),UIImage(named: "AppIconGrayIco"),UIImage(named: "AppIconGoldIco"),UIImage(named: "AppIconGreenIco"),UIImage(named: "AppIconPinkIco"),UIImage(named: "AppIconBlueIco")]
     
-    var numicon = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    var numicon = ["1", "2", "3", "4", "5", "6", "7"]
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
@@ -52,7 +52,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "iconcell", for: indexPath) as! ChangeAppIconTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "iconcell", for: indexPath) as! ChangeAppIconTableViewCell
         //var image : UIImage = UIImage(named: icons[indexPath.row])!
        // var image : UIImage = icons[indexPath.row]!
         cell.ImageCe.image = icons[indexPath.row]
@@ -70,7 +70,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ChangeAppIconTableViewCell
-        var cellnum = cell.NumberCell.text!
+        let cellnum = cell.NumberCell.text!
         print(cellnum)
         if cellnum == "1" {
             if #available(iOS 10.3, *) {
@@ -176,21 +176,6 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
                     return
                 }
                 UIApplication.shared.setAlternateIconName("AppIconBlueIco") { (err:Error?) in
-                    print("set icon error：\(String(describing: err))")
-                }
-            } else {
-                // Fallback on earlier versions
-            }
-        }
-        else if cellnum == "8" {
-            if #available(iOS 10.3, *) {
-                if UIApplication.shared.supportsAlternateIcons {
-                    print("you can change this app's icon")
-                }else {
-                    print("you cannot change this app's icon")
-                    return
-                }
-                UIApplication.shared.setAlternateIconName("AppIconCustomIco") { (err:Error?) in
                     print("set icon error：\(String(describing: err))")
                 }
             } else {

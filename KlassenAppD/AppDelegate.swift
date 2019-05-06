@@ -19,6 +19,7 @@ import AppCenter
 import AppCenterAnalytics
 import AppCenterCrashes
 import AppCenterPush
+import StatusBarOverlay
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+                
         FirebaseApp.configure()
        // MSPush.setDelegate(self as! MSPushDelegate)
         MSPush.setEnabled(true)
@@ -37,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MSCrashes.self,
             MSPush.self
             ])
-        var enabled = MSPush.isEnabled()
+        let enabled = MSPush.isEnabled()
         print("MSPUSH ENABLED: \(enabled)")
       /*  if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
