@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var HomeTV: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
         }
@@ -52,7 +53,8 @@ class HomeViewController: UIViewController {
         view.addSubview(menuButton)
         //HomeWorkShortID
         //homeID
-        let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
+        
+     /*   let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
             // Do some action
             //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeID") as? HomeViewController
@@ -60,7 +62,7 @@ class HomeViewController: UIViewController {
                 self.present(vc, animated: true, completion: nil)
             }
             print("btn1")
-        }
+        }*/
         let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
             // Do some action
             //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
@@ -135,6 +137,8 @@ class HomeViewController: UIViewController {
         else {
             menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item9])
         }
+
+
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             HomeTitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
@@ -151,12 +155,16 @@ class HomeViewController: UIViewController {
             HomeTV.backgroundColor = UIColor.white
             UIApplication.shared.statusBarStyle = .default
         }
+        
+        
+        
+        
         //            NSAttributedString.Key.foregroundColor: UIColor.white
-        var titles = HomeViewController.Titles.self
+    //    var titles = HomeViewController.Titles.self
         let TitleSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
         HomeViewController.Titles.Habm = NSMutableAttributedString(string: "Hausaufgaben bis morgen: ", attributes: TitleSizeAttr)
        /* titles.HabmTime = NSMutableAttributedString(string: "HABM-Updatezeit", attributes: TitleSizeAttr)
-        titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: <#T##[NSAttributedString.Key : Any]?#>)*/
+        titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: T##[NSAttributedString.Key : Any]?)*/
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
@@ -288,7 +296,7 @@ class HomeViewController: UIViewController {
             HomeViewController.HomeVar.essenDate = FoodDate!
         }
         
-        ref.child("arbeiten").child("Arbeit1").child("label").observeSingleEvent(of: .value) { (Test1LabelSnap) in
+        ref.child("arbeiten").child("nextEvent").observeSingleEvent(of: .value) { (Test1LabelSnap) in
             let TEST1LABELSNAP = Test1LabelSnap.value as? String
             HomeViewController.HomeVar.NextEvent = TEST1LABELSNAP!
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
@@ -350,14 +358,14 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Farbauswahl V.1",
-                        subtitle: "In den Einstellungen kann man nun die Farben für einige Objekte der KlassenApp einstellen. Derzeit werden Knöpfe und die Farbleisten unter dem Titel unterstützt. Mehr Optionen folgen.",
-                        image: UIImage(named: "icons8-zeichen-palette-30")
+                        title: "Designveränderungen",
+                        subtitle: "Nun sind die Knöpfe runder und in den Einstellungen hat sich die Anordnung der Knöpfe etwas verändert.",
+                        image: UIImage(named: "designicon")
                     ),
                     WhatsNew.Item(
-                        title: "Vorbereitung",
-                        subtitle: "Die Vorbereitungen auf einen wichtigen Tag der KlassenApp sind vorerst abgeschlossen. Änderungen vorbehalten. Bitte lade zukünftige Updates herunter, damit auch alles nach Plan läuft. :)",
-                        image: UIImage(named: "icons8-hilfe-30")
+                        title: "Homeseite",
+                        subtitle: "Auf der Homeseite wird das nächste Event über einen anderen Datenbankeintrag gesteuert. Relativ egal... Muss man nicht verstehen :) ",
+                        image: UIImage(named: "homeicon")
                     )
                 ]
             )
@@ -435,10 +443,10 @@ class HomeViewController: UIViewController {
         
         ref = Database.database().reference()
         ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
-            var NewestBuildDBLES = NewestBuildDB.value as! String
+            let NewestBuildDBLES = NewestBuildDB.value as! String
             HomeViewController.HomeVar.NewestVersion = NewestBuildDBLES
         }
-        let NewestBuildDBLE = HomeViewController.HomeVar.NewestVersion
+       // let NewestBuildDBLE = HomeViewController.HomeVar.NewestVersion
         let nUABpage = BLTNPageItem(title: "Neues Update verfügbar")
         nUABpage.image = UIImage(named: "DownloadCloud")
         nUABpage.descriptionText = "Ein neues Update ist verfügbar. Schau im Updatecenter für mehr Informationen vorbei."

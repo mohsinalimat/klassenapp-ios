@@ -143,6 +143,7 @@ PODS:
     - M13Checkbox (~> 3.3.2)
   - JGProgressHUD (2.0.3)
   - leveldb-library (1.20)
+  - LNSideMenu (3.4.4)
   - M13Checkbox (3.3.2)
   - MarqueeLabel/Swift (3.2.1)
   - MIBadgeButton-Swift (0.5)
@@ -164,6 +165,8 @@ PODS:
   - SnapKit (4.2.0)
   - SparrowKit (1.5.3)
   - SPStorkController (1.6)
+  - StatusBarOverlay (1.9):
+    - Alamofire (~> 4.1)
   - SwipeableTabBarController (1.4.0)
   - TrueTime (5.0.0):
     - Result (~> 3.0)
@@ -192,6 +195,7 @@ DEPENDENCIES:
   - GDPerformanceView-Swift (~> 2.0.2)
   - IGColorPicker (from `https://github.com/AdriBoy21/IGColorPicker.git`)
   - JGProgressHUD
+  - LNSideMenu (~> 3.0)
   - MIBadgeButton-Swift (from `https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git`, branch `master`)
   - NotificationBannerSwift (~> 2.0.0)
   - Panels
@@ -201,6 +205,7 @@ DEPENDENCIES:
   - SAConfettiView
   - SparrowKit
   - SPStorkController
+  - StatusBarOverlay
   - SwipeableTabBarController
   - TrueTime
   - WhatsNewKit
@@ -235,6 +240,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - JGProgressHUD
     - leveldb-library
+    - LNSideMenu
     - M13Checkbox
     - MarqueeLabel
     - nanopb
@@ -249,6 +255,7 @@ SPEC REPOS:
     - SnapKit
     - SparrowKit
     - SPStorkController
+    - StatusBarOverlay
     - SwipeableTabBarController
     - TrueTime
     - WhatsNewKit
@@ -304,6 +311,7 @@ SPEC CHECKSUMS:
   IGColorPicker: 6ac2d1a7d585f31c852f4021888e8812b5264d54
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  LNSideMenu: 43aaa1f9b5f406f04b3c9980b7a6f6569686176d
   M13Checkbox: d75dca81d61c9903e7f091f32b35a3254bc97dce
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
   MIBadgeButton-Swift: 9e57309b00b168d75ca8fecb45bc75124a8ffddf
@@ -319,10 +327,11 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SparrowKit: 8a2991c81d6ab3038d4a41a98a1a73ea17d1a977
   SPStorkController: 54293a8a1ca3c691a09eb6274b6e487b602e975a
+  StatusBarOverlay: ce2193d14935dce0c7097ac8f79a7145e87e0c07
   SwipeableTabBarController: 3a393aa51f1c49c4517b05047c2688a6175c634c
   TrueTime: 8fcd3bbbee664a46ab093ac22882eef4aab26229
   WhatsNewKit: 3976120978db0089535f777cd1b442579418b6fa
 
-PODFILE CHECKSUM: dfda5db1e616487d209cb8260a7ea08e3cb6e1d0
+PODFILE CHECKSUM: 7bb30444785f3f9cca392c687f7788c71b3163a1
 
 COCOAPODS: 1.5.2

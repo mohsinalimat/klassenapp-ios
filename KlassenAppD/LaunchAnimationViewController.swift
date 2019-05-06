@@ -22,13 +22,14 @@ class LaunchAnimationViewController: UIViewController {
             UIApplication.shared.statusBarStyle = .default
         }
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "LaunchScreenW")!,iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
+      //  revealingSplashView.animationType = .rotateOut
         //revealingSplashView.animationType = SplashAnimationType.squeezeAndZoomOut
       //  revealingSplashView.animationType = SplashAnimationType.rotateOut
         
         //Adds the revealing splash view as a sub view
         self.view.addSubview(revealingSplashView)
         //Starts animation
-        sleep(1)
+       // sleep(1)
         revealingSplashView.startAnimation(){
             print("Completed")
             self.performSegue(withIdentifier: "launchanimationfinish", sender: nil)

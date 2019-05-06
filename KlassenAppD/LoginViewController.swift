@@ -38,7 +38,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         ref = Database.database().reference()
         ref.child("standardData").child("iOS-Passcode").observeSingleEvent(of: .value) { (passcode) in
-            var pass = passcode.value as? String
+            let pass = passcode.value as? String
             if self.PassCodeInput.text == pass {
                 UserDefaults.standard.set(1, forKey: "Checker")
                 self.performSegue(withIdentifier: "logintohome", sender: nil)
@@ -138,9 +138,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
         
         if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
             self.performSegue(withIdentifier: "startwelcomeTourSegue", sender: nil)

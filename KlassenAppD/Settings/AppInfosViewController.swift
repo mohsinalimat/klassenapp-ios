@@ -12,7 +12,7 @@ import FirebaseDatabase
 class AppInfosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var TitleBar: UIView!
-    var n1:[String] = ["Appname: KlassenApp", "Appversion: \(AppInfoPublic.version) (Build \(AppInfoPublic.build))", "Website: klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "GitHub-Link: https://github.com/AdriBoy21/klassenapp-ios", "© Adrian Baumgart, 2019"]
+    var n1:[String] = ["Appname: KlassenApp", "Bundle-Identifier: com.adrianbaumgart.KlassenAppDREA1234", "Appversion: \(AppInfoPublic.version) (Build \(AppInfoPublic.build))", "Website: klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "GitHub-Link: https://github.com/AdriBoy21/klassenapp-ios", "© Adrian Baumgart, 2019"]
    /* var n2:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase\n-Fabric\n-Crashlytics\n-ReachabilitySwift\n-Alamofire\n-BulletinBoard\n-NotificationBannerSwift\n-RevealingSplashView\n-SendBidSDK\n-MiBadgeButton-Swift\n-SwipeableTabBarController\n-ExpandingMenu\n-SendBirdSDK\n-JGProgressHUD\n-TrueTime"]
     var n3:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase -Fabric -Crashlytics -ReachabilitySwift -Alamofire -BulletinBoard -NotificationBannerSwift -RevealingSplashView\n-SendBidSDK -MiBadgeButton-Swift -SwipeableTabBarController\n-ExpandingMenu -SendBirdSDK -JGProgressHUD -TrueTime"]*/
     @IBOutlet weak var TItle: UILabel!
