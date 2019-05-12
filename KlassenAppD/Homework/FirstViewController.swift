@@ -20,6 +20,7 @@ import ExpandingMenu
 import FirebaseMessaging
 import AppCenterPush
 import AppCenter
+import EZAlertController
 
 
 class FirstViewController: UIViewController {
@@ -52,6 +53,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var Week2Out: UIButton!
     @IBOutlet weak var Week3Out: UIButton!
     @IBOutlet weak var Week4Out: UIButton!
+    @IBOutlet weak var RequestBtnOut: UIButton!
     @IBOutlet weak var HomeworkLabel: UILabel!
     @IBOutlet weak var backgroundTitleView: UIView!
     @IBOutlet weak var TitleBarOut: UIView!
@@ -92,7 +94,32 @@ class FirstViewController: UIViewController {
             self.performSegue(withIdentifier: "week4segue", sender: nil)
         }
     }
-    
+    @IBAction func HomeworkRequest(_ sender: Any)
+    {
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
+            let NEWESTBUILD = NewestBuildDB.value as? String
+            HomeViewController.HomeVar.NewestVersion = NEWESTBUILD!
+            let dictionary = Bundle.main.infoDictionary!
+            let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
+            if versionCurrent.compare(NEWESTBUILD!, options: .numeric) == .orderedAscending {
+                EZAlertController.alert("Alte Version", message: "Die Version ist veraltet. Aus Sicherheisgründen ist die Funktion nicht verfügbar. Bitte lade die neuste Version herunter. (https://ios.klassenappd.de)")
+            }
+            else {
+                ref.child("standardData").child("requestsAllowed").observeSingleEvent(of: .value, with: { (EditAllowed) in
+                    let Eall = EditAllowed.value as? String
+                    if Eall == "1" {
+                        self.performSegue(withIdentifier: "gotohomeworkrequest", sender: nil)
+                    }
+                    else {
+                        EZAlertController.alert("Nicht erlaubt", message: "Die Anfragen sind momentan gesperrt.")
+                    }
+                })
+            }
+        }
+    }
     
     //UpdateView:
     @IBOutlet weak var NUView: UIView!
@@ -150,6 +177,8 @@ class FirstViewController: UIViewController {
             self.Week3Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
             
             self.Week4Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            
+            self.RequestBtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
         }
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TitleBarOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)

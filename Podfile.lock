@@ -170,6 +170,7 @@ PODS:
   - SwipeableTabBarController (1.4.0)
   - TrueTime (5.0.0):
     - Result (~> 3.0)
+  - "UITextView+Placeholder (1.2.1)"
   - WhatsNewKit (1.1.7)
 
 DEPENDENCIES:
@@ -208,6 +209,7 @@ DEPENDENCIES:
   - StatusBarOverlay
   - SwipeableTabBarController
   - TrueTime
+  - "UITextView+Placeholder"
   - WhatsNewKit
 
 SPEC REPOS:
@@ -258,6 +260,7 @@ SPEC REPOS:
     - StatusBarOverlay
     - SwipeableTabBarController
     - TrueTime
+    - "UITextView+Placeholder"
     - WhatsNewKit
 
 EXTERNAL SOURCES:
@@ -330,8 +333,9 @@ SPEC CHECKSUMS:
   StatusBarOverlay: ce2193d14935dce0c7097ac8f79a7145e87e0c07
   SwipeableTabBarController: 3a393aa51f1c49c4517b05047c2688a6175c634c
   TrueTime: 8fcd3bbbee664a46ab093ac22882eef4aab26229
+  "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   WhatsNewKit: 3976120978db0089535f777cd1b442579418b6fa
 
-PODFILE CHECKSUM: 7bb30444785f3f9cca392c687f7788c71b3163a1
+PODFILE CHECKSUM: d2ba7ec363a7f2c3a8ceeb2e91519fbd2af6318e
 
 COCOAPODS: 1.5.2

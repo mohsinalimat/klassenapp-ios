@@ -25,6 +25,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var TouchIDSwitchOut: UISwitch!
     @IBOutlet weak var DarkmodeSwitchOut: UISwitch!
     @IBOutlet weak var BackBtnOut: UIButton!
+    @IBOutlet weak var InformationForRequests: UIButton!
     
     @IBOutlet weak var AppVersionLabe: UILabel!
     @IBOutlet weak var backgroundTitleView: UIView!
@@ -32,6 +33,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var SiriShortcutReadHomework: UISwitch!
     @IBOutlet weak var ReadInfosBtnOut: UIButton!
     
+    @IBAction func InformationForRequestsAction(_ sender: Any)
+    {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
+        } else {
+            UIApplication.shared.openURL(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
+        }
+    }
     
     //Labels for Darkmode
     @IBAction func ElternzettelChatBtn(_ sender: Any)
@@ -145,7 +154,7 @@ class SettingsViewController: UIViewController {
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: "mailto:mail@klassenappd.de")!)
         } else {
-            UIApplication.shared.openURL(URL(string: "https://google.de")!)
+            UIApplication.shared.openURL(URL(string: "mailto:mail@klassenappd.de")!)
         }
      /*   print("testMail")
         let email = "mail@klassenappd.de"
