@@ -19,11 +19,14 @@ class HomeViewController: UIViewController {
     lazy var panelManager = Panels(target: self)
     var timer: Timer!
     var disappearUpdate: Timer!
+    var time1 = 0
     
     lazy var bulletinManager: BLTNItemManager = {
         let introPage = FirstViewController.bulletinNWUP()
         return BLTNItemManager(rootItem: introPage)
     }()
+    
+    
 
     let TextSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
     
@@ -303,11 +306,10 @@ class HomeViewController: UIViewController {
 
         }
         
-        
-        
-
         // Do any additional setup after loading the view.
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         var ref: DatabaseReference!
@@ -358,14 +360,9 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Designveränderungen",
-                        subtitle: "Nun sind die Knöpfe runder und in den Einstellungen hat sich die Anordnung der Knöpfe etwas verändert.",
-                        image: UIImage(named: "designicon")
-                    ),
-                    WhatsNew.Item(
-                        title: "Homeseite",
-                        subtitle: "Auf der Homeseite wird das nächste Event über einen anderen Datenbankeintrag gesteuert. Relativ egal... Muss man nicht verstehen :) ",
-                        image: UIImage(named: "homeicon")
+                        title: "Anfragen",
+                        subtitle: "Jetzt kann man Anfragen zum Eintragen von Hausaufgaben senden. Für mehr Infos einfach den Knopf in den Einstellungen drücken.",
+                        image: UIImage(named: "icons8-umfrage")
                     )
                 ]
             )
@@ -403,7 +400,7 @@ class HomeViewController: UIViewController {
             print("no")
         }
     }
-    
+
     @objc func setToTV() {
         if HomeVar.essenDate != "" && HomeVar.essenHeute != "" && HomeVar.HabmText != "" && HomeVar.HabmTime != "" && HomeVar.LDU != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NextEvent != "" {
             let formattedString = NSMutableAttributedString()
@@ -436,6 +433,11 @@ class HomeViewController: UIViewController {
        /* HomeTV.text = "Hausaufgaben bis morgen:\n\(HomeViewController.HomeVar.HabmText)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nEssen heute:\n\(HomeViewController.HomeVar.essenHeute)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nHABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\nSpeiseplanwoche: \(HomeViewController.HomeVar.essenDate)\nLDU: \(HomeViewController.HomeVar.LDU)"*/
             timer.invalidate()
         }
+    }
+    
+    func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+        return String((0...length-1).map{_ in letters.randomElement()!})
     }
     
     static func bulletinNWUP() -> BLTNPageItem {

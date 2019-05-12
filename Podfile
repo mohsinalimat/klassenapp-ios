@@ -40,6 +40,7 @@ pod 'EZAlertController', '3.2'
 pod 'GDPerformanceView-Swift', '~> 2.0.2'
 pod 'StatusBarOverlay'
 pod 'LNSideMenu', '~> 3.0'
+pod 'UITextView+Placeholder'
 
 
   # Pods for KlassenAppD
