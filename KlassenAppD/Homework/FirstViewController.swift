@@ -21,11 +21,15 @@ import FirebaseMessaging
 import AppCenterPush
 import AppCenter
 import EZAlertController
+import NVActivityIndicatorView
 
 
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var LDULabel: UILabel!
+    
+     var loader : NVActivityIndicatorView!
+    
     lazy var bulletinManager: BLTNItemManager = {
         let introPage = FirstViewController.bulletinNWUP()
         return BLTNItemManager(rootItem: introPage)
@@ -167,7 +171,11 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
        // CIView.isHidden = true
         super.viewDidLoad()
-        
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         //self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil && UserDefaults.standard.string(forKey: "ButtonColor") != "" {
          self.Week1Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
@@ -536,6 +544,7 @@ class FirstViewController: UIViewController {
         
         ref.child("homework").child("Week1").child("Datum").observeSingleEvent(of: .value) { (Week1DatumSnap) in
             let Week1DatumLE = Week1DatumSnap.value as? String
+            self.loader.stopAnimating()
             UserDefaults.standard.set(Week1DatumLE, forKey: "UDW1Btn")
             self.Week1Out.setTitle(Week1DatumLE, for: .normal)
         }

@@ -19,6 +19,7 @@ class ChangeColorMenuViewController: UIViewController {
     {
         UserDefaults.standard.set("", forKey: "TitleBarColor")
         UserDefaults.standard.set("", forKey: "ButtonColor")
+        self.performSegue(withIdentifier: "backfromcolormain", sender: nil)
     }
     @IBAction func ChangeButtonColorACTION(_ sender: Any)
     {

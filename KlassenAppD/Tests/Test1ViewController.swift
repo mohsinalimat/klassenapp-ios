@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import NVActivityIndicatorView
 
 class Test1ViewController: UIViewController {
     
@@ -15,7 +16,7 @@ class Test1ViewController: UIViewController {
     @IBOutlet weak var InfoLabelT1: UILabel!
     @IBOutlet weak var DesLabelT1: UILabel!
     @IBOutlet weak var DesLabelT1TV: UITextView!
-    
+    var loader : NVActivityIndicatorView!
     
     @IBAction func T1BBtn(_ sender: Any)
     {
@@ -26,6 +27,11 @@ class Test1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             InfoLabelT1.textColor = UIColor.white
@@ -100,6 +106,7 @@ class Test1ViewController: UIViewController {
             let LabelT1LE = LabelT1Snap.value as? String
             UserDefaults.standard.set(LabelT1LE, forKey: "UDT1LABEL")
             self.InfoLabelT1.text = LabelT1LE
+            self.loader.stopAnimating()
         }
         ref.child("arbeiten").child("Arbeit1").child("beschreibung").observeSingleEvent(of: .value) { (DesT1Snap) in
             let DesT1LE = DesT1Snap.value as? String

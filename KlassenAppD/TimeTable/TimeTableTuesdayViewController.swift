@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import Firebase
+import NVActivityIndicatorView
 
 class TimeTableTuesdayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var TVTuesdayTitle: UILabel!
     
-    let TuesdayTVarray: [String] = ["1. Std: Religion", "2. Std: Religion", "3. Std: NwT/Spanisch", "4. Std: NwT/Spanisch", "5. Std: Französisch", "6. Std: Französisch", "PAUSE", "8. Std: Gemeinschaftskunde", "9. Std: WBS"]
+   // let TuesdayTVarray: [String] = ["1. Std: Religion", "2. Std: Religion", "3. Std: NwT/Spanisch", "4. Std: NwT/Spanisch", "5. Std: Französisch", "6. Std: Französisch", "PAUSE", "8. Std: Gemeinschaftskunde", "9. Std: WBS"]
+    var tuesdayArray : [String] = []
+    var loader : NVActivityIndicatorView!
     
     @IBOutlet weak var TimeTableTuesdayTV: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        //loader.type = .ballRotateChase
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             TVTuesdayTitle.textColor = UIColor.white
@@ -36,17 +45,37 @@ class TimeTableTuesdayViewController: UIViewController, UITableViewDelegate, UIT
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    func loadData() {
+        let ref: DatabaseReference
+        ref = Database.database().reference()
+        ref.child("stundenplan").child("tuesday").observeSingleEvent(of: .value, with: { snapshot in
+            var mySongArray = [String]()
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let hours = snap.value as! String
+                self.tuesdayArray.append(hours)
+            }
+            print(self.tuesdayArray)
+            self.TimeTableTuesdayTV.reloadData()
+            self.loader.stopAnimating()
+        })
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TuesdayTVarray.count
+        return tuesdayArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celltue = TimeTableTuesdayTV.dequeueReusableCell(withIdentifier: "celltuesday", for: indexPath)
-        celltue.textLabel?.text = TuesdayTVarray[indexPath.row]
+        celltue.textLabel?.text = tuesdayArray[indexPath.row]
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             celltue.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             celltue.textLabel!.textColor = UIColor.white
