@@ -14,6 +14,7 @@ import WhatsNewKit
 import Panels
 import SAConfettiView
 import EZAlertController
+import NVActivityIndicatorView
 
 class HomeViewController: UIViewController {
     lazy var panelManager = Panels(target: self)
@@ -25,9 +26,10 @@ class HomeViewController: UIViewController {
         let introPage = FirstViewController.bulletinNWUP()
         return BLTNItemManager(rootItem: introPage)
     }()
+    //var loader: NVActivityIndicatorView;
+    var loader : NVActivityIndicatorView!
     
     
-
     let TextSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
     
     @IBOutlet weak var TitleBar: UIView!
@@ -37,6 +39,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var HomeTV: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        //loader.type = .ballRotateChase
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
@@ -54,21 +63,8 @@ class HomeViewController: UIViewController {
         }
         menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 30.0)
         view.addSubview(menuButton)
-        //HomeWorkShortID
-        //homeID
         
-     /*   let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
-            // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeID") as? HomeViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn1")
-        }*/
         let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
-            // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeWorkShortID") as? FirstViewController
             {
                 self.present(vc, animated: true, completion: nil)
@@ -76,8 +72,6 @@ class HomeViewController: UIViewController {
             print("btn1")
         }
         let item1 = ExpandingMenuItem(size: menuButtonSize, title: "Arbeiten", image: UIImage(named: "ball_point_pen")!, highlightedImage: UIImage(named: "ball_point_pen")!, backgroundImage: UIImage(named: "ball_point_pen"), backgroundHighlightedImage: UIImage(named: "ball_point_pen")) { () -> Void in
-            // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestsShortID") as? SecondViewController
             {
                 self.present(vc, animated: true, completion: nil)
@@ -208,27 +202,22 @@ class HomeViewController: UIViewController {
         ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUSnap) in
             let LDUSNAP = LDUSnap.value as? String
             HomeViewController.HomeVar.LDU = LDUSNAP!
-          //  HomeViewController.HomeVar.LDU = NSMutableAttributedString(string: LDUSNAP!, attributes: self.TextSizeAttr)
         }
         ref.child("homework").child("bismorgen").child("hausaufgaben").observeSingleEvent(of: .value) { (HABMINFOSNAP) in
             let HABMINFOLE = HABMINFOSNAP.value as? String
             HomeViewController.HomeVar.HabmText = HABMINFOLE!
-           // HomeViewController.HomeVar.HabmText = NSMutableAttributedString(string: HABMINFOLE!, attributes: self.TitleSizeAttr)
         }
         ref.child("homework").child("bismorgen").child("updatetime").observeSingleEvent(of: .value) { (HABMLDUSNAP) in
             let HABMLDULE = HABMLDUSNAP.value as! String
             HomeViewController.HomeVar.HabmTime = HABMLDULE
-            //HomeViewController.HomeVar.HabmTime = NSMutableAttributedString(string: HABMLDULE, attributes: self.TextSizeAttr)
         }
         ref.child("news").child("news1").observeSingleEvent(of: .value) { (News1Snap) in
             let NEWS1SNAP = News1Snap.value as? String
             HomeViewController.HomeVar.News1 = NEWS1SNAP!
-            //HomeViewController.HomeVar.News1 = NSMutableAttributedString(string: NEWS1SNAP!, attributes: self.TextSizeAttr)
         }
         ref.child("news").child("newsL").observeSingleEvent(of: .value) { (NewsLSnap) in
             let NEWSLSNAP = NewsLSnap.value as? String
             HomeViewController.HomeVar.NewsL = NEWSLSNAP!
-            //HomeViewController.HomeVar.NewsL = NSMutableAttributedString(string: NEWSLSNAP!, attributes: self.TextSizeAttr)
         }
         ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
             let NEWESTBUILD = NewestBuildDB.value as? String
@@ -239,7 +228,6 @@ class HomeViewController: UIViewController {
         
         if versionCurrent.compare(HomeViewController.HomeVar.NewestVersion, options: .numeric) == .orderedAscending {
             HomeViewController.HomeVar.NewVersionAvailable = "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)"
-            //HomeViewController.HomeVar.NewVersionAvailable = NSMutableAttributedString(string: "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)", attributes: self.TextSizeAttr)
         }
         else {
             HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
@@ -360,10 +348,21 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Anfragen",
-                        subtitle: "Jetzt kann man Anfragen zum Eintragen von Hausaufgaben senden. Für mehr Infos einfach den Knopf in den Einstellungen drücken.",
-                        image: UIImage(named: "icons8-umfrage")
+                        title: "Stundenplan in der Datenbank",
+                        subtitle: "Ab jetzt wird der Stundenplan durch die Datenbank aktualisiert.",
+                        image: UIImage(named: "icons8-datenbank-export-30")
+                    ),
+                    WhatsNew.Item(
+                        title: "Neue Ladeanimation",
+                        subtitle: "Beim Herunterladen von Daten erscheint jetzt eine neue Ladeanimation.",
+                        image: UIImage(named: "icons8-aktualisieren-30")
+                    ),
+                    WhatsNew.Item(
+                        title: "Andere",
+                        subtitle: "Es wurden noch einige Bugs behoben und kleinere Sachen verändert.",
+                        image: UIImage(named: "more")
                     )
+
                 ]
             )
             
@@ -377,17 +376,6 @@ class HomeViewController: UIViewController {
             self.present(whatsNewViewController, animated: true)
             UserDefaults.standard.set("1", forKey: "\(versionCurrent)")
         }
-        
-       /* let controller = UpdateAvailableView()
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        transitionDelegate.customHeight = 40
-        transitionDelegate.swipeToDismissEnabled = true
-        controller.transitioningDelegate = transitionDelegate
-        controller.modalPresentationStyle = .custom
-        controller.modalPresentationCapturesStatusBarAppearance = true
-        self.present(controller, animated: true, completion: nil)*/
-
-       // if HomeVar.HabmTime != "" && HomeVar.HabmText != "" && HomeVar.NextEvent != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NewestVersion != "" && HomeVar.NewVersionAvailable != "" && HomeVar.LDU != ""
     }
     
     @objc func removeUpdateMessage() {
@@ -430,8 +418,8 @@ class HomeViewController: UIViewController {
                 HomeTV.textColor = UIColor.black
                 HomeTV.backgroundColor = UIColor.white
             }
-       /* HomeTV.text = "Hausaufgaben bis morgen:\n\(HomeViewController.HomeVar.HabmText)\n\nNeuigkeiten:\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\nNächstes Event: \(HomeViewController.HomeVar.NextEvent)\n\nEssen heute:\n\(HomeViewController.HomeVar.essenHeute)\n\nUpdate: \(HomeViewController.HomeVar.NewVersionAvailable)\n\nHABM-Updatezeit: \(HomeViewController.HomeVar.HabmTime)\nSpeiseplanwoche: \(HomeViewController.HomeVar.essenDate)\nLDU: \(HomeViewController.HomeVar.LDU)"*/
             timer.invalidate()
+            loader.stopAnimating()
         }
     }
     
@@ -456,12 +444,6 @@ class HomeViewController: UIViewController {
         nUABpage.actionHandler = { (item: BLTNActionItem) in
             HomeVar.UpdateReminderSession = "1"
             item.manager?.dismissBulletin()
-            //updatecenterid
-            /*let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-             let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "updatecenterid") as UIViewController
-             self.window = UIWindow(frame: UIScreen.main.bounds)
-             self.window?.rootViewController = initialViewControlleripad
-             self.window?.makeKeyAndVisible()*/
         }
         nUABpage.dismissalHandler = { (item: BLTNItem) in
             HomeVar.UpdateReminderSession = "1"
@@ -512,7 +494,7 @@ class HomeViewController: UIViewController {
 extension NSMutableAttributedString {
     @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
         let attrs: [NSAttributedString.Key: Any] = [
-            .font: UIFont(name: "Arial", size: 17)]
+            .font: UIFont(name: "Arial", size: 19)]
         let boldString = NSMutableAttributedString(string:text, attributes: attrs)
         append(boldString)
         

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import ExpandingMenu
+import NVActivityIndicatorView
 
 class SecondViewController: UIViewController {
     let network: NetworkManager = NetworkManager.sharedInstance
@@ -22,6 +23,9 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var TitleBar: UIView!
     
     @IBOutlet weak var TestsLabel: UILabel!
+    
+    var loader : NVActivityIndicatorView!
+    
     
     @IBAction func Arbeit1Btn(_ sender: Any)
     {
@@ -51,6 +55,11 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil && UserDefaults.standard.string(forKey: "ButtonColor") != "" {
             self.Arbeit1BtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
             
@@ -286,6 +295,7 @@ class SecondViewController: UIViewController {
         
         ref.child("arbeiten").child("Arbeit1").child("buttonname").observeSingleEvent(of: .value) { (Arbeit1ButtonSnap) in
             let Arbeit1ButtonName = Arbeit1ButtonSnap.value as? String
+            self.loader.stopAnimating()
             UserDefaults.standard.set(Arbeit1ButtonName, forKey: "UDTEST1Btn")
             if Arbeit1ButtonName != "-" {
                 self.Arbeit1BtnOut.isEnabled = true

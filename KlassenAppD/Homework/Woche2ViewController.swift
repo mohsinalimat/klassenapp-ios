@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import NVActivityIndicatorView
 
 class Woche2ViewController: UIViewController {
     
@@ -21,6 +22,9 @@ class Woche2ViewController: UIViewController {
     
     @IBOutlet weak var HomeworkLabelW2: UILabel!
     
+    var loader : NVActivityIndicatorView!
+
+    
     @IBAction func HW2BBtn(_ sender: Any)
     {
         FirstViewController.LastVC.LastVCV = "hw"
@@ -31,6 +35,11 @@ class Woche2ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             HomeworkLabelW2.textColor = UIColor.white
@@ -144,6 +153,7 @@ class Woche2ViewController: UIViewController {
             let FridayWeek2Home = FridayWeek2Snap.value as? String
             Week2Var.Week2Friday = FridayWeek2Home!
              self.WholeWeek2Text.text = "\(Week2Var.Week2Monday)\n\n\(Week2Var.Week2Tuesday)\n\n\(Week2Var.Week2Wednesday)\n\n\(Week2Var.Week2Thursday)\n\n\(Week2Var.Week2Friday)"
+            self.loader.stopAnimating()
         }
     }
 }

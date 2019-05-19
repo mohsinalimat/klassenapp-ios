@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import ExpandingMenu
 import FirebaseAuth
+import NVActivityIndicatorView
 
 class HABMViewController: UIViewController {
 
@@ -18,8 +19,16 @@ class HABMViewController: UIViewController {
     @IBOutlet weak var HABMTitleBack: UIView!
     @IBOutlet weak var HABMInfo: UITextView!
     @IBOutlet weak var HABMLDU: UILabel!
+    
+    var loader : NVActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
         }
@@ -36,10 +45,8 @@ class HABMViewController: UIViewController {
         }
         menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 30.0)
         view.addSubview(menuButton)
-        //HomeWorkShortID
         let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
             // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeID") as? HomeViewController
             {
                 self.present(vc, animated: true, completion: nil)
@@ -48,7 +55,6 @@ class HABMViewController: UIViewController {
         }
         let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
             // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeWorkShortID") as? FirstViewController
             {
                 self.present(vc, animated: true, completion: nil)
@@ -57,21 +63,12 @@ class HABMViewController: UIViewController {
         }
         let item1 = ExpandingMenuItem(size: menuButtonSize, title: "Arbeiten", image: UIImage(named: "ball_point_pen")!, highlightedImage: UIImage(named: "ball_point_pen")!, backgroundImage: UIImage(named: "ball_point_pen"), backgroundHighlightedImage: UIImage(named: "ball_point_pen")) { () -> Void in
             // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestsShortID") as? SecondViewController
             {
                 self.present(vc, animated: true, completion: nil)
             }
             print("btn1")
         }
-      /*  let item2 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben bis morgen", image: UIImage(named: "clock")!, highlightedImage: UIImage(named: "clock")!, backgroundImage: UIImage(named: "clock"), backgroundHighlightedImage: UIImage(named: "clock")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "habmID") as? HABMViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn2")
-        }*/
         let item3 = ExpandingMenuItem(size: menuButtonSize, title: "Neuigkeiten", image: UIImage(named: "news")!, highlightedImage: UIImage(named: "news")!, backgroundImage: UIImage(named: "news"), backgroundHighlightedImage: UIImage(named: "news")) { () -> Void in
             // Do some action
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newsID") as? NewsViewController
@@ -149,6 +146,7 @@ class HABMViewController: UIViewController {
         ref.child("homework").child("bismorgen").child("hausaufgaben").observeSingleEvent(of: .value) { (HABMINFOSNAP) in
             let HABMINFOLE = HABMINFOSNAP.value as? String
             self.HABMInfo.text = HABMINFOLE
+            self.loader.stopAnimating()
         }
         ref.child("homework").child("bismorgen").child("updatetime").observeSingleEvent(of: .value) { (HABMLDUSNAP) in
             let HABMLDULE = HABMLDUSNAP.value as! String

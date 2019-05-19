@@ -5,7 +5,6 @@ target 'KlassenAppD' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 pod 'Firebase/Core'
-pod 'Firebase'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
@@ -41,6 +40,7 @@ pod 'GDPerformanceView-Swift', '~> 2.0.2'
 pod 'StatusBarOverlay'
 pod 'LNSideMenu', '~> 3.0'
 pod 'UITextView+Placeholder'
+pod 'NVActivityIndicatorView'
 
 
   # Pods for KlassenAppD

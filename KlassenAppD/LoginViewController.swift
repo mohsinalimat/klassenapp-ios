@@ -137,16 +137,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
-        if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
-            self.performSegue(withIdentifier: "startwelcomeTourSegue", sender: nil)
-        }
-        if UserDefaults.standard.integer(forKey: "Checker") == 1 {
-            self.performSegue(withIdentifier: "logintohome", sender: nil)
-        }
-        else {
-        }
     }
     
     func createAlert (title: String, message:String) {
@@ -157,25 +153,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-  /*  func alertforteacher (title: String, message:String) {
-        let alertTea = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alertTea.addAction(UIAlertAction(title: "Schüleransicht (alle Funktionen)", style: UIAlertAction.Style.default, handler: { (TeaTouchSuS) in
-            UserDefaults.standard.set(1, forKey: "Checker")
-                self.performSegue(withIdentifier: "loginsegue", sender: nil)
-            
-        }))
-        alertTea.addAction(UIAlertAction(title: "Lehreransicht (News: Bearbeitungsmodus)", style: UIAlertAction.Style.default, handler: { (TeaTouchTea) in
-            UserDefaults.standard.set("tea", forKey: "TEALOGGER")
-                self.performSegue(withIdentifier: "logintotea", sender: nil)
-            
-            
-        }))
-        alertTea.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertAction.Style.default, handler: { (TeaTouchDismiss) in
-            alertTea.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alertTea, animated: true, completion: nil)
-    }*/
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

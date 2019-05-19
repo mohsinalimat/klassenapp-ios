@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import ExpandingMenu
+import NVActivityIndicatorView
 
 class NewsViewController: UIViewController {
     
@@ -18,8 +19,18 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var NewsView: UITextView!
     @IBOutlet weak var NewsLabel: UILabel!
     @IBOutlet weak var backgroundTitleView: UIView!
+    
+    var loader : NVActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
+        
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
         }
@@ -39,7 +50,6 @@ class NewsViewController: UIViewController {
         //HomeWorkShortID
         let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
             // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeID") as? HomeViewController
             {
                 self.present(vc, animated: true, completion: nil)
@@ -48,7 +58,6 @@ class NewsViewController: UIViewController {
         }
         let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
             // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeWorkShortID") as? FirstViewController
             {
                 self.present(vc, animated: true, completion: nil)
@@ -57,7 +66,6 @@ class NewsViewController: UIViewController {
         }
         let item1 = ExpandingMenuItem(size: menuButtonSize, title: "Arbeiten", image: UIImage(named: "ball_point_pen")!, highlightedImage: UIImage(named: "ball_point_pen")!, backgroundImage: UIImage(named: "ball_point_pen"), backgroundHighlightedImage: UIImage(named: "ball_point_pen")) { () -> Void in
             // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestsShortID") as? SecondViewController
             {
                 self.present(vc, animated: true, completion: nil)
@@ -137,19 +145,7 @@ class NewsViewController: UIViewController {
             NewsView.backgroundColor = UIColor.white
             UIApplication.shared.statusBarStyle = .default
         }
-    
-    
         // Do any additional setup after loading the view.
-       /* NetworkManager.isUnreachable { (_) in
-            var NEWSADMIV = UserDefaults.standard.string(forKey: "NEWSADMIN")
-            var NEWSLEHREV = UserDefaults.standard.string(forKey: "NEWSLEHRER")
-            if NEWSADMIV == nil && NEWSLEHREV == nil {
-                self.NewsView.text = "S: Keine Daten vorhanden"
-            }
-            else {
-                self.NewsView.text = "S: News von den Administratoren: " + NEWSADMIV! + "\n\n" + "S: Von den Lehrern hinzugefügte News: " + NEWSLEHREV!
-            }
-        }*/
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -175,11 +171,7 @@ class NewsViewController: UIViewController {
                     print ("Error signing out: %@", signOutError)
                 }
             }
-            
-            
         }
-        
-        
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
@@ -191,6 +183,7 @@ class NewsViewController: UIViewController {
                 let NewsLLE = NewsLSnap.value as? String
                 UserDefaults.standard.set(NewsLLE, forKey: "NEWSLEHRER")
                 self.NewsView.text = "News von den Administratoren: " + NewsLE! + "\n\n" + "Von den Lehrern hinzugefügte News: " + NewsLLE!
+                self.loader.stopAnimating()
             })
             
         })

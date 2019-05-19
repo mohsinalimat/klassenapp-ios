@@ -9,15 +9,23 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import NVActivityIndicatorView
 
 class FoodThViewController: UIViewController {
     
     let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var FoodThText: UITextView!
     @IBOutlet weak var FoodThLabel: UILabel!
+    var loader : NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+        //loader.type = .ballRotateChase
+        loader.type = .ballPulseSync
+        loader.color = UIColor.red
+        view.addSubview(loader)
+        loader.startAnimating()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             FoodThText.textColor = UIColor.white
@@ -57,6 +65,7 @@ class FoodThViewController: UIViewController {
             let FoodThursdayLE = FoodThursdaySnap.value as? String
             UserDefaults.standard.set(FoodThursdayLE, forKey: "UDFOODTH")
             self.FoodThText.text = FoodThursdayLE
+            self.loader.stopAnimating()
         }
     }
     

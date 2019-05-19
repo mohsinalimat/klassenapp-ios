@@ -94,10 +94,14 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.6.0</string>
+	<string>4.7.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>AppIconCurrentIco</string>
 			<key>CFBundleURLName</key>
 			<string>com.adrianbaumgart.KlassenAppDREA1234</string>
 			<key>CFBundleURLSchemes</key>
@@ -107,7 +111,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1774</string>
+	<string>1823</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
