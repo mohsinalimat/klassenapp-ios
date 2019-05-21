@@ -10,7 +10,7 @@ Table of Contents:
   * [Create an issue](#create-an-issue)
   * [Modifying the app](#modifying-the-app)
     * [Installation](#installation)
-    * [Uploading](#uploading)
+   * [Uploading](#uploading)
     
 [Questions](#questions)
 
