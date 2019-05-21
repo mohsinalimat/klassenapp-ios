@@ -9,8 +9,8 @@ Table of Contents:
 [How can I contribute](#how-can-i-contribute)
   * [Create an issue](#create-an-issue)
   * [Modifying the app](#modifying-the-app)
-    * [Installation](#installation)
-   * [Uploading](#uploading)
+    - [Installation](#installation)
+    - [Uploading](#uploading)
     
 [Questions](#questions)
 
