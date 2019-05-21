@@ -478,6 +478,7 @@ class HomeViewController: UIViewController {
         static var NewVersionAvailable = ""
         static var LDU = ""
     }
+    
     struct Titles {
         static var Habm = NSMutableAttributedString()
         static var HabmTime = NSMutableAttributedString()
