@@ -1,0 +1,6 @@
+framework module SparrowKit {
+  umbrella header "SparrowKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
