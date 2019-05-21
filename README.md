@@ -28,6 +28,10 @@ This app was programmed for a school class to have an overview over homework, te
 22. SAConfettiView - sudeepag (https://github.com/sudeepag/SAConfettiView)
 23. EZAlertContoller - thellimist (https://github.com/thellimist/EZAlertController)
 24. GDPerformanceView-Swift - dani-gavrilov (https://github.com/dani-gavrilov/GDPerformanceView-Swift)
+25. StatusBarOverlay - IdleHandsApps (https://github.com/IdleHandsApps/StatusBarOverlay)
+26. LNSideMenu - luannguyenkhoa (https://github.com/luannguyenkhoa/LNSideMenu)
+27. UITextView-Placeholder - devxoul (https://github.com/devxoul/UITextView-Placeholder)
+28. NVActivityIndicatorView - ninjaprox (https://github.com/ninjaprox/NVActivityIndicatorView)
 
 ## Code of Conduct / Contribute:
 If you want to contribute, please have a look at our [Code of Conduct](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CODE_OF_CONDUCT.md) and our [Contributing](https://github.com/AdriBoy21/klassenapp-ios/blob/master/CONTRIBUTING.md) file.
