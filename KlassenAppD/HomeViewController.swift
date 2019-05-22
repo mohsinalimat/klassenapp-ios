@@ -365,11 +365,7 @@ class HomeViewController: UIViewController {
 
                 ]
             )
-            
-            
-            
-            
-            
+
             // Initialize WhatsNewViewController with WhatsNew
             let whatsNewViewController = WhatsNewViewController(
                 whatsNew: whatsNew,
