@@ -39,4 +39,4 @@ as described in the [Code of Conduct](https://github.com/AdriBoy21/klassenapp-io
 ## License:
 This project is protected by the following license: GNU Affero General Public License v3.0 (GNU AGPLv3). More information can be found in the file "LICENSE".
 
-## If something is not working or if you have a question, feel free to contact me via E-Mail: [developer@adrianbaumgart.de](mailto:developer@adrianbaumgart.de).
+## If something is not working or if you have a question, please feel free to contact me via Mail: [developer@adrianbaumgart.de](mailto:developer@adrianbaumgart.de).
