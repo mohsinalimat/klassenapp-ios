@@ -40,8 +40,9 @@ class LaunchAnimationViewController: UIViewController {
             }
             else if UserDefaults.standard.integer(forKey: "Checker") == 1 {
                 //   self.performSegue(withIdentifier: "logintohome", sender: nil)
-                let vc = (self.storyboard?.instantiateViewController(withIdentifier: "homeID"))!
-                self.present(vc, animated: true)
+             /*   let vc = (self.storyboard?.instantiateViewController(withIdentifier: "homeID"))!
+                self.present(vc, animated: true)*/
+                self.performSegue(withIdentifier: "directtotb", sender: nil)
             }
             else {
                 self.performSegue(withIdentifier: "launchanimationfinish", sender: nil)

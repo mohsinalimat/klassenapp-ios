@@ -168,17 +168,24 @@ class FirstViewController: UIViewController {
     }
     //:EndUpdateView
     
-    override func viewDidLoad() {
-       // CIView.isHidden = true
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        viewLoadSetup()
+    }
+    
+    func viewLoadSetup() {
         loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
         loader.type = .ballPulseSync
         loader.color = UIColor.red
         view.addSubview(loader)
-        loader.startAnimating()
+        if Week1Out.titleLabel?.text == "Download..." {
+            loader.startAnimating()
+        }
+        else {
+            loader.stopAnimating()
+        }
         //self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil && UserDefaults.standard.string(forKey: "ButtonColor") != "" {
-         self.Week1Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            self.Week1Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
             
             self.Week2Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
             
@@ -192,120 +199,23 @@ class FirstViewController: UIViewController {
             self.TitleBarOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
         }
         
-       /* print(UserDefaults.standard.string(forKey: "TitleBarColor")!)
-        print("sep")
-        if UserDefaults.standard.string(forKey: "TitleBarColor") != "" && UserDefaults.standard.string(forKey: "TitleBarColor") != nil {
-            var backgroundCOLOR = (UserDefaults.standard.string(forKey: "TitleBarColor") as! String)
-            print(backgroundCOLOR)
-            TitleBarOut.backgroundColor = backgroundCOLOR as? UIColor
-        }
-        if UserDefaults.standard.string(forKey: "ButtonColor") != "" && UserDefaults.standard.string(forKey: "ButtonColor") != nil {
-            var backgroundCOLOR = (UserDefaults.standard.string(forKey: "ButtonColor") as! String)
-            print(backgroundCOLOR)
-            Week1Out.backgroundColor = backgroundCOLOR as? UIColor
-            Week1Out.backgroundColor = backgroundCOLOR as? UIColor
-            Week2Out.backgroundColor = backgroundCOLOR as? UIColor
-            Week3Out.backgroundColor = backgroundCOLOR as? UIColor
-            Week4Out.backgroundColor = backgroundCOLOR as? UIColor
-        }*/
-        let menuButtonSize: CGSize = CGSize(width: 64.0, height: 50.0)
-        print(self.view.frame.height)
-        let menuButton = ExpandingMenuButton(frame: CGRect(origin: CGPoint.zero, size: menuButtonSize), image: UIImage(named: "menulines")!, rotatedImage: UIImage(named: "menulines")!)
-        menuButton.foldingAnimations = .all
-        menuButton.menuItemMargin = 1
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            menuButton.bottomViewColor = UIColor.darkGray
-        }
-        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") != 1 {
-            menuButton.bottomViewColor = UIColor.darkGray
-        }
-        menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 30.0)
-        view.addSubview(menuButton)
-        //HomeWorkShortID
-        //homeID
-        let item00 = ExpandingMenuItem(size: menuButtonSize, title: "Home", image: UIImage(named: "homeicon")!, highlightedImage: UIImage(named: "homeicon")!, backgroundImage: UIImage(named: "homeicon"), backgroundHighlightedImage: UIImage(named: "homeicon")) { () -> Void in
-            // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeID") as? HomeViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn1")
-        }
-        let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
-            // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeWorkShortID") as? FirstViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn1")
-        }
-        let item1 = ExpandingMenuItem(size: menuButtonSize, title: "Arbeiten", image: UIImage(named: "ball_point_pen")!, highlightedImage: UIImage(named: "ball_point_pen")!, backgroundImage: UIImage(named: "ball_point_pen"), backgroundHighlightedImage: UIImage(named: "ball_point_pen")) { () -> Void in
-            // Do some action
-            //self.performSegue(withIdentifier: "hw2arbeiten", sender: nil)
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestsShortID") as? SecondViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn1")
-        }
-        let item2 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben bis morgen", image: UIImage(named: "clock")!, highlightedImage: UIImage(named: "clock")!, backgroundImage: UIImage(named: "clock"), backgroundHighlightedImage: UIImage(named: "clock")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "habmID") as? HABMViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn2")
-        }
-        let item3 = ExpandingMenuItem(size: menuButtonSize, title: "Neuigkeiten", image: UIImage(named: "news")!, highlightedImage: UIImage(named: "news")!, backgroundImage: UIImage(named: "news"), backgroundHighlightedImage: UIImage(named: "news")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newsID") as? NewsViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn3")
-        }
-        let item4 = ExpandingMenuItem(size: menuButtonSize, title: "Einstellungen", image: UIImage(named: "settings")!, highlightedImage: UIImage(named: "settings")!, backgroundImage: UIImage(named: "settings"), backgroundHighlightedImage: UIImage(named: "settings")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settingsID") as? SettingsViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn4")
-        }
-        let item5 = ExpandingMenuItem(size: menuButtonSize, title: "Speiseplan", image: UIImage(named: "icons8-restaurant-filled-50")!, highlightedImage: UIImage(named: "icons8-restaurant-filled-50")!, backgroundImage: UIImage(named: "icons8-restaurant-filled-50"), backgroundHighlightedImage: UIImage(named: "icons8-restaurant-filled-50")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FOODID") as? FoodViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn5")
-        }
-        let item6 = ExpandingMenuItem(size: menuButtonSize, title: "Stundenplan", image: UIImage(named: "icon_menu")!, highlightedImage: UIImage(named: "icon_menu")!, backgroundImage: UIImage(named: "icon_menu"), backgroundHighlightedImage: UIImage(named: "icon_menu")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "planID") as? TimeTableViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn6")
-        }
-        let item9 = ExpandingMenuItem(size: menuButtonSize, title: "Liste", image: UIImage(named: "checked")!, highlightedImage: UIImage(named: "checked")!, backgroundImage: UIImage(named: "checked"), backgroundHighlightedImage: UIImage(named: "checked")) { () -> Void in
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rememberID") as? RememberViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            // Do some action
-            print("btn8")
-        }
+        /* print(UserDefaults.standard.string(forKey: "TitleBarColor")!)
+         print("sep")
+         if UserDefaults.standard.string(forKey: "TitleBarColor") != "" && UserDefaults.standard.string(forKey: "TitleBarColor") != nil {
+         var backgroundCOLOR = (UserDefaults.standard.string(forKey: "TitleBarColor") as! String)
+         print(backgroundCOLOR)
+         TitleBarOut.backgroundColor = backgroundCOLOR as? UIColor
+         }
+         if UserDefaults.standard.string(forKey: "ButtonColor") != "" && UserDefaults.standard.string(forKey: "ButtonColor") != nil {
+         var backgroundCOLOR = (UserDefaults.standard.string(forKey: "ButtonColor") as! String)
+         print(backgroundCOLOR)
+         Week1Out.backgroundColor = backgroundCOLOR as? UIColor
+         Week1Out.backgroundColor = backgroundCOLOR as? UIColor
+         Week2Out.backgroundColor = backgroundCOLOR as? UIColor
+         Week3Out.backgroundColor = backgroundCOLOR as? UIColor
+         Week4Out.backgroundColor = backgroundCOLOR as? UIColor
+         }*/
         
-        
-        if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item00, item1, item2, item3, item4, item5, item6, item9])
-        }
-        else {
-            menuButton.addMenuItems([item00, item1, item2, item3, item4, item5, item6, item9])
-        }
         NUView.isHidden = true
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
@@ -323,18 +233,23 @@ class FirstViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view, typically from a nib.
-       
+        
         Fabric.sharedSDK().debug = true
         if LastVC.LastVCV == "hw" {
             LastVC.LastVCV = "0"
             self.tabBarController?.selectedIndex = 0
         }
         let ref: DatabaseReference = Database.database().reference()
-       /* Week2Out.setTitle("S: \(Week2Label)", for: .normal)
-        Week3Out.setTitle("S: \(Week3Label)", for: .normal)
-        Week4Out.setTitle("S: \(Week4Label)", for: .normal)*/
+        /* Week2Out.setTitle("S: \(Week2Label)", for: .normal)
+         Week3Out.setTitle("S: \(Week3Label)", for: .normal)
+         Week4Out.setTitle("S: \(Week4Label)", for: .normal)*/
         let token: [String: AnyObject] = [Messaging.messaging().fcmToken!: Messaging.messaging().fcmToken as AnyObject]
-       // self.postToken(Token: token)
+        // self.postToken(Token: token)
+    }
+    
+    override func viewDidLoad() {
+       // CIView.isHidden = true
+        super.viewDidLoad()
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
        return UIStatusBarStyle(rawValue: SettingsViewController.GLSEV.DarkmodeVar)!

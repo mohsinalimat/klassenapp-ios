@@ -19,6 +19,11 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var TitleBackground: UIView!
    // @IBOutlet weak var InfoTVCell: AppInfosTableViewCell!
     
+    @IBAction func BackBtn(_ sender: Any)
+    {
+        FirstViewController.LastVC.LastVCV = "settings"
+        self.performSegue(withIdentifier: "backfrominfo2", sender: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return n1.count

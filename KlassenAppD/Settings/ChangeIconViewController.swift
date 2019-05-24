@@ -14,6 +14,11 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var TitleBackground: UIView!
     @IBOutlet weak var TItle: UILabel!
     @IBOutlet weak var InfoTV: UITableView!
+    @IBAction func BackBtn(_ sender: Any)
+    {
+        FirstViewController.LastVC.LastVCV = "settings"
+        self.performSegue(withIdentifier: "backfromicon", sender: nil)
+    }
     // var icons:[String] = ["AppIcon", "AppIconGray", "AppIconGold", "AppIconGreen", "AppIconPink"]
     
     var icons = [UIImage(named: "AppIconCurrentIco"),UIImage(named: "AppIconRedGoldIco"),UIImage(named: "AppIconGrayIco"),UIImage(named: "AppIconGoldIco"),UIImage(named: "AppIconGreenIco"),UIImage(named: "AppIconPinkIco"),UIImage(named: "AppIconBlueIco")]
