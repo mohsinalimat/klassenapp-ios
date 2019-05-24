@@ -20,7 +20,7 @@ class Test1ViewController: UIViewController {
     
     @IBAction func T1BBtn(_ sender: Any)
     {
-        //FirstViewController.LastVC.LastVCV = "test"
+        FirstViewController.LastVC.LastVCV = "test"
         //FirstViewController.LastVC.ShortDirect = "0"
         self.performSegue(withIdentifier: "t1tsegue", sender: nil)
     }

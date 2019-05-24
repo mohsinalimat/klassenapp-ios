@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let pass = passcode.value as? String
             if self.PassCodeInput.text == pass {
                 UserDefaults.standard.set(1, forKey: "Checker")
-                self.performSegue(withIdentifier: "logintohome", sender: nil)
+                self.performSegue(withIdentifier: "logintotb", sender: nil)
             }
             else {
                 self.ErrorOutputLabel.text = "Der Pincode ist falsch"

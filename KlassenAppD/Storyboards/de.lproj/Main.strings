@@ -24,7 +24,7 @@
 "1Ho-1Z-deM.text" = "Woche 2 Download...";
 
 /* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "1Wh-on-IA8"; */
-"1Wh-on-IA8.normalTitle" = "Datendownload...";
+"1Wh-on-IA8.normalTitle" = "Download...";
 
 /* Class = "UIButton"; normalTitle = "<--"; ObjectID = "1du-GB-7uv"; */
 "1du-GB-7uv.normalTitle" = "<--";
@@ -159,7 +159,7 @@
 "Fcu-MQ-neG.text" = "Einstellungen";
 
 /* Class = "UILabel"; text = "Arbeiten & Termine"; ObjectID = "GYT-Qn-cTg"; */
-"GYT-Qn-cTg.text" = "Arbeiten & Termine";
+"GYT-Qn-cTg.text" = "Arbeiten & Events";
 
 /* Class = "UIButton"; normalTitle = "Download..."; ObjectID = "Gjb-1U-gpU"; */
 "Gjb-1U-gpU.normalTitle" = "Download...";
@@ -210,7 +210,7 @@
 "MjN-7B-8ad.text" = "Essen Freitag";
 
 /* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "Mkk-Hi-lgx"; */
-"Mkk-Hi-lgx.normalTitle" = "Datendownload...";
+"Mkk-Hi-lgx.normalTitle" = "Download...";
 
 /* Class = "UILabel"; text = "Arbeit 2:"; ObjectID = "Moh-rv-rP9"; */
 "Moh-rv-rP9.text" = "Arbeit 2:";
@@ -345,7 +345,7 @@
 "ZS7-ST-IiS.normalTitle" = "Download...";
 
 /* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "Zdz-Nk-SKR"; */
-"Zdz-Nk-SKR.normalTitle" = "Datendownload...";
+"Zdz-Nk-SKR.normalTitle" = "Download...";
 
 /* Class = "UITextView"; text = "Woche 4 Download..."; ObjectID = "aAO-9F-TRR"; */
 "aAO-9F-TRR.text" = "Woche 4 Download...";
@@ -360,7 +360,7 @@
 "ceN-lg-uzf.text" = "Download...";
 
 /* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "chc-nV-0ul"; */
-"chc-nV-0ul.normalTitle" = "Datendownload...";
+"chc-nV-0ul.normalTitle" = "Download...";
 
 /* Class = "UILabel"; text = "Hausaufgaben - Woche 3"; ObjectID = "dNU-Zn-n3I"; */
 "dNU-Zn-n3I.text" = "Hausaufgaben - Woche 3";
@@ -390,7 +390,7 @@
 "fnl-m9-pYK.normalTitle" = "<--";
 
 /* Class = "UIButton"; normalTitle = "Datendownload..."; ObjectID = "ftU-Ys-liD"; */
-"ftU-Ys-liD.normalTitle" = "Datendownload...";
+"ftU-Ys-liD.normalTitle" = "Download...";
 
 /* Class = "UIButton"; normalTitle = "<--"; ObjectID = "gDV-CS-Kdf"; */
 "gDV-CS-Kdf.normalTitle" = "<--";

@@ -15,11 +15,16 @@ class ChangeColorMenuViewController: UIViewController {
     @IBOutlet weak var ChangeButtonColorBTN: UIButton!
     @IBOutlet weak var ChangeTitleBarColorBTN: UIButton!
     @IBOutlet weak var TitleBar: UIView!
+    @IBAction func BackBtn(_ sender: Any)
+    {
+        FirstViewController.LastVC.LastVCV = "settings"
+        self.performSegue(withIdentifier: "backfromcolor", sender: nil)
+    }
     @IBAction func ResetColors(_ sender: Any)
     {
         UserDefaults.standard.set("", forKey: "TitleBarColor")
         UserDefaults.standard.set("", forKey: "ButtonColor")
-        self.performSegue(withIdentifier: "backfromcolormain", sender: nil)
+        self.performSegue(withIdentifier: "backfromcolor", sender: nil)
     }
     @IBAction func ChangeButtonColorACTION(_ sender: Any)
     {

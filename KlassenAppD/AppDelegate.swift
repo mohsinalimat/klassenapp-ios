@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
                 
         FirebaseApp.configure()
+        StatusBarOverlay.host = "https://klassenappd.de"
         Fabric.with([Crashlytics.self])
         
         return true

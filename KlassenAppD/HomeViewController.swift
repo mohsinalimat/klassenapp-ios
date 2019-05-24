@@ -38,105 +38,25 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var HomeTitle: UILabel!
     @IBOutlet weak var HomeTitleBackground: UIView!
     @IBOutlet weak var HomeTV: UITextView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
+    
+    func viewLoadSetup() {
+        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
         //loader.type = .ballRotateChase
         loader.type = .ballPulseSync
         loader.color = UIColor.red
         view.addSubview(loader)
-        loader.startAnimating()
+        if HomeTV.text == "Download..." {
+            loader.startAnimating()
+        }
+        else {
+            loader.stopAnimating()
+        }
+        
         
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
         }
-        let menuButtonSize: CGSize = CGSize(width: 64.0, height: 50.0)
-        print(self.view.frame.height)
-        let menuButton = ExpandingMenuButton(frame: CGRect(origin: CGPoint.zero, size: menuButtonSize), image: UIImage(named: "menulines")!, rotatedImage: UIImage(named: "menulines")!)
-        menuButton.foldingAnimations = .all
-        menuButton.menuItemMargin = 1
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            menuButton.bottomViewColor = UIColor.darkGray
-        }
-        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") != 1 {
-            menuButton.bottomViewColor = UIColor.darkGray
-        }
-        menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 30.0)
-        view.addSubview(menuButton)
         
-        let item0 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben", image: UIImage(named: "book")!, highlightedImage: UIImage(named: "book")!, backgroundImage: UIImage(named: "book"), backgroundHighlightedImage: UIImage(named: "book")) { () -> Void in
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeWorkShortID") as? FirstViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn1")
-        }
-        let item1 = ExpandingMenuItem(size: menuButtonSize, title: "Arbeiten", image: UIImage(named: "ball_point_pen")!, highlightedImage: UIImage(named: "ball_point_pen")!, backgroundImage: UIImage(named: "ball_point_pen"), backgroundHighlightedImage: UIImage(named: "ball_point_pen")) { () -> Void in
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestsShortID") as? SecondViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn1")
-        }
-        let item2 = ExpandingMenuItem(size: menuButtonSize, title: "Hausaufgaben bis morgen", image: UIImage(named: "clock")!, highlightedImage: UIImage(named: "clock")!, backgroundImage: UIImage(named: "clock"), backgroundHighlightedImage: UIImage(named: "clock")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "habmID") as? HABMViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn2")
-        }
-        let item3 = ExpandingMenuItem(size: menuButtonSize, title: "Neuigkeiten", image: UIImage(named: "news")!, highlightedImage: UIImage(named: "news")!, backgroundImage: UIImage(named: "news"), backgroundHighlightedImage: UIImage(named: "news")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newsID") as? NewsViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn3")
-        }
-        let item4 = ExpandingMenuItem(size: menuButtonSize, title: "Einstellungen", image: UIImage(named: "settings")!, highlightedImage: UIImage(named: "settings")!, backgroundImage: UIImage(named: "settings"), backgroundHighlightedImage: UIImage(named: "settings")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settingsID") as? SettingsViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn4")
-        }
-        let item5 = ExpandingMenuItem(size: menuButtonSize, title: "Speiseplan", image: UIImage(named: "icons8-restaurant-filled-50")!, highlightedImage: UIImage(named: "icons8-restaurant-filled-50")!, backgroundImage: UIImage(named: "icons8-restaurant-filled-50"), backgroundHighlightedImage: UIImage(named: "icons8-restaurant-filled-50")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FOODID") as? FoodViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn5")
-        }
-        let item6 = ExpandingMenuItem(size: menuButtonSize, title: "Stundenplan", image: UIImage(named: "icon_menu")!, highlightedImage: UIImage(named: "icon_menu")!, backgroundImage: UIImage(named: "icon_menu"), backgroundHighlightedImage: UIImage(named: "icon_menu")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "planID") as? TimeTableViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn6")
-        }
-        let item9 = ExpandingMenuItem(size: menuButtonSize, title: "Liste", image: UIImage(named: "checked")!, highlightedImage: UIImage(named: "checked")!, backgroundImage: UIImage(named: "checked"), backgroundHighlightedImage: UIImage(named: "checked")) { () -> Void in
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rememberID") as? RememberViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            // Do some action
-            print("btn8")
-        }
-        
-        
-        if Auth.auth().currentUser != nil {
-            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item9])
-        }
-        else {
-            menuButton.addMenuItems([item0, item1, item2, item3, item4, item5, item6, item9])
-        }
-
-
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             HomeTitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
@@ -147,9 +67,9 @@ class HomeViewController: UIViewController {
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
-           // HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+            // HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-
+            
             HomeTitle.textColor = UIColor.black
             HomeTV.textColor = UIColor.black
             HomeTV.backgroundColor = UIColor.white
@@ -168,7 +88,8 @@ class HomeViewController: UIViewController {
         let calender = Calendar.current
         let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         let currentday = calender.component(.weekday, from: date)
-        
+        var day = components.day
+        var month = components.month
         var month2 = ""
         var day2 = ""
         var weekdaystring = ""
@@ -215,11 +136,11 @@ class HomeViewController: UIViewController {
         
         
         //            NSAttributedString.Key.foregroundColor: UIColor.white
-    //    var titles = HomeViewController.Titles.self
+        //    var titles = HomeViewController.Titles.self
         let TitleSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
         HomeViewController.Titles.Habm = NSMutableAttributedString(string: "Hausaufgaben bis morgen: ", attributes: TitleSizeAttr)
-       /* titles.HabmTime = NSMutableAttributedString(string: "HABM-Updatezeit", attributes: TitleSizeAttr)
-        titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: T##[NSAttributedString.Key : Any]?)*/
+        /* titles.HabmTime = NSMutableAttributedString(string: "HABM-Updatezeit", attributes: TitleSizeAttr)
+         titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: T##[NSAttributedString.Key : Any]?)*/
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
@@ -291,8 +212,8 @@ class HomeViewController: UIViewController {
             HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
         }
         
-   //      let date = Date()
-    //     let calendar = Calendar.current
+        //      let date = Date()
+        //     let calendar = Calendar.current
         
         /* So = 1
          Mo = 2
@@ -345,15 +266,45 @@ class HomeViewController: UIViewController {
             let TEST1LABELSNAP = Test1LabelSnap.value as? String
             HomeViewController.HomeVar.NextEvent = TEST1LABELSNAP!
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
-
+            
+        }
+        if FirstViewController.LastVC.LastVCV == "hw" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 1
+        }
+        if FirstViewController.LastVC.LastVCV == "test" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 2
+        }
+        if FirstViewController.LastVC.LastVCV == "plans" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 3
+        }
+        if FirstViewController.LastVC.LastVCV == "settings" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 4
         }
         
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       // viewLoadSetup()
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewLoadSetup()
     }
     
     
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        
+        
+        
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
@@ -369,6 +320,8 @@ class HomeViewController: UIViewController {
                     let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
                     var panelConfiguration = PanelConfiguration(size: .half)
                     panelConfiguration.animateEntry = true
+                    panelConfiguration.panelVisibleArea = 130
+                    
                     self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.panelManager.show(panel: panel, config: panelConfiguration)
@@ -402,21 +355,15 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Stundenplan in der Datenbank",
-                        subtitle: "Ab jetzt wird der Stundenplan durch die Datenbank aktualisiert.",
-                        image: UIImage(named: "icons8-datenbank-export-30")
+                        title: "Tabbar",
+                        subtitle: "Die Tabbar ist back! Und jetzt noch besser programmiert als früher!",
+                        image: UIImage(named: "icon_menuo")
                     ),
                     WhatsNew.Item(
-                        title: "Neue Ladeanimation",
-                        subtitle: "Beim Herunterladen von Daten erscheint jetzt eine neue Ladeanimation.",
-                        image: UIImage(named: "icons8-aktualisieren-30")
-                    ),
-                    WhatsNew.Item(
-                        title: "Andere",
-                        subtitle: "Es wurden noch einige Bugs behoben und kleinere Sachen verändert.",
-                        image: UIImage(named: "more")
+                        title: "Unnötige Ansichten entfernt",
+                        subtitle: "Die Ansichten Neuigkeiten und Hausaufgaben bis morgen wurden entfernt. Aber keine Sorge, sie befinden sich auf der Homeseite.",
+                        image: UIImage(named: "icon_close")
                     )
-
                 ]
             )
 
@@ -474,6 +421,7 @@ class HomeViewController: UIViewController {
             }
             timer.invalidate()
             loader.stopAnimating()
+            self.HomeTV.scrollRangeToVisible(NSMakeRange(0, 0))
         }
     }
     

@@ -29,7 +29,7 @@ class Woche1ViewController: UIViewController {
     
     @IBAction func HW1BBtn(_ sender: Any)
     {
-     //   FirstViewController.LastVC.LastVCV = "hw"
+        FirstViewController.LastVC.LastVCV = "hw"
         self.performSegue(withIdentifier: "hw1tsegue", sender: nil)
     }
 

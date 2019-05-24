@@ -59,6 +59,11 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
     
     let days = ["Bitte auswählen", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
+    @IBAction func BackBtn(_ sender: Any)
+    {
+        FirstViewController.LastVC.LastVCV = "hw"
+        self.performSegue(withIdentifier: "backfromrequeststowtb", sender: nil)
+    }
     @IBAction func CreateRequest(_ sender: Any)
     {
         var ref: DatabaseReference!
@@ -85,7 +90,8 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
                 ref.child("requests").child(random).child("day").setValue(self.DatabaseDay!)
                 ref.child("requests").child(random).child("Content").setValue(ContentTextView.text!)
                 ref.child("requests").child(random).child("time").setValue(fulldate)
-                self.performSegue(withIdentifier: "backtohw", sender: nil)
+                FirstViewController.LastVC.LastVCV = "hw"
+                self.performSegue(withIdentifier: "backfromrequeststowtb", sender: nil)
             }
             else {
                 EZAlertController.alert("Fehler", message: "Bitte wähle einen Tag im Menü oben aus.")
