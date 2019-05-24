@@ -139,7 +139,7 @@ class NewsViewController: UIViewController {
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
-            backgroundTitleView.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:0.8)
+            backgroundTitleView.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             NewsView.textColor = UIColor.black
             NewsLabel.textColor = UIColor.black
             NewsView.backgroundColor = UIColor.white

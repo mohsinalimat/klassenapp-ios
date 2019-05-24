@@ -33,7 +33,7 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
-            TitleBackground.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:0.8)
+            TitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             TItle.textColor = UIColor.black
             InfoTV.backgroundColor = UIColor.white
             UIApplication.shared.statusBarStyle = .default
