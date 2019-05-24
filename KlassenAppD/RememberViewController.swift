@@ -23,6 +23,14 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         return LIST.count
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "listcell"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
