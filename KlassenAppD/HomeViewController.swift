@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
     
     let TextSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
     
+    @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var TitleBar: UIView!
     @IBOutlet weak var TestLabel: UILabel!
     @IBOutlet weak var HomeTitle: UILabel!
@@ -146,12 +147,69 @@ class HomeViewController: UIViewController {
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
-            HomeTitleBackground.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:0.8)
+           // HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+            HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+
             HomeTitle.textColor = UIColor.black
             HomeTV.textColor = UIColor.black
             HomeTV.backgroundColor = UIColor.white
             UIApplication.shared.statusBarStyle = .default
         }
+        
+        /* So = 1
+         Mo = 2
+         Di = 3
+         Mi = 4
+         Do = 5
+         Fr = 6
+         Sa = 7 */
+        
+        let date = Date()
+        let calender = Calendar.current
+        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let currentday = calender.component(.weekday, from: date)
+        
+        var month2 = ""
+        var day2 = ""
+        var weekdaystring = ""
+        if currentday == 1 {
+            weekdaystring = "Sonntag"
+        }
+        if currentday == 2 {
+            weekdaystring = "Montag"
+        }
+        if currentday == 3 {
+            weekdaystring = "Dienstag"
+        }
+        if currentday == 4 {
+            weekdaystring = "Mittwoch"
+        }
+        if currentday == 5 {
+            weekdaystring = "Donnerstag"
+        }
+        if currentday == 6 {
+            weekdaystring = "Freitag"
+        }
+        if currentday == 7 {
+            weekdaystring = "Samstag"
+        }
+        
+        if day! < 10 {
+            day2 = "0\(day!)"
+        }
+        else {
+            day2 = "\(day!)"
+        }
+        
+        if month! < 10 {
+            month2 = "0\(month!)"
+        }
+        else {
+            month2 = "\(month!)"
+        }
+        
+        let fulllabelstring = "\(weekdaystring), \(day2).\(month2)"
+        DateLabel.text = fulllabelstring
         
         
         
@@ -233,12 +291,8 @@ class HomeViewController: UIViewController {
             HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
         }
         
-         let date = Date()
-         let calendar = Calendar.current
-         
-         let currentday = calendar.component(.weekday, from: date)
-         
-         print(currentday)
+   //      let date = Date()
+    //     let calendar = Calendar.current
         
         /* So = 1
          Mo = 2
