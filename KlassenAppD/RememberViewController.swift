@@ -22,15 +22,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LIST.count
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "listcell"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
