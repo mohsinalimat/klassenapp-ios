@@ -124,7 +124,7 @@ class HABMViewController: UIViewController {
             HABMInfo.textColor = UIColor.white
             HABMLDU.textColor = UIColor.white
             HABMInfo.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -133,9 +133,20 @@ class HABMViewController: UIViewController {
             HABMInfo.textColor = UIColor.black
             HABMLDU.textColor = UIColor.black
             HABMInfo.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     override func viewDidAppear(_ animated: Bool) {

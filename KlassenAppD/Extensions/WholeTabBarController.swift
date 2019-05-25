@@ -13,7 +13,8 @@ class WholeTabBarController: SwipeableTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSwipeAnimation(type: SwipeAnimationType.sideBySide)
+        //setSwipeAnimation(type: SwipeAnimationType.sideBySide)
+        swipeAnimatedTransitioning?.animationType = SwipeAnimationType.sideBySide
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             self.tabBar.barTintColor = .black
             tabBar.tintColor = UIColor(red:1.00, green:0.58, blue:0.00, alpha:1.0)

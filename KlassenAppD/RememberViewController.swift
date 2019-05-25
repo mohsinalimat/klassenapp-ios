@@ -32,7 +32,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "listcell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             cell!.textLabel!.textColor = UIColor.white
             cell!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
@@ -61,6 +61,17 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
+    }
+    
     
     @IBOutlet weak var TableViewRemember: UITableView!
     
@@ -81,7 +92,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
             TitleLabel.textColor = UIColor.white
             TableViewRemember.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             // ChatMSGTF.tintColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -89,7 +100,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
             TitleLabel.textColor = UIColor.black
             TableViewRemember.backgroundColor = UIColor.white
             // ChatMSGTF.tintColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         LIST.removeAll()
         LIST = (UserDefaults.standard.stringArray(forKey: "RememberList"))  ?? [String]()
@@ -115,7 +126,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         AI.addAction(UIAlertAction(title: "Hinzufügen", style: UIAlertAction.Style.default, handler: { (AIAdd) in //Adds new item to list
             if let textFields = AI.textFields {
                 let theTextFields = textFields as [UITextField]
-                var enteredText = theTextFields[0].text
+                let enteredText = theTextFields[0].text
                 if enteredText != "" {
                     self.LIST.append(enteredText ?? "")
                     UserDefaults.standard.set(self.LIST, forKey: "RememberList")

@@ -34,17 +34,28 @@ class ChangeIconViewController: UIViewController, UITableViewDelegate, UITableVi
             TitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
             TItle.textColor = UIColor.white
             InfoTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             TitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             TItle.textColor = UIColor.black
             InfoTV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
        //  self.tableView.rowHeight = 80.0
         // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

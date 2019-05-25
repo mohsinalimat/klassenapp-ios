@@ -4,7 +4,7 @@
 
 <p align="center">
    <a href="https://developer.apple.com/swift/">
-      <img src="https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat" alt="Swift 4.2">
+      <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
    </a>
    <a href="https://travis-ci.com/SvenTiigi/WhatsNewKit">
       <img src="https://travis-ci.com/SvenTiigi/WhatsNewKit.svg?branch=master" alt="Build Status">
@@ -557,7 +557,7 @@ The `WhatsNew` struct is conform the `Codable` protocol which allows you to init
         {
             "title": "Open Source",
             "subtitle": "Contributions are very welcome 👨‍💻",
-            "image": "data:image/png;base64,R0lG42......."
+            "image": "iVBORw0KGgoA..."
         }
     ]
 }

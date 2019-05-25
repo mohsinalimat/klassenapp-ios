@@ -13,7 +13,6 @@ import NVActivityIndicatorView
 
 class FoodTuViewController: UIViewController {
     
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var FoodTuText: UITextView!
     @IBOutlet weak var FoodTuLabel: UILabel!
     var loader : NVActivityIndicatorView!
@@ -31,7 +30,8 @@ class FoodTuViewController: UIViewController {
             FoodTuText.textColor = UIColor.white
             FoodTuLabel.textColor = UIColor.white
             FoodTuText.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
+            
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -39,8 +39,9 @@ class FoodTuViewController: UIViewController {
             FoodTuText.textColor = UIColor.black
             FoodTuLabel.textColor = UIColor.black
             FoodTuText.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
+        
         // Do any additional setup after loading the view.
        /* NetworkManager.isUnreachable { (_) in
             var UDFOOTU = UserDefaults.standard.string(forKey: "UDFOODTU")
@@ -52,9 +53,7 @@ class FoodTuViewController: UIViewController {
             }
         }*/
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
-    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         var ref: DatabaseReference!
@@ -67,6 +66,17 @@ class FoodTuViewController: UIViewController {
             self.FoodTuText.text = FoodTuesdayLE
             self.loader.stopAnimating()
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
 

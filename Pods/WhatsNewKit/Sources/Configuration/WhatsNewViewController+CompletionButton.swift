@@ -54,7 +54,7 @@ public extension WhatsNewViewController {
         ///   - cornerRadius: The corner radius. Default value `8.0`
         ///   - animation: The Animation. Default value `nil`
         ///   - insets: The UIEdgeInsets. Default value `top: 5, left: 20, bottom: 25, right: 20`
-        public init(title: String = "Weiter",
+        public init(title: String = "Continue",
                     action: Action = .dismiss,
                     hapticFeedback: HapticFeedback? = nil,
                     backgroundColor: UIColor = .whatsNewKitBlue,

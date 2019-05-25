@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
             HomeTitle.textColor = UIColor.white
             HomeTV.textColor = UIColor.white
             HomeTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -73,7 +73,7 @@ class HomeViewController: UIViewController {
             HomeTitle.textColor = UIColor.black
             HomeTV.textColor = UIColor.black
             HomeTV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         /* So = 1
@@ -88,8 +88,8 @@ class HomeViewController: UIViewController {
         let calender = Calendar.current
         let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         let currentday = calender.component(.weekday, from: date)
-        var day = components.day
-        var month = components.month
+        let day = components.day
+        let month = components.month
         var month2 = ""
         var day2 = ""
         var weekdaystring = ""
@@ -381,12 +381,10 @@ class HomeViewController: UIViewController {
     
     @objc func removeUpdateMessage() {
         if HomeVar.UpdateReminderSession == "1" {
-            print("yes")
             panelManager.dismiss()
             disappearUpdate.invalidate()
         }
         else {
-            print("no")
         }
     }
 
@@ -453,6 +451,17 @@ class HomeViewController: UIViewController {
         return nUABpage
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -497,7 +506,7 @@ class HomeViewController: UIViewController {
 extension NSMutableAttributedString {
     @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
         let attrs: [NSAttributedString.Key: Any] = [
-            .font: UIFont(name: "Arial", size: 19)]
+            .font: UIFont(name: "Arial", size: 19)!]
         let boldString = NSMutableAttributedString(string:text, attributes: attrs)
         append(boldString)
         

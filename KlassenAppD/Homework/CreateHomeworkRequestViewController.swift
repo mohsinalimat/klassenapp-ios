@@ -81,7 +81,6 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
                 let day = components.day
                 let hour = components.hour
                 let minute = components.minute
-                let second = components.second
                 
                 let fulldate = String(day!) + "." + String(month!) + "." + String(year!) + " " + String(hour!) + ":" + String(minute!)
                 
@@ -109,6 +108,17 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
         return String((0...length-1).map{_ in letters.randomElement()!})
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +140,7 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
             Picker.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             //Picker.tintColor = UIColor.white
             Coloro = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -141,7 +151,7 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
             Picker.backgroundColor = UIColor.white
             Picker.tintColor = UIColor.black
             Coloro = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
     }

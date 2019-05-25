@@ -191,7 +191,7 @@
 		<key>NVActivityIndicatorView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>48</integer>
+			<integer>46</integer>
 		</dict>
 		<key>NewPopMenu.xcscheme_^#shared#^_</key>
 		<dict>
@@ -271,12 +271,12 @@
 		<key>SAConfettiView-SAConfettiView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>50</integer>
+			<integer>48</integer>
 		</dict>
 		<key>SAConfettiView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>49</integer>
+			<integer>47</integer>
 		</dict>
 		<key>SPStorkController.xcscheme</key>
 		<dict>
@@ -326,7 +326,7 @@
 		<key>UITextView+Placeholder.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>53</integer>
+			<integer>49</integer>
 		</dict>
 		<key>WhatsNewKit.xcscheme</key>
 		<dict>

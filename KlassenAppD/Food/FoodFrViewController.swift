@@ -12,8 +12,7 @@ import FirebaseDatabase
 import NVActivityIndicatorView
 
 class FoodFrViewController: UIViewController {
-    
-    let network: NetworkManager = NetworkManager.sharedInstance
+
     @IBOutlet weak var FoodFrText: UITextView!
     @IBOutlet weak var FoodFrLabel: UILabel!
     var loader : NVActivityIndicatorView!
@@ -31,7 +30,7 @@ class FoodFrViewController: UIViewController {
             FoodFrText.textColor = UIColor.white
             FoodFrLabel.textColor = UIColor.white
             FoodFrText.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -39,7 +38,7 @@ class FoodFrViewController: UIViewController {
             FoodFrText.textColor = UIColor.black
             FoodFrLabel.textColor = UIColor.black
             FoodFrText.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
     /*    NetworkManager.isUnreachable { (_) in
@@ -52,9 +51,18 @@ class FoodFrViewController: UIViewController {
             }
         }*/
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
+    
     override func viewDidAppear(_ animated: Bool) {
       
         var ref: DatabaseReference!

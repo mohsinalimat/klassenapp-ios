@@ -36,7 +36,6 @@
 		3A82CDDF218E0A75009DE910 /* FoodFrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82CDDE218E0A75009DE910 /* FoodFrViewController.swift */; };
 		3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A82CDE6218E0CC2009DE910 /* Main.storyboard */; };
 		3A8932B7229858FC000E6395 /* PlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8932B6229858FC000E6395 /* PlansViewController.swift */; };
-		3A8F67CC21260CF500CA4BFC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F67CB21260CF500CA4BFC /* NetworkManager.swift */; };
 		3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */; };
 		3A9192BD22511C8C00ED32F9 /* AppIconRedGoldIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */; };
 		3A99C73E2285EED400399EDE /* CreateHomeworkRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */; };
@@ -167,7 +166,6 @@
 		3A82CDDE218E0A75009DE910 /* FoodFrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodFrViewController.swift; sourceTree = "<group>"; };
 		3A82CDE7218E0CC2009DE910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A8932B6229858FC000E6395 /* PlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewController.swift; sourceTree = "<group>"; };
-		3A8F67CB21260CF500CA4BFC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCurrentIco.png; sourceTree = "<group>"; };
 		3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconRedGoldIco.png; sourceTree = "<group>"; };
 		3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHomeworkRequestViewController.swift; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 			children = (
 				3A2CB0A1226236F1002F0E0A /* MBProgressHUD */,
 				3AABCEE0216503FB00395E99 /* MGSwipe */,
-				3A8F67CB21260CF500CA4BFC /* NetworkManager.swift */,
 				3AC1E9912261E7390048030A /* UIVIew+Utils.swift */,
 				3AC1E9902261E7390048030A /* UIViewController+Utils.swift */,
 				3A3A1D6722984B5100D81453 /* WholeTabBarController.swift */,
@@ -874,34 +871,23 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
-				"${BUILT_PRODUCTS_DIR}/CardPresentationController/CardPresentationController.framework",
 				"${BUILT_PRODUCTS_DIR}/EZAlertController/EZAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IGColorPicker/IGColorPicker.framework",
-				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/LNSideMenu/LNSideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
-				"${BUILT_PRODUCTS_DIR}/MIBadgeButton-Swift/MIBadgeButton_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/PinCodeTextField/PinCodeTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
-				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SparrowKit/SparrowKit.framework",
-				"${BUILT_PRODUCTS_DIR}/StatusBarOverlay/StatusBarOverlay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeableTabBarController/SwipeableTabBarController.framework",
-				"${BUILT_PRODUCTS_DIR}/TrueTime/TrueTime.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/WhatsNewKit/WhatsNewKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -911,34 +897,23 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardPresentationController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGColorPicker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LNSideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MIBadgeButton_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinCodeTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SparrowKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusBarOverlay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeableTabBarController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrueTime.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WhatsNewKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -1023,7 +998,6 @@
 				3A57BB2820D5632600CF5110 /* Test3ViewController.swift in Sources */,
 				3AE242EF2137110100953BF4 /* WelcomeFunc1ViewController.swift in Sources */,
 				3A82CDDF218E0A75009DE910 /* FoodFrViewController.swift in Sources */,
-				3A8F67CC21260CF500CA4BFC /* NetworkManager.swift in Sources */,
 				3AE242ED213710E000953BF4 /* Welcome1ViewController.swift in Sources */,
 				3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */,
 				3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */,

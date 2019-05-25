@@ -30,14 +30,14 @@ class TimeTableThursdayViewController: UIViewController, UITableViewDelegate, UI
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             TVThursdayTitle.textColor = UIColor.white
             TimeTableThursdayTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             TVThursdayTitle.textColor = UIColor.black
             TimeTableThursdayTV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
 
         
@@ -52,7 +52,6 @@ class TimeTableThursdayViewController: UIViewController, UITableViewDelegate, UI
         let ref: DatabaseReference
         ref = Database.database().reference()
         ref.child("stundenplan").child("thursday").observeSingleEvent(of: .value, with: { snapshot in
-            var mySongArray = [String]()
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let hours = snap.value as! String
@@ -70,6 +69,17 @@ class TimeTableThursdayViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return thursdayArray.count
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

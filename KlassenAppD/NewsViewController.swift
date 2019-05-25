@@ -14,7 +14,6 @@ import NVActivityIndicatorView
 
 class NewsViewController: UIViewController {
     
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var TitleBar: UIView!
     @IBOutlet weak var NewsView: UITextView!
     @IBOutlet weak var NewsLabel: UILabel!
@@ -80,14 +79,6 @@ class NewsViewController: UIViewController {
             }
             print("btn2")
         }
-        let item3 = ExpandingMenuItem(size: menuButtonSize, title: "Neuigkeiten", image: UIImage(named: "news")!, highlightedImage: UIImage(named: "news")!, backgroundImage: UIImage(named: "news"), backgroundHighlightedImage: UIImage(named: "news")) { () -> Void in
-            // Do some action
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newsID") as? NewsViewController
-            {
-                self.present(vc, animated: true, completion: nil)
-            }
-            print("btn3")
-        }
         let item4 = ExpandingMenuItem(size: menuButtonSize, title: "Einstellungen", image: UIImage(named: "settings")!, highlightedImage: UIImage(named: "settings")!, backgroundImage: UIImage(named: "settings"), backgroundHighlightedImage: UIImage(named: "settings")) { () -> Void in
             // Do some action
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settingsID") as? SettingsViewController
@@ -134,7 +125,7 @@ class NewsViewController: UIViewController {
             NewsView.textColor = UIColor.white
             NewsLabel.textColor = UIColor.white
             NewsView.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -143,18 +134,26 @@ class NewsViewController: UIViewController {
             NewsView.textColor = UIColor.black
             NewsLabel.textColor = UIColor.black
             NewsView.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     override func viewDidAppear(_ animated: Bool) {

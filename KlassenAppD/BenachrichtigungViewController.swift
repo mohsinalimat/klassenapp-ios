@@ -20,16 +20,27 @@ class BenachrichtigungViewController: UIViewController {
             BenachrichtigungTitle.textColor = UIColor.white
             BenachrichtigungMessage.textColor = UIColor.white
             BenachrichtigungMessage.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             BenachrichtigungTitle.textColor = UIColor.black
             BenachrichtigungMessage.textColor = UIColor.black
             BenachrichtigungMessage.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     override func viewDidAppear(_ animated: Bool) {

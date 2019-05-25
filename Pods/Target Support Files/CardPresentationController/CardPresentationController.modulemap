@@ -1,6 +1,0 @@
-framework module CardPresentationController {
-  umbrella header "CardPresentationController-umbrella.h"
-
-  export *
-  module * { export * }
-}

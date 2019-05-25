@@ -45,21 +45,30 @@ class InformationsViewController: UIViewController {
             InfoTitle.textColor = UIColor.white
             InfoDes.textColor = UIColor.white
             InfoDes.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             InfoTitle.textColor = UIColor.black
             InfoDes.textColor = UIColor.black
             InfoDes.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
 
         // Do any additional setup after loading the view.
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

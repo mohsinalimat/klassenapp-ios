@@ -21,7 +21,7 @@ class WelcomeSettingsViewController: UIViewController {
             SettingsMessage.textColor = UIColor.white
             WelcomeDarkmodeLabel.textColor = UIColor.white
             // WelcomeTouchIDNote.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
             UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
         }
         if (sender.isOn != true) {
@@ -30,7 +30,7 @@ class WelcomeSettingsViewController: UIViewController {
             SettingsMessage.textColor = UIColor.black
             WelcomeDarkmodeLabel.textColor = UIColor.black
            // WelcomeTouchIDNote.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
             UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
             
         }
@@ -46,7 +46,7 @@ class WelcomeSettingsViewController: UIViewController {
             WelcomeDarkmodeLabel.textColor = UIColor.white
             // WelcomeTouchIDNote.textColor = UIColor.white
             WelcomeDarkmodeOut.setOn(true, animated: false)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -56,9 +56,20 @@ class WelcomeSettingsViewController: UIViewController {
             WelcomeDarkmodeLabel.textColor = UIColor.black
            // WelcomeTouchIDNote.textColor = UIColor.black
             WelcomeDarkmodeOut.setOn(false, animated: false)
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,9 +77,6 @@ class WelcomeSettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
-    }
     /*
     // MARK: - Navigation
 

@@ -52,16 +52,27 @@ class TimeTableViewController: UIViewController {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             TVMAINTITLEBACK.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
             TVMAINTITLE.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             TVMAINTITLEBACK.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             TVMAINTITLE.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
 

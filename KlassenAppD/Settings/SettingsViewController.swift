@@ -13,7 +13,6 @@ import Crashlytics
 import Fabric
 import AVKit
 import ExpandingMenu
-import GDPerformanceView_Swift
 
 class SettingsViewController: UIViewController {
     
@@ -121,6 +120,17 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
+    }
+    
     @IBAction func DarkmodeSwitch(_ sender: UISwitch)
     {
         if (sender.isOn == true) {
@@ -132,8 +142,9 @@ class SettingsViewController: UIViewController {
             AppVersionLabe.textColor = UIColor.white
             //TouchID2Label.textColor = UIColor.white
             DarkmodeLabel.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+           // UIApplication.shared.statusBarStyle = .lightContent
             UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+            self.setNeedsStatusBarAppearanceUpdate()
             self.tabBarController!.tabBar.barTintColor = .black
             tabBarController!.tabBar.tintColor = UIColor(red:1.00, green:0.58, blue:0.00, alpha:1.0)
             
@@ -147,8 +158,9 @@ class SettingsViewController: UIViewController {
             SiriShortcutLabel.textColor = UIColor.black
             //TouchID2Label.textColor = UIColor.black
             DarkmodeLabel.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+          //  UIApplication.shared.statusBarStyle = .default
             UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+            self.setNeedsStatusBarAppearanceUpdate()
             self.tabBarController!.tabBar.barTintColor = .white
            tabBarController!.tabBar.tintColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0)
             
@@ -224,8 +236,9 @@ class SettingsViewController: UIViewController {
             DarkmodeLabel.textColor = UIColor.white
             AppVersionLabe.textColor = UIColor.white
             // TouchIDLabel.textColor = UIColor.white
+            self.setNeedsStatusBarAppearanceUpdate()
             GLSEV.DarkmodeVar = 1
-            UIApplication.shared.statusBarStyle = .lightContent
+            //UIApplication.shared.statusBarStyle = .lightContent
             
             DarkmodeSwitchOut.setOn(true, animated: false)
         }
@@ -238,7 +251,8 @@ class SettingsViewController: UIViewController {
             DarkmodeLabel.textColor = UIColor.black
             AppVersionLabe.textColor = UIColor.black
             GLSEV.DarkmodeVar = 0
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
+           // UIApplication.shared.statusBarStyle = .default
             
             DarkmodeSwitchOut.setOn(false, animated: false)
         }
