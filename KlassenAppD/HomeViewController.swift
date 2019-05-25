@@ -38,6 +38,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var HomeTitle: UILabel!
     @IBOutlet weak var HomeTitleBackground: UIView!
     @IBOutlet weak var HomeTV: UITextView!
+    @IBAction func reloadEverything(_ sender: Any)
+    {
+        loader.startAnimating()
+        reloadData()
+    }
     
     func viewLoadSetup() {
         loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
@@ -178,6 +183,49 @@ class HomeViewController: UIViewController {
             }
         }
         
+        reloadData()
+        
+        if FirstViewController.LastVC.LastVCV == "hw" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 1
+        }
+        if FirstViewController.LastVC.LastVCV == "test" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 2
+        }
+        if FirstViewController.LastVC.LastVCV == "plans" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 3
+        }
+        if FirstViewController.LastVC.LastVCV == "settings" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 4
+        }
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       // viewLoadSetup()
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewLoadSetup()
+    }
+    
+    
+    func reloadData() {
+        
+        let date = Date()
+        let calender = Calendar.current
+        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let currentday = calender.component(.weekday, from: date)
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
         ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUSnap) in
             let LDUSNAP = LDUSnap.value as? String
             HomeViewController.HomeVar.LDU = LDUSNAP!
@@ -268,43 +316,12 @@ class HomeViewController: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
             
         }
-        if FirstViewController.LastVC.LastVCV == "hw" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 1
-        }
-        if FirstViewController.LastVC.LastVCV == "test" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 2
-        }
-        if FirstViewController.LastVC.LastVCV == "plans" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 3
-        }
-        if FirstViewController.LastVC.LastVCV == "settings" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 4
-        }
-        
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       // viewLoadSetup()
-        
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        viewLoadSetup()
     }
     
     
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        
-        
-        
+     
         var ref: DatabaseReference!
         
         ref = Database.database().reference()

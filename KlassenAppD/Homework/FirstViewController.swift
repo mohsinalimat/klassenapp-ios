@@ -20,6 +20,7 @@ import ExpandingMenu
 import FirebaseMessaging
 import EZAlertController
 import NVActivityIndicatorView
+import SPStorkController
 
 
 class FirstViewController: UIViewController {
@@ -61,39 +62,72 @@ class FirstViewController: UIViewController {
     
     @IBAction func Week1Btn(_ sender: Any)
     {
-        if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
+        HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week1"
+        let controller1 = HomeworkWeekViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        //transitionDelegate.customHeight = 200
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        //self.presentAsStork(controller1)
+        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
             self.performSegue(withIdentifier: "week1esegue", sender: nil)
         }
         else {
         self.performSegue(withIdentifier: "week1segue", sender: nil)
-        }
+        }*/
     }
     @IBAction func Week2Btn(_ sender: Any)
     {
-        if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
+        HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week2"
+        let controller1 = HomeworkWeekViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        //transitionDelegate.customHeight = 200
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
             self.performSegue(withIdentifier: "week2esegue", sender: nil)
         }
         else {
             self.performSegue(withIdentifier: "week2segue", sender: nil)
-        }
+        }*/
     }
     @IBAction func Week3Btn(_ sender: Any)
     {
-        if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
+        HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week3"
+        let controller1 = HomeworkWeekViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        //transitionDelegate.customHeight = 200
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
             self.performSegue(withIdentifier: "week3esegue", sender: nil)
         }
         else {
             self.performSegue(withIdentifier: "week3segue", sender: nil)
-        }
+        }*/
     }
     @IBAction func Week4Btn(_ sender: Any)
     {
-        if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
+        HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week4"
+        let controller1 = HomeworkWeekViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        //transitionDelegate.customHeight = 200
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
             self.performSegue(withIdentifier: "week4esegue", sender: nil)
         }
         else {
             self.performSegue(withIdentifier: "week4segue", sender: nil)
-        }
+        }*/
     }
     @IBAction func HomeworkRequest(_ sender: Any)
     {

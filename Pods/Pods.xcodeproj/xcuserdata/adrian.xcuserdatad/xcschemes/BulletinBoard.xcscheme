@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F47A6E2B465B66C05B93B536CA79331D"
+               BlueprintIdentifier = "6488D87346DC99464D1D55C47589C8A5"
                BuildableName = "BLTNBoard.framework"
                BlueprintName = "BulletinBoard"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F47A6E2B465B66C05B93B536CA79331D"
+            BlueprintIdentifier = "6488D87346DC99464D1D55C47589C8A5"
             BuildableName = "BLTNBoard.framework"
             BlueprintName = "BulletinBoard"
             ReferencedContainer = "container:Pods.xcodeproj">

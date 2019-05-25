@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import ExpandingMenu
 import NVActivityIndicatorView
+import SPStorkController
 
 class SecondViewController: UIViewController {
     
@@ -29,27 +30,62 @@ class SecondViewController: UIViewController {
     
     @IBAction func Arbeit1Btn(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "test1segue", sender: nil)
+        AllTestsViewController.TestVC.selectedTest = "Arbeit1"
+        let controller1 = AllTestsViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "test1segue", sender: nil)
     }
     
     @IBAction func Arbeit2Btn(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "test2segue", sender: nil)
+        AllTestsViewController.TestVC.selectedTest = "Arbeit2"
+        let controller1 = AllTestsViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "test2segue", sender: nil)
     }
     
     @IBAction func Arbeit3Btn(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "test3segue", sender: nil)
+        AllTestsViewController.TestVC.selectedTest = "Arbeit3"
+        let controller1 = AllTestsViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "test3segue", sender: nil)
     }
     
     @IBAction func Arbeit4Btn(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "test4segue", sender: nil)
+        AllTestsViewController.TestVC.selectedTest = "Arbeit4"
+        let controller1 = AllTestsViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "test4segue", sender: nil)
     }
     
     @IBAction func Arbeit5Btn(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "test5segue", sender: nil)
+        AllTestsViewController.TestVC.selectedTest = "Arbeit5"
+        let controller1 = AllTestsViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "test5segue", sender: nil)
     }
     
     

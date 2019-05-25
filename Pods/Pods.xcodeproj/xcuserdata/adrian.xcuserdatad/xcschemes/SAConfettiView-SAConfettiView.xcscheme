@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "588728208620D952741E5D72DEE32502"
-               BuildableName = "CardPresentationController.framework"
-               BlueprintName = "CardPresentationController"
+               BlueprintIdentifier = "12488CE7AE21A97BD50CC47AE22DF7D2"
+               BuildableName = "SAConfettiView.bundle"
+               BlueprintName = "SAConfettiView-SAConfettiView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "588728208620D952741E5D72DEE32502"
-            BuildableName = "CardPresentationController.framework"
-            BlueprintName = "CardPresentationController"
+            BlueprintIdentifier = "12488CE7AE21A97BD50CC47AE22DF7D2"
+            BuildableName = "SAConfettiView.bundle"
+            BlueprintName = "SAConfettiView-SAConfettiView"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

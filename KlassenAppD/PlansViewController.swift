@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SPStorkController
 
 class PlansViewController: UIViewController {
     
@@ -17,8 +18,15 @@ class PlansViewController: UIViewController {
     @IBOutlet weak var FoodBtn: UIButton!
     @IBOutlet weak var ListBtn: UIButton!
     
-    
-    
+    @IBAction func FoodBtnAction(_ sender: Any)
+    {
+        let controller1 = FoodAllViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
     func viewLoadSetup() {
         
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil && UserDefaults.standard.string(forKey: "ButtonColor") != "" {

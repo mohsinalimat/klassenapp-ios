@@ -823,7 +823,7 @@
                                 <rect key="frame" x="171" y="182" width="133" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Kontakt via Mail">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1198,11 +1198,11 @@
             <objects>
                 <viewController id="PbT-WC-CvR" customClass="ChangeColorPickerViewController" customModule="KlassenAppD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DSc-bu-ElS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKg-Wv-c1X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sR-h9-ycF">
                                         <rect key="frame" x="8" y="35" width="32" height="36"/>
@@ -1214,7 +1214,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Farbauswahl" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxf-yn-Zas">
-                                        <rect key="frame" x="8" y="54" width="360" height="62"/>
+                                        <rect key="frame" x="8" y="54" width="306" height="62"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <nil key="textColor"/>
@@ -1227,21 +1227,21 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Veg-0o-jzR">
-                                <rect key="frame" x="0.0" y="116" width="375" height="3"/>
+                                <rect key="frame" x="0.0" y="116" width="320" height="3"/>
                                 <color key="backgroundColor" red="0.60784313729999995" green="0.31764705879999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="aBN-kR-Ib4"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aY1-jC-RnW" customClass="ColorPickerView" customModule="IGColorPicker">
-                                <rect key="frame" x="20" y="415" width="335" height="363"/>
+                                <rect key="frame" x="20" y="205" width="280" height="363"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="363" id="en8-S0-ru5"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ausgewählte Farbe für _______:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJW-AO-ROT">
-                                <rect key="frame" x="20" y="127" width="335" height="40"/>
+                                <rect key="frame" x="20" y="127" width="280" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="y65-dU-72p"/>
                                 </constraints>
@@ -2721,10 +2721,10 @@ Das KlassenAppD-Team
             </objects>
             <point key="canvasLocation" x="1628" y="-289"/>
         </scene>
-        <!--Remember View Controller-->
+        <!--View Controller-->
         <scene sceneID="0NA-7a-nev">
             <objects>
-                <viewController storyboardIdentifier="rememberID" id="1aA-bt-srT" customClass="RememberViewController" customModule="KlassenAppD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rememberID" id="1aA-bt-srT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mOq-hZ-Cba">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2942,7 +2942,7 @@ Das KlassenAppD-Team
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMC-4y-SDr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMC-4y-SDr">
                                         <rect key="frame" x="8" y="47" width="304" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="LEa-EJ-TM3"/>
@@ -2951,6 +2951,18 @@ Das KlassenAppD-Team
                                         <color key="textColor" red="0.49552534770239431" green="0.49552534770239431" blue="0.49552534770239431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFW-hY-cTs">
+                                        <rect key="frame" x="269" y="65" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Mw8-f0-urw"/>
+                                            <constraint firstAttribute="height" constant="40" id="y8P-B3-DIq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" image="icons8-aktualisieren-31"/>
+                                        <connections>
+                                            <action selector="reloadEverything:" destination="Bur-9i-WxQ" eventType="touchUpInside" id="jcp-0p-6Ef"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5za-yf-Qev">
                                         <rect key="frame" x="8" y="28" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2966,8 +2978,10 @@ Das KlassenAppD-Team
                                     <constraint firstAttribute="trailing" secondItem="hMC-4y-SDr" secondAttribute="trailing" constant="8" id="8rW-4q-udx"/>
                                     <constraint firstItem="8hJ-PD-5RQ" firstAttribute="leading" secondItem="Mkd-fI-DuE" secondAttribute="leading" constant="8" id="Dqa-MD-bT6"/>
                                     <constraint firstItem="8hJ-PD-5RQ" firstAttribute="top" secondItem="hMC-4y-SDr" secondAttribute="bottom" constant="1" id="O3x-0Y-lXc"/>
+                                    <constraint firstAttribute="bottom" secondItem="LFW-hY-cTs" secondAttribute="bottom" constant="11" id="UHW-EP-KTb"/>
                                     <constraint firstAttribute="height" constant="116" id="bu8-pu-bdj"/>
                                     <constraint firstItem="hMC-4y-SDr" firstAttribute="leading" secondItem="Mkd-fI-DuE" secondAttribute="leading" constant="8" id="dPz-2n-gHC"/>
+                                    <constraint firstAttribute="trailing" secondItem="LFW-hY-cTs" secondAttribute="trailing" constant="11" id="lwY-wf-qJz"/>
                                     <constraint firstAttribute="trailing" secondItem="8hJ-PD-5RQ" secondAttribute="trailing" constant="8" id="yl1-f8-YlA"/>
                                 </constraints>
                                 <variation key="default">
@@ -2977,7 +2991,7 @@ Das KlassenAppD-Team
                                 </variation>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Download..." translatesAutoresizingMaskIntoConstraints="NO" id="qDh-kv-KbI">
-                                <rect key="frame" x="16" y="124" width="233" height="140"/>
+                                <rect key="frame" x="16" y="124" width="288" height="384"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -3034,7 +3048,7 @@ Das KlassenAppD-Team
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es6-Rw-PG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1642.4000000000001" y="49.50738916256158"/>
+            <point key="canvasLocation" x="-1642.5" y="48.591549295774648"/>
         </scene>
         <!--Plans View Controller-->
         <scene sceneID="5Cr-cd-TTc">
@@ -3100,7 +3114,7 @@ Das KlassenAppD-Team
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="gBd-Mk-XiH" kind="show" id="Tba-qO-ein"/>
+                                    <action selector="FoodBtnAction:" destination="hTs-bb-JAd" eventType="touchUpInside" id="18g-pj-nOp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syy-VR-q5c">
@@ -3135,8 +3149,6 @@ Das KlassenAppD-Team
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_menu" id="Mqx-NA-Os8"/>
                     <connections>
-                        <outlet property="FoodBtn" destination="9SY-RP-H6S" id="7S5-rB-abd"/>
-                        <outlet property="ListBtn" destination="Syy-VR-q5c" id="LYh-6g-zbm"/>
                         <outlet property="MainTitle" destination="vqx-Ja-MeZ" id="3Ns-Yv-aSY"/>
                         <outlet property="TimeTableBtn" destination="3NG-Mp-CXB" id="oYY-MZ-mkG"/>
                         <outlet property="TitleBar" destination="p4G-vf-grS" id="NNv-fc-UMk"/>
@@ -4144,6 +4156,7 @@ Das KlassenAppD-Team
         <image name="clock" width="30" height="30"/>
         <image name="homeicon" width="30" height="30"/>
         <image name="icon_menu" width="30" height="30"/>
+        <image name="icons8-aktualisieren-31" width="30" height="30"/>
         <image name="icons8-restaurant-filled-50" width="30" height="30"/>
         <image name="key" width="30" height="30"/>
         <image name="news" width="30" height="30"/>
@@ -4156,16 +4169,16 @@ Das KlassenAppD-Team
         <segue reference="1SH-KH-WJU"/>
         <segue reference="LGe-rq-Hzt"/>
         <segue reference="HQt-f8-gFr"/>
-        <segue reference="0Hf-gg-Lfu"/>
+        <segue reference="bXa-8W-awj"/>
         <segue reference="hNe-wC-GXd"/>
-        <segue reference="2L5-vt-QT5"/>
+        <segue reference="aHd-bT-ugZ"/>
         <segue reference="k8d-tn-yE4"/>
         <segue reference="mFC-Gd-nXh"/>
-        <segue reference="m0O-ef-1xy"/>
+        <segue reference="uiR-pr-u7d"/>
         <segue reference="3y6-5W-ZHk"/>
-        <segue reference="Tba-qO-ein"/>
+        <segue reference="j6b-DX-uPd"/>
         <segue reference="HiC-Iw-Wfq"/>
         <segue reference="hPV-EE-VJW"/>
-        <segue reference="jCc-LZ-UBZ"/>
+        <segue reference="8Db-OZ-F7d"/>
     </inferredMetricsTieBreakers>
 </document>
