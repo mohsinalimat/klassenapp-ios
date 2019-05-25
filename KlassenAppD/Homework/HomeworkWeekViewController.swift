@@ -13,18 +13,22 @@ import Firebase
 class HomeworkWeekViewController: UIViewController {
     
     let navigationbar = SPFakeBarView(style: .stork)
+    private var hwtextview: UITextView!
     
     override func viewDidLoad() {
         navigationbar.titleLabel.text = "Download..."
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
         navigationbar.height = 90
+        navigationbar.rightButton.setTitle("↻", for: .normal)
+        navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
             if subview is UIVisualEffectView {
                 subview.removeFromSuperview()
             }
         }
-       var hwtextview = UITextView(frame: CGRect(x: 8, y: 95, width: self.view.frame.width - 16, height: self.view.frame.height - 100))
+        hwtextview = UITextView(frame: CGRect(x: 8, y: 95, width: self.view.frame.width - 16, height: self.view.frame.height - 150))
         hwtextview.isEditable = false
         hwtextview.text = "Download..."
         hwtextview.font = .systemFont(ofSize: 16)
@@ -47,6 +51,12 @@ class HomeworkWeekViewController: UIViewController {
             self.setNeedsStatusBarAppearanceUpdate()
         }
         
+        reloadData()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    @objc func reloadData() {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
@@ -74,13 +84,12 @@ class HomeworkWeekViewController: UIViewController {
                         ref.child("homework").child(HWWeekVC.selectedWeek).child("Friday").observeSingleEvent(of: .value) { (FridayWeek1Snap) in
                             let FridayWeek1Home = FridayWeek1Snap.value as? String
                             HWWeekVC.friday = FridayWeek1Home!
-                            hwtextview.text = "\(HWWeekVC.monday)\n\n\(HWWeekVC.tuesday)\n\n\(HWWeekVC.wednesday)\n\n\(HWWeekVC.thursday)\n\n\(HWWeekVC.friday)"
+                            self.hwtextview.text = "\(HWWeekVC.monday)\n\n\(HWWeekVC.tuesday)\n\n\(HWWeekVC.wednesday)\n\n\(HWWeekVC.thursday)\n\n\(HWWeekVC.friday)"
                         }
                     }
                 }
             }
         }
-        // Do any additional setup after loading the view.
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

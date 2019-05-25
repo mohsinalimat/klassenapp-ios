@@ -12,7 +12,7 @@ import SPFakeBar
 class RememberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let navigationbar = SPFakeBarView(style: .stork)
-    var TableViewRemember: UITableView? = nil
+    private var TableViewRemember: UITableView!
     //@IBOutlet weak var TableViewRemember: UITableView!
     
     var LIST: [String] = []
@@ -31,6 +31,8 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "listcell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        cell?.textLabel?.numberOfLines = 0
+        cell?.textLabel?.lineBreakMode = .byTruncatingTail
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             cell!.textLabel!.textColor = UIColor.white
             cell!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
@@ -76,12 +78,13 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationbar.titleLabel.text = "Download..."
+        navigationbar.titleLabel.text = "Liste"
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
         navigationbar.height = 95
         navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         navigationbar.titleLabel.numberOfLines = 3
         navigationbar.rightButton.setTitle("+", for: .normal)
+        navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
         navigationbar.rightButton.addTarget(self, action: #selector(addItemFunction), for: .touchUpInside)
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
@@ -90,19 +93,30 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
-        TableViewRemember = UITableView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 100))
+        TableViewRemember = UITableView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 150))
+        TableViewRemember.register(UITableViewCell.self, forCellReuseIdentifier: "listcell")
+        TableViewRemember.dataSource = self
+        TableViewRemember.delegate = self
         self.view.addSubview(TableViewRemember!)
         
         LIST.removeAll()
         LIST = (UserDefaults.standard.stringArray(forKey: "RememberList"))  ?? [String]()
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            cell!.textLabel!.textColor = UIColor.white
-            cell!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+            view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+            navigationbar.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
+            navigationbar.titleLabel.textColor = .white
+            TableViewRemember!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+            // ChatMSGTF.tintColor = UIColor.white
+            UIApplication.shared.statusBarStyle = .lightContent
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            cell!.textLabel!.textColor = UIColor.black
-            cell!.backgroundColor = UIColor.white
+            view.backgroundColor = UIColor.white
+            navigationbar.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+            navigationbar.titleLabel.textColor = .black
+            TableViewRemember!.backgroundColor = UIColor.white
+            // ChatMSGTF.tintColor = UIColor.black
+            UIApplication.shared.statusBarStyle = .default
         }
         
     }
@@ -134,7 +148,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
                   //  print(self.LIST)
                     self.TableViewRemember!.reloadData()
                     
-                    
+                    print(self.LIST)
                     AI.dismiss(animated: true, completion: nil)
                 }
             }

@@ -13,6 +13,7 @@ import SPFakeBar
 class FoodAllViewController: UIViewController {
 
     let navigationbar = SPFakeBarView(style: .stork)
+    private var foodtextview: UITextView!
     
     override func viewDidLoad() {
         navigationbar.titleLabel.text = "Download..."
@@ -20,13 +21,17 @@ class FoodAllViewController: UIViewController {
         navigationbar.height = 100
         navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         navigationbar.titleLabel.numberOfLines = 3
+        navigationbar.rightButton.setTitle("↻", for: .normal)
+        navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
             if subview is UIVisualEffectView {
                 subview.removeFromSuperview()
             }
         }
-        var foodtextview = UITextView(frame: CGRect(x: 8, y: 105, width: self.view.frame.width - 16, height: self.view.frame.height - 100))
+        
+        foodtextview = UITextView(frame: CGRect(x: 8, y: 105, width: self.view.frame.width - 16, height: self.view.frame.height - 150))
         foodtextview.isEditable = false
         foodtextview.text = "Download..."
         foodtextview.font = .systemFont(ofSize: 16)
@@ -48,7 +53,12 @@ class FoodAllViewController: UIViewController {
             foodtextview.backgroundColor = .white
             self.setNeedsStatusBarAppearanceUpdate()
         }
+        reloadData()
         
+        // Do any additional setup after loading the view.
+    }
+    
+    @objc func reloadData() {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
@@ -67,16 +77,12 @@ class FoodAllViewController: UIViewController {
                         FoodVC.thursday = thursdayfood.value as! String
                         ref.child("Speiseplan").child("Friday").observeSingleEvent(of: .value, with: { (fridayfood) in
                             FoodVC.friday = fridayfood.value as! String
-                            foodtextview.text = "Montag: \(FoodVC.monday)\n\nDienstag: \(FoodVC.tuesday)\n\nMittwoch: \(FoodVC.wednesday)\n\nDonnerstag: \(FoodVC.thursday)\n\nFreitag: \(FoodVC.friday)"
+                            self.foodtextview.text = "Montag: \(FoodVC.monday)\n\nDienstag: \(FoodVC.tuesday)\n\nMittwoch: \(FoodVC.wednesday)\n\nDonnerstag: \(FoodVC.thursday)\n\nFreitag: \(FoodVC.friday)"
                         })
                     })
                 })
             })
         }
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

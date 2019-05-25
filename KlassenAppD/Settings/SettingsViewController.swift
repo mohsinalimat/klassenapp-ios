@@ -13,6 +13,7 @@ import Crashlytics
 import Fabric
 import AVKit
 import ExpandingMenu
+import SPStorkController
 
 class SettingsViewController: UIViewController {
     
@@ -207,7 +208,16 @@ class SettingsViewController: UIViewController {
         }
     }
     
-
+    @IBAction func AppInformationsAction(_ sender: Any)
+    {
+        let controller1 = AppInfosViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil && UserDefaults.standard.string(forKey: "ButtonColor") != "" {

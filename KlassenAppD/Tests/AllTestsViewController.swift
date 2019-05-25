@@ -13,12 +13,16 @@ import SPFakeBar
 class AllTestsViewController: UIViewController {
 
     let navigationbar = SPFakeBarView(style: .stork)
+    private var teststextview: UITextView!
     
     override func viewDidLoad() {
         navigationbar.titleLabel.text = "Download..."
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
         navigationbar.height = 95
         navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        navigationbar.rightButton.setTitle("↻", for: .normal)
+        navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+        navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         navigationbar.titleLabel.numberOfLines = 3
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
@@ -26,7 +30,7 @@ class AllTestsViewController: UIViewController {
                 subview.removeFromSuperview()
             }
         }
-        var teststextview = UITextView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 100))
+        teststextview = UITextView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 150))
         teststextview.isEditable = false
         teststextview.text = "Download..."
         teststextview.font = .systemFont(ofSize: 16)
@@ -49,6 +53,12 @@ class AllTestsViewController: UIViewController {
             self.setNeedsStatusBarAppearanceUpdate()
         }
         
+        reloadData()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    @objc func reloadData() {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
@@ -59,12 +69,9 @@ class AllTestsViewController: UIViewController {
         
         ref.child("arbeiten").child(TestVC.selectedTest).child("beschreibung").observeSingleEvent(of: .value) { (TestsSnap) in
             let TestsLE = TestsSnap.value as? String
-            teststextview.text = TestsLE
+            self.teststextview.text = TestsLE
             
         }
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
