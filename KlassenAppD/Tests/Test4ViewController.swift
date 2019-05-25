@@ -12,7 +12,6 @@ import NVActivityIndicatorView
 
 class Test4ViewController: UIViewController {
 
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var InfoLabelT4: UILabel!
     @IBOutlet weak var DesLabelT4: UILabel!
     @IBOutlet weak var DesLabelT4TV: UITextView!
@@ -35,14 +34,14 @@ class Test4ViewController: UIViewController {
             InfoLabelT4.textColor = UIColor.white
             DesLabelT4TV.textColor = UIColor.white
             DesLabelT4TV.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             InfoLabelT4.textColor = UIColor.black
             DesLabelT4TV.textColor = UIColor.black
             DesLabelT4TV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
         /*NetworkManager.isUnreachable { (_) in
@@ -63,8 +62,16 @@ class Test4ViewController: UIViewController {
         }*/
         
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

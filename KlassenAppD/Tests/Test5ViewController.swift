@@ -12,7 +12,6 @@ import NVActivityIndicatorView
 
 class Test5ViewController: UIViewController {
 
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var InfoLabelT5: UILabel!
     @IBOutlet weak var DesLabelT5: UILabel!
     @IBOutlet weak var DesLabelT5TV: UITextView!
@@ -23,9 +22,7 @@ class Test5ViewController: UIViewController {
         FirstViewController.LastVC.LastVCV = "test"
         self.performSegue(withIdentifier: "t5tsegue", sender: nil)
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
@@ -38,14 +35,14 @@ class Test5ViewController: UIViewController {
             InfoLabelT5.textColor = UIColor.white
             DesLabelT5TV.textColor = UIColor.white
             DesLabelT5TV.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             InfoLabelT5.textColor = UIColor.black
             DesLabelT5TV.textColor = UIColor.black
             DesLabelT5TV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
         /*NetworkManager.isUnreachable { (_) in
@@ -69,6 +66,17 @@ class Test5ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -12,7 +12,6 @@ import NVActivityIndicatorView
 
 class Test1ViewController: UIViewController {
     
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var InfoLabelT1: UILabel!
     @IBOutlet weak var DesLabelT1: UILabel!
     @IBOutlet weak var DesLabelT1TV: UITextView!
@@ -38,7 +37,7 @@ class Test1ViewController: UIViewController {
             //DesLabelT1.textColor = UIColor.white
             DesLabelT1TV.textColor = UIColor.white
             DesLabelT1TV.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+           self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -46,9 +45,9 @@ class Test1ViewController: UIViewController {
             //DesLabelT1.textColor = UIColor.black
             DesLabelT1TV.textColor = UIColor.black
             DesLabelT1TV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            
             //GLT1V.DarkmodeVar = 0
-            setNeedsStatusBarAppearanceUpdate()
+            self.setNeedsStatusBarAppearanceUpdate()
         }
 
         // Do any additional setup after loading the view.
@@ -93,7 +92,14 @@ class Test1ViewController: UIViewController {
     }*/
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     override func viewDidAppear(_ animated: Bool) {

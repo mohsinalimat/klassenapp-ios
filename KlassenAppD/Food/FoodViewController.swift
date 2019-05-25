@@ -13,7 +13,6 @@ import ExpandingMenu
 
 class FoodViewController: UIViewController {
 
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var FoodLabel: UILabel!
     @IBOutlet weak var FoodWeekLabel: UILabel!
     @IBOutlet weak var TitleBackground: UIView!
@@ -54,7 +53,7 @@ class FoodViewController: UIViewController {
             TitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
             FoodLabel.textColor = UIColor.white
             FoodWeekLabel.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -62,7 +61,7 @@ class FoodViewController: UIViewController {
             TitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             FoodLabel.textColor = UIColor.black
             FoodWeekLabel.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
        /* NetworkManager.isUnreachable { (_) in
@@ -75,9 +74,18 @@ class FoodViewController: UIViewController {
             }
         }*/
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         var ref: DatabaseReference!

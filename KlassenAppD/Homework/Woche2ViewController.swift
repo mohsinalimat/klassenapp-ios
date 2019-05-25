@@ -12,7 +12,6 @@ import NVActivityIndicatorView
 
 class Woche2ViewController: UIViewController {
     
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var MondayWeek2Text: UITextView!
     @IBOutlet weak var TuesdayWeek2Text: UITextView!
     @IBOutlet weak var WednesdayWeek2Text: UITextView!
@@ -30,9 +29,7 @@ class Woche2ViewController: UIViewController {
         FirstViewController.LastVC.LastVCV = "hw"
         self.performSegue(withIdentifier: "hw2tsegue", sender: nil)
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
@@ -49,7 +46,7 @@ class Woche2ViewController: UIViewController {
             ThursdayWeek2Text.textColor = UIColor.white
             FridayWeek2Text.textColor = UIColor.white
             WholeWeek2Text.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
             MondayWeek2Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             TuesdayWeek2Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             WednesdayWeek2Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
@@ -66,7 +63,7 @@ class Woche2ViewController: UIViewController {
             ThursdayWeek2Text.textColor = UIColor.black
             FridayWeek2Text.textColor = UIColor.black
             WholeWeek2Text.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
             MondayWeek2Text.backgroundColor = UIColor.white
             TuesdayWeek2Text.backgroundColor = UIColor.white
             WednesdayWeek2Text.backgroundColor = UIColor.white
@@ -196,6 +193,17 @@ class Woche2ViewController: UIViewController {
             UserDefaults.standard.set(DateWeek2LE, forKey: "UDW2DA")
             self.HomeworkLabelW2.text = DateWeek2LE
         }*/
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
 
     /*

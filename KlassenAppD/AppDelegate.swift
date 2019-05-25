@@ -15,23 +15,16 @@ import FirebaseDatabase
 import FirebaseFunctions
 import FirebaseInstanceID
 import FirebaseMessaging
-import AppCenter
-import AppCenterAnalytics
-import AppCenterCrashes
-import AppCenterPush
-import StatusBarOverlay
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
         var databasekeys: [String] = [] //Array for all References in the Database
     var window: UIWindow?
-    let network: NetworkManager = NetworkManager.sharedInstance
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
                 
         FirebaseApp.configure()
-        StatusBarOverlay.host = "https://klassenappd.de"
         Fabric.with([Crashlytics.self])
         
         return true

@@ -9,12 +9,10 @@
 import UIKit
 import FirebaseDatabase
 import AVFoundation
-import JGProgressHUD
 import NVActivityIndicatorView
 
 class Woche1ViewController: UIViewController {
     
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var MondayWeek1Text: UITextView!
     @IBOutlet weak var TuesdayWeek1Text: UITextView!
     @IBOutlet weak var WednesdayWeek1Text: UITextView!
@@ -49,7 +47,7 @@ class Woche1ViewController: UIViewController {
             ThursdayWeek1Text.textColor = UIColor.white
             FridayWeek1Text.textColor = UIColor.white
             WholeWeek1Text.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
             MondayWeek1Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             TuesdayWeek1Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             WednesdayWeek1Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
@@ -66,7 +64,7 @@ class Woche1ViewController: UIViewController {
             ThursdayWeek1Text.textColor = UIColor.black
             FridayWeek1Text.textColor = UIColor.black
             WholeWeek1Text.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
             MondayWeek1Text.backgroundColor = UIColor.white
             TuesdayWeek1Text.backgroundColor = UIColor.white
             WednesdayWeek1Text.backgroundColor = UIColor.white
@@ -121,9 +119,19 @@ class Woche1ViewController: UIViewController {
             }
         }*/
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
+
+    
     func calledViaSiriShortcutHW1() {
         if #available(iOS 12.0, *) {
             let HomeworkShortcutActivity = NSUserActivity(activityType: "com.adrianbaumgart.KlassenAppDREA1234.SiriShortcutHomework")

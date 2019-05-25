@@ -28,10 +28,8 @@ class PanelMaterial: UIViewController, Panelable {
         
         ref.child("standardData").child("iosCurrentVer").child("UpdateLink").observeSingleEvent(of: .value) { (linksnap) in
             let linksnapLE = linksnap.value as! String
-            print(linksnapLE)
-            UIApplication.shared.openURL(NSURL(string: linksnapLE)! as URL)
+            UIApplication.shared.open(URL(string: linksnapLE)!)
         }
-        print("INSTALL!!!")
     }
     @IBAction func notnowbtn(_ sender: Any)
     {

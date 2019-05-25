@@ -31,14 +31,14 @@ class TimeTableTuesdayViewController: UIViewController, UITableViewDelegate, UIT
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             TVTuesdayTitle.textColor = UIColor.white
             TimeTableTuesdayTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             TVTuesdayTitle.textColor = UIColor.black
             TimeTableTuesdayTV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
 
 
@@ -53,7 +53,6 @@ class TimeTableTuesdayViewController: UIViewController, UITableViewDelegate, UIT
         let ref: DatabaseReference
         ref = Database.database().reference()
         ref.child("stundenplan").child("tuesday").observeSingleEvent(of: .value, with: { snapshot in
-            var mySongArray = [String]()
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let hours = snap.value as! String
@@ -85,6 +84,17 @@ class TimeTableTuesdayViewController: UIViewController, UITableViewDelegate, UIT
             celltue.textLabel!.textColor = UIColor.black
         }
         return celltue
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
 
     /*

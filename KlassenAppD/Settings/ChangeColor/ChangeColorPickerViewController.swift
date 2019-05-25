@@ -27,7 +27,7 @@ class ChangeColorPickerViewController: UIViewController, ColorPickerViewDelegate
             ColorSelectorLabel.textColor = UIColor.white
             ColorPicker.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             // TouchIDLabel.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -35,7 +35,7 @@ class ChangeColorPickerViewController: UIViewController, ColorPickerViewDelegate
             SelectedColorLabel.textColor = UIColor.black
             ColorSelectorLabel.textColor = UIColor.black
             ColorPicker.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
             
         }
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
@@ -114,6 +114,17 @@ class ChangeColorPickerViewController: UIViewController, ColorPickerViewDelegate
             }
         }
         task.resume()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     /* func colorPickerView(_ colorPickerView: ColorPickerView, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -13,7 +13,6 @@ import NVActivityIndicatorView
 
 class FoodWeViewController: UIViewController {
     
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var FoodWeText: UITextView!
     @IBOutlet weak var FoodWeLabel: UILabel!
     var loader : NVActivityIndicatorView!
@@ -31,7 +30,7 @@ class FoodWeViewController: UIViewController {
             FoodWeText.textColor = UIColor.white
             FoodWeLabel.textColor = UIColor.white
             FoodWeText.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -39,7 +38,7 @@ class FoodWeViewController: UIViewController {
             FoodWeText.textColor = UIColor.black
             FoodWeLabel.textColor = UIColor.black
             FoodWeText.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view.
         /*NetworkManager.isUnreachable { (_) in
@@ -52,9 +51,18 @@ class FoodWeViewController: UIViewController {
             }
         }*/
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
+    
     override func viewDidAppear(_ animated: Bool) {
        
         var ref: DatabaseReference!

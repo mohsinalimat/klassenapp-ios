@@ -13,7 +13,7 @@ import ExpandingMenu
 import NVActivityIndicatorView
 
 class SecondViewController: UIViewController {
-    let network: NetworkManager = NetworkManager.sharedInstance
+    
     @IBOutlet weak var Arbeit1BtnOut: UIButton!
     @IBOutlet weak var Arbeit2BtnOut: UIButton!
     @IBOutlet weak var Arbeit3BtnOut: UIButton!
@@ -83,13 +83,15 @@ class SecondViewController: UIViewController {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             backgroundTitleView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
             TestsLabel.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+           // UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             backgroundTitleView.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             TestsLabel.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+           // UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         // Do any additional setup after loading the view, typically from a nib.
         /*NetworkManager.isUnreachable { (_) in
@@ -175,9 +177,18 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
        
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

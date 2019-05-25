@@ -18,8 +18,6 @@ import MarqueeLabel
 import NotificationBannerSwift
 import ExpandingMenu
 import FirebaseMessaging
-import AppCenterPush
-import AppCenter
 import EZAlertController
 import NVActivityIndicatorView
 
@@ -51,8 +49,7 @@ class FirstViewController: UIViewController {
         return BLTNItemManager(rootItem: betaVB)
     }()
     
-     
-    let network: NetworkManager = NetworkManager.sharedInstance
+
     @IBOutlet weak var Week1Out: UIButton!
     @IBOutlet weak var Week2Out: UIButton!
     @IBOutlet weak var Week3Out: UIButton!
@@ -222,14 +219,14 @@ class FirstViewController: UIViewController {
             backgroundTitleView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
             HomeworkLabel.textColor = UIColor.white
             LDULabel.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             backgroundTitleView.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
             HomeworkLabel.textColor = UIColor.black
             LDULabel.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -239,11 +236,9 @@ class FirstViewController: UIViewController {
             LastVC.LastVCV = "0"
             self.tabBarController?.selectedIndex = 0
         }
-        let ref: DatabaseReference = Database.database().reference()
         /* Week2Out.setTitle("S: \(Week2Label)", for: .normal)
          Week3Out.setTitle("S: \(Week3Label)", for: .normal)
          Week4Out.setTitle("S: \(Week4Label)", for: .normal)*/
-        let token: [String: AnyObject] = [Messaging.messaging().fcmToken!: Messaging.messaging().fcmToken as AnyObject]
         // self.postToken(Token: token)
     }
     
@@ -251,33 +246,23 @@ class FirstViewController: UIViewController {
        // CIView.isHidden = true
         super.viewDidLoad()
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-       return UIStatusBarStyle(rawValue: SettingsViewController.GLSEV.DarkmodeVar)!
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func push(_ push: MSPush!, didReceive pushNotification: MSPushNotification!) {
-        let title: String = pushNotification.title ?? ""
-        var message: String = pushNotification.message ?? ""
-        var customData: String = ""
-        for item in pushNotification.customData {
-            customData =  ((customData.isEmpty) ? "" : "\(customData), ") + "\(item.key): \(item.value)"
-        }
-        if (UIApplication.shared.applicationState == .background) {
-            NSLog("Notification received in background, title: \"\(title)\", message: \"\(message)\", custom data: \"\(customData)\"");
-        } else {
-            message =  message + ((customData.isEmpty) ? "" : "\n\(customData)")
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
-            
-            // Show the alert controller.
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
     func playTutorial() {
        /* if let SiriShortcutTUTO = Bundle.main.path(forResource: "KlassenApp3.0Video2", ofType: "mov") {
             let SiriShortcutVideo = AVPlayer(url: URL(fileURLWithPath: SiriShortcutTUTO))
@@ -358,104 +343,6 @@ class FirstViewController: UIViewController {
         if LastVC.ShortDirect == "TimeTableShort" {
             self.performSegue(withIdentifier: "hwtoTTshort", sender: nil)
         }
-        var bundleID = Bundle.main.bundleIdentifier as! String
-       /* if bundleID == "com.adrianbaumgart.KlassenAppDREA1234" {
-       ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
-            var NewestBuildDBLE = NewestBuildDB.value as? String
-            let dictionary = Bundle.main.infoDictionary!
-            let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
-            
-            if versionCurrent.compare(NewestBuildDBLE!, options: .numeric) == .orderedAscending {
-                if let tabItems = self.tabBarController?.tabBar.items {
-                    let tabItem = tabItems[4]
-                    tabItem.badgeValue = "1"
-                }
-                if LastVC.UpdateReminderSession != "1" {
-                    var NewestBuildDBLES = NewestBuildDB.value as! String
-                    LastVC.NEWUPDATEVERDB = NewestBuildDBLES
-                    let introPage = FirstViewController.bulletinNWUP()
-                    self.bulletinManager = BLTNItemManager(rootItem: introPage)
-                    self.bulletinManager.showBulletin(above: self)
-                    /*while LastVC.showUCC == "0" {
-                        if LastVC.showUC == "1" {
-                            LastVC.showUCC == "1"
-                            self.performSegue(withIdentifier: "gotoupdatecenter", sender: nil)
-                        }
-                    }
-                    
-                //self.newUpdatealert(title: "Neues Update", message: "Es gibt eine neue Version der App (Version \(NewestBuildDBLES))")
-                }*/
-            }
-        }
-        }
-        }
-        if bundleID == "com.adrianbaumgart.KlassenAppDREA1234-beta" {
-        ref.child("standardData").child("iosBetaVersion").observeSingleEvent(of: .value) { (BetaBuildDB) in
-            var BetaBuildDBLE = BetaBuildDB.value as? String
-            let dictionary = Bundle.main.infoDictionary!
-            let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
-            
-            if versionCurrent.compare(BetaBuildDBLE!, options: .numeric) == .orderedAscending {
-                if LastVC.UpdateReminderSession != "1" {
-                    var BetaBuildDBLES = BetaBuildDB.value as! String
-                    LastVC.NEWUPDATEBETA = BetaBuildDBLES
-                    let betaVB = FirstViewController.bulletinNWUPBeta()
-                    self.betaVersionAVBullet = BLTNItemManager(rootItem: betaVB)
-                    self.betaVersionAVBullet.showBulletin(above: self)
-                
-                    //self.newUpdatealert(title: "Neues Update", message: "Es gibt eine neue Version der App (Version \(NewestBuildDBLES))")
-                }
-            }
-        }
-        }*/
-      /* if bundleID == "com.adrianbaumgart.KlassenAppDREA1234" {
-        if UserDefaults.standard.string(forKey: "FirstLaunch2.0") != "1" {
-            let ChangelogUpdate = FirstViewController.bulletinWelcomeNV()
-            self.bulletinManagerChangelog = BLTNItemManager(rootItem: ChangelogUpdate)
-            self.bulletinManagerChangelog.showBulletin(above: self)
-        }
-        }
-        if bundleID == "com.adrianbaumgart.KlassenAppDREA1234-beta" {
-            if UserDefaults.standard.string(forKey: "FirstLaunchBeta1.3.2") != "1" {
-                let ChangelogUpdateBeta = FirstViewController.bulletinWelcomeNVBeta()
-                self.bulletinManagerChangelogBeta = BLTNItemManager(rootItem: ChangelogUpdateBeta)
-                self.bulletinManagerChangelogBeta.showBulletin(above: self)
-            }
-        }*/
-    
-        
-      /*  let date = Date()
-        let calendar = Calendar.current
-        
-        let currentday = calendar.component(.weekday, from: date)
-        
-        print(currentday) */
-        
-     /* So = 1
-        Mo = 2
-        Di = 3
-        Mi = 4
-        Do = 5
-        Fr = 6
-        Sa = 7 */
-        
-        
-           
-        
-        
-       // if LoginViewController.GlobalVariables.LoggedInChecker == "0" {
-            //Perform Segue to Login
-          //  self.performSegue(withIdentifier: "homeworktologinsegue", sender: nil)
-        //}
-        
-        
-        
-      /*  ref.child("standardData").child("iosUpdateAv").observeSingleEvent(of: .value) { (NewUpdateSnap) in
-            let NewUpdateLE = NewUpdateSnap.value as? Int
-            if NewUpdateLE! > LastVC.CurrentVersion {
-                self.newUpdatealert(title: "Neues Update", message: "Es ist ein neues Update verfügbar. Wir empfehlen es zu installieren.")
-            }
-        } */
         
         ref.child("homework").child("Week1").child("Datum").observeSingleEvent(of: .value) { (Week1DatumSnap) in
             let Week1DatumLE = Week1DatumSnap.value as? String
@@ -615,7 +502,7 @@ class FirstViewController: UIViewController {
         
         ref = Database.database().reference()
         ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
-            var NewestBuildDBLES = NewestBuildDB.value as! String
+            let NewestBuildDBLES = NewestBuildDB.value as! String
             LastVC.NEWUPDATEVERDB = NewestBuildDBLES
         }
             let NewestBuildDBLE = LastVC.NEWUPDATEVERDB
@@ -647,7 +534,7 @@ class FirstViewController: UIViewController {
         
         ref = Database.database().reference()
         ref.child("standardData").child("iosBetaVersion").observeSingleEvent(of: .value) { (BetaBuildDB) in
-            var BetaBuildDBLES = BetaBuildDB.value as! String
+            let BetaBuildDBLES = BetaBuildDB.value as! String
             LastVC.NEWUPDATEBETA = BetaBuildDBLES
         }
         let BetaBuildDBLE = LastVC.NEWUPDATEBETA
@@ -658,7 +545,7 @@ class FirstViewController: UIViewController {
         nUABetapage.alternativeButtonTitle = "Nicht jetzt"
         nUABetapage.isDismissable = false
         nUABetapage.actionHandler = { (item: BLTNActionItem) in
-            UIApplication.shared.openURL(NSURL(string: "https://klassenappd-team.github.io/iosbeta.html")! as URL)
+            UIApplication.shared.open(URL(string: "https://klassenappd-team.github.io/iosbeta.html")!)
         }
         nUABetapage.alternativeHandler = { (item: BLTNItem) in
             LastVC.UpdateReminderSession = "1"
@@ -702,7 +589,7 @@ class FirstViewController: UIViewController {
                     item.manager?.displayNextItem()
                 })
             }*/
-            UIApplication.shared.openURL(NSURL(string: "https://goo.gl/forms/8scxGoMvyGfk7Tha2")! as URL)
+            UIApplication.shared.open(URL(string: "https://goo.gl/forms/8scxGoMvyGfk7Tha2")!)
             item.manager?.displayNextItem()
         }
         nVB2page.alternativeHandler = { (item: BLTNItem) in
@@ -736,7 +623,7 @@ class FirstViewController: UIViewController {
         let nUA = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
         nUA.addAction(UIAlertAction(title: "Installieren", style: UIAlertAction.Style.default, handler: { (nUAInstall) in
-            UIApplication.shared.openURL(NSURL(string: "https://klassenappd-team.github.io/iosdownload.html")! as URL)
+            UIApplication.shared.open(URL(string: "https://klassenappd-team.github.io/iosdownload.html")!)
         }))
             nUA.addAction(UIAlertAction(title: "Dieses mal nicht mehr fragen", style: UIAlertAction.Style.default, handler: { (nUACanel2) in
                 LastVC.UpdateReminderSession = "1"

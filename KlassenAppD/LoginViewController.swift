@@ -102,7 +102,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             PasswordTextField.attributedPlaceholder = NSAttributedString(string: "Passwort", attributes: [NSAttributedString.Key.foregroundColor:  UIColor(red:0.97, green:0.97, blue:0.97, alpha:0.5)])
             PasswordTextField.textColor = UIColor.white
             PasswordTextField.keyboardAppearance = UIKeyboardAppearance.dark
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -119,7 +119,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             PasswordTextField.attributedPlaceholder = NSAttributedString(string: "Passwort", attributes: [NSAttributedString.Key.foregroundColor:  UIColor.lightGray])
             PasswordTextField.textColor = UIColor.black
             PasswordTextField.keyboardAppearance = UIKeyboardAppearance.light
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "TouchIDVerification") != 1 {
             LoginTouchIDOut.isEnabled = false
@@ -127,9 +127,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if UserDefaults.standard.integer(forKey: "TouchIDVerification") == 1 {
             LoginTouchIDOut.isEnabled = true
         }
-    }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
     }
 
     override func didReceiveMemoryWarning() {
@@ -139,6 +136,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     override func viewDidAppear(_ animated: Bool) {

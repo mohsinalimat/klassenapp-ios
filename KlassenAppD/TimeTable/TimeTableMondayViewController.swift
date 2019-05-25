@@ -33,14 +33,14 @@ class TimeTableMondayViewController: UIViewController, UITableViewDelegate, UITa
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             TVMondayTitle.textColor = UIColor.white
             TimeTableMondayTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             TVMondayTitle.textColor = UIColor.black
             TimeTableMondayTV.backgroundColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
 
         // Do any additional setup after loading the view.
@@ -50,11 +50,21 @@ class TimeTableMondayViewController: UIViewController, UITableViewDelegate, UITa
         loadData()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
+    }
+    
     func loadData() {
         let ref: DatabaseReference
         ref = Database.database().reference()
         ref.child("stundenplan").child("monday").observeSingleEvent(of: .value, with: { snapshot in
-            var mySongArray = [String]()
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let hours = snap.value as! String

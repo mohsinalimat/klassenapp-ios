@@ -12,7 +12,6 @@ import NVActivityIndicatorView
 
 class Woche4ViewController: UIViewController {
 
-    let network: NetworkManager = NetworkManager.sharedInstance
     @IBOutlet weak var MondayWeek4Text: UITextView!
     @IBOutlet weak var TuesdayWeek4Text: UITextView!
     @IBOutlet weak var WednesdayWeek4Text: UITextView!
@@ -49,7 +48,7 @@ class Woche4ViewController: UIViewController {
             ThursdayWeek4Text.textColor = UIColor.white
             FridayWeek4Text.textColor = UIColor.white
             WholeWeek4Text.textColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
             MondayWeek4Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             TuesdayWeek4Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
             WednesdayWeek4Text.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.0)
@@ -66,7 +65,7 @@ class Woche4ViewController: UIViewController {
             ThursdayWeek4Text.textColor = UIColor.black
             FridayWeek4Text.textColor = UIColor.black
             WholeWeek4Text.textColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
             MondayWeek4Text.backgroundColor = UIColor.white
             TuesdayWeek4Text.backgroundColor = UIColor.white
             WednesdayWeek4Text.backgroundColor = UIColor.white
@@ -120,11 +119,20 @@ class Woche4ViewController: UIViewController {
             }
         }*/
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle(rawValue: UserDefaults.standard.integer(forKey: "DarkmodeStatus"))!
-    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            style = .lightContent
+        }
+        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            style = .default
+        }
+        return style
     }
     
     override func viewDidAppear(_ animated: Bool) {
