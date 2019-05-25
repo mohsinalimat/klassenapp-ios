@@ -372,14 +372,19 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Tabbar",
-                        subtitle: "Die Tabbar ist back! Und jetzt noch besser programmiert als früher!",
-                        image: UIImage(named: "icon_menuo")
+                        title: "Neue Views",
+                        subtitle: "Die Ansichten für u.a. die Hausaufgaben und die Arbeiten wurden erneuert! (Sogar die Liste ;) )",
+                        image: UIImage(named: "icons8-modulansicht-30")
                     ),
                     WhatsNew.Item(
-                        title: "Unnötige Ansichten entfernt",
-                        subtitle: "Die Ansichten Neuigkeiten und Hausaufgaben bis morgen wurden entfernt. Aber keine Sorge, sie befinden sich auf der Homeseite.",
+                        title: "App aufgeräumt",
+                        subtitle: "Unnötige Bibliotheken und Ansichten wurden komplett entfernt.",
                         image: UIImage(named: "icon_close")
+                    ),
+                    WhatsNew.Item(
+                        title: "Refresh-Knopf eingebaut",
+                        subtitle: "In den Ansichten Home, Hausaufgaben, Arbeiten und Speiseplan wurden Refresh-Knöpfe eingebaut, um die Daten zu aktualisieren.",
+                        image: UIImage(named: "icons8-aktualisieren-30")
                     )
                 ]
             )

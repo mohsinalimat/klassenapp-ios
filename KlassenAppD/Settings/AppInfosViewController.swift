@@ -8,15 +8,17 @@
 
 import UIKit
 import FirebaseDatabase
+import SPFakeBar
 
 class AppInfosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var TitleBar: UIView!
+    let navigationbar = SPFakeBarView(style: .stork)
+    
+    private var InfoTV: UITableView!
+    
     var n1:[String] = ["Appname: KlassenApp", "Bundle-Identifier: com.adrianbaumgart.KlassenAppDREA1234", "Appversion: \(AppInfoPublic.version) (Build \(AppInfoPublic.build))", "Website: klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "GitHub-Link: https://github.com/AdriBoy21/klassenapp-ios", "© Adrian Baumgart, 2019"]
    /* var n2:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase\n-Fabric\n-Crashlytics\n-ReachabilitySwift\n-Alamofire\n-BulletinBoard\n-NotificationBannerSwift\n-RevealingSplashView\n-SendBidSDK\n-MiBadgeButton-Swift\n-SwipeableTabBarController\n-ExpandingMenu\n-SendBirdSDK\n-JGProgressHUD\n-TrueTime"]
     var n3:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase -Fabric -Crashlytics -ReachabilitySwift -Alamofire -BulletinBoard -NotificationBannerSwift -RevealingSplashView\n-SendBidSDK -MiBadgeButton-Swift -SwipeableTabBarController\n-ExpandingMenu -SendBirdSDK -JGProgressHUD -TrueTime"]*/
-    @IBOutlet weak var TItle: UILabel!
-    @IBOutlet weak var TitleBackground: UIView!
    // @IBOutlet weak var InfoTVCell: AppInfosTableViewCell!
     
     @IBAction func BackBtn(_ sender: Any)
@@ -35,15 +37,17 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //infocell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "infocell", for: indexPath) as? AppInfosTableViewCell
-        cell?.TitleName.text = n1[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "infocell")
+        cell?.textLabel?.numberOfLines = 0
+        cell?.textLabel?.lineBreakMode = .byTruncatingTail
+        cell?.textLabel!.text = n1[indexPath.row]
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            cell!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            cell?.TitleName.textColor = UIColor.white
+            cell?.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+            cell?.textLabel!.textColor = UIColor.white
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            cell!.backgroundColor = UIColor.white
-            cell?.TitleName.textColor = UIColor.black
+            cell?.backgroundColor = UIColor.white
+            cell?.textLabel!.textColor = UIColor.black
         }
         return cell!
     }
@@ -57,23 +61,38 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    @IBOutlet weak var InfoTV: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
-            self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        
+        navigationbar.titleLabel.text = "Liste"
+        navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
+        navigationbar.height = 95
+        navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        navigationbar.titleLabel.numberOfLines = 3
+        self.view.addSubview(navigationbar)
+        for subview in navigationbar.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
         }
+        
+        InfoTV = UITableView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 150))
+        InfoTV.register(UITableViewCell.self, forCellReuseIdentifier: "infocell")
+        InfoTV.dataSource = self
+        InfoTV.delegate = self
+        self.view.addSubview(InfoTV!)
+        
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            TitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
-            TItle.textColor = UIColor.white
+            navigationbar.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
+            navigationbar.titleLabel.textColor = .white
             InfoTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
-            TitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-            TItle.textColor = UIColor.black
+            navigationbar.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+            navigationbar.titleLabel.textColor = .black
             InfoTV.backgroundColor = UIColor.white
             self.setNeedsStatusBarAppearanceUpdate()
         }

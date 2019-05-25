@@ -18,6 +18,15 @@ class PlansViewController: UIViewController {
     @IBOutlet weak var FoodBtn: UIButton!
     @IBOutlet weak var ListBtn: UIButton!
     
+    @IBAction func ListBtnAction(_ sender: Any)
+    {
+        let controller1 = RememberViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
     @IBAction func FoodBtnAction(_ sender: Any)
     {
         let controller1 = FoodAllViewController()

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import ExpandingMenu
+import SPStorkController
 
 class TimeTableViewController: UIViewController {
     @IBOutlet weak var TitleBar: UIView!
@@ -17,6 +18,62 @@ class TimeTableViewController: UIViewController {
     @IBOutlet weak var WednesdayBtn: UIButton!
     @IBOutlet weak var ThursdayBtn: UIButton!
     @IBOutlet weak var FridayBtn: UIButton!
+    
+    @IBAction func Monday(_ sender: Any)
+    {
+        TimeTableAllViewController.TimeTableVC.selectedDay = "monday"
+        let controller1 = TimeTableAllViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
+    
+    @IBAction func Tuesday(_ sender: Any)
+    {
+        TimeTableAllViewController.TimeTableVC.selectedDay = "tuesday"
+        let controller1 = TimeTableAllViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
+    
+    @IBAction func Wednesday(_ sender: Any)
+    {
+        TimeTableAllViewController.TimeTableVC.selectedDay = "wednesday"
+        let controller1 = TimeTableAllViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
+    
+    @IBAction func Thursday(_ sender: Any)
+    {
+        TimeTableAllViewController.TimeTableVC.selectedDay = "thursday"
+        let controller1 = TimeTableAllViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
+    
+    @IBAction func Friday(_ sender: Any)
+    {
+        TimeTableAllViewController.TimeTableVC.selectedDay = "friday"
+        let controller1 = TimeTableAllViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
+    
     @IBAction func TTBackBtn(_ sender: Any)
     {
         FirstViewController.LastVC.LastVCV = "TimeTable"
