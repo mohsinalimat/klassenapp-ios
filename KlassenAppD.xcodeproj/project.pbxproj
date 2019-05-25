@@ -21,6 +21,7 @@
 		3A19530622648F95006C4FC5 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A19530522648F95006C4FC5 /* colors.json */; };
 		3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A37CC5E21935D6D003F7BF8 /* MBProgressHUD.m */; };
 		3A3A1D6822984B5100D81453 /* WholeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A1D6722984B5100D81453 /* WholeTabBarController.swift */; };
+		3A3BE9F12299BA6100F67AA0 /* FoodAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */; };
 		3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */; };
 		3A4FFDD822888A4A001A8574 /* InformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FFDD722888A4A001A8574 /* InformationsViewController.swift */; };
 		3A57BB2420D5630000CF5110 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A57BB2320D5630000CF5110 /* Test1ViewController.swift */; };
@@ -60,6 +61,8 @@
 		3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9912261E7390048030A /* UIVIew+Utils.swift */; };
 		3AC1E9952261F0E10048030A /* PanelMaterial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */; };
 		3AC1E9972261F13F0048030A /* PanelMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9962261F13E0048030A /* PanelMaterial.swift */; };
+		3AC2202A22998BE100204C8D /* HomeworkWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */; };
+		3AC2202C2299AA3C00204C8D /* AllTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2202B2299AA3C00204C8D /* AllTestsViewController.swift */; };
 		3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF16F922414B660087217A /* HomeViewController.swift */; };
 		3AE1F8822152910C004A25BD /* TimeTableMondayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1F8812152910C004A25BD /* TimeTableMondayViewController.swift */; };
 		3AE1F8842152911F004A25BD /* TimeTableTuesdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1F8832152911F004A25BD /* TimeTableTuesdayViewController.swift */; };
@@ -148,6 +151,7 @@
 		3A37CC5D21935D6D003F7BF8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3A37CC5E21935D6D003F7BF8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3A3A1D6722984B5100D81453 /* WholeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WholeTabBarController.swift; sourceTree = "<group>"; };
+		3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllViewController.swift; sourceTree = "<group>"; };
 		3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationViewController.swift; sourceTree = "<group>"; };
 		3A4FFDD722888A4A001A8574 /* InformationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationsViewController.swift; sourceTree = "<group>"; };
 		3A57BB2320D5630000CF5110 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 		3AC1E9912261E7390048030A /* UIVIew+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+Utils.swift"; sourceTree = "<group>"; };
 		3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMaterial.storyboard; sourceTree = "<group>"; };
 		3AC1E9962261F13E0048030A /* PanelMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelMaterial.swift; sourceTree = "<group>"; };
+		3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkWeekViewController.swift; sourceTree = "<group>"; };
+		3AC2202B2299AA3C00204C8D /* AllTestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTestsViewController.swift; sourceTree = "<group>"; };
 		3AC8809B210F2FD90077B67E /* KlassenAppDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlassenAppDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC8809C210F2FD90077B67E /* KlassenAppDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlassenAppDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADA9CBF218CDA35001D2C30 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -409,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				3A0F5710207BD0B700D9F701 /* FirstViewController.swift */,
+				3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */,
 				3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */,
 				7A73788220CEA629003D78A8 /* Woche1ViewController.swift */,
 				7A73788420CEA641003D78A8 /* Woche2ViewController.swift */,
@@ -421,6 +428,7 @@
 		3A2CB09F226235E4002F0E0A /* Food */ = {
 			isa = PBXGroup;
 			children = (
+				3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */,
 				7A5F0E3A20F9E34D00747AB2 /* FoodViewController.swift */,
 				7A5F0E3020F9DD2A00747AB2 /* FoodMoViewController.swift */,
 				7A5F0E3220F9DD3800747AB2 /* FoodTuViewController.swift */,
@@ -440,6 +448,7 @@
 				3A57BB2720D5632600CF5110 /* Test3ViewController.swift */,
 				3A57BB2920D5632D00CF5110 /* Test4ViewController.swift */,
 				3A57BB2B20D5633D00CF5110 /* Test5ViewController.swift */,
+				3AC2202B2299AA3C00204C8D /* AllTestsViewController.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -676,7 +685,7 @@
 				TargetAttributes = {
 					3A0F570A207BD0B700D9F701 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -886,6 +895,8 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
+				"${BUILT_PRODUCTS_DIR}/SPFakeBar/SPFakeBar.framework",
+				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeableTabBarController/SwipeableTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
@@ -912,6 +923,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPFakeBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeableTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
@@ -953,6 +966,7 @@
 				7A5F0E3320F9DD3800747AB2 /* FoodTuViewController.swift in Sources */,
 				3A3A1D6822984B5100D81453 /* WholeTabBarController.swift in Sources */,
 				3AE1F88A21529140004A25BD /* TimeTableFridayViewController.swift in Sources */,
+				3A3BE9F12299BA6100F67AA0 /* FoodAllViewController.swift in Sources */,
 				3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */,
 				7A73788520CEA641003D78A8 /* Woche2ViewController.swift in Sources */,
 				3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */,
@@ -993,7 +1007,9 @@
 				3A0F5711207BD0B700D9F701 /* FirstViewController.swift in Sources */,
 				3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */,
 				3A57BB2C20D5633D00CF5110 /* Test5ViewController.swift in Sources */,
+				3AC2202A22998BE100204C8D /* HomeworkWeekViewController.swift in Sources */,
 				3AE1F8842152911F004A25BD /* TimeTableTuesdayViewController.swift in Sources */,
+				3AC2202C2299AA3C00204C8D /* AllTestsViewController.swift in Sources */,
 				7A73788920CEA656003D78A8 /* Woche4ViewController.swift in Sources */,
 				3A57BB2820D5632600CF5110 /* Test3ViewController.swift in Sources */,
 				3AE242EF2137110100953BF4 /* WelcomeFunc1ViewController.swift in Sources */,

@@ -28,7 +28,9 @@ pod "SAConfettiView"
 pod 'EZAlertController', '3.2'
 pod 'UITextView+Placeholder'
 pod 'NVActivityIndicatorView'
-
+pod 'SnapKit', '~> 4.2.0'
+pod 'SPStorkController'
+pod 'SPFakeBar'
 
   # Pods for KlassenAppD
 

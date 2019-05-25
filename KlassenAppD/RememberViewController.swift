@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import ExpandingMenu
-import FirebaseAuth
+import SPFakeBar
 
 class RememberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    @IBOutlet weak var TitleBar: UIView!
-    @IBOutlet weak var backgroundTitleView: UIView!
-    @IBOutlet weak var TitleLabel: UILabel!
+    let navigationbar = SPFakeBarView(style: .stork)
+    var TableViewRemember: UITableView? = nil
+    //@IBOutlet weak var TableViewRemember: UITableView!
     
     var LIST: [String] = []
     
@@ -56,7 +54,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
             LIST.remove(at: indexPath.row)
             UserDefaults.standard.set(self.LIST, forKey: "RememberList")
             //  print(self.LIST)
-            self.TableViewRemember.reloadData()
+            self.TableViewRemember!.reloadData()
             // handle delete (by removing the data from your array and updating the tableview)
         }
     }
@@ -72,38 +70,41 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         return style
     }
     
-    
-    @IBOutlet weak var TableViewRemember: UITableView!
-    
-    @IBAction func AddBtn(_ sender: Any)
+    @objc func addItemFunction()
     {
         AddITEM(title: "Hinzufügen", message: "Gib hier etwas ein")
-       // bulletinManager.showBulletin(above: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
-            self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        navigationbar.titleLabel.text = "Download..."
+        navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
+        navigationbar.height = 95
+        navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        navigationbar.titleLabel.numberOfLines = 3
+        navigationbar.rightButton.setTitle("+", for: .normal)
+        navigationbar.rightButton.addTarget(self, action: #selector(addItemFunction), for: .touchUpInside)
+        self.view.addSubview(navigationbar)
+        for subview in navigationbar.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
         }
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            backgroundTitleView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
-            TitleLabel.textColor = UIColor.white
-            TableViewRemember.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            // ChatMSGTF.tintColor = UIColor.white
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            backgroundTitleView.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-            TitleLabel.textColor = UIColor.black
-            TableViewRemember.backgroundColor = UIColor.white
-            // ChatMSGTF.tintColor = UIColor.black
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
+        TableViewRemember = UITableView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 100))
+        self.view.addSubview(TableViewRemember!)
+        
         LIST.removeAll()
         LIST = (UserDefaults.standard.stringArray(forKey: "RememberList"))  ?? [String]()
+        
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            cell!.textLabel!.textColor = UIColor.white
+            cell!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+        }
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            cell!.textLabel!.textColor = UIColor.black
+            cell!.backgroundColor = UIColor.white
+        }
+        
     }
     
     
@@ -131,7 +132,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
                     self.LIST.append(enteredText ?? "")
                     UserDefaults.standard.set(self.LIST, forKey: "RememberList")
                   //  print(self.LIST)
-                    self.TableViewRemember.reloadData()
+                    self.TableViewRemember!.reloadData()
                     
                     
                     AI.dismiss(animated: true, completion: nil)
