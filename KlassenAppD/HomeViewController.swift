@@ -220,7 +220,6 @@ class HomeViewController: UIViewController {
         
         let date = Date()
         let calender = Calendar.current
-        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         let currentday = calender.component(.weekday, from: date)
         
         var ref: DatabaseReference!
@@ -372,20 +371,15 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Neue Views",
-                        subtitle: "Die Ansichten für u.a. die Hausaufgaben und die Arbeiten wurden erneuert! (Sogar die Liste ;) )",
-                        image: UIImage(named: "icons8-modulansicht-30")
+                        title: "Bugs behoben",
+                        subtitle: "Bugs aus der letzten Version (4.9.0) wurden behoben.",
+                        image: UIImage(named: "icons8-umfrage")
                     ),
                     WhatsNew.Item(
-                        title: "App aufgeräumt",
-                        subtitle: "Unnötige Bibliotheken und Ansichten wurden komplett entfernt.",
-                        image: UIImage(named: "icon_close")
+                    title: "Titelleiste in neuen Views",
+                    subtitle: "Die Titelleiste wurde in den neuen Views hinzugefügt.",
+                    image: UIImage(named: "designicon")
                     ),
-                    WhatsNew.Item(
-                        title: "Refresh-Knopf eingebaut",
-                        subtitle: "In den Ansichten Home, Hausaufgaben, Arbeiten und Speiseplan wurden Refresh-Knöpfe eingebaut, um die Daten zu aktualisieren.",
-                        image: UIImage(named: "icons8-aktualisieren-30")
-                    )
                 ]
             )
 
