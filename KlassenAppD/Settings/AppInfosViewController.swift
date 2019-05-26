@@ -16,7 +16,7 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     
     private var InfoTV: UITableView!
     
-    var n1:[String] = ["Appname: KlassenApp", "Bundle-Identifier: com.adrianbaumgart.KlassenAppDREA1234", "Appversion: \(AppInfoPublic.version) (Build \(AppInfoPublic.build))", "Website: klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "GitHub-Link: https://github.com/AdriBoy21/klassenapp-ios", "© Adrian Baumgart, 2019"]
+    var n1:[String] = ["Appname: KlassenApp", "Bundle-Identifier: \(AppInfoPublic.bundleid!)", "Appversion: \(AppInfoPublic.version) (Build: \(AppInfoPublic.build))", "Website: https://klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "GitHub-Link: https://github.com/AdriBoy21/klassenapp-ios", "© Adrian Baumgart, 2018 - 2019"]
    /* var n2:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase\n-Fabric\n-Crashlytics\n-ReachabilitySwift\n-Alamofire\n-BulletinBoard\n-NotificationBannerSwift\n-RevealingSplashView\n-SendBidSDK\n-MiBadgeButton-Swift\n-SwipeableTabBarController\n-ExpandingMenu\n-SendBirdSDK\n-JGProgressHUD\n-TrueTime"]
     var n3:[String] = ["KlassenApp", "Adrian", "Firebase", "-Firebase -Fabric -Crashlytics -ReachabilitySwift -Alamofire -BulletinBoard -NotificationBannerSwift -RevealingSplashView\n-SendBidSDK -MiBadgeButton-Swift -SwipeableTabBarController\n-ExpandingMenu -SendBirdSDK -JGProgressHUD -TrueTime"]*/
    // @IBOutlet weak var InfoTVCell: AppInfosTableViewCell!
@@ -64,7 +64,7 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationbar.titleLabel.text = "Liste"
+        navigationbar.titleLabel.text = "Appinformationen"
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
         navigationbar.height = 95
         navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -75,6 +75,14 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
                 subview.removeFromSuperview()
             }
         }
+        
+        let titlebar = UIView(frame: CGRect(x: 0, y: navigationbar.height - 1, width: self.view.frame.width, height: 3))
+        titlebar.backgroundColor = UIColor(red:0.61, green:0.32, blue:0.88, alpha:1.0)
+        
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            titlebar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        }
+        self.view.addSubview(titlebar) 
         
         InfoTV = UITableView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 150))
         InfoTV.register(UITableViewCell.self, forCellReuseIdentifier: "infocell")
@@ -103,14 +111,7 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        var style: UIStatusBarStyle!
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            style = .lightContent
-        }
-        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            style = .default
-        }
-        return style
+        return .lightContent
     }
     
 
@@ -128,6 +129,7 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
         static var dictionary = Bundle.main.infoDictionary!
         static var version = dictionary["CFBundleShortVersionString"] as! String
         static var build = dictionary["CFBundleVersion"] as! String
+        static var bundleid = Bundle.main.bundleIdentifier
         static var database = "Laden..."
     }
 

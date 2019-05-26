@@ -62,14 +62,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        var style: UIStatusBarStyle!
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            style = .lightContent
-        }
-        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            style = .default
-        }
-        return style
+        return .lightContent
     }
     
     @objc func addItemFunction()
@@ -93,6 +86,14 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
+        let titlebar = UIView(frame: CGRect(x: 0, y: navigationbar.height - 1, width: self.view.frame.width, height: 3))
+        titlebar.backgroundColor = UIColor(red:0.61, green:0.32, blue:0.88, alpha:1.0)
+        
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            titlebar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        }
+        self.view.addSubview(titlebar)
+        
         TableViewRemember = UITableView(frame: CGRect(x: 8, y: 100, width: self.view.frame.width - 16, height: self.view.frame.height - 150))
         TableViewRemember.register(UITableViewCell.self, forCellReuseIdentifier: "listcell")
         TableViewRemember.dataSource = self
@@ -108,7 +109,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
             navigationbar.titleLabel.textColor = .white
             TableViewRemember!.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
             // ChatMSGTF.tintColor = UIColor.white
-            UIApplication.shared.statusBarStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
@@ -116,7 +117,7 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
             navigationbar.titleLabel.textColor = .black
             TableViewRemember!.backgroundColor = UIColor.white
             // ChatMSGTF.tintColor = UIColor.black
-            UIApplication.shared.statusBarStyle = .default
+            self.setNeedsStatusBarAppearanceUpdate()
         }
         
     }
