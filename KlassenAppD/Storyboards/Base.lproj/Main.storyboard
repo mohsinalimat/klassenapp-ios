@@ -1636,6 +1636,8 @@ Das KlassenAppD-Team
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_menu" id="Mqx-NA-Os8"/>
                     <connections>
+                        <outlet property="FoodBtn" destination="9SY-RP-H6S" id="slq-Og-X97"/>
+                        <outlet property="ListBtn" destination="Syy-VR-q5c" id="6wf-mF-dRv"/>
                         <outlet property="MainTitle" destination="vqx-Ja-MeZ" id="3Ns-Yv-aSY"/>
                         <outlet property="TimeTableBtn" destination="3NG-Mp-CXB" id="oYY-MZ-mkG"/>
                         <outlet property="TitleBar" destination="p4G-vf-grS" id="NNv-fc-UMk"/>

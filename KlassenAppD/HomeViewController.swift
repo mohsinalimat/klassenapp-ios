@@ -372,14 +372,9 @@ class HomeViewController: UIViewController {
                 items: [
                     WhatsNew.Item(
                         title: "Bugs behoben",
-                        subtitle: "Bugs aus der letzten Version (4.9.0) wurden behoben.",
+                        subtitle: "Bugs aus der letzten Version (4.9.1) wurden behoben.",
                         image: UIImage(named: "icons8-umfrage")
-                    ),
-                    WhatsNew.Item(
-                    title: "Titelleiste in neuen Views",
-                    subtitle: "Die Titelleiste wurde in den neuen Views hinzugefügt.",
-                    image: UIImage(named: "designicon")
-                    ),
+                    )
                 ]
             )
 
