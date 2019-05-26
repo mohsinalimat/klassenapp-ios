@@ -94,7 +94,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.9.1</string>
+	<string>4.9.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -111,7 +111,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2124</string>
+	<string>2130</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
