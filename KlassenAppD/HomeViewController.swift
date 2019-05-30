@@ -313,7 +313,7 @@ class HomeViewController: UIViewController {
             let TEST1LABELSNAP = Test1LabelSnap.value as? String
             HomeViewController.HomeVar.NextEvent = TEST1LABELSNAP!
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
-            
+            self.loader.stopAnimating()
         }
     }
     

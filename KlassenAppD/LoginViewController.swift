@@ -34,16 +34,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var PassCodeInput: PinCodeTextField!
     @IBAction func LoginBtn(_ sender: Any)
     {
+        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+        notificationFeedbackGenerator.prepare()
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
         ref.child("standardData").child("iOS-Passcode").observeSingleEvent(of: .value) { (passcode) in
             let pass = passcode.value as? String
             if self.PassCodeInput.text == pass {
+                notificationFeedbackGenerator.notificationOccurred(.success)
                 UserDefaults.standard.set(1, forKey: "Checker")
                 self.performSegue(withIdentifier: "logintotb", sender: nil)
             }
             else {
+                notificationFeedbackGenerator.notificationOccurred(.error)
                 self.ErrorOutputLabel.text = "Der Pincode ist falsch"
                 self.PassCodeInput.text = ""
             }

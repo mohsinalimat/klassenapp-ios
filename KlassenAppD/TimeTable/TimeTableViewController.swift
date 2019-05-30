@@ -21,6 +21,9 @@ class TimeTableViewController: UIViewController {
     
     @IBAction func Monday(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         TimeTableAllViewController.TimeTableVC.selectedDay = "monday"
         let controller1 = TimeTableAllViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -32,6 +35,9 @@ class TimeTableViewController: UIViewController {
     
     @IBAction func Tuesday(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         TimeTableAllViewController.TimeTableVC.selectedDay = "tuesday"
         let controller1 = TimeTableAllViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -43,6 +49,9 @@ class TimeTableViewController: UIViewController {
     
     @IBAction func Wednesday(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         TimeTableAllViewController.TimeTableVC.selectedDay = "wednesday"
         let controller1 = TimeTableAllViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -54,6 +63,9 @@ class TimeTableViewController: UIViewController {
     
     @IBAction func Thursday(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         TimeTableAllViewController.TimeTableVC.selectedDay = "thursday"
         let controller1 = TimeTableAllViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -65,6 +77,9 @@ class TimeTableViewController: UIViewController {
     
     @IBAction func Friday(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         TimeTableAllViewController.TimeTableVC.selectedDay = "friday"
         let controller1 = TimeTableAllViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()

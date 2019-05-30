@@ -31,6 +31,8 @@ pod 'NVActivityIndicatorView'
 pod 'SnapKit', '~> 4.2.0'
 pod 'SPStorkController'
 pod 'SPFakeBar'
+pod 'SPAlert'
+
 
   # Pods for KlassenAppD
 

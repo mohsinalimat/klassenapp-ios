@@ -164,6 +164,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SPAlert.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SPFakeBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
