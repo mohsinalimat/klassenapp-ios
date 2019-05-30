@@ -20,6 +20,9 @@ class PlansViewController: UIViewController {
     
     @IBAction func ListBtnAction(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         let controller1 = RememberViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
         controller1.transitioningDelegate = transitionDelegate
@@ -29,6 +32,9 @@ class PlansViewController: UIViewController {
     }
     @IBAction func FoodBtnAction(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         let controller1 = FoodAllViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
         controller1.transitioningDelegate = transitionDelegate

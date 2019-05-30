@@ -66,11 +66,14 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
     }
     @IBAction func CreateRequest(_ sender: Any)
     {
+        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+        notificationFeedbackGenerator.prepare()
+        
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
         if ContentTextView.text != "" {
-            if DatabaseDay != "notdefined" {
+            if DatabaseDay == "Monday" || DatabaseDay == "Tuesday" || DatabaseDay == "Wednesday" || DatabaseDay == "Thursday" || DatabaseDay == "Friday" {
                 //UPLOAD
                 let date = Date()
                 let calender = Calendar.current
@@ -88,15 +91,18 @@ class CreateHomeworkRequestViewController: UIViewController, UIPickerViewDataSou
                 ref.child("requests").child(random).child("id").setValue(random)
                 ref.child("requests").child(random).child("day").setValue(self.DatabaseDay!)
                 ref.child("requests").child(random).child("Content").setValue(ContentTextView.text!)
+                notificationFeedbackGenerator.notificationOccurred(.success)
                 ref.child("requests").child(random).child("time").setValue(fulldate)
                 FirstViewController.LastVC.LastVCV = "hw"
                 self.performSegue(withIdentifier: "backfromrequeststowtb", sender: nil)
             }
             else {
+                notificationFeedbackGenerator.notificationOccurred(.warning)
                 EZAlertController.alert("Fehler", message: "Bitte wähle einen Tag im Menü oben aus.")
         }
     }
         else {
+            notificationFeedbackGenerator.notificationOccurred(.warning)
             EZAlertController.alert("Fehler", message: "Bitte gib die Hausaufgaben in das Feld ein.")
         }
         

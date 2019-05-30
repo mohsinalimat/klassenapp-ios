@@ -210,6 +210,9 @@ class SettingsViewController: UIViewController {
     
     @IBAction func AppInformationsAction(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         let controller1 = AppInfosViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
         controller1.transitioningDelegate = transitionDelegate

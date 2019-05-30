@@ -46,6 +46,7 @@
 		3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE1216503FB00395E99 /* MGSwipeTableCell.m */; };
 		3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE4216503FB00395E99 /* MGSwipeButton.m */; };
 		3AAC661E213C71C300472F63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAC661D213C71C200472F63 /* AVFoundation.framework */; };
+		3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */; };
 		3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */; };
 		3AC0BE8E207BD5A700980088 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0BE8D207BD5A700980088 /* LoginViewController.swift */; };
 		3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9902261E7390048030A /* UIViewController+Utils.swift */; };
@@ -180,6 +181,7 @@
 		3AB1F55F20F0CE47001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "../../../Library/Developer/Xcode/DerivedData/KlassenAppD-empxejqbojuntkgyaqxemtxiqwal/Build/Products/Release-iphoneos/nanopb/nanopb.framework"; sourceTree = "<group>"; };
 		3AB1F56120F0CE68001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "../../../Library/Developer/Xcode/DerivedData/KlassenAppD-hibrokssbrokvtcfgvwavcecqnyp/Build/Products/Debug-iphonesimulator/nanopb/nanopb.framework"; sourceTree = "<group>"; };
 		3AB1F56320F0CEA2001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHWRequest2ViewController.swift; sourceTree = "<group>"; };
 		3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3ABFEF2F207D049800900935 /* KlassenAppD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KlassenAppD.entitlements; sourceTree = "<group>"; };
 		3AC0BE8D207BD5A700980088 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				3A0F5710207BD0B700D9F701 /* FirstViewController.swift */,
 				3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */,
 				3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */,
+				3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */,
 			);
 			path = Homework;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
+				"${BUILT_PRODUCTS_DIR}/SPAlert/SPAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/SPFakeBar/SPFakeBar.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -854,6 +858,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPFakeBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -921,6 +926,7 @@
 				3A0F5711207BD0B700D9F701 /* FirstViewController.swift in Sources */,
 				3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */,
 				3AC2202A22998BE100204C8D /* HomeworkWeekViewController.swift in Sources */,
+				3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */,
 				3AC2202C2299AA3C00204C8D /* AllTestsViewController.swift in Sources */,
 				3AE242EF2137110100953BF4 /* WelcomeFunc1ViewController.swift in Sources */,
 				3AE242ED213710E000953BF4 /* Welcome1ViewController.swift in Sources */,

@@ -30,6 +30,9 @@ class SecondViewController: UIViewController {
     
     @IBAction func Arbeit1Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         AllTestsViewController.TestVC.selectedTest = "Arbeit1"
         let controller1 = AllTestsViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -42,6 +45,9 @@ class SecondViewController: UIViewController {
     
     @IBAction func Arbeit2Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         AllTestsViewController.TestVC.selectedTest = "Arbeit2"
         let controller1 = AllTestsViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -54,6 +60,9 @@ class SecondViewController: UIViewController {
     
     @IBAction func Arbeit3Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         AllTestsViewController.TestVC.selectedTest = "Arbeit3"
         let controller1 = AllTestsViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -66,6 +75,9 @@ class SecondViewController: UIViewController {
     
     @IBAction func Arbeit4Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         AllTestsViewController.TestVC.selectedTest = "Arbeit4"
         let controller1 = AllTestsViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -78,6 +90,9 @@ class SecondViewController: UIViewController {
     
     @IBAction func Arbeit5Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         AllTestsViewController.TestVC.selectedTest = "Arbeit5"
         let controller1 = AllTestsViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()

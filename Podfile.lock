@@ -158,6 +158,7 @@ PODS:
   - RevealingSplashView (0.6.0)
   - SAConfettiView (0.1.8)
   - SnapKit (4.2.0)
+  - SPAlert (1.0.2)
   - SPFakeBar (1.0.6)
   - SPStorkController (1.6.5)
   - SwipeableTabBarController (2.1.1)
@@ -187,6 +188,7 @@ DEPENDENCIES:
   - RevealingSplashView (~> 0.6.0)
   - SAConfettiView
   - SnapKit (~> 4.2.0)
+  - SPAlert
   - SPFakeBar
   - SPStorkController
   - SwipeableTabBarController
@@ -233,6 +235,7 @@ SPEC REPOS:
     - RevealingSplashView
     - SAConfettiView
     - SnapKit
+    - SPAlert
     - SPFakeBar
     - SPStorkController
     - SwipeableTabBarController
@@ -288,12 +291,13 @@ SPEC CHECKSUMS:
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
   SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SPAlert: 1fdeeabd7b4ae8a2bfda23544da86593d8aa6e72
   SPFakeBar: 0f9f17c1d4f1702fd48c594b0535486c5924394e
   SPStorkController: f74a60dbcd3c35180c996688873f6eadac839642
   SwipeableTabBarController: 8f7f04275f510c5babb630f7be1161b5f28567e0
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   WhatsNewKit: 4012e2195e96df01ff9bd556d4ca27d48d27f1b1
 
-PODFILE CHECKSUM: b6ccb6ea66b263c798f4f738fcdbbb866d0ba41e
+PODFILE CHECKSUM: e734b96b01bc36a3673c2bec27e8debf9ff10aa8
 
 COCOAPODS: 1.5.3

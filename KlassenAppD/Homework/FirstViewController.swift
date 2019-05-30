@@ -62,6 +62,9 @@ class FirstViewController: UIViewController {
     
     @IBAction func Week1Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week1"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -80,6 +83,9 @@ class FirstViewController: UIViewController {
     }
     @IBAction func Week2Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week2"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -97,6 +103,9 @@ class FirstViewController: UIViewController {
     }
     @IBAction func Week3Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week3"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -114,6 +123,9 @@ class FirstViewController: UIViewController {
     }
     @IBAction func Week4Btn(_ sender: Any)
     {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week4"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
@@ -131,6 +143,8 @@ class FirstViewController: UIViewController {
     }
     @IBAction func HomeworkRequest(_ sender: Any)
     {
+        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+        notificationFeedbackGenerator.prepare()
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
@@ -140,15 +154,27 @@ class FirstViewController: UIViewController {
             let dictionary = Bundle.main.infoDictionary!
             let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
             if versionCurrent.compare(NEWESTBUILD!, options: .numeric) == .orderedAscending {
+                notificationFeedbackGenerator.notificationOccurred(.warning)
                 EZAlertController.alert("Alte Version", message: "Die Version ist veraltet. Aus Sicherheisgründen ist die Funktion nicht verfügbar. Bitte lade die neuste Version herunter. (https://ios.klassenappd.de)")
             }
             else {
                 ref.child("standardData").child("requestsAllowed").observeSingleEvent(of: .value, with: { (EditAllowed) in
                     let Eall = EditAllowed.value as? String
                     if Eall == "1" {
-                        self.performSegue(withIdentifier: "gotohomeworkrequest", sender: nil)
+                        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+                        impactFeedbackgenerator.prepare()
+                        impactFeedbackgenerator.impactOccurred()
+                        //self.performSegue(withIdentifier: "gotohomeworkrequest", sender: nil)
+                        let controller1 = CreateHWRequest2ViewController()
+                        let transitionDelegate = SPStorkTransitioningDelegate()
+                        //transitionDelegate.customHeight = 200
+                        controller1.transitioningDelegate = transitionDelegate
+                        controller1.modalPresentationStyle = .custom
+                        controller1.modalPresentationCapturesStatusBarAppearance = true
+                        self.present(controller1, animated: true, completion: nil)
                     }
                     else {
+                        notificationFeedbackGenerator.notificationOccurred(.warning)
                         EZAlertController.alert("Nicht erlaubt", message: "Die Anfragen sind momentan gesperrt.")
                     }
                 })

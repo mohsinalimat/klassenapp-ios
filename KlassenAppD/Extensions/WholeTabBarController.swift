@@ -38,6 +38,12 @@ class WholeTabBarController: SwipeableTabBarController {
        
     }
     
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
+    }
+    
 
     /*
     // MARK: - Navigation
