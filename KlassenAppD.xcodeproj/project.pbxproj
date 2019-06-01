@@ -26,6 +26,7 @@
 		3A4FFDD822888A4A001A8574 /* InformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FFDD722888A4A001A8574 /* InformationsViewController.swift */; };
 		3A5B8AB921FBB7F900669F2B /* AppIconCustomIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */; };
 		3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */; };
+		3A6B2C2422A1940900EBB792 /* HwRequestLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */; };
 		3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */; };
 		3A7135672263625B0017838A /* ChangeColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */; };
 		3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A75AB4C2152973700EED57A /* TimeTableViewController.swift */; };
@@ -46,6 +47,7 @@
 		3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE1216503FB00395E99 /* MGSwipeTableCell.m */; };
 		3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE4216503FB00395E99 /* MGSwipeButton.m */; };
 		3AAC661E213C71C300472F63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAC661D213C71C200472F63 /* AVFoundation.framework */; };
+		3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1BCD522A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m */; };
 		3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */; };
 		3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */; };
 		3AC0BE8E207BD5A700980088 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0BE8D207BD5A700980088 /* LoginViewController.swift */; };
@@ -135,6 +137,7 @@
 		3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCustomIco.png; sourceTree = "<group>"; };
 		3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenachrichtigungViewController.swift; sourceTree = "<group>"; };
 		3A5D31E22164DF020064B9EA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwRequestLogViewController.swift; sourceTree = "<group>"; };
 		3A6E99C3213B30B9009EB57E /* KlassenAppD-beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KlassenAppD-beta.entitlements"; sourceTree = "<group>"; };
 		3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorMenuViewController.swift; sourceTree = "<group>"; };
 		3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorPickerViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +164,9 @@
 		3AABCEE3216503FB00395E99 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
 		3AABCEE4216503FB00395E99 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
 		3AAC661D213C71C200472F63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3AB1BCD422A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		3AB1BCD522A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		3AB1BCD722A1B97700A7FCE7 /* KlassenAppD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "KlassenAppD-Bridging-Header.h"; path = "KlassenAppD/KlassenAppD-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		3AB1F53B20F0C0D5001A9166 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1F53D20F0C0DA001A9166 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1F53F20F0CB24001A9166 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,8 +333,10 @@
 		3A2CB09B22623567002F0E0A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3AF5B0A522A1B8A2006C5764 /* DZNEmptyDataSet */,
 				3A2CB0A1226236F1002F0E0A /* MBProgressHUD */,
 				3AABCEE0216503FB00395E99 /* MGSwipe */,
+				3AB1BCD722A1B97700A7FCE7 /* KlassenAppD-Bridging-Header.h */,
 				3AC1E9912261E7390048030A /* UIVIew+Utils.swift */,
 				3AC1E9902261E7390048030A /* UIViewController+Utils.swift */,
 				3A3A1D6722984B5100D81453 /* WholeTabBarController.swift */,
@@ -368,6 +376,7 @@
 				3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */,
 				3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */,
 				3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */,
+				3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */,
 			);
 			path = Homework;
 			sourceTree = "<group>";
@@ -469,6 +478,15 @@
 				3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */,
 			);
 			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		3AF5B0A522A1B8A2006C5764 /* DZNEmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				3AB1BCD422A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.h */,
+				3AB1BCD522A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m */,
+			);
+			path = DZNEmptyDataSet;
 			sourceTree = "<group>";
 		};
 		4E0E26333D7ED5D5A3493FB8 /* Pods */ = {
@@ -904,6 +922,7 @@
 				3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */,
 				3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */,
 				3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */,
+				3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */,
 				3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */,
 				3A0F5713207BD0B700D9F701 /* SecondViewController.swift in Sources */,
 				3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */,
@@ -911,6 +930,7 @@
 				3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */,
 				3AE242F42137113000953BF4 /* WelcomeSettingsViewController.swift in Sources */,
 				3A0F570F207BD0B700D9F701 /* AppDelegate.swift in Sources */,
+				3A6B2C2422A1940900EBB792 /* HwRequestLogViewController.swift in Sources */,
 				3A8932B7229858FC000E6395 /* PlansViewController.swift in Sources */,
 				3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */,
 				3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */,

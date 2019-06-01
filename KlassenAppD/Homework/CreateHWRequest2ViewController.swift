@@ -12,6 +12,10 @@ import UITextView_Placeholder
 import SPFakeBar
 import EZAlertController
 import SPAlert
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
+import SPStorkController
 
 class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -70,6 +74,9 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         navigationbar.rightButton.setTitle("Senden", for: .normal)
         navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
         navigationbar.rightButton.addTarget(self, action: #selector(sendRequest), for: .touchUpInside)
+        navigationbar.leftButton.setTitle("Verlauf", for: .normal)
+        navigationbar.leftButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        navigationbar.leftButton.addTarget(self, action: #selector(openLog), for: .touchUpInside)
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
             if subview is UIVisualEffectView {
@@ -122,6 +129,18 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         // Do any additional setup after loading the view.
     }
     
+    @objc func openLog() {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
+        let controller1 = HwRequestLogViewController()
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        self.present(controller1, animated: true, completion: nil)
+    }
+    
     @objc func sendRequest() {
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
         notificationFeedbackGenerator.prepare()
@@ -151,6 +170,15 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
                 ref.child("requests").child(random).child("time").setValue(fulldate)
                 //notificationFeedbackGenerator.notificationOccurred(.success)
                 self.view.endEditing(true)
+                var requests = UserDefaults.standard.stringArray(forKey: "RequestLog")
+                var request2:[String] = []
+                if requests != nil {
+                    request2.append(contentsOf: requests!)
+                }
+                request2.append(random)
+                UserDefaults.standard.set(request2, forKey: "RequestLog")
+                print(UserDefaults.standard.stringArray(forKey: "RequestLog"))
+                MSAnalytics.trackEvent("Create Homework Request")
                 let doneAlert = SPAlertView(title: "Hochgeladen", message: "", preset: .done)
                 
                 for subview in doneAlert.subviews {
@@ -169,7 +197,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
                 }
                 if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
                     doneAlert.backgroundColor = .white
-                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
                     let blurEffectView = UIVisualEffectView(effect: blurEffect)
                     blurEffectView.frame = view.bounds
                     blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

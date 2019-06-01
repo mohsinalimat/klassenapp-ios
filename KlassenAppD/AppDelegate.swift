@@ -15,6 +15,9 @@ import FirebaseDatabase
 import FirebaseFunctions
 import FirebaseInstanceID
 import FirebaseMessaging
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
+        MSAppCenter.start("1859318b-9a51-4324-baf1-f7dc7bea9f52", withServices:[
+            MSAnalytics.self,
+            MSCrashes.self
+            ])
         
         return true
     }
