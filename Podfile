@@ -32,6 +32,8 @@ pod 'SnapKit', '~> 4.2.0'
 pod 'SPStorkController'
 pod 'SPFakeBar'
 pod 'SPAlert'
+pod 'AppCenter'
+
 
 
   # Pods for KlassenAppD

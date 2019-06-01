@@ -371,8 +371,13 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Bugs behoben",
-                        subtitle: "Bugs aus der letzten Version (4.9.1) wurden behoben.",
+                        title: "Anfragen",
+                        subtitle: "Die Anfragen wurden erneuert, u.a. eine neue View und ein Anfragenverlauf",
+                        image: UIImage(named: "icons8-umfrage")
+                    ),
+                    WhatsNew.Item(
+                        title: "Haptisches Feedback",
+                        subtitle: "Überall in der App wurden Feedbacks verteilt.",
                         image: UIImage(named: "icons8-umfrage")
                     )
                 ]
