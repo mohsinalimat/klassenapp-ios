@@ -372,13 +372,13 @@ class HomeViewController: UIViewController {
                 items: [
                     WhatsNew.Item(
                         title: "Anfragen",
-                        subtitle: "Die Anfragen wurden erneuert, u.a. eine neue View und ein Anfragenverlauf",
-                        image: UIImage(named: "icons8-umfrage")
+                        subtitle: "Die Anfragen wurden erneuert, u.a. eine neue Ansicht und einen Anfragenverlauf.",
+                        image: UIImage(named: "icons8-gruppe-von-fragen-30")
                     ),
                     WhatsNew.Item(
                         title: "Haptisches Feedback",
-                        subtitle: "Überall in der App wurden Feedbacks verteilt.",
-                        image: UIImage(named: "icons8-umfrage")
+                        subtitle: "Überall in der App wurden haptische Feedbacks verteilt.",
+                        image: UIImage(named: "checked")
                     )
                 ]
             )
