@@ -8,7 +8,6 @@ PODS:
   - AppCenter/Core (2.0.1)
   - AppCenter/Crashes (2.0.1):
     - AppCenter/Core
-  - BulletinBoard (3.0.0)
   - Crashlytics (3.13.1):
     - Fabric (~> 1.10.1)
   - ExpandingMenu (0.4.0)
@@ -160,11 +159,11 @@ PODS:
   - NVActivityIndicatorView (4.7.0):
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
-  - Panels (2.0.3)
   - PinCodeTextField (0.1.0)
   - Protobuf (3.7.0)
   - RevealingSplashView (0.6.0)
   - SAConfettiView (0.1.8)
+  - SCLAlertView (0.8)
   - SnapKit (4.2.0)
   - SPAlert (1.0.2)
   - SPFakeBar (1.0.6)
@@ -176,7 +175,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AppCenter
-  - BulletinBoard (~> 3.0.0)
   - Crashlytics
   - ExpandingMenu (~> 0.4)
   - EZAlertController (= 3.2)
@@ -192,10 +190,10 @@ DEPENDENCIES:
   - IGColorPicker (from `https://github.com/AdriBoy21/IGColorPicker.git`)
   - NotificationBannerSwift (~> 2.0.0)
   - NVActivityIndicatorView
-  - Panels
   - PinCodeTextField
   - RevealingSplashView (~> 0.6.0)
   - SAConfettiView
+  - SCLAlertView
   - SnapKit (~> 4.2.0)
   - SPAlert
   - SPFakeBar
@@ -208,7 +206,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AppCenter
-    - BulletinBoard
     - Crashlytics
     - ExpandingMenu
     - EZAlertController
@@ -239,11 +236,11 @@ SPEC REPOS:
     - nanopb
     - NotificationBannerSwift
     - NVActivityIndicatorView
-    - Panels
     - PinCodeTextField
     - Protobuf
     - RevealingSplashView
     - SAConfettiView
+    - SCLAlertView
     - SnapKit
     - SPAlert
     - SPFakeBar
@@ -264,7 +261,6 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AppCenter: 6a5ff2fd007b53431259fdd74f91eb3d0dfea3d1
-  BulletinBoard: 927f4f9fd22503ceecd71bfc830fd65d5996593a
   Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
   ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
   EZAlertController: 633be01320bed47720be54054df47667d61c2481
@@ -296,11 +292,11 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
-  Panels: bd346a08593b64b9d295de21c366400a93437e79
   PinCodeTextField: a3c39be58bde3ed1d6888d0fb1d88b0a4a2277cc
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
   SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SPAlert: 1fdeeabd7b4ae8a2bfda23544da86593d8aa6e72
   SPFakeBar: 0f9f17c1d4f1702fd48c594b0535486c5924394e
@@ -309,6 +305,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   WhatsNewKit: 4012e2195e96df01ff9bd556d4ca27d48d27f1b1
 
-PODFILE CHECKSUM: 3f88681deac42741130acc5cd531a7c4540c9398
+PODFILE CHECKSUM: bf82c8e23de7e8df7468b421b79f0ae0b98a9c72
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.2

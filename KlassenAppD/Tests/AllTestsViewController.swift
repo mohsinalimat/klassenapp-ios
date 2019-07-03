@@ -20,10 +20,10 @@ class AllTestsViewController: UIViewController {
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
         navigationbar.height = 95
         navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        navigationbar.rightButton.setTitle("↻", for: .normal)
-        navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 25)
-        navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
-        navigationbar.titleLabel.numberOfLines = 3
+      //  navigationbar.rightButton.setTitle("↻", for: .normal)
+       // navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 25)
+       // navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
+        //navigationbar.titleLabel.numberOfLines = 3
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
             if subview is UIVisualEffectView {
@@ -70,12 +70,12 @@ class AllTestsViewController: UIViewController {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("arbeiten").child(TestVC.selectedTest).child("label").observeSingleEvent(of: .value) { (datesnap) in
+        ref.child("arbeiten").child(TestVC.selectedTest).child("label").observe(.value) { (datesnap) in
             let DateLE = datesnap.value as? String
             self.navigationbar.titleLabel.text = DateLE
         }
         
-        ref.child("arbeiten").child(TestVC.selectedTest).child("beschreibung").observeSingleEvent(of: .value) { (TestsSnap) in
+        ref.child("arbeiten").child(TestVC.selectedTest).child("beschreibung").observe(.value) { (TestsSnap) in
             let TestsLE = TestsSnap.value as? String
             self.teststextview.text = TestsLE
             

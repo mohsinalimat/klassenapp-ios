@@ -19,9 +19,9 @@ class HomeworkWeekViewController: UIViewController {
         navigationbar.titleLabel.text = "Download..."
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
         navigationbar.height = 90
-        navigationbar.rightButton.setTitle("↻", for: .normal)
-        navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
+  //      navigationbar.rightButton.setTitle("↻", for: .normal)
+    //    navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+     //   navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
             if subview is UIVisualEffectView {
@@ -69,28 +69,28 @@ class HomeworkWeekViewController: UIViewController {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("homework").child(HWWeekVC.selectedWeek).child("Datum").observeSingleEvent(of: .value) { (datesnap) in
+        ref.child("homework").child(HWWeekVC.selectedWeek).child("Datum").observe(.value) { (datesnap) in
             let DateLE = datesnap.value as? String
             self.navigationbar.titleLabel.text = DateLE
         }
         
-        ref.child("homework").child(HWWeekVC.selectedWeek).child("Monday").observeSingleEvent(of: .value) { (MondayWeek1Snap) in
+        ref.child("homework").child(HWWeekVC.selectedWeek).child("Monday").observe(.value) { (MondayWeek1Snap) in
             let MondayWeek1Home = MondayWeek1Snap.value as? String
             HWWeekVC.monday = MondayWeek1Home!
             
-            ref.child("homework").child(HWWeekVC.selectedWeek).child("Tuesday").observeSingleEvent(of: .value) { (TuesdayWeek1Snap) in
+            ref.child("homework").child(HWWeekVC.selectedWeek).child("Tuesday").observe(.value) { (TuesdayWeek1Snap) in
                 let TuesdayWeek1Home = TuesdayWeek1Snap.value as? String
                 HWWeekVC.tuesday = TuesdayWeek1Home!
                 
-                ref.child("homework").child(HWWeekVC.selectedWeek).child("Wednesday").observeSingleEvent(of: .value) { (WednesdayWeek1Snap) in
+                ref.child("homework").child(HWWeekVC.selectedWeek).child("Wednesday").observe(.value) { (WednesdayWeek1Snap) in
                     let WednesdayWeek1Home = WednesdayWeek1Snap.value as? String
                     HWWeekVC.wednesday = WednesdayWeek1Home!
                     
-                    ref.child("homework").child(HWWeekVC.selectedWeek).child("Thursday").observeSingleEvent(of: .value) { (ThursdayWeek1Snap) in
+                    ref.child("homework").child(HWWeekVC.selectedWeek).child("Thursday").observe(.value) { (ThursdayWeek1Snap) in
                         let ThursdayWeek1Home = ThursdayWeek1Snap.value as? String
                         HWWeekVC.thursday = ThursdayWeek1Home!
                         
-                        ref.child("homework").child(HWWeekVC.selectedWeek).child("Friday").observeSingleEvent(of: .value) { (FridayWeek1Snap) in
+                        ref.child("homework").child(HWWeekVC.selectedWeek).child("Friday").observe(.value) { (FridayWeek1Snap) in
                             let FridayWeek1Home = FridayWeek1Snap.value as? String
                             HWWeekVC.friday = FridayWeek1Home!
                             self.hwtextview.text = "\(HWWeekVC.monday)\n\n\(HWWeekVC.tuesday)\n\n\(HWWeekVC.wednesday)\n\n\(HWWeekVC.thursday)\n\n\(HWWeekVC.friday)"

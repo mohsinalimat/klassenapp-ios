@@ -21,13 +21,13 @@ import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-        var databasekeys: [String] = [] //Array for all References in the Database
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
                 
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         Fabric.with([Crashlytics.self])
         MSAppCenter.start("1859318b-9a51-4324-baf1-f7dc7bea9f52", withServices:[
             MSAnalytics.self,
@@ -58,5 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
 }
 

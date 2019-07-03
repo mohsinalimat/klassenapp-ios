@@ -271,7 +271,7 @@ class SecondViewController: UIViewController {
         
         ref = Database.database().reference()
         
-        ref.child("arbeiten").child("Arbeit1").child("buttonname").observeSingleEvent(of: .value) { (Arbeit1ButtonSnap) in
+        ref.child("arbeiten").child("Arbeit1").child("buttonname").observe(.value) { (Arbeit1ButtonSnap) in
             let Arbeit1ButtonName = Arbeit1ButtonSnap.value as? String
             self.loader.stopAnimating()
             UserDefaults.standard.set(Arbeit1ButtonName, forKey: "UDTEST1Btn")
@@ -284,7 +284,7 @@ class SecondViewController: UIViewController {
                 self.Arbeit1BtnOut.setTitle(Arbeit1ButtonName, for: .normal)
             }
         }
-        ref.child("arbeiten").child("Arbeit2").child("buttonname").observeSingleEvent(of: .value) { (Arbeit2ButtonSnap) in
+        ref.child("arbeiten").child("Arbeit2").child("buttonname").observe(.value) { (Arbeit2ButtonSnap) in
             let Arbeit2ButtonName = Arbeit2ButtonSnap.value as? String
             UserDefaults.standard.set(Arbeit2ButtonName, forKey: "UDTEST2Btn")
             if Arbeit2ButtonName != "-" {
@@ -296,7 +296,7 @@ class SecondViewController: UIViewController {
                 self.Arbeit2BtnOut.setTitle(Arbeit2ButtonName, for: .normal)
             }
         }
-        ref.child("arbeiten").child("Arbeit3").child("buttonname").observeSingleEvent(of: .value) { (Arbeit3ButtonSnap) in
+        ref.child("arbeiten").child("Arbeit3").child("buttonname").observe(.value) { (Arbeit3ButtonSnap) in
             let Arbeit3ButtonName = Arbeit3ButtonSnap.value as? String
             UserDefaults.standard.set(Arbeit3ButtonName, forKey: "UDTEST3Btn")
             if Arbeit3ButtonName != "-" {
@@ -308,7 +308,7 @@ class SecondViewController: UIViewController {
                 self.Arbeit3BtnOut.setTitle(Arbeit3ButtonName, for: .normal)
             }
         }
-        ref.child("arbeiten").child("Arbeit4").child("buttonname").observeSingleEvent(of: .value) { (Arbeit4ButtonSnap) in
+        ref.child("arbeiten").child("Arbeit4").child("buttonname").observe(.value) { (Arbeit4ButtonSnap) in
             let Arbeit4ButtonName = Arbeit4ButtonSnap.value as? String
             UserDefaults.standard.set(Arbeit4ButtonName, forKey: "UDTEST4Btn")
             if Arbeit4ButtonName != "-" {
@@ -320,7 +320,7 @@ class SecondViewController: UIViewController {
                 self.Arbeit4BtnOut.setTitle(Arbeit4ButtonName, for: .normal)
             }
         }
-        ref.child("arbeiten").child("Arbeit5").child("buttonname").observeSingleEvent(of: .value) { (Arbeit5ButtonSnap) in
+        ref.child("arbeiten").child("Arbeit5").child("buttonname").observe(.value) { (Arbeit5ButtonSnap) in
             let Arbeit5ButtonName = Arbeit5ButtonSnap.value as? String
             UserDefaults.standard.set(Arbeit5ButtonName, forKey: "UDTEST5Btn")
             if Arbeit5ButtonName != "-" {

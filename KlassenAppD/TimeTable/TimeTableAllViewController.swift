@@ -92,9 +92,12 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func loadData() {
+        
         let ref: DatabaseReference
         ref = Database.database().reference()
-        ref.child("stundenplan").child(TimeTableVC.selectedDay).observeSingleEvent(of: .value, with: { snapshot in
+        
+        ref.child("stundenplan").child(TimeTableVC.selectedDay).observe(.value) { (snapshot) in
+            self.timeTableArray.removeAll()
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let hours = snap.value as! String
@@ -102,7 +105,7 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
             }
             print(self.timeTableArray)
             self.TimeTableTV.reloadData()
-        })
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

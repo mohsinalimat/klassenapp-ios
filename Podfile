@@ -15,13 +15,11 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod 'Alamofire'
 pod 'NotificationBannerSwift', "~> 2.0.0"
-pod "BulletinBoard", "~> 3.0.0"
 pod 'RevealingSplashView', "~> 0.6.0"
 pod 'SwipeableTabBarController'
 pod 'ExpandingMenu', '~> 0.4'
 pod 'Firebase/Functions'
 pod 'PinCodeTextField'
-pod 'Panels'
 pod 'WhatsNewKit'
 pod 'IGColorPicker', :git => 'https://github.com/AdriBoy21/IGColorPicker.git'
 pod "SAConfettiView"
@@ -33,6 +31,8 @@ pod 'SPStorkController'
 pod 'SPFakeBar'
 pod 'SPAlert'
 pod 'AppCenter'
+pod 'SCLAlertView'
+
 
 
 

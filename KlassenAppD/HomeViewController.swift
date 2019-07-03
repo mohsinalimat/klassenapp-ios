@@ -9,23 +9,16 @@
 import UIKit
 import Firebase
 import ExpandingMenu
-import BLTNBoard
 import WhatsNewKit
-import Panels
 import SAConfettiView
 import EZAlertController
 import NVActivityIndicatorView
+import SCLAlertView
 
 class HomeViewController: UIViewController {
-    lazy var panelManager = Panels(target: self)
     var timer: Timer!
     var disappearUpdate: Timer!
     var time1 = 0
-    
-    lazy var bulletinManager: BLTNItemManager = {
-        let introPage = FirstViewController.bulletinNWUP()
-        return BLTNItemManager(rootItem: introPage)
-    }()
     //var loader: NVActivityIndicatorView;
     var loader : NVActivityIndicatorView!
     
@@ -62,24 +55,24 @@ class HomeViewController: UIViewController {
             self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
         }
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            HomeTitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
-            HomeTitle.textColor = UIColor.white
-            HomeTV.textColor = UIColor.white
-            HomeTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            // HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-            HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-            
-            HomeTitle.textColor = UIColor.black
-            HomeTV.textColor = UIColor.black
-            HomeTV.backgroundColor = UIColor.white
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+                HomeTitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
+                HomeTitle.textColor = UIColor.white
+                HomeTV.textColor = UIColor.white
+                HomeTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = UIColor.white
+                // HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+                HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+                
+                HomeTitle.textColor = UIColor.black
+                HomeTV.textColor = UIColor.black
+                HomeTV.backgroundColor = UIColor.white
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
         
         /* So = 1
          Mo = 2
@@ -88,6 +81,56 @@ class HomeViewController: UIViewController {
          Do = 5
          Fr = 6
          Sa = 7 */
+        
+        //NSAttributedString.Key.foregroundColor: UIColor.white
+        //var titles = HomeViewController.Titles.self
+        let TitleSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
+        HomeViewController.Titles.Habm = NSMutableAttributedString(string: "Hausaufgaben bis morgen: ", attributes: TitleSizeAttr)
+        /* titles.HabmTime = NSMutableAttributedString(string: "HABM-Updatezeit", attributes: TitleSizeAttr)
+         titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: T##[NSAttributedString.Key : Any]?)*/
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        reloadData()
+        
+        ref.observe(.childChanged) { (snap) in
+            print("chang")
+            self.reloadData()
+        }
+        
+        if FirstViewController.LastVC.LastVCV == "hw" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 1
+        }
+        if FirstViewController.LastVC.LastVCV == "test" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 2
+        }
+        if FirstViewController.LastVC.LastVCV == "plans" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 3
+        }
+        if FirstViewController.LastVC.LastVCV == "settings" {
+            FirstViewController.LastVC.LastVCV = "0"
+            self.tabBarController?.selectedIndex = 4
+        }
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       // viewLoadSetup()
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewLoadSetup()
+    }
+    
+    
+    func reloadData() {
         
         let date = Date()
         let calender = Calendar.current
@@ -134,96 +177,58 @@ class HomeViewController: UIViewController {
             month2 = "\(month!)"
         }
         
-        let fulllabelstring = "\(weekdaystring), \(day2).\(month2)"
+        let fulllabelstring = "\(weekdaystring), \(day2).\(month2)."
         DateLabel.text = fulllabelstring
         
-        
-        
-        
-        //            NSAttributedString.Key.foregroundColor: UIColor.white
-        //    var titles = HomeViewController.Titles.self
-        let TitleSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
-        HomeViewController.Titles.Habm = NSMutableAttributedString(string: "Hausaufgaben bis morgen: ", attributes: TitleSizeAttr)
-        /* titles.HabmTime = NSMutableAttributedString(string: "HABM-Updatezeit", attributes: TitleSizeAttr)
-         titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: T##[NSAttributedString.Key : Any]?)*/
         var ref: DatabaseReference!
-        
         ref = Database.database().reference()
         
-        ref.child("standardData").child("birthday1EventStarted").observe(.value) { (birthdaysnap) in
+        ref.child("standardData").child("bd1event").observeSingleEvent(of: .value) { (birthdaysnap) in
             let BDSnap = birthdaysnap.value as? String
+            
+            let confettiView2 = SAConfettiView(frame: self.HomeTitleBackground.bounds)
+            confettiView2.tag = 5
+            
+            print("CALL")
+            
             if BDSnap == "1" {
-                if UserDefaults.standard.integer(forKey: "FirstBD") != 1 {
+                print("ACC")
+                if UserDefaults.standard.integer(forKey: "FirstBDE") != 1 {
                     let confettiView = SAConfettiView(frame: self.view.bounds)
                     //frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 116)
                     confettiView.type = .Confetti
                     self.view.addSubview(confettiView)
                     confettiView.startConfetti()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         // Put your code which should be executed with a delay here
                         confettiView.stopConfetti()
                         confettiView.removeFromSuperview()
                         EZAlertController.alert("Hallo", message: "Entschuldigung für die Störung, aber bitte lies dir die nächsten Nachrichten durch.", acceptMessage: "Weiter") { () -> () in
                             EZAlertController.alert("Nachricht", message: "Diese Woche feiert die KlassenApp ihren ersten Geburtstag.", acceptMessage: "Weiter") { () -> () in
                                 EZAlertController.alert("Nachricht", message: "Ich möchte mich bedanken, dass ihr die App seit einem Jahr verwendet.", acceptMessage: "Weiter") { () -> () in
-                                    EZAlertController.alert("Nachricht", message: "Ohne euch würde die App nicht dort sein, wo sie jetzt steht.", acceptMessage: "Weiter") { () -> () in
-                                        EZAlertController.alert("Nachricht", message: "Jetzt viel Spaß bei der Verwendung der App! Auf ein neues Jahr!")
-                                    }
+                                    EZAlertController.alert("Nachricht", message: "Jetzt viel Spaß bei der Verwendung der App! Auf ein neues Jahr!")
                                 }
                             }
                         }
                     })
-                    UserDefaults.standard.set(1, forKey: "FirstBD")
+                    UserDefaults.standard.set(1, forKey: "FirstBDE")
                 }
-                let confettiView2 = SAConfettiView(frame: self.HomeTitleBackground.bounds)
                 //frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 116)
                 confettiView2.type = .Confetti
                 self.HomeTitleBackground.addSubview(confettiView2)
                 confettiView2.startConfetti()
             }
+            else {
+                print("Start remove sibview")
+                if let viewWithTag = self.view.viewWithTag(5) {
+                    viewWithTag.removeFromSuperview()
+                }else{
+                    print("No!")
+                }
+                
+            }
         }
         
-        reloadData()
-        
-        if FirstViewController.LastVC.LastVCV == "hw" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 1
-        }
-        if FirstViewController.LastVC.LastVCV == "test" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 2
-        }
-        if FirstViewController.LastVC.LastVCV == "plans" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 3
-        }
-        if FirstViewController.LastVC.LastVCV == "settings" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 4
-        }
-        
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       // viewLoadSetup()
-        
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        viewLoadSetup()
-    }
-    
-    
-    func reloadData() {
-        
-        let date = Date()
-        let calender = Calendar.current
-        let currentday = calender.component(.weekday, from: date)
-        
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
         
         ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUSnap) in
             let LDUSNAP = LDUSnap.value as? String
@@ -259,21 +264,13 @@ class HomeViewController: UIViewController {
             HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
         }
         
-        //      let date = Date()
-        //     let calendar = Calendar.current
-        
-        /* So = 1
-         Mo = 2
-         Di = 3
-         Mi = 4
-         Do = 5
-         Fr = 6
-         Sa = 7 */
-        
         if currentday == 2 {
             ref.child("Speiseplan").child("monday").observeSingleEvent(of: .value) { (MondayFoodSnap) in
                 let MondayFood = MondayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = MondayFood!
+            }
+            ref.child("homework").child("Week1").child("Monday").observeSingleEvent(of: .value) { (HWToday) in
+                HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         else if currentday == 3 {
@@ -281,11 +278,17 @@ class HomeViewController: UIViewController {
                 let TuesdayFood = TuesdayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = TuesdayFood!
             }
+            ref.child("homework").child("Week1").child("Tuesday").observeSingleEvent(of: .value) { (HWToday) in
+                HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
+            }
         }
         else if currentday == 4 {
             ref.child("Speiseplan").child("Wednesday").observeSingleEvent(of: .value) { (WednesdayFoodSnap) in
                 let WednesdayFood = WednesdayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = WednesdayFood!
+            }
+            ref.child("homework").child("Week1").child("Wednesday").observeSingleEvent(of: .value) { (HWToday) in
+                HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         else if currentday == 5 {
@@ -293,15 +296,25 @@ class HomeViewController: UIViewController {
                 let ThursdayFood = ThursdayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = ThursdayFood!
             }
+            ref.child("homework").child("Week1").child("Thursday").observeSingleEvent(of: .value) { (HWToday) in
+                HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
+            }
         }
         else if currentday == 6 {
             ref.child("Speiseplan").child("Friday").observeSingleEvent(of: .value) { (FridayFoodSnap) in
                 let FridayFood = FridayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = FridayFood!
             }
+            ref.child("homework").child("Week1").child("Friday").observeSingleEvent(of: .value) { (HWToday) in
+                HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
+            }
         }
         else if currentday == 7 || currentday == 1 {
             HomeViewController.HomeVar.essenHeute = "Kein Essen heute!"
+            //HomeViewController.HomeVar.HomeworkToday = "Keine Hausaufgaben von heute, es ist Wochenende!"
+            ref.child("homework").child("Week1").child("Friday").observeSingleEvent(of: .value) { (HWToday) in
+                HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
+            }
         }
         
         ref.child("Speiseplan").child("Datum").observeSingleEvent(of: .value) { (FoodDateSnap) in
@@ -315,43 +328,73 @@ class HomeViewController: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
             self.loader.stopAnimating()
         }
-    }
-    
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-     
-        var ref: DatabaseReference!
         
-        ref = Database.database().reference()
         ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
-            let NEWESTBUILD = NewestBuildDB.value as? String
-            HomeViewController.HomeVar.NewestVersion = NEWESTBUILD!
+            
+            //self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
+            
             let dictionary = Bundle.main.infoDictionary!
             let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
+            let NEWESTBUILD = NewestBuildDB.value as? String
+            HomeViewController.HomeVar.NewestVersion = NEWESTBUILD ?? versionCurrent
+        
             if versionCurrent.compare(NEWESTBUILD!, options: .numeric) == .orderedAscending {
                 //HomeViewController.HomeVar.NewVersionAvailable = NSMutableAttributedString(string: "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)", attributes: self.TextSizeAttr)
                 if HomeVar.UpdateReminderSession != "1" {
-                    //bulletinManager = BLTNItemManager(rootItem: introPage)
-                    let panel = UIStoryboard.instantiatePanel(identifier: "PanelMaterial")
-                    var panelConfiguration = PanelConfiguration(size: .half)
-                    panelConfiguration.animateEntry = true
-                    panelConfiguration.panelVisibleArea = 130
                     
-                    self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.panelManager.show(panel: panel, config: panelConfiguration)
-                    }
+                    ref.child("standardData").child("iosCurrentVer").child("description").observeSingleEvent(of: .value, with: { (Descrip) in
+                        let UpdateDescripton = Descrip.value as! String
+                        
+                        var UpdateAppearance: SCLAlertView.SCLAppearance!
+                        
+                        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                            UpdateAppearance = SCLAlertView.SCLAppearance (
+                                showCloseButton: false, contentViewColor: UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0),
+                                contentViewBorderColor: UIColor.black,
+                                titleColor: UIColor.white
+                            )
+                        }
+                        
+                        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                            UpdateAppearance = SCLAlertView.SCLAppearance (
+                                showCloseButton: false, contentViewColor: UIColor.white,
+                                contentViewBorderColor: UIColor.white,
+                                titleColor: UIColor.black
+                            )
+                        }
+                        
+                        let UpdateAlert = SCLAlertView(appearance: UpdateAppearance)
+                        
+                        UpdateAlert.addButton("Installieren", action: {
+                            UIApplication.shared.open(URL(string: "https://klassenappd.de/ios/ios_download_direct.html")!)
+                        })
+                        
+                        UpdateAlert.addButton("Nicht jetzt", action: {
+                            HomeVar.UpdateReminderSession = "1"
+                        })
+                        
+                        UpdateAlert.showInfo("Update verfügbar (Version: \(NEWESTBUILD!))", subTitle: "Ein neues Update ist verfügbar mit folgenden Änderungen:\n\n \(UpdateDescripton)\n\nEs wird empfohlen das Update zu installieren.")
+                        
+                        
+                    })
                 }
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
         let attr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
         
-        let string1 = "hi1"
+       /* let string1 = "hi1"
         TestLabel.text = string1
         //sleep(5000)
         let string2 = NSMutableAttributedString(string: "hi2", attributes: attr)
-        TestLabel.attributedText = string2
+        TestLabel.attributedText = string2*/
         
        // panelConfiguration.animateEntry = true
         let dictionary = Bundle.main.infoDictionary!
@@ -371,14 +414,19 @@ class HomeViewController: UIViewController {
                 // The features you want to showcase
                 items: [
                     WhatsNew.Item(
-                        title: "Anfragen",
-                        subtitle: "Die Anfragen wurden erneuert, u.a. eine neue Ansicht und einen Anfragenverlauf.",
-                        image: UIImage(named: "icons8-gruppe-von-fragen-30")
+                        title: "Datenänderungen",
+                        subtitle: "Die Art, wie Daten aus der Datenbank abgerufen und gespeichert werden, wurde geändert. Unter anderem werden Daten nun automatisch aktualisiert und Offline gespeichert.",
+                        image: UIImage(named: "icons8-aktualisieren-30")
                     ),
                     WhatsNew.Item(
-                        title: "Haptisches Feedback",
-                        subtitle: "Überall in der App wurden haptische Feedbacks verteilt.",
-                        image: UIImage(named: "checked")
+                        title: "Elemente entfernt",
+                        subtitle: "Einige Elemente wurden aus der KlassenApp verändert: Die Zahl beim Auswählen des Appicons, der Login, 3D Touch und der \"Kontakt via Mail\"-Knopf.",
+                        image: UIImage(named: "icon_close")
+                    ),
+                    WhatsNew.Item(
+                        title: "Kleinere Änderungen",
+                        subtitle: "Mehrere Bugs wurden behoben, eine neue Updatenachricht erscheint bei neuen Updates, die Tabbar wurde animiert und es wurden einige Aussehensänderungen vorgenommen.",
+                        image: UIImage(named: "icons8-gruppe-von-fragen-30")
                     )
                 ]
             )
@@ -397,8 +445,7 @@ class HomeViewController: UIViewController {
     
     @objc func removeUpdateMessage() {
         if HomeVar.UpdateReminderSession == "1" {
-            panelManager.dismiss()
-            disappearUpdate.invalidate()
+           // disappearUpdate.invalidate()
         }
         else {
         }
@@ -410,6 +457,8 @@ class HomeViewController: UIViewController {
             formattedString
                 .bold("Hausaufgaben bis morgen:")
                 .normal("\n\(HomeViewController.HomeVar.HabmText)\n\n")
+                /*.bold("Hausaufgaben von heute:")
+                .normal("\n\(HomeViewController.HomeVar.HomeworkToday)\n\n")*/
                 .bold("Neuigkeiten:")
                 .normal("\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\n")
                 .bold("Nächstes Event: ")
@@ -442,29 +491,6 @@ class HomeViewController: UIViewController {
     func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
         return String((0...length-1).map{_ in letters.randomElement()!})
-    }
-    
-    static func bulletinNWUP() -> BLTNPageItem {
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
-        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
-            let NewestBuildDBLES = NewestBuildDB.value as! String
-            HomeViewController.HomeVar.NewestVersion = NewestBuildDBLES
-        }
-       // let NewestBuildDBLE = HomeViewController.HomeVar.NewestVersion
-        let nUABpage = BLTNPageItem(title: "Neues Update verfügbar")
-        nUABpage.image = UIImage(named: "DownloadCloud")
-        nUABpage.descriptionText = "Ein neues Update ist verfügbar. Schau im Updatecenter für mehr Informationen vorbei."
-        nUABpage.actionButtonTitle = "Ok"
-        nUABpage.actionHandler = { (item: BLTNActionItem) in
-            HomeVar.UpdateReminderSession = "1"
-            item.manager?.dismissBulletin()
-        }
-        nUABpage.dismissalHandler = { (item: BLTNItem) in
-            HomeVar.UpdateReminderSession = "1"
-        }
-        return nUABpage
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -504,6 +530,7 @@ class HomeViewController: UIViewController {
         static var NewestVersion = ""
         static var NewVersionAvailable = ""
         static var LDU = ""
+        static var HomeworkToday = ""
     }
     
     struct Titles {

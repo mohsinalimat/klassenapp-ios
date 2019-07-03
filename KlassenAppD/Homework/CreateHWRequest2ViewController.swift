@@ -168,6 +168,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
                 ref.child("requests").child(random).child("day").setValue(self.DatabaseDay!)
                 ref.child("requests").child(random).child("Content").setValue(ContentTextView.text!)
                 ref.child("requests").child(random).child("time").setValue(fulldate)
+                ref.child("requests").child(random).child("client").setValue("iOS")
                 //notificationFeedbackGenerator.notificationOccurred(.success)
                 self.view.endEditing(true)
                 var requests = UserDefaults.standard.stringArray(forKey: "RequestLog")

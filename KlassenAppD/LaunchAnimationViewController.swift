@@ -22,6 +22,9 @@ class LaunchAnimationViewController: UIViewController {
             self.setNeedsStatusBarAppearanceUpdate()
             
         }
+        
+        UserDefaults.standard.set(1, forKey: "Checker")
+        
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "LaunchScreenW")!,iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
         revealingSplashView.duration = 1
       //  revealingSplashView.animationType = .rotateOut
@@ -39,14 +42,8 @@ class LaunchAnimationViewController: UIViewController {
                 let vc = (self.storyboard?.instantiateViewController(withIdentifier: "welcome1"))!
                 self.present(vc, animated: true)
             }
-            else if UserDefaults.standard.integer(forKey: "Checker") == 1 {
-                //   self.performSegue(withIdentifier: "logintohome", sender: nil)
-             /*   let vc = (self.storyboard?.instantiateViewController(withIdentifier: "homeID"))!
-                self.present(vc, animated: true)*/
-                self.performSegue(withIdentifier: "directtotb", sender: nil)
-            }
             else {
-                self.performSegue(withIdentifier: "launchanimationfinish", sender: nil)
+                self.performSegue(withIdentifier: "directtotb", sender: nil)
             }
         }
         // Do any additional setup after loading the view.

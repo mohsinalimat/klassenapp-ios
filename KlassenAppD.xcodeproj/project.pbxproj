@@ -34,7 +34,6 @@
 		3A8932B7229858FC000E6395 /* PlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8932B6229858FC000E6395 /* PlansViewController.swift */; };
 		3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */; };
 		3A9192BD22511C8C00ED32F9 /* AppIconRedGoldIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */; };
-		3A99C73E2285EED400399EDE /* CreateHomeworkRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */; };
 		3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */; };
 		3AA0E64221FA02C90012ED20 /* ChangeAppIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */; };
 		3AA0E64721FA100A0012ED20 /* AppIconGrayIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */; };
@@ -46,7 +45,6 @@
 		3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */; };
 		3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE1216503FB00395E99 /* MGSwipeTableCell.m */; };
 		3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE4216503FB00395E99 /* MGSwipeButton.m */; };
-		3AAC661E213C71C300472F63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAC661D213C71C200472F63 /* AVFoundation.framework */; };
 		3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1BCD522A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m */; };
 		3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */; };
 		3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */; };
@@ -66,7 +64,6 @@
 		3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */; };
 		676E8642C723D75792FD0928 /* Pods_KlassenAppDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F47FC3AF3B5F58E5354C8BD /* Pods_KlassenAppDUITests.framework */; };
 		7940003BFBB15BC36F93C365 /* Pods_KlassenAppDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E77634D9E4F7E1B0D8BD74 /* Pods_KlassenAppDTests.framework */; };
-		97E732A5F252C794ECFF6ECB /* Pods_KlassenAppD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D56B57E5737C712EB6BBEA /* Pods_KlassenAppD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +135,6 @@
 		3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenachrichtigungViewController.swift; sourceTree = "<group>"; };
 		3A5D31E22164DF020064B9EA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwRequestLogViewController.swift; sourceTree = "<group>"; };
-		3A6E99C3213B30B9009EB57E /* KlassenAppD-beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KlassenAppD-beta.entitlements"; sourceTree = "<group>"; };
 		3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorMenuViewController.swift; sourceTree = "<group>"; };
 		3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorPickerViewController.swift; sourceTree = "<group>"; };
 		3A75AB4C2152973700EED57A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +143,6 @@
 		3A8932B6229858FC000E6395 /* PlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewController.swift; sourceTree = "<group>"; };
 		3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCurrentIco.png; sourceTree = "<group>"; };
 		3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconRedGoldIco.png; sourceTree = "<group>"; };
-		3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHomeworkRequestViewController.swift; sourceTree = "<group>"; };
 		3A99D713210BAC3B0038CE25 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		3A99D728210BAEC40038CE25 /* KlassenAppD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlassenAppD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconViewController.swift; sourceTree = "<group>"; };
@@ -244,8 +239,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AAC661E213C71C300472F63 /* AVFoundation.framework in Frameworks */,
-				97E732A5F252C794ECFF6ECB /* Pods_KlassenAppD.framework in Frameworks */,
 				26B178ED3608636E528082D0 /* Pods_KlassenAppD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,13 +290,12 @@
 				3A2CB09D226235A1002F0E0A /* TimeTable */,
 				3A2CB09F226235E4002F0E0A /* Food */,
 				3A0F570E207BD0B700D9F701 /* AppDelegate.swift */,
+				3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */,
 				3AC0BE8D207BD5A700980088 /* LoginViewController.swift */,
 				3ADF16F922414B660087217A /* HomeViewController.swift */,
 				3A8932B6229858FC000E6395 /* PlansViewController.swift */,
 				3A0AA43A215D13CB00458415 /* RememberViewController.swift */,
-				3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */,
 				3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */,
-				3A6E99C3213B30B9009EB57E /* KlassenAppD-beta.entitlements */,
 				3ABFEF2F207D049800900935 /* KlassenAppD.entitlements */,
 				3A0F5717207BD0B700D9F701 /* Assets.xcassets */,
 				3A0F571C207BD0B700D9F701 /* Info.plist */,
@@ -374,7 +366,6 @@
 			children = (
 				3A0F5710207BD0B700D9F701 /* FirstViewController.swift */,
 				3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */,
-				3A99C73D2285EED400399EDE /* CreateHomeworkRequestViewController.swift */,
 				3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */,
 				3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */,
 			);
@@ -780,7 +771,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInAppMessagingDisplay/InAppMessagingDisplayResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -789,7 +780,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		75B452B4C72CC8F83785C5DF /* [CP] Check Pods Manifest.lock */ = {
@@ -829,9 +820,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/EZAlertController/EZAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -842,11 +832,11 @@
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/PinCodeTextField/PinCodeTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SPAlert/SPAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/SPFakeBar/SPFakeBar.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
@@ -860,7 +850,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -871,11 +860,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinCodeTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPFakeBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
@@ -888,7 +877,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D903CB175ADF2D2FE4E04052 /* [CP] Check Pods Manifest.lock */ = {
@@ -941,7 +930,6 @@
 				3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */,
 				3A0AA43B215D13CB00458415 /* RememberViewController.swift in Sources */,
 				3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */,
-				3A99C73E2285EED400399EDE /* CreateHomeworkRequestViewController.swift in Sources */,
 				3AA0E64221FA02C90012ED20 /* ChangeAppIconTableViewCell.swift in Sources */,
 				3A0F5711207BD0B700D9F701 /* FirstViewController.swift in Sources */,
 				3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */,

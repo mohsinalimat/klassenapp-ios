@@ -21,9 +21,9 @@ class FoodAllViewController: UIViewController {
         navigationbar.height = 100
         navigationbar.titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         navigationbar.titleLabel.numberOfLines = 3
-        navigationbar.rightButton.setTitle("↻", for: .normal)
-        navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
+     //   navigationbar.rightButton.setTitle("↻", for: .normal)
+     //   navigationbar.rightButton.titleLabel?.font = .boldSystemFont(ofSize: 30)
+     //   navigationbar.rightButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         self.view.addSubview(navigationbar)
         for subview in navigationbar.subviews {
             if subview is UIVisualEffectView {
@@ -70,26 +70,26 @@ class FoodAllViewController: UIViewController {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("Speiseplan").child("Datum").observeSingleEvent(of: .value) { (datesnap) in
+        ref.child("Speiseplan").child("Datum").observe(.value) { (datesnap) in
             let FoodDate = datesnap.value as! String
             self.navigationbar.titleLabel.text = "Speiseplan\n(\(FoodDate))"
         }
         
-        ref.child("Speiseplan").child("monday").observeSingleEvent(of: .value) { (mondayfood) in
+        ref.child("Speiseplan").child("monday").observe(.value) { (mondayfood) in
             FoodVC.monday = mondayfood.value as! String
-            ref.child("Speiseplan").child("Tuesday").observeSingleEvent(of: .value, with: { (tuesdayfood) in
+            ref.child("Speiseplan").child("Tuesday").observe(.value) { (tuesdayfood) in
                 FoodVC.tuesday = tuesdayfood.value as! String
-                ref.child("Speiseplan").child("Wednesday").observeSingleEvent(of: .value, with: { (wednesdayfood) in
+                ref.child("Speiseplan").child("Wednesday").observe(.value) { (wednesdayfood) in
                     FoodVC.wednesday = wednesdayfood.value as! String
-                    ref.child("Speiseplan").child("Thursday").observeSingleEvent(of: .value, with: { (thursdayfood) in
+                    ref.child("Speiseplan").child("Thursday").observe(.value) { (thursdayfood) in
                         FoodVC.thursday = thursdayfood.value as! String
-                        ref.child("Speiseplan").child("Friday").observeSingleEvent(of: .value, with: { (fridayfood) in
+                        ref.child("Speiseplan").child("Friday").observe(.value) { (fridayfood) in
                             FoodVC.friday = fridayfood.value as! String
                             self.foodtextview.text = "Montag: \(FoodVC.monday)\n\nDienstag: \(FoodVC.tuesday)\n\nMittwoch: \(FoodVC.wednesday)\n\nDonnerstag: \(FoodVC.thursday)\n\nFreitag: \(FoodVC.friday)"
-                        })
-                    })
-                })
-            })
+                        }
+                    }
+                }
+            }
         }
     }
     

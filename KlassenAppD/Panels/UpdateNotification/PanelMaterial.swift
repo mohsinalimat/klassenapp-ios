@@ -8,15 +8,14 @@
 
 
 import UIKit
-import Panels
 import FirebaseDatabase
 
-class PanelMaterial: UIViewController, Panelable {
+class PanelMaterial: UIViewController {
     @IBOutlet var headerHeight: NSLayoutConstraint!
     @IBOutlet var headerPanel: UIView!
     @IBOutlet weak var VersionLabel: UILabel!
-    
-    lazy var panelManager = Panels(target: self)
+    @IBOutlet weak var UpdateTitle: UILabel!
+    @IBOutlet weak var downloadImage: UIImageView!
 
     @IBAction func installbtn(_ sender: Any)
     {
@@ -34,9 +33,36 @@ class PanelMaterial: UIViewController, Panelable {
     @IBAction func notnowbtn(_ sender: Any)
     {
         HomeViewController.HomeVar.UpdateReminderSession = "1"
+        //panelManager.dismiss()
     }
     override func viewDidLoad() {
-        self.view.addBlurBackground()
+        
+        var blur: UIBlurEffect!
+        
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            blur = UIBlurEffect(style: .dark)
+            UpdateTitle.textColor = .white
+            VersionLabel.textColor = .white
+            downloadImage.image = UIImage(named: "downloadcloudnew")
+        }
+        
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            blur = UIBlurEffect(style: .light)
+            self.view.backgroundColor = .white
+            UpdateTitle.textColor = .black
+            VersionLabel.textColor = .black
+            downloadImage.image = UIImage(named: "downloadcloudnewdark")
+        }
+        
+        let blurView = UIVisualEffectView(effect: blur)
+        
+        blurView.frame = view.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        self.view.insertSubview(blurView, at: 0)
+        
+        
+        //self.view.addBlurBackground()
         curveTopCorners()
         self.view.layoutIfNeeded()
         super.viewDidLoad()

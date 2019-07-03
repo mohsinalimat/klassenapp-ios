@@ -120,7 +120,9 @@
                     </view>
                     <size key="freeformSize" width="375" height="430"/>
                     <connections>
+                        <outlet property="UpdateTitle" destination="38o-nC-UFf" id="MiS-8b-vd6"/>
                         <outlet property="VersionLabel" destination="VmR-g0-7fF" id="14e-sB-ODX"/>
+                        <outlet property="downloadImage" destination="hgg-gK-0xO" id="bBl-Xs-VXx"/>
                         <outlet property="headerHeight" destination="riN-xS-O8z" id="jfy-7Y-B1U"/>
                         <outlet property="headerPanel" destination="DpB-ii-x0L" id="F1n-e4-NbE"/>
                     </connections>

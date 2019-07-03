@@ -11,7 +11,6 @@ import Firebase
 import UserNotifications
 import Fabric
 import Crashlytics
-import BLTNBoard
 import AVKit
 import FirebaseDatabase
 import MarqueeLabel
@@ -28,28 +27,6 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var LDULabel: UILabel!
     
      var loader : NVActivityIndicatorView!
-    
-    lazy var bulletinManager: BLTNItemManager = {
-        let introPage = FirstViewController.bulletinNWUP()
-        return BLTNItemManager(rootItem: introPage)
-    }()
-    lazy var bulletinManagerChangelog: BLTNItemManager = {
-        let ChangelogUpdate = FirstViewController.bulletinWelcomeNV()
-        return BLTNItemManager(rootItem: ChangelogUpdate)
-    }()
-    lazy var bulletinManagerChangelog2: BLTNItemManager = {
-        let ChangelogUpdate2 = FirstViewController.bulletinWelcomeNVSecond()
-        return BLTNItemManager(rootItem: ChangelogUpdate2)
-    }()
-    lazy var bulletinManagerChangelogBeta: BLTNItemManager = {
-        let ChangelogUpdateBeta = FirstViewController.bulletinWelcomeNVBeta()
-        return BLTNItemManager(rootItem: ChangelogUpdateBeta)
-    }()
-    lazy var betaVersionAVBullet: BLTNItemManager = {
-        let betaVB = FirstViewController.bulletinNWUPBeta()
-        return BLTNItemManager(rootItem: betaVB)
-    }()
-    
 
     @IBOutlet weak var Week1Out: UIButton!
     @IBOutlet weak var Week2Out: UIButton!
@@ -404,23 +381,23 @@ class FirstViewController: UIViewController {
             self.performSegue(withIdentifier: "hwtoTTshort", sender: nil)
         }
         
-        ref.child("homework").child("Week1").child("Datum").observeSingleEvent(of: .value) { (Week1DatumSnap) in
+        ref.child("homework").child("Week1").child("Datum").observe(.value) { (Week1DatumSnap) in
             let Week1DatumLE = Week1DatumSnap.value as? String
             self.loader.stopAnimating()
             UserDefaults.standard.set(Week1DatumLE, forKey: "UDW1Btn")
             self.Week1Out.setTitle(Week1DatumLE, for: .normal)
         }
-        ref.child("homework").child("Week2").child("Datum").observeSingleEvent(of: .value) { (Week2DatumSnap) in
+        ref.child("homework").child("Week2").child("Datum").observe(.value) { (Week2DatumSnap) in
             let Week2DatumLE = Week2DatumSnap.value as? String
             UserDefaults.standard.set(Week2DatumLE, forKey: "UDW2Btn")
             self.Week2Out.setTitle(Week2DatumLE, for: .normal)
         }
-        ref.child("homework").child("Week3").child("Datum").observeSingleEvent(of: .value) { (Week3DatumSnap) in
+        ref.child("homework").child("Week3").child("Datum").observe(.value) { (Week3DatumSnap) in
             let Week3DatumLE = Week3DatumSnap.value as? String
             UserDefaults.standard.set(Week3DatumLE, forKey: "UDW3Btn")
             self.Week3Out.setTitle(Week3DatumLE, for: .normal)
         }
-        ref.child("homework").child("Week4").child("Datum").observeSingleEvent(of: .value) { (Week4DatumSnap) in
+        ref.child("homework").child("Week4").child("Datum").observe(.value) { (Week4DatumSnap) in
             let Week4DatumLE = Week4DatumSnap.value as? String
             UserDefaults.standard.set(Week4DatumLE, forKey: "UDW4Btn")
             self.Week4Out.setTitle(Week4DatumLE, for: .normal)
@@ -556,127 +533,8 @@ class FirstViewController: UIViewController {
         }*/
     }
     
-    
-    static func bulletinNWUP() -> BLTNPageItem {
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
-        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
-            let NewestBuildDBLES = NewestBuildDB.value as! String
-            LastVC.NEWUPDATEVERDB = NewestBuildDBLES
-        }
-            let NewestBuildDBLE = LastVC.NEWUPDATEVERDB
-            let nUABpage = BLTNPageItem(title: "Neues Update verfügbar")
-            nUABpage.image = UIImage(named: "DownloadCloud")
-            nUABpage.descriptionText = "Die Version \(NewestBuildDBLE) ist verfügbar. Schau im Updatecenter vorbei für mehr Informationen"
-            nUABpage.actionButtonTitle = "Ok"
-            nUABpage.actionHandler = { (item: BLTNActionItem) in
-                LastVC.UpdateReminderSession = "1"
-                item.manager?.dismissBulletin()
-                //updatecenterid
-                /*let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "updatecenterid") as UIViewController
-                self.window = UIWindow(frame: UIScreen.main.bounds)
-                self.window?.rootViewController = initialViewControlleripad
-                self.window?.makeKeyAndVisible()*/
-        }
-        nUABpage.dismissalHandler = { (item: BLTNItem) in
-             LastVC.UpdateReminderSession = "1"
-        }
-        return nUABpage
-    }
-    
     func showUC() {
         self.performSegue(withIdentifier: "gotoupdatecenter", sender: nil)
-    }
-    static func bulletinNWUPBeta() -> BLTNPageItem {
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
-        ref.child("standardData").child("iosBetaVersion").observeSingleEvent(of: .value) { (BetaBuildDB) in
-            let BetaBuildDBLES = BetaBuildDB.value as! String
-            LastVC.NEWUPDATEBETA = BetaBuildDBLES
-        }
-        let BetaBuildDBLE = LastVC.NEWUPDATEBETA
-        let nUABetapage = BLTNPageItem(title: "Neues Betaupdate verfügbar")
-        nUABetapage.image = UIImage(named: "DownloadCloud")
-        nUABetapage.descriptionText = "Die Betaversion \(BetaBuildDBLE) ist verfügbar. Du kannst sie jetzt herunterladen oder diese Nachricht bis zum nächsten Neustart der App schließen."
-        nUABetapage.actionButtonTitle = "Installieren"
-        nUABetapage.alternativeButtonTitle = "Nicht jetzt"
-        nUABetapage.isDismissable = false
-        nUABetapage.actionHandler = { (item: BLTNActionItem) in
-            UIApplication.shared.open(URL(string: "https://klassenappd-team.github.io/iosbeta.html")!)
-        }
-        nUABetapage.alternativeHandler = { (item: BLTNItem) in
-            LastVC.UpdateReminderSession = "1"
-            item.manager?.dismissBulletin()
-        }
-        /*nUABetapage.dismissalHandler = { (item: BLTNItem) in
-            LastVC.UpdateReminderSession = "1"
-        }*/
-        return nUABetapage
-    }
-    
-    static func bulletinWelcomeNV() -> BLTNPageItem {
-        let nVBpage = BLTNPageItem(title: "Version 2.0")
-        nVBpage.descriptionText = "Neue Funktionen in Version 1.4:\n-Neue Funktion: Hausaufgaben bis morgen\n-Tab für Arbeiten & Termine umbennant"
-        nVBpage.isDismissable = false
-        nVBpage.actionButtonTitle = "Weiter"
-        nVBpage.actionHandler = { (item: BLTNItem) in
-            item.manager?.displayNextItem()
-        }
-        nVBpage.next = bulletinWelcomeNVThird()
-        /*nVBpage.dismissalHandler = { (item: BLTNItem) in
-            UserDefaults.standard.set("1", forKey: "FirstLaunch1.3.2")
-        }*/
-        return nVBpage
-    }
-    
-    static func bulletinWelcomeNVSecond() -> BLTNPageItem {
-        let nVB2page = BLTNPageItem(title: "Feedback")
-        //nVB2page.image = UIImage(named: "siriIcon")
-        nVB2page.descriptionText = "Die iOS App ist schon seit einigen Wochen verfügbar. Mich interessiert eure Meinung zur iOS App, weswegen ich einen kleinen Feedbackbogen erstellt habe. Ich bitte euch, diesen auszufüllen. Der Link ist auch jederzeit in den mehreren Optionen verfügbar."
-        nVB2page.isDismissable = false
-        nVB2page.actionButtonTitle = "Formular ausfüllen"
-        nVB2page.alternativeButtonTitle = "Nicht jetzt"
-        nVB2page.actionHandler = { (item: BLTNItem) in
-            /*if let SiriShortcutTUTO = Bundle.main.path(forResource: "SiriShortcutTutorial", ofType: "mp4") {
-                let SiriShortcutVideo = AVPlayer(url: URL(fileURLWithPath: SiriShortcutTUTO))
-                let SiriShortcutPlayer = AVPlayerViewController()
-                SiriShortcutPlayer.player = SiriShortcutVideo
-                nVB2page.manager?.present(SiriShortcutPlayer, animated: true, completion: {
-                    SiriShortcutVideo.play()
-                    item.manager?.displayNextItem()
-                })
-            }*/
-            UIApplication.shared.open(URL(string: "https://goo.gl/forms/8scxGoMvyGfk7Tha2")!)
-            item.manager?.displayNextItem()
-        }
-        nVB2page.alternativeHandler = { (item: BLTNItem) in
-            item.manager?.displayNextItem()
-        }
-        nVB2page.next = bulletinWelcomeNVThird()
-        return nVB2page
-    }
-    static func bulletinWelcomeNVThird() -> BLTNPageItem {
-        let nVB3page = BLTNPageItem(title: "Fertig")
-        nVB3page.image = UIImage(named: "Check")
-        nVB3page.descriptionText = "Du kannst die App nun verwenden"
-        nVB3page.actionButtonTitle = "Ok"
-        nVB3page.actionHandler = { (item: BLTNItem) in
-            UserDefaults.standard.set("1", forKey: "FirstLaunch2.0")
-            item.manager?.dismissBulletin()
-        }
-        return nVB3page
-    }
-    static func bulletinWelcomeNVBeta() -> BLTNPageItem {
-        let nVBetapage = BLTNPageItem(title: "Version 1.3.2 Beta")
-        nVBetapage.descriptionText = "Neue Funktionen in Version 1.3.2 Beta:\nNichts. Noch hat die Beta alle Funktionen, die auch die offizielle App hat."
-        nVBetapage.isDismissable = true
-        nVBetapage.dismissalHandler = { (item: BLTNItem) in
-            UserDefaults.standard.set("1", forKey: "FirstLaunchBeta1.3.3")
-        }
-        return nVBetapage
     }
     
         func newUpdatealert (title: String, message: String) {

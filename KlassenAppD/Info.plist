@@ -94,7 +94,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.10.0</string>
+	<string>4.11.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -111,7 +111,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2238</string>
+	<string>2387</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -141,45 +141,6 @@
 	</dict>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Die App verwendet FaceID, damit man sich im Loginscreen mit FaceID anmelden kann.</string>
-	<key>NSUserActivityTypes</key>
-	<array>
-		<string>Homework1Intent</string>
-	</array>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeBookmark</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Hausaufgaben für diese Woche</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.adrianbaumgart.KlassenAppDREA123.showWeek1Homework</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeDate</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Nächste/s Arbeit / Event</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.adrianbaumgart.KlassenAppDREA123.showNextTest</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeTime</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Hausaufgaben bis morgen</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.adrianbaumgart.KlassenAppDREA123.HABM</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeTime</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Stundenplan</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.adrianbaumgart.KlassenAppDREA123.showTimeTable</string>
-		</dict>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
