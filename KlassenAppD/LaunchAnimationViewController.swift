@@ -6,39 +6,28 @@
 //  Copyright © 2018 Adrian Baumgart. All rights reserved.
 //
 
-import UIKit
 import RevealingSplashView
+import UIKit
 
 class LaunchAnimationViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
             self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             self.setNeedsStatusBarAppearanceUpdate()
-            
         }
-        
+
         UserDefaults.standard.set(1, forKey: "Checker")
-        
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "LaunchScreenW")!,iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
+
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "LaunchScreenW")!, iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
         revealingSplashView.duration = 1
-      //  revealingSplashView.animationType = .rotateOut
-        //revealingSplashView.animationType = SplashAnimationType.squeezeAndZoomOut
-      //  revealingSplashView.animationType = SplashAnimationType.rotateOut
-        
-        //Adds the revealing splash view as a sub view
         self.view.addSubview(revealingSplashView)
-        //Starts animation
-       // sleep(1)
-        revealingSplashView.startAnimation(){
-            print("Completed")
+        revealingSplashView.startAnimation {
             if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
-                // self.performSegue(withIdentifier: "startwelcomeTourSegue", sender: nil)
                 let vc = (self.storyboard?.instantiateViewController(withIdentifier: "welcome1"))!
                 self.present(vc, animated: true)
             }
@@ -46,9 +35,8 @@ class LaunchAnimationViewController: UIViewController {
                 self.performSegue(withIdentifier: "directtotb", sender: nil)
             }
         }
-        // Do any additional setup after loading the view.
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         var style: UIStatusBarStyle!
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
@@ -59,16 +47,4 @@ class LaunchAnimationViewController: UIViewController {
         }
         return style
     }
-    
-//launchanimationfinish
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

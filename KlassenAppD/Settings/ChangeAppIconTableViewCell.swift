@@ -9,19 +9,14 @@
 import UIKit
 
 class ChangeAppIconTableViewCell: UITableViewCell {
+    @IBOutlet var ImageCe: UIImageView!
+    @IBOutlet var NumberCell: UILabel!
 
-    @IBOutlet weak var ImageCe: UIImageView!
-    @IBOutlet weak var NumberCell: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
 }

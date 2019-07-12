@@ -23,9 +23,7 @@
 		3A3BE9F12299BA6100F67AA0 /* FoodAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */; };
 		3A3BE9F32299C53500F67AA0 /* TimeTableAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BE9F22299C53500F67AA0 /* TimeTableAllViewController.swift */; };
 		3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */; };
-		3A4FFDD822888A4A001A8574 /* InformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FFDD722888A4A001A8574 /* InformationsViewController.swift */; };
 		3A5B8AB921FBB7F900669F2B /* AppIconCustomIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */; };
-		3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */; };
 		3A6B2C2422A1940900EBB792 /* HwRequestLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */; };
 		3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */; };
 		3A7135672263625B0017838A /* ChangeColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */; };
@@ -48,11 +46,8 @@
 		3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1BCD522A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m */; };
 		3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */; };
 		3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */; };
-		3AC0BE8E207BD5A700980088 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0BE8D207BD5A700980088 /* LoginViewController.swift */; };
 		3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9902261E7390048030A /* UIViewController+Utils.swift */; };
 		3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9912261E7390048030A /* UIVIew+Utils.swift */; };
-		3AC1E9952261F0E10048030A /* PanelMaterial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */; };
-		3AC1E9972261F13F0048030A /* PanelMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9962261F13E0048030A /* PanelMaterial.swift */; };
 		3AC2202A22998BE100204C8D /* HomeworkWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */; };
 		3AC2202C2299AA3C00204C8D /* AllTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2202B2299AA3C00204C8D /* AllTestsViewController.swift */; };
 		3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF16F922414B660087217A /* HomeViewController.swift */; };
@@ -130,9 +125,7 @@
 		3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllViewController.swift; sourceTree = "<group>"; };
 		3A3BE9F22299C53500F67AA0 /* TimeTableAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableAllViewController.swift; sourceTree = "<group>"; };
 		3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationViewController.swift; sourceTree = "<group>"; };
-		3A4FFDD722888A4A001A8574 /* InformationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationsViewController.swift; sourceTree = "<group>"; };
 		3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCustomIco.png; sourceTree = "<group>"; };
-		3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenachrichtigungViewController.swift; sourceTree = "<group>"; };
 		3A5D31E22164DF020064B9EA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwRequestLogViewController.swift; sourceTree = "<group>"; };
 		3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorMenuViewController.swift; sourceTree = "<group>"; };
@@ -185,11 +178,8 @@
 		3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHWRequest2ViewController.swift; sourceTree = "<group>"; };
 		3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3ABFEF2F207D049800900935 /* KlassenAppD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KlassenAppD.entitlements; sourceTree = "<group>"; };
-		3AC0BE8D207BD5A700980088 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3AC1E9902261E7390048030A /* UIViewController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		3AC1E9912261E7390048030A /* UIVIew+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+Utils.swift"; sourceTree = "<group>"; };
-		3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PanelMaterial.storyboard; sourceTree = "<group>"; };
-		3AC1E9962261F13E0048030A /* PanelMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelMaterial.swift; sourceTree = "<group>"; };
 		3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkWeekViewController.swift; sourceTree = "<group>"; };
 		3AC2202B2299AA3C00204C8D /* AllTestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTestsViewController.swift; sourceTree = "<group>"; };
 		3AC8809B210F2FD90077B67E /* KlassenAppDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlassenAppDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,7 +273,6 @@
 				3A2CB09B22623567002F0E0A /* Extensions */,
 				3A2CB09C22623578002F0E0A /* Images */,
 				3A2CB09E226235B9002F0E0A /* Homework */,
-				3A2CB0A6226238C6002F0E0A /* Panels */,
 				3A2CB0A32262372D002F0E0A /* Storyboards */,
 				3A2CB0A422623759002F0E0A /* Settings */,
 				3AE242EB213710C800953BF4 /* WelcomeScreen */,
@@ -291,11 +280,9 @@
 				3A2CB09F226235E4002F0E0A /* Food */,
 				3A0F570E207BD0B700D9F701 /* AppDelegate.swift */,
 				3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */,
-				3AC0BE8D207BD5A700980088 /* LoginViewController.swift */,
 				3ADF16F922414B660087217A /* HomeViewController.swift */,
 				3A8932B6229858FC000E6395 /* PlansViewController.swift */,
 				3A0AA43A215D13CB00458415 /* RememberViewController.swift */,
-				3A5D31E02163DE6C0064B9EA /* BenachrichtigungViewController.swift */,
 				3ABFEF2F207D049800900935 /* KlassenAppD.entitlements */,
 				3A0F5717207BD0B700D9F701 /* Assets.xcassets */,
 				3A0F571C207BD0B700D9F701 /* Info.plist */,
@@ -413,28 +400,10 @@
 				3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */,
 				3A71356522635BA60017838A /* ChangeColor */,
 				3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */,
-				3A4FFDD722888A4A001A8574 /* InformationsViewController.swift */,
 				3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */,
 				3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		3A2CB0A5226237FF002F0E0A /* UpdateNotification */ = {
-			isa = PBXGroup;
-			children = (
-				3AC1E9962261F13E0048030A /* PanelMaterial.swift */,
-				3AC1E9942261F0E00048030A /* PanelMaterial.storyboard */,
-			);
-			path = UpdateNotification;
-			sourceTree = "<group>";
-		};
-		3A2CB0A6226238C6002F0E0A /* Panels */ = {
-			isa = PBXGroup;
-			children = (
-				3A2CB0A5226237FF002F0E0A /* UpdateNotification */,
-			);
-			path = Panels;
 			sourceTree = "<group>";
 		};
 		3A71356522635BA60017838A /* ChangeColor */ = {
@@ -705,7 +674,6 @@
 				3AA0E64921FA11560012ED20 /* AppIconBlueIco.png in Resources */,
 				3AA0E64B21FA11710012ED20 /* AppIconGoldIco.png in Resources */,
 				3A19530622648F95006C4FC5 /* colors.json in Resources */,
-				3AC1E9952261F0E10048030A /* PanelMaterial.storyboard in Resources */,
 				3AA0E64D21FA11790012ED20 /* AppIconGreenIco.png in Resources */,
 				3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */,
 				3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */,
@@ -823,16 +791,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EZAlertController/EZAlertController.framework",
-				"${BUILT_PRODUCTS_DIR}/ExpandingMenu/ExpandingMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IGColorPicker/IGColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/PinCodeTextField/PinCodeTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
@@ -851,16 +815,12 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZAlertController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandingMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinCodeTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
@@ -905,10 +865,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AC0BE8E207BD5A700980088 /* LoginViewController.swift in Sources */,
 				3A3A1D6822984B5100D81453 /* WholeTabBarController.swift in Sources */,
 				3A3BE9F12299BA6100F67AA0 /* FoodAllViewController.swift in Sources */,
-				3A5D31E12163DE6C0064B9EA /* BenachrichtigungViewController.swift in Sources */,
 				3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */,
 				3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */,
 				3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */,
@@ -926,7 +884,6 @@
 				3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */,
 				3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */,
 				3A7135672263625B0017838A /* ChangeColorPickerViewController.swift in Sources */,
-				3AC1E9972261F13F0048030A /* PanelMaterial.swift in Sources */,
 				3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */,
 				3A0AA43B215D13CB00458415 /* RememberViewController.swift in Sources */,
 				3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */,
@@ -941,7 +898,6 @@
 				3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */,
 				3A3BE9F32299C53500F67AA0 /* TimeTableAllViewController.swift in Sources */,
 				3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */,
-				3A4FFDD822888A4A001A8574 /* InformationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

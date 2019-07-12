@@ -6,40 +6,34 @@
 //  Copyright © 2019 Adrian Baumgart. All rights reserved.
 //
 
-import UIKit
-import Firebase
-import ExpandingMenu
-import WhatsNewKit
-import SAConfettiView
 import EZAlertController
+import Firebase
 import NVActivityIndicatorView
+import SAConfettiView
 import SCLAlertView
+import UIKit
+import WhatsNewKit
 
 class HomeViewController: UIViewController {
     var timer: Timer!
     var disappearUpdate: Timer!
-    var time1 = 0
-    //var loader: NVActivityIndicatorView;
-    var loader : NVActivityIndicatorView!
+    var loader: NVActivityIndicatorView!
     
+    let TextSizeAttr = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
     
-    let TextSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
-    
-    @IBOutlet weak var DateLabel: UILabel!
-    @IBOutlet weak var TitleBar: UIView!
-    @IBOutlet weak var TestLabel: UILabel!
-    @IBOutlet weak var HomeTitle: UILabel!
-    @IBOutlet weak var HomeTitleBackground: UIView!
-    @IBOutlet weak var HomeTV: UITextView!
-    @IBAction func reloadEverything(_ sender: Any)
-    {
+    @IBOutlet var DateLabel: UILabel!
+    @IBOutlet var TitleBar: UIView!
+    @IBOutlet var TestLabel: UILabel!
+    @IBOutlet var HomeTitle: UILabel!
+    @IBOutlet var HomeTitleBackground: UIView!
+    @IBOutlet var HomeTV: UITextView!
+    @IBAction func reloadEverything(_ sender: Any) {
         loader.startAnimating()
         reloadData()
     }
     
     func viewLoadSetup() {
-        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
-        //loader.type = .ballRotateChase
+        loader = NVActivityIndicatorView(frame: CGRect(x: view.center.x - 25, y: view.center.y - 25, width: 50, height: 50))
         loader.type = .ballPulseSync
         loader.color = UIColor.red
         view.addSubview(loader)
@@ -50,91 +44,68 @@ class HomeViewController: UIViewController {
             loader.stopAnimating()
         }
         
-        
-        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
-            self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
         }
         
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-                HomeTitleBackground.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
-                HomeTitle.textColor = UIColor.white
-                HomeTV.textColor = UIColor.white
-                HomeTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                view.backgroundColor = UIColor.white
-                // HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-                HomeTitleBackground.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-                
-                HomeTitle.textColor = UIColor.black
-                HomeTV.textColor = UIColor.black
-                HomeTV.backgroundColor = UIColor.white
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            HomeTitleBackground.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
+            HomeTitle.textColor = UIColor.white
+            HomeTV.textColor = UIColor.white
+            HomeTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            setNeedsStatusBarAppearanceUpdate()
+        }
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            view.backgroundColor = UIColor.white
+            HomeTitleBackground.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+            
+            HomeTitle.textColor = UIColor.black
+            HomeTV.textColor = UIColor.black
+            HomeTV.backgroundColor = UIColor.white
+            setNeedsStatusBarAppearanceUpdate()
+        }
         
-        /* So = 1
-         Mo = 2
-         Di = 3
-         Mi = 4
-         Do = 5
-         Fr = 6
-         Sa = 7 */
-        
-        //NSAttributedString.Key.foregroundColor: UIColor.white
-        //var titles = HomeViewController.Titles.self
-        let TitleSizeAttr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
-        HomeViewController.Titles.Habm = NSMutableAttributedString(string: "Hausaufgaben bis morgen: ", attributes: TitleSizeAttr)
-        /* titles.HabmTime = NSMutableAttributedString(string: "HABM-Updatezeit", attributes: TitleSizeAttr)
-         titles.News = NSMutableAttributedString(string: "Neuigkeiten", attributes: T##[NSAttributedString.Key : Any]?)*/
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
         
         reloadData()
         
-        ref.observe(.childChanged) { (snap) in
-            print("chang")
+        ref.observe(.childChanged) { _ in
             self.reloadData()
         }
         
-        if FirstViewController.LastVC.LastVCV == "hw" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 1
+        if HomeViewController.AutomaticMover.LastVisitedView == "hw" {
+            HomeViewController.AutomaticMover.LastVisitedView = ""
+            tabBarController?.selectedIndex = 1
         }
-        if FirstViewController.LastVC.LastVCV == "test" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 2
+        if HomeViewController.AutomaticMover.LastVisitedView == "test" {
+            HomeViewController.AutomaticMover.LastVisitedView = ""
+            tabBarController?.selectedIndex = 2
         }
-        if FirstViewController.LastVC.LastVCV == "plans" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 3
+        if HomeViewController.AutomaticMover.LastVisitedView == "plans" {
+            HomeViewController.AutomaticMover.LastVisitedView = ""
+            tabBarController?.selectedIndex = 3
         }
-        if FirstViewController.LastVC.LastVCV == "settings" {
-            FirstViewController.LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 4
+        if HomeViewController.AutomaticMover.LastVisitedView == "settings" {
+            HomeViewController.AutomaticMover.LastVisitedView = ""
+            tabBarController?.selectedIndex = 4
         }
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // viewLoadSetup()
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewLoadSetup()
     }
     
-    
     func reloadData() {
-        
         let date = Date()
         let calender = Calendar.current
-        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let components = calender.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let currentday = calender.component(.weekday, from: date)
         let day = components.day
         let month = components.month
@@ -162,14 +133,12 @@ class HomeViewController: UIViewController {
         if currentday == 7 {
             weekdaystring = "Samstag"
         }
-        
         if day! < 10 {
             day2 = "0\(day!)"
         }
         else {
             day2 = "\(day!)"
         }
-        
         if month! < 10 {
             month2 = "0\(month!)"
         }
@@ -183,24 +152,19 @@ class HomeViewController: UIViewController {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("standardData").child("bd1event").observeSingleEvent(of: .value) { (birthdaysnap) in
+        ref.child("standardData").child("bd1event").observeSingleEvent(of: .value) { birthdaysnap in
             let BDSnap = birthdaysnap.value as? String
             
             let confettiView2 = SAConfettiView(frame: self.HomeTitleBackground.bounds)
             confettiView2.tag = 5
             
-            print("CALL")
-            
             if BDSnap == "1" {
-                print("ACC")
                 if UserDefaults.standard.integer(forKey: "FirstBDE") != 1 {
                     let confettiView = SAConfettiView(frame: self.view.bounds)
-                    //frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 116)
                     confettiView.type = .Confetti
                     self.view.addSubview(confettiView)
                     confettiView.startConfetti()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                        // Put your code which should be executed with a delay here
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                         confettiView.stopConfetti()
                         confettiView.removeFromSuperview()
                         EZAlertController.alert("Hallo", message: "Entschuldigung für die Störung, aber bitte lies dir die nächsten Nachrichten durch.", acceptMessage: "Weiter") { () -> () in
@@ -210,47 +174,42 @@ class HomeViewController: UIViewController {
                                 }
                             }
                         }
-                    })
+                    }
                     UserDefaults.standard.set(1, forKey: "FirstBDE")
                 }
-                //frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 116)
                 confettiView2.type = .Confetti
                 self.HomeTitleBackground.addSubview(confettiView2)
                 confettiView2.startConfetti()
             }
             else {
-                print("Start remove sibview")
                 if let viewWithTag = self.view.viewWithTag(5) {
                     viewWithTag.removeFromSuperview()
-                }else{
-                    print("No!")
                 }
-                
+                else {}
             }
         }
         
-        
-        ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUSnap) in
+        ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { LDUSnap in
             let LDUSNAP = LDUSnap.value as? String
             HomeViewController.HomeVar.LDU = LDUSNAP!
         }
-        ref.child("homework").child("bismorgen").child("hausaufgaben").observeSingleEvent(of: .value) { (HABMINFOSNAP) in
+        ref.child("homework").child("bismorgen").child("hausaufgaben").observeSingleEvent(of: .value) { HABMINFOSNAP in
             let HABMINFOLE = HABMINFOSNAP.value as? String
             HomeViewController.HomeVar.HabmText = HABMINFOLE!
         }
-        ref.child("homework").child("bismorgen").child("updatetime").observeSingleEvent(of: .value) { (HABMLDUSNAP) in
+        ref.child("homework").child("bismorgen").child("updatetime").observeSingleEvent(of: .value) { HABMLDUSNAP in
             let HABMLDULE = HABMLDUSNAP.value as! String
             HomeViewController.HomeVar.HabmTime = HABMLDULE
         }
-        ref.child("news").child("news1").observeSingleEvent(of: .value) { (News1Snap) in
+        ref.child("news").child("news1").observeSingleEvent(of: .value) { News1Snap in
             let NEWS1SNAP = News1Snap.value as? String
             HomeViewController.HomeVar.News1 = NEWS1SNAP!
         }
-        ref.child("news").child("newsL").observeSingleEvent(of: .value) { (NewsLSnap) in
+        ref.child("news").child("newsL").observeSingleEvent(of: .value) { NewsLSnap in
             let NEWSLSNAP = NewsLSnap.value as? String
             HomeViewController.HomeVar.NewsL = NEWSLSNAP!
         }
-        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { NewestBuildDB in
             let NEWESTBUILD = NewestBuildDB.value as? String
             HomeViewController.HomeVar.NewestVersion = NEWESTBUILD!
         }
@@ -265,98 +224,92 @@ class HomeViewController: UIViewController {
         }
         
         if currentday == 2 {
-            ref.child("Speiseplan").child("monday").observeSingleEvent(of: .value) { (MondayFoodSnap) in
+            ref.child("Speiseplan").child("monday").observeSingleEvent(of: .value) { MondayFoodSnap in
                 let MondayFood = MondayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = MondayFood!
             }
-            ref.child("homework").child("Week1").child("Monday").observeSingleEvent(of: .value) { (HWToday) in
+            ref.child("homework").child("Week1").child("Monday").observeSingleEvent(of: .value) { HWToday in
                 HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         else if currentday == 3 {
-            ref.child("Speiseplan").child("Tuesday").observeSingleEvent(of: .value) { (TuesdayFoodSnap) in
+            ref.child("Speiseplan").child("Tuesday").observeSingleEvent(of: .value) { TuesdayFoodSnap in
                 let TuesdayFood = TuesdayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = TuesdayFood!
             }
-            ref.child("homework").child("Week1").child("Tuesday").observeSingleEvent(of: .value) { (HWToday) in
+            ref.child("homework").child("Week1").child("Tuesday").observeSingleEvent(of: .value) { HWToday in
                 HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         else if currentday == 4 {
-            ref.child("Speiseplan").child("Wednesday").observeSingleEvent(of: .value) { (WednesdayFoodSnap) in
+            ref.child("Speiseplan").child("Wednesday").observeSingleEvent(of: .value) { WednesdayFoodSnap in
                 let WednesdayFood = WednesdayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = WednesdayFood!
             }
-            ref.child("homework").child("Week1").child("Wednesday").observeSingleEvent(of: .value) { (HWToday) in
+            ref.child("homework").child("Week1").child("Wednesday").observeSingleEvent(of: .value) { HWToday in
                 HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         else if currentday == 5 {
-            ref.child("Speiseplan").child("Thursday").observeSingleEvent(of: .value) { (ThursdayFoodSnap) in
+            ref.child("Speiseplan").child("Thursday").observeSingleEvent(of: .value) { ThursdayFoodSnap in
                 let ThursdayFood = ThursdayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = ThursdayFood!
             }
-            ref.child("homework").child("Week1").child("Thursday").observeSingleEvent(of: .value) { (HWToday) in
+            ref.child("homework").child("Week1").child("Thursday").observeSingleEvent(of: .value) { HWToday in
                 HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         else if currentday == 6 {
-            ref.child("Speiseplan").child("Friday").observeSingleEvent(of: .value) { (FridayFoodSnap) in
+            ref.child("Speiseplan").child("Friday").observeSingleEvent(of: .value) { FridayFoodSnap in
                 let FridayFood = FridayFoodSnap.value as? String
                 HomeViewController.HomeVar.essenHeute = FridayFood!
             }
-            ref.child("homework").child("Week1").child("Friday").observeSingleEvent(of: .value) { (HWToday) in
+            ref.child("homework").child("Week1").child("Friday").observeSingleEvent(of: .value) { HWToday in
                 HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         else if currentday == 7 || currentday == 1 {
             HomeViewController.HomeVar.essenHeute = "Kein Essen heute!"
-            //HomeViewController.HomeVar.HomeworkToday = "Keine Hausaufgaben von heute, es ist Wochenende!"
-            ref.child("homework").child("Week1").child("Friday").observeSingleEvent(of: .value) { (HWToday) in
+            ref.child("homework").child("Week1").child("Friday").observeSingleEvent(of: .value) { HWToday in
                 HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
             }
         }
         
-        ref.child("Speiseplan").child("Datum").observeSingleEvent(of: .value) { (FoodDateSnap) in
+        ref.child("Speiseplan").child("Datum").observeSingleEvent(of: .value) { FoodDateSnap in
             let FoodDate = FoodDateSnap.value as? String
             HomeViewController.HomeVar.essenDate = FoodDate!
         }
         
-        ref.child("arbeiten").child("nextEvent").observeSingleEvent(of: .value) { (Test1LabelSnap) in
+        ref.child("arbeiten").child("nextEvent").observeSingleEvent(of: .value) { Test1LabelSnap in
             let TEST1LABELSNAP = Test1LabelSnap.value as? String
             HomeViewController.HomeVar.NextEvent = TEST1LABELSNAP!
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
             self.loader.stopAnimating()
         }
         
-        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
-            
-            //self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
-            
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { NewestBuildDB in
             let dictionary = Bundle.main.infoDictionary!
             let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
             let NEWESTBUILD = NewestBuildDB.value as? String
             HomeViewController.HomeVar.NewestVersion = NEWESTBUILD ?? versionCurrent
-        
+            
             if versionCurrent.compare(NEWESTBUILD!, options: .numeric) == .orderedAscending {
-                //HomeViewController.HomeVar.NewVersionAvailable = NSMutableAttributedString(string: "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)", attributes: self.TextSizeAttr)
                 if HomeVar.UpdateReminderSession != "1" {
-                    
-                    ref.child("standardData").child("iosCurrentVer").child("description").observeSingleEvent(of: .value, with: { (Descrip) in
+                    ref.child("standardData").child("iosCurrentVer").child("description").observeSingleEvent(of: .value, with: { Descrip in
                         let UpdateDescripton = Descrip.value as! String
                         
                         var UpdateAppearance: SCLAlertView.SCLAppearance!
                         
                         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                            UpdateAppearance = SCLAlertView.SCLAppearance (
-                                showCloseButton: false, contentViewColor: UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0),
+                            UpdateAppearance = SCLAlertView.SCLAppearance(
+                                showCloseButton: false, contentViewColor: UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0),
                                 contentViewBorderColor: UIColor.black,
                                 titleColor: UIColor.white
                             )
                         }
                         
                         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                            UpdateAppearance = SCLAlertView.SCLAppearance (
+                            UpdateAppearance = SCLAlertView.SCLAppearance(
                                 showCloseButton: false, contentViewColor: UIColor.white,
                                 contentViewBorderColor: UIColor.white,
                                 titleColor: UIColor.black
@@ -375,7 +328,6 @@ class HomeViewController: UIViewController {
                         
                         UpdateAlert.showInfo("Update verfügbar (Version: \(NEWESTBUILD!))", subTitle: "Ein neues Update ist verfügbar mit folgenden Änderungen:\n\n \(UpdateDescripton)\n\nEs wird empfohlen das Update zu installieren.")
                         
-                        
                     })
                 }
             }
@@ -383,20 +335,12 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
         
-        let attr = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20)]
+        let attr = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
         
-       /* let string1 = "hi1"
-        TestLabel.text = string1
-        //sleep(5000)
-        let string2 = NSMutableAttributedString(string: "hi2", attributes: attr)
-        TestLabel.attributedText = string2*/
-        
-       // panelConfiguration.animateEntry = true
         let dictionary = Bundle.main.infoDictionary!
         let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
         if UserDefaults.standard.string(forKey: "\(versionCurrent)") != "1" {
@@ -409,9 +353,7 @@ class HomeViewController: UIViewController {
             
             HomeVar.WhatsNewConfig.itemsView.contentMode = .center
             let whatsNew = WhatsNew(
-                // The Title
                 title: "Version \(versionCurrent)",
-                // The features you want to showcase
                 items: [
                     WhatsNew.Item(
                         title: "Datenänderungen",
@@ -430,35 +372,28 @@ class HomeViewController: UIViewController {
                     )
                 ]
             )
-
-            // Initialize WhatsNewViewController with WhatsNew
             let whatsNewViewController = WhatsNewViewController(
                 whatsNew: whatsNew,
                 configuration: HomeVar.WhatsNewConfig
             )
             
-            // Present it
-            self.present(whatsNewViewController, animated: true)
+            present(whatsNewViewController, animated: true)
             UserDefaults.standard.set("1", forKey: "\(versionCurrent)")
         }
     }
     
     @objc func removeUpdateMessage() {
         if HomeVar.UpdateReminderSession == "1" {
-           // disappearUpdate.invalidate()
         }
-        else {
-        }
+        else {}
     }
-
+    
     @objc func setToTV() {
-        if HomeVar.essenDate != "" && HomeVar.essenHeute != "" && HomeVar.HabmText != "" && HomeVar.HabmTime != "" && HomeVar.LDU != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NextEvent != "" {
+        if HomeVar.essenDate != "", HomeVar.essenHeute != "", HomeVar.HabmText != "", HomeVar.HabmTime != "", HomeVar.LDU != "", HomeVar.News1 != "", HomeVar.NewsL != "", HomeVar.NextEvent != "" {
             let formattedString = NSMutableAttributedString()
             formattedString
                 .bold("Hausaufgaben bis morgen:")
                 .normal("\n\(HomeViewController.HomeVar.HabmText)\n\n")
-                /*.bold("Hausaufgaben von heute:")
-                .normal("\n\(HomeViewController.HomeVar.HomeworkToday)\n\n")*/
                 .bold("Neuigkeiten:")
                 .normal("\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\n")
                 .bold("Nächstes Event: ")
@@ -476,7 +411,7 @@ class HomeViewController: UIViewController {
             HomeTV.attributedText = formattedString
             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
                 HomeTV.textColor = UIColor.white
-                HomeTV.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+                HomeTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
             }
             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
                 HomeTV.textColor = UIColor.black
@@ -484,13 +419,13 @@ class HomeViewController: UIViewController {
             }
             timer.invalidate()
             loader.stopAnimating()
-            self.HomeTV.scrollRangeToVisible(NSMakeRange(0, 0))
+            HomeTV.scrollRangeToVisible(NSMakeRange(0, 0))
         }
     }
     
     func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-        return String((0...length-1).map{_ in letters.randomElement()!})
+        return String((0...length - 1).map { _ in letters.randomElement()! })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -503,17 +438,6 @@ class HomeViewController: UIViewController {
         }
         return style
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     struct HomeVar {
         static var Full = NSMutableAttributedString()
@@ -533,24 +457,17 @@ class HomeViewController: UIViewController {
         static var HomeworkToday = ""
     }
     
-    struct Titles {
-        static var Habm = NSMutableAttributedString()
-        static var HabmTime = NSMutableAttributedString()
-        static var News = NSMutableAttributedString()
-        static var NewsAdmin = NSMutableAttributedString()
-        static var NewsLehrer = NSMutableAttributedString()
-        static var NextEvent = NSMutableAttributedString()
-        static var Update = NSMutableAttributedString()
-        static var LDU = NSMutableAttributedString()
+    struct AutomaticMover {
+        static var LastVisitedView = ""
     }
-
 }
 
 extension NSMutableAttributedString {
     @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
         let attrs: [NSAttributedString.Key: Any] = [
-            .font: UIFont(name: "Arial", size: 19)!]
-        let boldString = NSMutableAttributedString(string:text, attributes: attrs)
+            .font: UIFont(name: "Arial", size: 19)!
+        ]
+        let boldString = NSMutableAttributedString(string: text, attributes: attrs)
         append(boldString)
         
         return self
@@ -562,5 +479,11 @@ extension NSMutableAttributedString {
         append(normal)
         
         return self
+    }
+}
+
+extension Int: Sequence {
+    public func makeIterator() -> CountableRange<Int>.Iterator {
+        return (0..<self).makeIterator()
     }
 }

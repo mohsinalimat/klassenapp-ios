@@ -6,126 +6,89 @@
 //  Copyright © 2018 Adrian Baumgart. All rights reserved.
 //
 
-import UIKit
-import Firebase
-import UserNotifications
-import Fabric
-import Crashlytics
 import AVKit
-import FirebaseDatabase
-import MarqueeLabel
-import NotificationBannerSwift
-import ExpandingMenu
-import FirebaseMessaging
+import Crashlytics
 import EZAlertController
+import Fabric
+import Firebase
+import FirebaseDatabase
+import FirebaseMessaging
 import NVActivityIndicatorView
 import SPStorkController
-
+import UIKit
+import UserNotifications
 
 class FirstViewController: UIViewController {
-
-    @IBOutlet weak var LDULabel: UILabel!
+    var loader: NVActivityIndicatorView!
     
-     var loader : NVActivityIndicatorView!
-
-    @IBOutlet weak var Week1Out: UIButton!
-    @IBOutlet weak var Week2Out: UIButton!
-    @IBOutlet weak var Week3Out: UIButton!
-    @IBOutlet weak var Week4Out: UIButton!
-    @IBOutlet weak var RequestBtnOut: UIButton!
-    @IBOutlet weak var HomeworkLabel: UILabel!
-    @IBOutlet weak var backgroundTitleView: UIView!
-    @IBOutlet weak var TitleBarOut: UIView!
+    @IBOutlet var Week1Out: UIButton!
+    @IBOutlet var Week2Out: UIButton!
+    @IBOutlet var Week3Out: UIButton!
+    @IBOutlet var Week4Out: UIButton!
+    @IBOutlet var RequestBtnOut: UIButton!
+    @IBOutlet var HomeworkLabel: UILabel!
+    @IBOutlet var backgroundTitleView: UIView!
+    @IBOutlet var TitleBarOut: UIView!
     
-    @IBAction func Week1Btn(_ sender: Any)
-    {
+    @IBAction func Week1Btn(_ sender: Any) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week1"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
-        //transitionDelegate.customHeight = 200
         controller1.transitioningDelegate = transitionDelegate
         controller1.modalPresentationStyle = .custom
         controller1.modalPresentationCapturesStatusBarAppearance = true
         self.present(controller1, animated: true, completion: nil)
-        //self.presentAsStork(controller1)
-        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
-            self.performSegue(withIdentifier: "week1esegue", sender: nil)
-        }
-        else {
-        self.performSegue(withIdentifier: "week1segue", sender: nil)
-        }*/
     }
-    @IBAction func Week2Btn(_ sender: Any)
-    {
+    
+    @IBAction func Week2Btn(_ sender: Any) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week2"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
-        //transitionDelegate.customHeight = 200
         controller1.transitioningDelegate = transitionDelegate
         controller1.modalPresentationStyle = .custom
         controller1.modalPresentationCapturesStatusBarAppearance = true
         self.present(controller1, animated: true, completion: nil)
-        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
-            self.performSegue(withIdentifier: "week2esegue", sender: nil)
-        }
-        else {
-            self.performSegue(withIdentifier: "week2segue", sender: nil)
-        }*/
     }
-    @IBAction func Week3Btn(_ sender: Any)
-    {
+    
+    @IBAction func Week3Btn(_ sender: Any) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week3"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
-        //transitionDelegate.customHeight = 200
         controller1.transitioningDelegate = transitionDelegate
         controller1.modalPresentationStyle = .custom
         controller1.modalPresentationCapturesStatusBarAppearance = true
         self.present(controller1, animated: true, completion: nil)
-        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
-            self.performSegue(withIdentifier: "week3esegue", sender: nil)
-        }
-        else {
-            self.performSegue(withIdentifier: "week3segue", sender: nil)
-        }*/
     }
-    @IBAction func Week4Btn(_ sender: Any)
-    {
+    
+    @IBAction func Week4Btn(_ sender: Any) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
         HomeworkWeekViewController.HWWeekVC.selectedWeek = "Week4"
         let controller1 = HomeworkWeekViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
-        //transitionDelegate.customHeight = 200
         controller1.transitioningDelegate = transitionDelegate
         controller1.modalPresentationStyle = .custom
         controller1.modalPresentationCapturesStatusBarAppearance = true
         self.present(controller1, animated: true, completion: nil)
-        /*if UserDefaults.standard.string(forKey: "EDITOR") == "1" {
-            self.performSegue(withIdentifier: "week4esegue", sender: nil)
-        }
-        else {
-            self.performSegue(withIdentifier: "week4segue", sender: nil)
-        }*/
     }
-    @IBAction func HomeworkRequest(_ sender: Any)
-    {
+    
+    @IBAction func HomeworkRequest(_ sender: Any) {
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
         notificationFeedbackGenerator.prepare()
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
-        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestBuildDB) in
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { NewestBuildDB in
             let NEWESTBUILD = NewestBuildDB.value as? String
             HomeViewController.HomeVar.NewestVersion = NEWESTBUILD!
             let dictionary = Bundle.main.infoDictionary!
@@ -135,16 +98,14 @@ class FirstViewController: UIViewController {
                 EZAlertController.alert("Alte Version", message: "Die Version ist veraltet. Aus Sicherheisgründen ist die Funktion nicht verfügbar. Bitte lade die neuste Version herunter. (https://ios.klassenappd.de)")
             }
             else {
-                ref.child("standardData").child("requestsAllowed").observeSingleEvent(of: .value, with: { (EditAllowed) in
+                ref.child("standardData").child("requestsAllowed").observeSingleEvent(of: .value, with: { EditAllowed in
                     let Eall = EditAllowed.value as? String
                     if Eall == "1" {
                         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
                         impactFeedbackgenerator.prepare()
                         impactFeedbackgenerator.impactOccurred()
-                        //self.performSegue(withIdentifier: "gotohomeworkrequest", sender: nil)
                         let controller1 = CreateHWRequest2ViewController()
                         let transitionDelegate = SPStorkTransitioningDelegate()
-                        //transitionDelegate.customHeight = 200
                         controller1.transitioningDelegate = transitionDelegate
                         controller1.modalPresentationStyle = .custom
                         controller1.modalPresentationCapturesStatusBarAppearance = true
@@ -159,129 +120,98 @@ class FirstViewController: UIViewController {
         }
     }
     
-    //UpdateView:
-    @IBOutlet weak var NUView: UIView!
-    @IBOutlet weak var NUTitle: UILabel!
-    @IBOutlet weak var NUDes: UITextView!
-    
-    //Connectindicator:
-    @IBOutlet weak var CIView: UIView!
-    @IBOutlet weak var CILabel: UILabel!
-    @IBOutlet weak var CIIndicator: UIActivityIndicatorView!
-    @IBAction func ChatCodeButton(_ sender: Any)
-    {
-        //
-    }
-    
-    func randomString(length: Int) -> String {
-        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!§$%&/()=?`´*'#+^°<>,;.:-_"
-        return String((0...length-1).map{_ in letters.randomElement()!})
-    }
-    
-    @IBAction func NUShowBtn(_ sender: Any)
-    {
-        LastVC.UpdateReminderSession = "1"
-        UIView.animate(withDuration: 0.3/*Animation Duration second*/, animations: {
-            self.NUView.alpha = 0
-        }, completion:  {
-            (value: Bool) in
-            self.NUView.isHidden = true
-        })
-        self.performSegue(withIdentifier: "gotoupdatecenter", sender: nil)
-    }
-    
-    @IBAction func NUNotNowBtn(_ sender: Any)
-    {
-        LastVC.UpdateReminderSession = "1"
-        UIView.animate(withDuration: 0.3/*Animation Duration second*/, animations: {
-            self.NUView.alpha = 0
-        }, completion:  {
-            (value: Bool) in
-            self.NUView.isHidden = true
-        })
-    }
-    //:EndUpdateView
-    
     override func viewWillAppear(_ animated: Bool) {
-        viewLoadSetup()
+        self.viewLoadSetup()
     }
     
     func viewLoadSetup() {
-        loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x-25, y: self.view.center.y-25, width: 50, height: 50))
-        loader.type = .ballPulseSync
-        loader.color = UIColor.red
-        view.addSubview(loader)
-        if Week1Out.titleLabel?.text == "Download..." {
-            loader.startAnimating()
+        self.loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 25, y: self.view.center.y - 25, width: 50, height: 50))
+        self.loader.type = .ballPulseSync
+        self.loader.color = UIColor.red
+        view.addSubview(self.loader)
+        if self.Week1Out.titleLabel?.text == "Download..." {
+            self.loader.startAnimating()
         }
         else {
-            loader.stopAnimating()
+            self.loader.stopAnimating()
         }
-        //self.disappearUpdate = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.removeUpdateMessage), userInfo: nil, repeats: true)
-        if UserDefaults.standard.string(forKey: "ButtonColor") != nil && UserDefaults.standard.string(forKey: "ButtonColor") != "" {
-            self.Week1Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+        if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
+            self.Week1Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
-            self.Week2Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            self.Week2Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
-            self.Week3Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            self.Week3Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
-            self.Week4Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            self.Week4Out.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
-            self.RequestBtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue"))/255, alpha: 1)
+            self.RequestBtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
         }
-        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil && UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
-            self.TitleBarOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed"))/255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen"))/255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue"))/255, alpha: 1)
+        if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
+            self.TitleBarOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
         }
         
-        /* print(UserDefaults.standard.string(forKey: "TitleBarColor")!)
-         print("sep")
-         if UserDefaults.standard.string(forKey: "TitleBarColor") != "" && UserDefaults.standard.string(forKey: "TitleBarColor") != nil {
-         var backgroundCOLOR = (UserDefaults.standard.string(forKey: "TitleBarColor") as! String)
-         print(backgroundCOLOR)
-         TitleBarOut.backgroundColor = backgroundCOLOR as? UIColor
-         }
-         if UserDefaults.standard.string(forKey: "ButtonColor") != "" && UserDefaults.standard.string(forKey: "ButtonColor") != nil {
-         var backgroundCOLOR = (UserDefaults.standard.string(forKey: "ButtonColor") as! String)
-         print(backgroundCOLOR)
-         Week1Out.backgroundColor = backgroundCOLOR as? UIColor
-         Week1Out.backgroundColor = backgroundCOLOR as? UIColor
-         Week2Out.backgroundColor = backgroundCOLOR as? UIColor
-         Week3Out.backgroundColor = backgroundCOLOR as? UIColor
-         Week4Out.backgroundColor = backgroundCOLOR as? UIColor
-         }*/
-        
-        NUView.isHidden = true
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
-            backgroundTitleView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
-            HomeworkLabel.textColor = UIColor.white
-            LDULabel.textColor = UIColor.white
+            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
+            self.HomeworkLabel.textColor = UIColor.white
             self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
-            backgroundTitleView.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
-            HomeworkLabel.textColor = UIColor.black
-            LDULabel.textColor = UIColor.black
+            self.backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+            self.HomeworkLabel.textColor = UIColor.black
             self.setNeedsStatusBarAppearanceUpdate()
         }
         
-        // Do any additional setup after loading the view, typically from a nib.
-        
         Fabric.sharedSDK().debug = true
-        if LastVC.LastVCV == "hw" {
-            LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 0
-        }
-        /* Week2Out.setTitle("S: \(Week2Label)", for: .normal)
-         Week3Out.setTitle("S: \(Week3Label)", for: .normal)
-         Week4Out.setTitle("S: \(Week4Label)", for: .normal)*/
-        // self.postToken(Token: token)
     }
     
     override func viewDidLoad() {
-       // CIView.isHidden = true
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let tabItems = tabBarController?.tabBar.items {
+            let tabItem = tabItems[4]
+            tabItem.badgeValue = nil
+        }
+        
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        if UserDefaults.standard.integer(forKey: "Checker") != 1, UserDefaults.standard.string(forKey: "TEALOGGER") != "tea", UserDefaults.standard.string(forKey: "EDITOR") != "1" {
+            if Auth.auth().currentUser == nil {
+                do {
+                    try Auth.auth().signOut()
+                    self.performSegue(withIdentifier: "homeworktologinsegue", sender: nil)
+                }
+                catch let signOutError as NSError {
+                    print("Error signing out: %@", signOutError)
+                }
+            }
+        }
+        
+        ref.child("homework").child("Week1").child("Datum").observe(.value) { Week1DatumSnap in
+            let Week1DatumLE = Week1DatumSnap.value as? String
+            self.loader.stopAnimating()
+            UserDefaults.standard.set(Week1DatumLE, forKey: "UDW1Btn")
+            self.Week1Out.setTitle(Week1DatumLE, for: .normal)
+        }
+        ref.child("homework").child("Week2").child("Datum").observe(.value) { Week2DatumSnap in
+            let Week2DatumLE = Week2DatumSnap.value as? String
+            UserDefaults.standard.set(Week2DatumLE, forKey: "UDW2Btn")
+            self.Week2Out.setTitle(Week2DatumLE, for: .normal)
+        }
+        ref.child("homework").child("Week3").child("Datum").observe(.value) { Week3DatumSnap in
+            let Week3DatumLE = Week3DatumSnap.value as? String
+            UserDefaults.standard.set(Week3DatumLE, forKey: "UDW3Btn")
+            self.Week3Out.setTitle(Week3DatumLE, for: .normal)
+        }
+        ref.child("homework").child("Week4").child("Datum").observe(.value) { Week4DatumSnap in
+            let Week4DatumLE = Week4DatumSnap.value as? String
+            UserDefaults.standard.set(Week4DatumLE, forKey: "UDW4Btn")
+            self.Week4Out.setTitle(Week4DatumLE, for: .normal)
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -295,293 +225,12 @@ class FirstViewController: UIViewController {
         return style
     }
     
+    func randomString(length: Int) -> String {
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!§$%&/()=?`´*'#+^°<>,;.:-_"
+        return String((0...length - 1).map { _ in letters.randomElement()! })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    func playTutorial() {
-       /* if let SiriShortcutTUTO = Bundle.main.path(forResource: "KlassenApp3.0Video2", ofType: "mov") {
-            let SiriShortcutVideo = AVPlayer(url: URL(fileURLWithPath: SiriShortcutTUTO))
-            let SiriShortcutPlayer = AVPlayerViewController()
-            SiriShortcutPlayer.player = SiriShortcutVideo
-            
-            present(SiriShortcutPlayer, animated: true, completion: {
-                SiriShortcutVideo.play()
-                UserDefaults.standard.set("alreadysaw", forKey: "Intro3.0")
-            })
-        }*/
-    }
-    override func viewDidAppear(_ animated: Bool) {
-         FirstViewController.LastVC.Cheat1 = 0
-        if let tabItems = tabBarController?.tabBar.items {
-            // In this case we want to modify the badge number of the third tab:
-            let tabItem = tabItems[4]
-            tabItem.badgeValue = nil
-        }
-        
-        /*if UserDefaults.standard.string(forKey: "PasscodeUpdate") != "true" {
-            Cheat1(title: "Neues (wichtiges) Update!", message: "Der Login wurde verändert. Der Pincode lautet: 1907")
-            UserDefaults.standard.set("true", forKey: "PasscodeUpdate")
-        }*/
-        
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
-        ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (LDUCSnap) in
-            let LDUCLE = LDUCSnap.value as? String
-            self.LDULabel.text = "Letztes Datenbankupdate: " + LDUCLE!
-        }
-        
-        NUView.isHidden = true
-        if UserDefaults.standard.integer(forKey: "Checker") != 1 && UserDefaults.standard.string(forKey: "TEALOGGER") != "tea" && UserDefaults.standard.string(forKey: "EDITOR") != "1" {
-            if Auth.auth().currentUser == nil {
-                do {
-                    try Auth.auth().signOut()
-                    self.performSegue(withIdentifier: "homeworktologinsegue", sender: nil)
-                } catch let signOutError as NSError {
-                    print ("Error signing out: %@", signOutError)
-                }
-            }
-            
-        }
-        if LastVC.LastVCV == "test" {
-            LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 1
-        }
-        if LastVC.LastVCV == "infos" {
-            LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 4
-        }
-        if LastVC.LastVCV == "settings" {
-            LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 4
-        }
-        if LastVC.LastVCV == "TimeTable" {
-            LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 4
-        }
-        if LastVC.LastVCV == "AddNote" {
-            LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 3
-        }
-        if LastVC.LastVCV == "UpdateCenter" {
-            LastVC.LastVCV = "0"
-            self.tabBarController?.selectedIndex = 4
-        }
-        
-        if LastVC.ShortDirect == "hw1" {
-            LastVC.ShortDirect = "0"
-            self.performSegue(withIdentifier: "Week1Short", sender: nil)
-        }
-        if LastVC.ShortDirect == "NextTest" {
-            self.performSegue(withIdentifier: "FirstTestShort", sender: nil)
-        }
-        if LastVC.ShortDirect == "TimeTableShort" {
-            self.performSegue(withIdentifier: "hwtoTTshort", sender: nil)
-        }
-        
-        ref.child("homework").child("Week1").child("Datum").observe(.value) { (Week1DatumSnap) in
-            let Week1DatumLE = Week1DatumSnap.value as? String
-            self.loader.stopAnimating()
-            UserDefaults.standard.set(Week1DatumLE, forKey: "UDW1Btn")
-            self.Week1Out.setTitle(Week1DatumLE, for: .normal)
-        }
-        ref.child("homework").child("Week2").child("Datum").observe(.value) { (Week2DatumSnap) in
-            let Week2DatumLE = Week2DatumSnap.value as? String
-            UserDefaults.standard.set(Week2DatumLE, forKey: "UDW2Btn")
-            self.Week2Out.setTitle(Week2DatumLE, for: .normal)
-        }
-        ref.child("homework").child("Week3").child("Datum").observe(.value) { (Week3DatumSnap) in
-            let Week3DatumLE = Week3DatumSnap.value as? String
-            UserDefaults.standard.set(Week3DatumLE, forKey: "UDW3Btn")
-            self.Week3Out.setTitle(Week3DatumLE, for: .normal)
-        }
-        ref.child("homework").child("Week4").child("Datum").observe(.value) { (Week4DatumSnap) in
-            let Week4DatumLE = Week4DatumSnap.value as? String
-            UserDefaults.standard.set(Week4DatumLE, forKey: "UDW4Btn")
-            self.Week4Out.setTitle(Week4DatumLE, for: .normal)
-        }
-        
-        ref.child("warnings").child("dbchange").observeSingleEvent(of: .value) { (databasechange) in
-            let databasechangeLE = databasechange.value as? String
-            if databasechangeLE == "active" {
-                let DatabaseUpdating = NotificationBanner(title: "Datennbankupdate", subtitle: "Die Datenbank wird momentan aktualisiert.", style: .warning)
-                DatabaseUpdating.show()
-            }
-        }
-        
-        ref.child("warnings").child("custom").child("message_show").observeSingleEvent(of: .value) { (warningmessageappearance) in
-            LastVC.warningmessageappearanceLE = (warningmessageappearance.value as? String)!
-            let warn = warningmessageappearance.value as? String
-            if warn == "yes" {
-                ref.child("warnings").child("custom").child("title").observeSingleEvent(of: .value) { (warningmessageTitle) in
-                    LastVC.warningmessageTitleLE = (warningmessageTitle.value as? String)!
-                }
-                ref.child("warnings").child("custom").child("type").observeSingleEvent(of: .value) { (warningmessageType) in
-                    LastVC.warningmessageTypeLE = (warningmessageType.value as? String)!
-                }
-                ref.child("warnings").child("custom").child("message_short").observeSingleEvent(of: .value) { (warningmessageShort) in
-                    LastVC.warningmessageShortLE = (warningmessageShort.value as? String)!
-                }
-                ref.child("warnings").child("custom").child("message_long").observeSingleEvent(of: .value) { (warningmessageLong) in
-                    LastVC.warningmessageLongLE = (warningmessageLong.value as? String)!
-                }
-                ref.child("warnings").child("custom").child("message_long_info_true").observeSingleEvent(of: .value) { (warningmessageLongAppear) in
-                    LastVC.warningmessageLongAppearLE = (warningmessageLongAppear.value as? String)!
-                }
-                
-                if LastVC.warningmessageTypeLE == "success" {
-                    let custombannersu = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .success)
-                    if LastVC.warningmessageLongAppearLE == "yes" {
-                        custombannersu.onTap = {
-                            self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                        }
-                    }
-                    custombannersu.show()
-                }
-                if LastVC.warningmessageTypeLE == "info" {
-                    let custombannerin = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .info)
-                    if LastVC.warningmessageLongAppearLE == "yes" {
-                        custombannerin.onTap = {
-                            self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                        }
-                    }
-                    custombannerin.show()
-                }
-                if LastVC.warningmessageTypeLE == "warning" {
-                    let custombannerwa = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .warning)
-                    if LastVC.warningmessageLongAppearLE == "yes" {
-                        custombannerwa.onTap = {
-                            self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                        }
-                    }
-                    custombannerwa.show()
-                }
-                if LastVC.warningmessageTypeLE == "danger" {
-                    let custombannerda = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .danger)
-                    if LastVC.warningmessageLongAppearLE == "yes" {
-                        custombannerda.onTap = {
-                            self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                        }
-                    }
-                    custombannerda.show()
-                }
-                
-            }
-            
-        }
-      /*  if LastVC.warningmessageappearanceLE == "yes" {
-            ref.child("warnings").child("custom").child("title").observeSingleEvent(of: .value) { (warningmessageTitle) in
-                LastVC.warningmessageTitleLE = (warningmessageTitle.value as? String)!
-            }
-            ref.child("warnings").child("custom").child("type").observeSingleEvent(of: .value) { (warningmessageType) in
-                LastVC.warningmessageTypeLE = (warningmessageType.value as? String)!
-            }
-            ref.child("warnings").child("custom").child("message_short").observeSingleEvent(of: .value) { (warningmessageShort) in
-                LastVC.warningmessageShortLE = (warningmessageShort.value as? String)!
-            }
-            ref.child("warnings").child("custom").child("message_long").observeSingleEvent(of: .value) { (warningmessageLong) in
-                LastVC.warningmessageLongLE = (warningmessageLong.value as? String)!
-            }
-            ref.child("warnings").child("custom").child("message_long_info_true").observeSingleEvent(of: .value) { (warningmessageLongAppear) in
-                LastVC.warningmessageLongAppearLE = (warningmessageLongAppear.value as? String)!
-            }
-            
-            if LastVC.warningmessageTypeLE == "success" {
-                let custombannersu = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .success)
-                if LastVC.warningmessageLongAppearLE == "yes" {
-                    custombannersu.onTap = {
-                        self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                    }
-                }
-                custombannersu.show()
-            }
-            if LastVC.warningmessageTypeLE == "info" {
-                let custombannerin = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .info)
-                if LastVC.warningmessageLongAppearLE == "yes" {
-                    custombannerin.onTap = {
-                        self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                    }
-                }
-                custombannerin.show()
-            }
-            if LastVC.warningmessageTypeLE == "warning" {
-                let custombannerwa = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .warning)
-                if LastVC.warningmessageLongAppearLE == "yes" {
-                    custombannerwa.onTap = {
-                        self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                    }
-                }
-                custombannerwa.show()
-            }
-            if LastVC.warningmessageTypeLE == "danger" {
-                let custombannerda = NotificationBanner(title: "\(LastVC.warningmessageTitleLE)", subtitle: "\(LastVC.warningmessageShortLE)", style: .danger)
-                if LastVC.warningmessageLongAppearLE == "yes" {
-                    custombannerda.onTap = {
-                        self.performSegue(withIdentifier: "moreinfoswarnsegue", sender: nil)
-                    }
-                }
-                custombannerda.show()
-            }
-            
-        }*/
-       /* while(true) {
-            if LastVC.PLAYTUTO == "1" {
-                playTutorial()
-            }
-        }*/
-    }
-    
-    func showUC() {
-        self.performSegue(withIdentifier: "gotoupdatecenter", sender: nil)
-    }
-    
-        func newUpdatealert (title: String, message: String) {
-        let nUA = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        nUA.addAction(UIAlertAction(title: "Installieren", style: UIAlertAction.Style.default, handler: { (nUAInstall) in
-            UIApplication.shared.open(URL(string: "https://klassenappd-team.github.io/iosdownload.html")!)
-        }))
-            nUA.addAction(UIAlertAction(title: "Dieses mal nicht mehr fragen", style: UIAlertAction.Style.default, handler: { (nUACanel2) in
-                LastVC.UpdateReminderSession = "1"
-                nUA.dismiss(animated: true, completion: nil)
-            }))
-        self.present(nUA, animated: true, completion: nil)
-    }
-    func Cheat1 (title: String, message: String) {
-        let C1 = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        C1.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { (nUACanel2) in
-            C1.dismiss(animated: true, completion: nil)
-        }))
-        self.present(C1, animated: true, completion: nil)
-    }
-    
-    struct LastVC {
-       static var LastVCV = "0"
-        static var ShortDirect = "0"
-        static var UpdateReminderSession = "0"
-        static var NEWUPDATEVERDB = "1"
-        static var NEWUPDATEBETA = "1"
-        static var PLAYTUTO = "0"
-        static var warningmessageTitleLE = "0"
-        static var warningmessageTypeLE = "0"
-        static var warningmessageShortLE = "0"
-        static var warningmessageLongLE = "0"
-        static var warningmessageLongAppearLE = "0"
-        static var warningmessageappearanceLE = "0"
-        static var showUC = "0"
-        static var showUCC = "0"
-        static var Cheat1 = 0
-    }
-    struct CustomColors {
-        static var tbred = 0
-        static var tbgreen = 0
-        static var tbblue = 0
-        static var bred = 0
-        static var bgreen = 0
-        static var bblue = 0
-    }
-
- }
+}

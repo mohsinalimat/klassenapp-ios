@@ -9,27 +9,24 @@
 import UIKit
 
 class Welcome1ViewController: UIViewController {
-
-    @IBOutlet weak var WelcomeTitle: UILabel!
-    @IBOutlet weak var NoteRightClick: UILabel!
+    @IBOutlet var WelcomeTitle: UILabel!
+    @IBOutlet var NoteRightClick: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1.0)
+            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
             WelcomeTitle.textColor = UIColor.white
             NoteRightClick.textColor = UIColor.white
-            self.setNeedsStatusBarAppearanceUpdate()
+            setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             view.backgroundColor = UIColor.white
             WelcomeTitle.textColor = UIColor.black
             NoteRightClick.textColor = UIColor.black
-            self.setNeedsStatusBarAppearanceUpdate()
+            setNeedsStatusBarAppearanceUpdate()
         }
-        
-        // Do any additional setup after loading the view.
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         var style: UIStatusBarStyle!
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
@@ -43,18 +40,5 @@ class Welcome1ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

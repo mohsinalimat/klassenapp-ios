@@ -1,65 +1,64 @@
 PODS:
-  - Alamofire (4.8.2)
-  - AppCenter (2.0.1):
-    - AppCenter/Analytics (= 2.0.1)
-    - AppCenter/Crashes (= 2.0.1)
-  - AppCenter/Analytics (2.0.1):
+  - Alamofire (5.0.0-beta.6)
+  - AppCenter (2.1.0):
+    - AppCenter/Analytics (= 2.1.0)
+    - AppCenter/Crashes (= 2.1.0)
+  - AppCenter/Analytics (2.1.0):
     - AppCenter/Core
-  - AppCenter/Core (2.0.1)
-  - AppCenter/Crashes (2.0.1):
+  - AppCenter/Core (2.1.0)
+  - AppCenter/Crashes (2.1.0):
     - AppCenter/Core
-  - Crashlytics (3.13.1):
-    - Fabric (~> 1.10.1)
-  - ExpandingMenu (0.4.0)
+  - Crashlytics (3.13.4):
+    - Fabric (~> 1.10.2)
   - EZAlertController (3.2)
-  - Fabric (1.10.1)
-  - Firebase/Auth (6.1.0):
+  - Fabric (1.10.2)
+  - Firebase/Auth (6.4.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 6.1.0)
-  - Firebase/Core (6.1.0):
+    - FirebaseAuth (~> 6.2.0)
+  - Firebase/Core (6.4.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.0.1)
-  - Firebase/CoreOnly (6.1.0):
-    - FirebaseCore (= 6.0.1)
-  - Firebase/Database (6.1.0):
+    - FirebaseAnalytics (= 6.0.3)
+  - Firebase/CoreOnly (6.4.0):
+    - FirebaseCore (= 6.0.4)
+  - Firebase/Database (6.4.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.0.0)
-  - Firebase/Functions (6.1.0):
+  - Firebase/Functions (6.4.0):
     - Firebase/CoreOnly
     - FirebaseFunctions (~> 2.5.1)
-  - Firebase/InAppMessagingDisplay (6.1.0):
+  - Firebase/InAppMessagingDisplay (6.4.0):
     - Firebase/CoreOnly
-    - FirebaseInAppMessagingDisplay (~> 0.14.0)
-  - Firebase/Messaging (6.1.0):
+    - FirebaseInAppMessagingDisplay (~> 0.15.0)
+  - Firebase/Messaging (6.4.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 4.0.1)
-  - Firebase/Performance (6.1.0):
+    - FirebaseMessaging (~> 4.1.1)
+  - Firebase/Performance (6.4.0):
     - Firebase/CoreOnly
-    - FirebasePerformance (~> 3.0.0)
-  - Firebase/Storage (6.1.0):
+    - FirebasePerformance (~> 3.1.1)
+  - Firebase/Storage (6.4.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (~> 3.2.1)
+    - FirebaseStorage (~> 3.3.0)
   - FirebaseABTesting (3.0.0):
     - FirebaseCore (~> 6.0)
     - Protobuf (~> 3.5)
-  - FirebaseAnalytics (6.0.1):
+  - FirebaseAnalytics (6.0.3):
     - FirebaseCore (~> 6.0)
-    - FirebaseInstanceID (~> 4.1)
-    - GoogleAppMeasurement (= 6.0.1)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleAppMeasurement (= 6.0.3)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
   - FirebaseAnalyticsInterop (1.2.0)
-  - FirebaseAuth (6.1.0):
+  - FirebaseAuth (6.2.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
+    - GoogleUtilities/Environment (~> 6.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (6.0.1):
+  - FirebaseCore (6.0.4):
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/Logger (~> 6.0)
   - FirebaseDatabase (6.0.0):
@@ -70,30 +69,30 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseInAppMessaging (0.14.1):
+  - FirebaseInAppMessaging (0.15.1):
     - FirebaseAnalyticsInterop (~> 1.2)
     - FirebaseCore (~> 6.0)
     - FirebaseInstanceID (~> 4.0)
-  - FirebaseInAppMessagingDisplay (0.14.0):
+  - FirebaseInAppMessagingDisplay (0.15.0):
     - FirebaseCore (~> 6.0)
-    - FirebaseInAppMessaging (>= 0.14.0)
-  - FirebaseInstanceID (4.1.0):
+    - FirebaseInAppMessaging (>= 0.15.0)
+  - FirebaseInstanceID (4.2.1):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebaseMessaging (4.0.1):
+  - FirebaseMessaging (4.1.1):
     - FirebaseAnalyticsInterop (~> 1.1)
     - FirebaseCore (~> 6.0)
     - FirebaseInstanceID (~> 4.1)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/Environment (~> 6.0)
-    - GoogleUtilities/Reachability (~> 6.0)
-    - GoogleUtilities/UserDefaults (~> 6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Reachability (~> 6.2)
+    - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
-  - FirebasePerformance (3.0.0):
+  - FirebasePerformance (3.1.1):
     - FirebaseCore (~> 6.0)
-    - FirebaseInstanceID (~> 4.0)
-    - FirebaseRemoteConfig (~> 4.0)
+    - FirebaseInstanceID (~> 4.2)
+    - FirebaseRemoteConfig (~> 4.2)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - GoogleUtilities/Environment (~> 6.0)
@@ -101,18 +100,18 @@ PODS:
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.5)
-  - FirebaseRemoteConfig (4.0.0):
+  - FirebaseRemoteConfig (4.2.0):
     - FirebaseABTesting (~> 3.0)
     - FirebaseCore (~> 6.0)
-    - FirebaseInstanceID (~> 4.0)
+    - FirebaseInstanceID (~> 4.2)
     - GoogleUtilities/Environment (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - Protobuf (~> 3.5)
-  - FirebaseStorage (3.2.1):
+  - FirebaseStorage (3.3.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleAppMeasurement (6.0.1):
+  - GoogleAppMeasurement (6.0.3):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
@@ -123,60 +122,54 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.2.1)
   - "GoogleToolboxForMac/NSData+zlib (2.2.1)":
     - GoogleToolboxForMac/Defines (= 2.2.1)
-  - GoogleUtilities/AppDelegateSwizzler (6.1.0):
+  - GoogleUtilities/AppDelegateSwizzler (6.2.3):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.1.0)
-  - GoogleUtilities/ISASwizzler (6.1.0)
-  - GoogleUtilities/Logger (6.1.0):
+  - GoogleUtilities/Environment (6.2.3)
+  - GoogleUtilities/ISASwizzler (6.2.3)
+  - GoogleUtilities/Logger (6.2.3):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.1.0):
+  - GoogleUtilities/MethodSwizzler (6.2.3):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.1.0):
+  - GoogleUtilities/Network (6.2.3):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.1.0)"
-  - GoogleUtilities/Reachability (6.1.0):
+  - "GoogleUtilities/NSData+zlib (6.2.3)"
+  - GoogleUtilities/Reachability (6.2.3):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.1.0):
+  - GoogleUtilities/UserDefaults (6.2.3):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.2)
   - IGColorPicker (0.4.2):
-    - M13Checkbox (~> 3.3.2)
+    - M13Checkbox (~> 3.4.0)
   - leveldb-library (1.20)
-  - M13Checkbox (3.3.2)
-  - MarqueeLabel/Swift (3.2.1)
+  - M13Checkbox (3.4.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - NotificationBannerSwift (2.0.1):
-    - MarqueeLabel/Swift (~> 3.2.0)
-    - SnapKit (~> 4.2.0)
   - NVActivityIndicatorView (4.7.0):
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
-  - PinCodeTextField (0.1.0)
-  - Protobuf (3.7.0)
+  - Protobuf (3.9.0)
   - RevealingSplashView (0.6.0)
   - SAConfettiView (0.1.8)
   - SCLAlertView (0.8)
-  - SnapKit (4.2.0)
-  - SPAlert (1.0.2)
-  - SPFakeBar (1.0.6)
-  - SPStorkController (1.6.5)
+  - SnapKit (5.0.0)
+  - SPAlert (1.1.1)
+  - SPFakeBar (1.0.9)
+  - SPStorkController (1.7.5)
   - SwipeableTabBarController (2.1.1)
   - "UITextView+Placeholder (1.2.1)"
-  - WhatsNewKit (1.1.9)
+  - WhatsNewKit (1.2.0)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5.0.0-beta.6)
   - AppCenter
   - Crashlytics
-  - ExpandingMenu (~> 0.4)
   - EZAlertController (= 3.2)
   - Fabric
   - Firebase/Auth
@@ -187,14 +180,12 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Performance
   - Firebase/Storage
-  - IGColorPicker (from `https://github.com/AdriBoy21/IGColorPicker.git`)
-  - NotificationBannerSwift (~> 2.0.0)
+  - IGColorPicker (from `https://github.com/AdriBoy21/IGColorPicker.git`, tag `0.4.4`)
   - NVActivityIndicatorView
-  - PinCodeTextField
-  - RevealingSplashView (~> 0.6.0)
+  - RevealingSplashView
   - SAConfettiView
   - SCLAlertView
-  - SnapKit (~> 4.2.0)
+  - SnapKit (~> 5.0.0)
   - SPAlert
   - SPFakeBar
   - SPStorkController
@@ -207,7 +198,6 @@ SPEC REPOS:
     - Alamofire
     - AppCenter
     - Crashlytics
-    - ExpandingMenu
     - EZAlertController
     - Fabric
     - Firebase
@@ -232,11 +222,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - M13Checkbox
-    - MarqueeLabel
     - nanopb
-    - NotificationBannerSwift
     - NVActivityIndicatorView
-    - PinCodeTextField
     - Protobuf
     - RevealingSplashView
     - SAConfettiView
@@ -252,59 +239,56 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   IGColorPicker:
     :git: https://github.com/AdriBoy21/IGColorPicker.git
+    :tag: 0.4.4
 
 CHECKOUT OPTIONS:
   IGColorPicker:
-    :commit: 312829685cb6db361904a8212894ffbaaa62c767
     :git: https://github.com/AdriBoy21/IGColorPicker.git
+    :tag: 0.4.4
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AppCenter: 6a5ff2fd007b53431259fdd74f91eb3d0dfea3d1
-  Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
-  ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  AppCenter: 21decaa4488024e8355e650e44ccabb69ca60d47
+  Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
   EZAlertController: 633be01320bed47720be54054df47667d61c2481
-  Fabric: f6f21452846788bb44595d73e9909d79d328e617
-  Firebase: 8d77bb33624ae9b62d745d82ec023de5f70f7e4f
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Firebase: 9445469655a98e9010737f4bc4720e5bda465873
   FirebaseABTesting: a32c488eb75089a61eb3d86db061dfb909d765db
-  FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
+  FirebaseAnalytics: 69fe25866d2ec87c6f02d72c3c9a82bce9c065a0
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
-  FirebaseAuth: 4281d6d98a90881e00710fa8d9e37c2ccdfc7d80
+  FirebaseAuth: 68cfa47997f53d29ce978e7a615fb78d7925fcbe
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 66bdef3b310a026880e2a5bc8aa586ab62ce4543
+  FirebaseCore: 7ea99e200f0024262650be56623fbe6a7bef1707
   FirebaseDatabase: f48e067716864be2b855cf716b927ef375d6cfa0
   FirebaseFunctions: 5af7c35d1c5e41608fecbb667eb6c4e672e318d0
-  FirebaseInAppMessaging: bbcd3d87dd6579fd38ae5b8b992a05ca2227b766
-  FirebaseInAppMessagingDisplay: c2e308d7e31b30a20137e3d7bbbfd49a0ae15971
-  FirebaseInstanceID: 27bed93a59b6685f5c3e0c028a878a764fd75c33
-  FirebaseMessaging: 31377e05331d16dc6c9fd82554f9a5c49aa70aed
-  FirebasePerformance: 3dd8dbe6eb1258b8d148eb33768f6aa6e1684127
-  FirebaseRemoteConfig: 40f75c6ea20a52bf65ef44e3898910dd5b57c532
-  FirebaseStorage: 926d41552072b9fee67aa645760f05f87b7ce604
-  GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
+  FirebaseInAppMessaging: a1fe2d652386063357f1d48123358e30e021035b
+  FirebaseInAppMessagingDisplay: ad5a13dfd7c15280b1c4a26e120fcf5fe91e39ae
+  FirebaseInstanceID: 9782fcfb89e4d7da76cc28eac4b8543dc7be4a4b
+  FirebaseMessaging: 6bb0bdaf64c55fef7a219b7bb1e94e94a0855ced
+  FirebasePerformance: bd3666700af4d43caf2a13b93718f3b532b8a5ff
+  FirebaseRemoteConfig: 7f6a0899f51953999667cb34a13b2e479c17d840
+  FirebaseStorage: fdf753138620fbb9257679357daec4f266627c37
+  GoogleAppMeasurement: 1e45fa601e6280c180880d57010390f6679cd971
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
-  GoogleUtilities: 84df567c76ca84f67b7bb40e769fdd4acc746a10
+  GoogleUtilities: d2b0e277a95962e09bb27f5cd42f5f0b6a506c7d
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  IGColorPicker: 6ac2d1a7d585f31c852f4021888e8812b5264d54
+  IGColorPicker: eb2cf3d44ba3e7a04f6bc0589fa553067aa619e2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  M13Checkbox: d75dca81d61c9903e7f091f32b35a3254bc97dce
-  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
+  M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
-  PinCodeTextField: a3c39be58bde3ed1d6888d0fb1d88b0a4a2277cc
-  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
   SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SPAlert: 1fdeeabd7b4ae8a2bfda23544da86593d8aa6e72
-  SPFakeBar: 0f9f17c1d4f1702fd48c594b0535486c5924394e
-  SPStorkController: f74a60dbcd3c35180c996688873f6eadac839642
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
+  SPFakeBar: b74ebaa7ff9ca06a39f13dbe668238f15825ee88
+  SPStorkController: be4ae2a5ee052ad78782f6144ffe7e951300ea67
   SwipeableTabBarController: 8f7f04275f510c5babb630f7be1161b5f28567e0
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
-  WhatsNewKit: 4012e2195e96df01ff9bd556d4ca27d48d27f1b1
+  WhatsNewKit: 3fc7e34db0902b086fa2760e05d4d4403a38a0e0
 
-PODFILE CHECKSUM: bf82c8e23de7e8df7468b421b79f0ae0b98a9c72
+PODFILE CHECKSUM: ae7990145b51a6118b1afbd01286634c679e321c
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.7.4
