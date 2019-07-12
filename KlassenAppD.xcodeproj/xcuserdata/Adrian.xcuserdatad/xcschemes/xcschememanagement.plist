@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>KlassenApp Watch.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>49</integer>
+		</dict>
 		<key>KlassenAppD.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -19,14 +24,14 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>42</integer>
+			<integer>2</integer>
 		</dict>
 		<key>KlassenAppWatch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>39</integer>
+			<integer>1</integer>
 		</dict>
 		<key>SiriKitEXT.xcscheme</key>
 		<dict>
