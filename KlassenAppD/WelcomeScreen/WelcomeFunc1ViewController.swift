@@ -12,25 +12,27 @@ class WelcomeFunc1ViewController: UIViewController {
     @IBOutlet var FuncTitle: UILabel!
     @IBOutlet var FunctionsDes: UITextView!
     @IBOutlet var FunctionsMore: UILabel!
+    
+    var style = Appearances()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         FunctionsDes.scrollRangeToVisible(NSMakeRange(0, 0))
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            FuncTitle.textColor = UIColor.white
-            FunctionsMore.textColor = UIColor.white
-            FunctionsDes.textColor = UIColor.white
-            FunctionsDes.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            FuncTitle.textColor = style.darkText
+            FunctionsMore.textColor = style.darkText
+            FunctionsDes.textColor = style.darkText
+            FunctionsDes.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
 
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            FuncTitle.textColor = UIColor.black
-            FunctionsMore.textColor = UIColor.black
-            FunctionsDes.textColor = UIColor.black
-            FunctionsDes.backgroundColor = UIColor.white
+            view.backgroundColor = style.lightBackground
+            FuncTitle.textColor = style.lightText
+            FunctionsMore.textColor = style.lightText
+            FunctionsDes.textColor = style.lightText
+            FunctionsDes.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
     }

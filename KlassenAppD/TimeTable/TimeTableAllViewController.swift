@@ -16,6 +16,8 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
     
     var timeTableArray: [String] = []
     
+    var style = Appearances()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,20 +64,20 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
         view.addSubview(TimeTableTV!)
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            TimeTableTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            navigationbar.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .white
-            TimeTableTV!.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            TimeTableTV.backgroundColor = style.darkBackground
+            navigationbar.backgroundColor = style.darkTitleBackground
+            navigationbar.titleLabel.textColor = style.darkText
+            TimeTableTV!.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            TimeTableTV.backgroundColor = UIColor.white
-            navigationbar.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .black
-            TimeTableTV!.backgroundColor = UIColor.white
+            view.backgroundColor = style.lightBackground
+            TimeTableTV.backgroundColor = style.lightBackground
+            navigationbar.backgroundColor = style.lightTitleBackground
+            navigationbar.titleLabel.textColor = style.lightText
+            TimeTableTV!.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
     }

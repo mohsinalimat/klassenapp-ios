@@ -25,6 +25,8 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
     var Coloro: UIColor!
     let days = ["Bitte auswählen", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
+    var style = Appearances()
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -105,24 +107,24 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         
         view.addSubview(ContentTextView)
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            navigationbar.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .white
-            ContentTextView.textColor = .white
-            ContentTextView.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            Picker.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            Coloro = UIColor.white
+            view.backgroundColor = style.darkBackground
+            navigationbar.backgroundColor = style.darkTitleBackground
+            navigationbar.titleLabel.textColor = style.darkText
+            ContentTextView.textColor = style.darkText
+            ContentTextView.backgroundColor = style.darkBackground
+            Picker.backgroundColor = style.darkBackground
+            Coloro = style.darkText
             setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            navigationbar.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .black
-            ContentTextView.textColor = .black
-            ContentTextView.backgroundColor = .white
-            Picker.backgroundColor = UIColor.white
-            Picker.tintColor = UIColor.black
-            Coloro = UIColor.black
+            view.backgroundColor = style.lightBackground
+            navigationbar.backgroundColor = style.lightTitleBackground
+            navigationbar.titleLabel.textColor = style.lightText
+            ContentTextView.textColor = style.lightText
+            ContentTextView.backgroundColor = style.lightBackground
+            Picker.backgroundColor = style.lightBackground
+            Picker.tintColor = style.lightText
+            Coloro = style.lightText
             setNeedsStatusBarAppearanceUpdate()
         }
     }

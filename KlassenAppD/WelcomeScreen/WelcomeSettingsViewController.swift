@@ -13,20 +13,23 @@ class WelcomeSettingsViewController: UIViewController {
     @IBOutlet var SettingsMessage: UILabel!
     @IBOutlet var WelcomeDarkmodeLabel: UILabel!
     @IBOutlet var WelcomeDarkmodeOut: UISwitch!
+    
+    var style = Appearances()
+    
     @IBAction func WelcomeDarkmodeSwitch(_ sender: UISwitch) {
         if sender.isOn == true {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            WelcomeSettingsTitle.textColor = UIColor.white
-            SettingsMessage.textColor = UIColor.white
-            WelcomeDarkmodeLabel.textColor = UIColor.white
+            view.backgroundColor = style.darkBackground
+            WelcomeSettingsTitle.textColor = style.darkText
+            SettingsMessage.textColor = style.darkText
+            WelcomeDarkmodeLabel.textColor = style.darkText
             setNeedsStatusBarAppearanceUpdate()
             UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
         }
         if sender.isOn != true {
-            view.backgroundColor = UIColor.white
-            WelcomeSettingsTitle.textColor = UIColor.black
-            SettingsMessage.textColor = UIColor.black
-            WelcomeDarkmodeLabel.textColor = UIColor.black
+            view.backgroundColor = style.lightBackground
+            WelcomeSettingsTitle.textColor = style.lightText
+            SettingsMessage.textColor = style.lightText
+            WelcomeDarkmodeLabel.textColor = style.lightText
             setNeedsStatusBarAppearanceUpdate()
             UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
         }

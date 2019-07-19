@@ -11,22 +11,25 @@ import UIKit
 class WelcomeInformationsViewController: UIViewController {
     @IBOutlet var InformationsTitle: UILabel!
     @IBOutlet var InformationsDes: UITextView!
+    
+    var style = Appearances()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         InformationsDes.scrollRangeToVisible(NSMakeRange(0, 0))
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            InformationsTitle.textColor = UIColor.white
-            InformationsDes.textColor = UIColor.white
-            InformationsDes.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            InformationsTitle.textColor = style.darkText
+            InformationsDes.textColor = style.darkText
+            InformationsDes.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
 
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            InformationsTitle.textColor = UIColor.black
-            InformationsDes.textColor = UIColor.black
-            InformationsDes.backgroundColor = UIColor.white
+            view.backgroundColor = style.lightBackground
+            InformationsTitle.textColor = style.lightText
+            InformationsDes.textColor = style.lightText
+            InformationsDes.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
     }

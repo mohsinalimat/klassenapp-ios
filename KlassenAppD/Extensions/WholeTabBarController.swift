@@ -10,17 +10,19 @@ import SwipeableTabBarController
 import UIKit
 
 class WholeTabBarController: SwipeableTabBarController {
+    var style = Appearances()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeAnimatedTransitioning?.animationType = SwipeAnimationType.sideBySide
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            tabBar.barTintColor = .black
-            tabBar.tintColor = UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0)
+            tabBar.barTintColor = style.darkBarTintColor
+            tabBar.tintColor = style.darkTintColor
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            tabBar.barTintColor = .white
-            tabBar.tintColor = UIColor(red: 0.00, green: 0.48, blue: 1.00, alpha: 1.0)
+            tabBar.barTintColor = style.lightBarTintColor
+            tabBar.tintColor = style.lightTintColor
         }
         
         let tabBarItems = tabBar.items! as [UITabBarItem]

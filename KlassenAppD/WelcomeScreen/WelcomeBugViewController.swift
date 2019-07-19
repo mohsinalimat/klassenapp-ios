@@ -12,25 +12,28 @@ class WelcomeBugViewController: UIViewController {
     @IBOutlet var EvenMoreInformations: UILabel!
     @IBOutlet var EvenMoreInformationsNote1: UITextView!
     @IBOutlet var EvenMoreInformationsNote2: UITextView!
+    
+    var style = Appearances()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            EvenMoreInformations.textColor = UIColor.white
-            EvenMoreInformationsNote1.textColor = UIColor.white
-            EvenMoreInformationsNote1.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            EvenMoreInformationsNote2.textColor = UIColor.white
-            EvenMoreInformationsNote2.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            EvenMoreInformations.textColor = style.darkText
+            EvenMoreInformationsNote1.textColor = style.darkText
+            EvenMoreInformationsNote1.backgroundColor = style.darkBackground
+            EvenMoreInformationsNote2.textColor = style.darkText
+            EvenMoreInformationsNote2.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
 
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            EvenMoreInformations.textColor = UIColor.black
-            EvenMoreInformationsNote1.textColor = UIColor.black
-            EvenMoreInformationsNote1.backgroundColor = UIColor.white
-            EvenMoreInformationsNote2.textColor = UIColor.black
-            EvenMoreInformationsNote2.backgroundColor = UIColor.white
+            view.backgroundColor = style.lightBackground
+            EvenMoreInformations.textColor = style.lightText
+            EvenMoreInformationsNote1.textColor = style.lightText
+            EvenMoreInformationsNote1.backgroundColor = style.lightBackground
+            EvenMoreInformationsNote2.textColor = style.lightText
+            EvenMoreInformationsNote2.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
     }

@@ -20,7 +20,9 @@ class LaunchAnimationViewController: UIViewController {
             view.backgroundColor = UIColor.white
             self.setNeedsStatusBarAppearanceUpdate()
         }
+    }
 
+    override func viewDidAppear(_ animated: Bool) {
         UserDefaults.standard.set(1, forKey: "Checker")
 
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "LaunchScreenW")!, iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))

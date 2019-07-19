@@ -20,68 +20,39 @@ class SecondViewController: UIViewController {
     @IBOutlet var Arbeit5BtnOut: UIButton!
     @IBOutlet var backgroundTitleView: UIView!
     @IBOutlet var TitleBar: UIView!
-    
     @IBOutlet var TestsLabel: UILabel!
     
     var loader: NVActivityIndicatorView!
+    var style = Appearances()
+    
+    var buttons: [UIButton] = [UIButton]()
+    var buttonValues: [ButtonValue] = []
     
     @IBAction func Arbeit1Btn(_ sender: Any) {
-        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
-        impactFeedbackgenerator.prepare()
-        impactFeedbackgenerator.impactOccurred()
-        AllTestsViewController.TestVC.selectedTest = "Arbeit1"
-        let controller1 = AllTestsViewController()
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        controller1.transitioningDelegate = transitionDelegate
-        controller1.modalPresentationStyle = .custom
-        controller1.modalPresentationCapturesStatusBarAppearance = true
-        self.present(controller1, animated: true, completion: nil)
+        self.presentEvent(eventName: "Arbeit1")
     }
     
     @IBAction func Arbeit2Btn(_ sender: Any) {
-        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
-        impactFeedbackgenerator.prepare()
-        impactFeedbackgenerator.impactOccurred()
-        AllTestsViewController.TestVC.selectedTest = "Arbeit2"
-        let controller1 = AllTestsViewController()
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        controller1.transitioningDelegate = transitionDelegate
-        controller1.modalPresentationStyle = .custom
-        controller1.modalPresentationCapturesStatusBarAppearance = true
-        self.present(controller1, animated: true, completion: nil)
+        self.presentEvent(eventName: "Arbeit2")
     }
     
     @IBAction func Arbeit3Btn(_ sender: Any) {
-        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
-        impactFeedbackgenerator.prepare()
-        impactFeedbackgenerator.impactOccurred()
-        AllTestsViewController.TestVC.selectedTest = "Arbeit3"
-        let controller1 = AllTestsViewController()
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        controller1.transitioningDelegate = transitionDelegate
-        controller1.modalPresentationStyle = .custom
-        controller1.modalPresentationCapturesStatusBarAppearance = true
-        self.present(controller1, animated: true, completion: nil)
+        self.presentEvent(eventName: "Arbeit3")
     }
     
     @IBAction func Arbeit4Btn(_ sender: Any) {
-        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
-        impactFeedbackgenerator.prepare()
-        impactFeedbackgenerator.impactOccurred()
-        AllTestsViewController.TestVC.selectedTest = "Arbeit4"
-        let controller1 = AllTestsViewController()
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        controller1.transitioningDelegate = transitionDelegate
-        controller1.modalPresentationStyle = .custom
-        controller1.modalPresentationCapturesStatusBarAppearance = true
-        self.present(controller1, animated: true, completion: nil)
+        self.presentEvent(eventName: "Arbeit4")
     }
     
     @IBAction func Arbeit5Btn(_ sender: Any) {
+        self.presentEvent(eventName: "Arbeit5")
+    }
+    
+    func presentEvent(eventName: String) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
-        AllTestsViewController.TestVC.selectedTest = "Arbeit5"
+        AllTestsViewController.TestVC.selectedTest = eventName
         let controller1 = AllTestsViewController()
         let transitionDelegate = SPStorkTransitioningDelegate()
         controller1.transitioningDelegate = transitionDelegate
@@ -90,7 +61,13 @@ class SecondViewController: UIViewController {
         self.present(controller1, animated: true, completion: nil)
     }
     
+    func setArrays() {
+        self.buttons = [self.Arbeit1BtnOut, self.Arbeit2BtnOut, self.Arbeit3BtnOut, self.Arbeit4BtnOut, self.Arbeit5BtnOut]
+        self.buttonValues = [ButtonValue(child: "Arbeit1", button: Arbeit1BtnOut), ButtonValue(child: "Arbeit2", button: Arbeit2BtnOut), ButtonValue(child: "Arbeit3", button: Arbeit3BtnOut), ButtonValue(child: "Arbeit4", button: Arbeit4BtnOut), ButtonValue(child: "Arbeit5", button: Arbeit5BtnOut)]
+    }
+    
     func viewLoadSetup() {
+        self.setArrays()
         self.loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 25, y: self.view.center.y - 25, width: 50, height: 50))
         self.loader.type = .ballPulseSync
         self.loader.color = UIColor.red
@@ -101,31 +78,26 @@ class SecondViewController: UIViewController {
         else {
             self.loader.stopAnimating()
         }
+        
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
-            self.Arbeit1BtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.Arbeit2BtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.Arbeit3BtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.Arbeit4BtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.Arbeit5BtnOut.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            for button in self.buttons {
+                button.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            }
         }
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            self.TestsLabel.textColor = UIColor.white
+            view.backgroundColor = self.style.darkBackground
+            self.backgroundTitleView.backgroundColor = self.style.darkTitleBackground
+            self.TestsLabel.textColor = self.style.darkText
             self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            self.backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            self.TestsLabel.textColor = UIColor.black
+            view.backgroundColor = self.style.lightBackground
+            self.backgroundTitleView.backgroundColor = self.style.lightTitleBackground
+            self.TestsLabel.textColor = self.style.lightText
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
@@ -158,66 +130,23 @@ class SecondViewController: UIViewController {
         
         ref = Database.database().reference()
         
-        ref.child("arbeiten").child("Arbeit1").child("buttonname").observe(.value) { Arbeit1ButtonSnap in
-            let Arbeit1ButtonName = Arbeit1ButtonSnap.value as? String
-            self.loader.stopAnimating()
-            UserDefaults.standard.set(Arbeit1ButtonName, forKey: "UDTEST1Btn")
-            if Arbeit1ButtonName != "-" {
-                self.Arbeit1BtnOut.isEnabled = true
-                self.Arbeit1BtnOut.setTitle(Arbeit1ButtonName, for: .normal)
-            }
-            if Arbeit1ButtonName == "-" {
-                self.Arbeit1BtnOut.isEnabled = false
-                self.Arbeit1BtnOut.setTitle(Arbeit1ButtonName, for: .normal)
-            }
-        }
-        ref.child("arbeiten").child("Arbeit2").child("buttonname").observe(.value) { Arbeit2ButtonSnap in
-            let Arbeit2ButtonName = Arbeit2ButtonSnap.value as? String
-            UserDefaults.standard.set(Arbeit2ButtonName, forKey: "UDTEST2Btn")
-            if Arbeit2ButtonName != "-" {
-                self.Arbeit2BtnOut.isEnabled = true
-                self.Arbeit2BtnOut.setTitle(Arbeit2ButtonName, for: .normal)
-            }
-            if Arbeit2ButtonName == "-" {
-                self.Arbeit2BtnOut.isEnabled = false
-                self.Arbeit2BtnOut.setTitle(Arbeit2ButtonName, for: .normal)
+        for value in self.buttonValues {
+            ref.child("arbeiten").child(value.child).child("buttonname").observe(.value) { ArbeitButtonSnap in
+                let ArbeitLabel = ArbeitButtonSnap.value as? String
+                self.loader.stopAnimating()
+                if ArbeitLabel != "-" {
+                    value.button.isEnabled = true
+                }
+                else {
+                    value.button.isEnabled = false
+                }
+                value.button.setTitle(ArbeitLabel, for: .normal)
             }
         }
-        ref.child("arbeiten").child("Arbeit3").child("buttonname").observe(.value) { Arbeit3ButtonSnap in
-            let Arbeit3ButtonName = Arbeit3ButtonSnap.value as? String
-            UserDefaults.standard.set(Arbeit3ButtonName, forKey: "UDTEST3Btn")
-            if Arbeit3ButtonName != "-" {
-                self.Arbeit3BtnOut.isEnabled = true
-                self.Arbeit3BtnOut.setTitle(Arbeit3ButtonName, for: .normal)
-            }
-            if Arbeit3ButtonName == "-" {
-                self.Arbeit3BtnOut.isEnabled = false
-                self.Arbeit3BtnOut.setTitle(Arbeit3ButtonName, for: .normal)
-            }
-        }
-        ref.child("arbeiten").child("Arbeit4").child("buttonname").observe(.value) { Arbeit4ButtonSnap in
-            let Arbeit4ButtonName = Arbeit4ButtonSnap.value as? String
-            UserDefaults.standard.set(Arbeit4ButtonName, forKey: "UDTEST4Btn")
-            if Arbeit4ButtonName != "-" {
-                self.Arbeit4BtnOut.isEnabled = true
-                self.Arbeit4BtnOut.setTitle(Arbeit4ButtonName, for: .normal)
-            }
-            if Arbeit4ButtonName == "-" {
-                self.Arbeit4BtnOut.isEnabled = false
-                self.Arbeit4BtnOut.setTitle(Arbeit4ButtonName, for: .normal)
-            }
-        }
-        ref.child("arbeiten").child("Arbeit5").child("buttonname").observe(.value) { Arbeit5ButtonSnap in
-            let Arbeit5ButtonName = Arbeit5ButtonSnap.value as? String
-            UserDefaults.standard.set(Arbeit5ButtonName, forKey: "UDTEST5Btn")
-            if Arbeit5ButtonName != "-" {
-                self.Arbeit5BtnOut.isEnabled = true
-                self.Arbeit5BtnOut.setTitle(Arbeit5ButtonName, for: .normal)
-            }
-            if Arbeit5ButtonName == "-" {
-                self.Arbeit5BtnOut.isEnabled = false
-                self.Arbeit5BtnOut.setTitle(Arbeit5ButtonName, for: .normal)
-            }
-        }
+    }
+    
+    struct ButtonValue {
+        var child: String!
+        var button: UIButton!
     }
 }

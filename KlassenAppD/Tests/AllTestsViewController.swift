@@ -14,6 +14,8 @@ class AllTestsViewController: UIViewController {
     let navigationbar = SPFakeBarView(style: .stork)
     private var teststextview: UITextView!
     
+    var style = Appearances()
+    
     override func viewDidLoad() {
         navigationbar.titleLabel.text = "Download..."
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
@@ -40,19 +42,19 @@ class AllTestsViewController: UIViewController {
         
         view.addSubview(teststextview)
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            navigationbar.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .white
-            teststextview.textColor = .white
-            teststextview.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            navigationbar.backgroundColor = style.darkTitleBackground
+            navigationbar.titleLabel.textColor = style.darkText
+            teststextview.textColor = style.darkText
+            teststextview.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            navigationbar.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .black
-            teststextview.textColor = .black
-            teststextview.backgroundColor = .white
+            view.backgroundColor = style.lightBackground
+            navigationbar.backgroundColor = style.lightTitleBackground
+            navigationbar.titleLabel.textColor = style.lightText
+            teststextview.textColor = style.lightText
+            teststextview.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         reloadData()

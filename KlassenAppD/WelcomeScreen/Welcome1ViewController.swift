@@ -11,18 +11,21 @@ import UIKit
 class Welcome1ViewController: UIViewController {
     @IBOutlet var WelcomeTitle: UILabel!
     @IBOutlet var NoteRightClick: UILabel!
+    
+    var style = Appearances()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            WelcomeTitle.textColor = UIColor.white
-            NoteRightClick.textColor = UIColor.white
+            view.backgroundColor = style.darkBackground
+            WelcomeTitle.textColor = style.darkText
+            NoteRightClick.textColor = style.darkText
             setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            WelcomeTitle.textColor = UIColor.black
-            NoteRightClick.textColor = UIColor.black
+            view.backgroundColor = style.lightBackground
+            WelcomeTitle.textColor = style.lightText
+            NoteRightClick.textColor = style.lightText
             setNeedsStatusBarAppearanceUpdate()
         }
     }

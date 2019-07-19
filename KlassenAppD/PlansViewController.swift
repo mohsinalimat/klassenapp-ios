@@ -17,53 +17,60 @@ class PlansViewController: UIViewController {
     @IBOutlet var FoodBtn: UIButton!
     @IBOutlet var ListBtn: UIButton!
     
+    var buttons: [UIButton] = [UIButton]()
+    
+    var style = Appearances()
+    
     @IBAction func ListBtnAction(_ sender: Any) {
-        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
-        impactFeedbackgenerator.prepare()
-        impactFeedbackgenerator.impactOccurred()
-        let controller1 = RememberViewController()
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        controller1.transitioningDelegate = transitionDelegate
-        controller1.modalPresentationStyle = .custom
-        controller1.modalPresentationCapturesStatusBarAppearance = true
-        self.present(controller1, animated: true, completion: nil)
+        presentStork(controller: RememberViewController())
     }
     
     @IBAction func FoodBtnAction(_ sender: Any) {
+        presentStork(controller: FoodAllViewController())
+    }
+    
+    @IBAction func TimeTableBtnAction(_ sender: Any) {
+        presentStork(controller: TimeTableNewViewController())
+    }
+    
+    func presentStork(controller: UIViewController) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
-        let controller1 = FoodAllViewController()
+        let controller1 = controller
         let transitionDelegate = SPStorkTransitioningDelegate()
         controller1.transitioningDelegate = transitionDelegate
         controller1.modalPresentationStyle = .custom
         controller1.modalPresentationCapturesStatusBarAppearance = true
-        self.present(controller1, animated: true, completion: nil)
+        present(controller1, animated: true, completion: nil)
+    }
+    
+    func setArrays() {
+        buttons = [self.TimeTableBtn, self.FoodBtn, self.ListBtn]
     }
     
     func viewLoadSetup() {
+        setArrays()
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
-            self.TimeTableBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.FoodBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.ListBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            for button in buttons {
+                button.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            }
         }
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
-            self.TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
+            TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            self.MainTitle.textColor = UIColor.white
-            self.setNeedsStatusBarAppearanceUpdate()
+            view.backgroundColor = style.darkBackground
+            backgroundTitleView.backgroundColor = style.darkTitleBackground
+            MainTitle.textColor = style.darkText
+            setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            self.backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            self.MainTitle.textColor = UIColor.black
-            self.setNeedsStatusBarAppearanceUpdate()
+            view.backgroundColor = style.lightBackground
+            backgroundTitleView.backgroundColor = style.lightTitleBackground
+            MainTitle.textColor = style.lightText
+            setNeedsStatusBarAppearanceUpdate()
         }
     }
     
@@ -79,7 +86,7 @@ class PlansViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewLoadSetup()
+        viewLoadSetup()
     }
     
     override func viewDidLoad() {

@@ -12,7 +12,7 @@ pod 'Firebase/Messaging'
 pod 'Firebase/InAppMessagingDisplay'
 pod 'Firebase/Performance'
 pod 'Fabric'
-pod 'Crashlytics'
+pod 'Crashlytics', '~>  3.13'
 pod 'Alamofire', '~> 5.0.0-beta.6'
 pod 'RevealingSplashView'
 pod 'SwipeableTabBarController'
@@ -29,7 +29,7 @@ pod 'SPFakeBar'
 pod 'SPAlert'
 pod 'AppCenter'
 pod 'SCLAlertView'
-
+pod 'SwiftyJSON', '~> 4.2.0'
 
 
 

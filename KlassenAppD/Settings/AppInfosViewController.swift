@@ -15,6 +15,8 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
     
     private var InfoTV: UITableView!
     
+    var style = Appearances()
+    
     var n1: [String] = ["Appname: KlassenApp", "Bundle-Identifier: \(AppInfoPublic.bundleid!)", "Appversion: \(AppInfoPublic.version) (Build: \(AppInfoPublic.build))", "Website: https://klassenappd.de", "Email-Adresse: mail@klassenappd.de", "Erstveröffentlichung: 19.Juli 2018", "App-Entwickler: Adrian Baumgart", "Datenbank: Firebase Database", "GitHub-Link: https://github.com/AdriBoy21/klassenapp-ios", "© Adrian Baumgart, 2018 - 2019"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,17 +73,17 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
         view.addSubview(InfoTV!)
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            navigationbar.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .white
-            InfoTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            navigationbar.backgroundColor = style.darkTitleBackground
+            navigationbar.titleLabel.textColor = style.darkText
+            InfoTV.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            navigationbar.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .black
-            InfoTV.backgroundColor = UIColor.white
+            view.backgroundColor = style.lightBackground
+            navigationbar.backgroundColor = style.lightTitleBackground
+            navigationbar.titleLabel.textColor = style.lightText
+            InfoTV.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         InfoTV.allowsSelection = false

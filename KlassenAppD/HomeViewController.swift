@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
     var disappearUpdate: Timer!
     var loader: NVActivityIndicatorView!
     
+    var style = Appearances()
+    
     let TextSizeAttr = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
     
     @IBOutlet var DateLabel: UILabel!
@@ -49,20 +51,22 @@ class HomeViewController: UIViewController {
         }
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            HomeTitleBackground.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            HomeTitle.textColor = UIColor.white
-            HomeTV.textColor = UIColor.white
-            HomeTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            
+            view.backgroundColor = style.darkBackground
+            HomeTitleBackground.backgroundColor = style.darkTitleBackground
+            HomeTitle.textColor = style.darkText
+            HomeTV.textColor = style.darkText
+            HomeTV.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            HomeTitleBackground.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
             
-            HomeTitle.textColor = UIColor.black
-            HomeTV.textColor = UIColor.black
-            HomeTV.backgroundColor = UIColor.white
+            view.backgroundColor = style.lightBackground
+            HomeTitleBackground.backgroundColor = style.lightTitleBackground
+            
+            HomeTitle.textColor = style.lightText
+            HomeTV.textColor = style.lightText
+            HomeTV.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         
@@ -269,10 +273,8 @@ class HomeViewController: UIViewController {
             }
         }
         else if currentday == 7 || currentday == 1 {
-            HomeViewController.HomeVar.essenHeute = "Kein Essen heute!"
-            ref.child("homework").child("Week1").child("Friday").observeSingleEvent(of: .value) { HWToday in
-                HomeViewController.HomeVar.HomeworkToday = HWToday.value as! String
-            }
+            HomeViewController.HomeVar.essenHeute = "Kein Essen heute, es ist Wochenende!"
+            HomeViewController.HomeVar.HomeworkToday = "Keine Hausaufgaben heute, es ist Wochenende!"
         }
         
         ref.child("Speiseplan").child("Datum").observeSingleEvent(of: .value) { FoodDateSnap in
@@ -335,11 +337,6 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
-        
-        let attr = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
         
         let dictionary = Bundle.main.infoDictionary!
         let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
@@ -356,19 +353,29 @@ class HomeViewController: UIViewController {
                 title: "Version \(versionCurrent)",
                 items: [
                     WhatsNew.Item(
-                        title: "Datenänderungen",
-                        subtitle: "Die Art, wie Daten aus der Datenbank abgerufen und gespeichert werden, wurde geändert. Unter anderem werden Daten nun automatisch aktualisiert und Offline gespeichert.",
-                        image: UIImage(named: "icons8-aktualisieren-30")
+                        title: "Hausaufgaben von heute",
+                        subtitle: "Auf der Homeseite kann man nun die Hausaufgaben sehen, die an diesem Tag aufgegeben wurden",
+                        image: UIImage(named: "homeicon")
                     ),
                     WhatsNew.Item(
-                        title: "Elemente entfernt",
-                        subtitle: "Einige Elemente wurden aus der KlassenApp verändert: Die Zahl beim Auswählen des Appicons, der Login, 3D Touch und der \"Kontakt via Mail\"-Knopf.",
-                        image: UIImage(named: "icon_close")
+                        title: "Aktualisierte Ansichten",
+                        subtitle: "Ab dieser Version erscheinen alle Menüs als Popover (über der vorherigen Ansicht). Darunter auch die Farbauswahl und der Stundenplan!",
+                        image: UIImage(named: "icons8-ios-screenshot-30")
                     ),
                     WhatsNew.Item(
-                        title: "Kleinere Änderungen",
-                        subtitle: "Mehrere Bugs wurden behoben, eine neue Updatenachricht erscheint bei neuen Updates, die Tabbar wurde animiert und es wurden einige Aussehensänderungen vorgenommen.",
-                        image: UIImage(named: "icons8-gruppe-von-fragen-30")
+                        title: "Ausrichtung",
+                        subtitle: "Auf iPads lässt sich die App nun um 90 Grad drehen!",
+                        image: UIImage(named: "icons8-ipad-30")
+                    ),
+                    WhatsNew.Item(
+                        title: "Aufgeräumt & kleinere Änderungen",
+                        subtitle: "Es wurden unnötige Codeteile entfernt, überflüssige Ansichten gelöscht und der Code wurde verkleinert. Das kann u.a. zu Performanceverbesserungen führren! Auch wurden kleinere Sachen an der App verändert.",
+                        image: UIImage(named: "icons8-haushälter-30")
+                    ),
+                    WhatsNew.Item(
+                        title: "Danke",
+                        subtitle: "Falls du das liest: Nochmal vielen Dank, dass du diese App verwendest. Jede Person hat zur App beigetragen, sei es auch nur durch das Herunterladen. Das zweite Jahr hat begonnen!",
+                        image: UIImage(named: "designicon")
                     )
                 ]
             )
@@ -389,11 +396,13 @@ class HomeViewController: UIViewController {
     }
     
     @objc func setToTV() {
-        if HomeVar.essenDate != "", HomeVar.essenHeute != "", HomeVar.HabmText != "", HomeVar.HabmTime != "", HomeVar.LDU != "", HomeVar.News1 != "", HomeVar.NewsL != "", HomeVar.NextEvent != "" {
+        if HomeVar.essenDate != "" && HomeVar.essenHeute != "" && HomeVar.HabmText != "" && HomeVar.HabmTime != "" && HomeVar.LDU != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NextEvent != "" && HomeVar.HomeworkToday != "" {
             let formattedString = NSMutableAttributedString()
             formattedString
                 .bold("Hausaufgaben bis morgen:")
                 .normal("\n\(HomeViewController.HomeVar.HabmText)\n\n")
+                .bold("Hausaufgaben von heute:")
+                .normal("\n\(HomeViewController.HomeVar.HomeworkToday)\n\n")
                 .bold("Neuigkeiten:")
                 .normal("\n-Administratoren: \(HomeViewController.HomeVar.News1)\n\n-Lehrer: \(HomeViewController.HomeVar.NewsL)\n\n")
                 .bold("Nächstes Event: ")

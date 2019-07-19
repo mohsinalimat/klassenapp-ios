@@ -23,8 +23,50 @@ class SettingsViewController: UIViewController {
     @IBOutlet var InformationForRequests: UIButton!
     @IBOutlet var SettingsLabel: UILabel!
     @IBOutlet var DarkmodeLabel: UILabel!
-    
+    @IBOutlet weak var AppearanceControl: UISegmentedControl!
+    @IBOutlet weak var AppearanceLabel: UILabel!
     @IBOutlet var backgroundTitleView: UIView!
+    
+    var style = Appearances()
+    
+    @IBAction func AppearanceAction(_ sender: Any) {
+        switch AppearanceControl.selectedSegmentIndex {
+            
+        case 0: //Light
+            
+            UIView.animate(withDuration: 0.1) {
+                self.view.backgroundColor = self.style.lightBackground
+                self.backgroundTitleView.backgroundColor = self.style.lightTitleBackground
+                self.SettingsLabel.textColor = self.style.lightText
+                self.DarkmodeLabel.textColor = self.style.lightText
+                self.AppearanceLabel.textColor = self.style.lightText
+                self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
+                self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+            }
+            UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+            self.setNeedsStatusBarAppearanceUpdate()
+            
+        case 1: //Dark
+            
+            UIView.animate(withDuration: 0.1) {
+                self.view.backgroundColor = self.style.darkBackground
+                self.backgroundTitleView.backgroundColor = self.style.darkTitleBackground
+                self.SettingsLabel.textColor = self.style.darkText
+                self.DarkmodeLabel.textColor = self.style.darkText
+                self.AppearanceLabel.textColor = self.style.darkText
+                self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
+                self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
+            }
+            
+            UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+            setNeedsStatusBarAppearanceUpdate()
+            
+        default:
+            break
+            
+        }
+    }
+    
     
     @IBAction func InformationForRequestsAction(_ sender: Any) {
         if #available(iOS 10.0, *) {
@@ -46,24 +88,24 @@ class SettingsViewController: UIViewController {
     
     @IBAction func DarkmodeSwitch(_ sender: UISwitch) {
         if sender.isOn == true {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            SettingsLabel.textColor = UIColor.white
-            DarkmodeLabel.textColor = UIColor.white
-            UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
-            setNeedsStatusBarAppearanceUpdate()
-            tabBarController!.tabBar.barTintColor = .black
-            tabBarController!.tabBar.tintColor = UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0)
+                self.view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+                self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
+                self.SettingsLabel.textColor = UIColor.white
+                self.DarkmodeLabel.textColor = UIColor.white
+                UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+                self.setNeedsStatusBarAppearanceUpdate()
+                self.tabBarController!.tabBar.barTintColor = .black
+                self.tabBarController!.tabBar.tintColor = UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0)
         }
         if sender.isOn != true {
-            view.backgroundColor = UIColor.white
-            backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            SettingsLabel.textColor = UIColor.black
-            DarkmodeLabel.textColor = UIColor.black
-            UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
-            setNeedsStatusBarAppearanceUpdate()
-            tabBarController!.tabBar.barTintColor = .white
-            tabBarController!.tabBar.tintColor = UIColor(red: 0.00, green: 0.48, blue: 1.00, alpha: 1.0)
+                self.view.backgroundColor = UIColor.white
+                self.backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+                self.SettingsLabel.textColor = UIColor.black
+                self.DarkmodeLabel.textColor = UIColor.black
+                UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+                self.setNeedsStatusBarAppearanceUpdate()
+                self.tabBarController!.tabBar.barTintColor = .white
+                self.tabBarController!.tabBar.tintColor = UIColor(red: 0.00, green: 0.48, blue: 1.00, alpha: 1.0)
         }
     }
     
@@ -77,10 +119,24 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func AppInformationsAction(_ sender: Any) {
+        presentStork(controller: AppInfosViewController())
+    }
+    @IBAction func ChangeAppIcon(_ sender: Any) {
+        if #available(iOS 10.3, *) {
+            presentStork(controller: ChangeAppIconNewViewController())
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    @IBAction func ChangeColor(_ sender: Any) {
+        presentStork(controller: ChangeColorFullViewController())
+    }
+    
+    func presentStork(controller: UIViewController) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
-        let controller1 = AppInfosViewController()
+        let controller1 = controller
         let transitionDelegate = SPStorkTransitioningDelegate()
         controller1.transitioningDelegate = transitionDelegate
         controller1.modalPresentationStyle = .custom
@@ -90,6 +146,32 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            view.backgroundColor = style.darkBackground
+            backgroundTitleView.backgroundColor = style.darkTitleBackground
+            SettingsLabel.textColor = style.darkText
+            DarkmodeLabel.textColor = style.darkText
+            AppearanceLabel.textColor = style.darkText
+            setNeedsStatusBarAppearanceUpdate()
+            
+            DarkmodeSwitchOut.setOn(true, animated: false)
+            AppearanceControl.selectedSegmentIndex = 1
+        }
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            view.backgroundColor = style.lightBackground
+            backgroundTitleView.backgroundColor = style.lightTitleBackground
+            SettingsLabel.textColor = style.lightText
+            DarkmodeLabel.textColor = style.lightText
+            AppearanceLabel.textColor = style.lightText
+            setNeedsStatusBarAppearanceUpdate()
+            
+            DarkmodeSwitchOut.setOn(false, animated: false)
+            AppearanceControl.selectedSegmentIndex = 0
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
             ChangeColorsBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
@@ -101,25 +183,6 @@ class SettingsViewController: UIViewController {
         }
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             TItleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
-        }
-        
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            SettingsLabel.textColor = UIColor.white
-            DarkmodeLabel.textColor = UIColor.white
-            setNeedsStatusBarAppearanceUpdate()
-            
-            DarkmodeSwitchOut.setOn(true, animated: false)
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            SettingsLabel.textColor = UIColor.black
-            DarkmodeLabel.textColor = UIColor.black
-            setNeedsStatusBarAppearanceUpdate()
-            
-            DarkmodeSwitchOut.setOn(false, animated: false)
         }
     }
     

@@ -25,15 +25,12 @@
 		3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */; };
 		3A5B8AB921FBB7F900669F2B /* AppIconCustomIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */; };
 		3A6B2C2422A1940900EBB792 /* HwRequestLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */; };
-		3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */; };
-		3A7135672263625B0017838A /* ChangeColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */; };
-		3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A75AB4C2152973700EED57A /* TimeTableViewController.swift */; };
+		3A76C3B122E21D5400DD5EAA /* ChangeAppIconNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A76C3B022E21D5400DD5EAA /* ChangeAppIconNewViewController.swift */; };
+		3A76C3B322E21F7700DD5EAA /* AppImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A76C3B222E21F7700DD5EAA /* AppImageTableViewCell.swift */; };
 		3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A82CDE6218E0CC2009DE910 /* Main.storyboard */; };
 		3A8932B7229858FC000E6395 /* PlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8932B6229858FC000E6395 /* PlansViewController.swift */; };
 		3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */; };
 		3A9192BD22511C8C00ED32F9 /* AppIconRedGoldIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */; };
-		3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */; };
-		3AA0E64221FA02C90012ED20 /* ChangeAppIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */; };
 		3AA0E64721FA100A0012ED20 /* AppIconGrayIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */; };
 		3AA0E64921FA11560012ED20 /* AppIconBlueIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64821FA11560012ED20 /* AppIconBlueIco.png */; };
 		3AA0E64B21FA11710012ED20 /* AppIconGoldIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64A21FA11710012ED20 /* AppIconGoldIco.png */; };
@@ -41,10 +38,12 @@
 		3AA0E64F21FA11800012ED20 /* AppIconPinkIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64E21FA117F0012ED20 /* AppIconPinkIco.png */; };
 		3AA0E65121FA16EE0012ED20 /* AppIconNormalIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */; };
 		3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */; };
+		3AA8D13022E22EC600911D0C /* ChangeColorFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8D12F22E22EC600911D0C /* ChangeColorFullViewController.swift */; };
 		3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE1216503FB00395E99 /* MGSwipeTableCell.m */; };
 		3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE4216503FB00395E99 /* MGSwipeButton.m */; };
 		3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1BCD522A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m */; };
 		3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */; };
+		3AB8DFA422E2040700975E51 /* TimeTableNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8DFA322E2040700975E51 /* TimeTableNewViewController.swift */; };
 		3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */; };
 		3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9902261E7390048030A /* UIViewController+Utils.swift */; };
 		3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E9912261E7390048030A /* UIVIew+Utils.swift */; };
@@ -57,6 +56,7 @@
 		3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */; };
 		3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */; };
 		3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */; };
+		3AF00EAC22DB9BEB00C5548E /* Appearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF00EAB22DB9BEB00C5548E /* Appearances.swift */; };
 		676E8642C723D75792FD0928 /* Pods_KlassenAppDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F47FC3AF3B5F58E5354C8BD /* Pods_KlassenAppDUITests.framework */; };
 		7940003BFBB15BC36F93C365 /* Pods_KlassenAppDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E77634D9E4F7E1B0D8BD74 /* Pods_KlassenAppDTests.framework */; };
 /* End PBXBuildFile section */
@@ -128,9 +128,8 @@
 		3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCustomIco.png; sourceTree = "<group>"; };
 		3A5D31E22164DF020064B9EA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwRequestLogViewController.swift; sourceTree = "<group>"; };
-		3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorMenuViewController.swift; sourceTree = "<group>"; };
-		3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorPickerViewController.swift; sourceTree = "<group>"; };
-		3A75AB4C2152973700EED57A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		3A76C3B022E21D5400DD5EAA /* ChangeAppIconNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconNewViewController.swift; sourceTree = "<group>"; };
+		3A76C3B222E21F7700DD5EAA /* AppImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3A7C41BE21275C010099D805 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A82CDE7218E0CC2009DE910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A8932B6229858FC000E6395 /* PlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewController.swift; sourceTree = "<group>"; };
@@ -138,8 +137,6 @@
 		3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconRedGoldIco.png; sourceTree = "<group>"; };
 		3A99D713210BAC3B0038CE25 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		3A99D728210BAEC40038CE25 /* KlassenAppD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlassenAppD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconViewController.swift; sourceTree = "<group>"; };
-		3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconTableViewCell.swift; sourceTree = "<group>"; };
 		3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconGrayIco.png; sourceTree = "<group>"; };
 		3AA0E64821FA11560012ED20 /* AppIconBlueIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconBlueIco.png; sourceTree = "<group>"; };
 		3AA0E64A21FA11710012ED20 /* AppIconGoldIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconGoldIco.png; sourceTree = "<group>"; };
@@ -147,6 +144,7 @@
 		3AA0E64E21FA117F0012ED20 /* AppIconPinkIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconPinkIco.png; sourceTree = "<group>"; };
 		3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconNormalIco.png; sourceTree = "<group>"; };
 		3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfosViewController.swift; sourceTree = "<group>"; };
+		3AA8D12F22E22EC600911D0C /* ChangeColorFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeColorFullViewController.swift; path = KlassenAppD/Settings/ChangeAppIcon/ChangeColorFullViewController.swift; sourceTree = SOURCE_ROOT; };
 		3AABCEE1216503FB00395E99 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 		3AABCEE2216503FB00395E99 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
 		3AABCEE3216503FB00395E99 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
@@ -176,6 +174,7 @@
 		3AB1F56120F0CE68001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "../../../Library/Developer/Xcode/DerivedData/KlassenAppD-hibrokssbrokvtcfgvwavcecqnyp/Build/Products/Debug-iphonesimulator/nanopb/nanopb.framework"; sourceTree = "<group>"; };
 		3AB1F56320F0CEA2001A9166 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
 		3AB8DA6F22A0602900646CCA /* CreateHWRequest2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHWRequest2ViewController.swift; sourceTree = "<group>"; };
+		3AB8DFA322E2040700975E51 /* TimeTableNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableNewViewController.swift; sourceTree = "<group>"; };
 		3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3ABFEF2F207D049800900935 /* KlassenAppD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KlassenAppD.entitlements; sourceTree = "<group>"; };
 		3AC1E9902261E7390048030A /* UIViewController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBugViewController.swift; sourceTree = "<group>"; };
 		3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeLGViewController.swift; sourceTree = "<group>"; };
 		3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInformationsViewController.swift; sourceTree = "<group>"; };
+		3AF00EAB22DB9BEB00C5548E /* Appearances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearances.swift; sourceTree = SOURCE_ROOT; };
 		3D6E1F712B4E48DA8A4E9137 /* Pods-KlassenAppD.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlassenAppD.beta.xcconfig"; path = "Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD.beta.xcconfig"; sourceTree = "<group>"; };
 		67BDC8C3900CAA0B9C9B9561 /* Pods-KlassenAppD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlassenAppD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD.debug.xcconfig"; sourceTree = "<group>"; };
 		7A512F5920D6789C007138D3 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -312,6 +312,7 @@
 		3A2CB09B22623567002F0E0A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3AF00EAB22DB9BEB00C5548E /* Appearances.swift */,
 				3AF5B0A522A1B8A2006C5764 /* DZNEmptyDataSet */,
 				3A2CB0A1226236F1002F0E0A /* MBProgressHUD */,
 				3AABCEE0216503FB00395E99 /* MGSwipe */,
@@ -342,7 +343,7 @@
 		3A2CB09D226235A1002F0E0A /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
-				3A75AB4C2152973700EED57A /* TimeTableViewController.swift */,
+				3AB8DFA322E2040700975E51 /* TimeTableNewViewController.swift */,
 				3A3BE9F22299C53500F67AA0 /* TimeTableAllViewController.swift */,
 			);
 			path = TimeTable;
@@ -397,10 +398,9 @@
 		3A2CB0A422623759002F0E0A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				3A76C3AD22E21CE300DD5EAA /* ChangeAppIcon */,
 				3ABFEF27207CE8AA00900935 /* SettingsViewController.swift */,
 				3A71356522635BA60017838A /* ChangeColor */,
-				3AA0E64121FA02C90012ED20 /* ChangeAppIconTableViewCell.swift */,
-				3AA0E63F21F9FFE30012ED20 /* ChangeIconViewController.swift */,
 				3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */,
 			);
 			path = Settings;
@@ -409,11 +409,19 @@
 		3A71356522635BA60017838A /* ChangeColor */ = {
 			isa = PBXGroup;
 			children = (
-				3A7135662263625B0017838A /* ChangeColorPickerViewController.swift */,
-				3A71356322635B9E0017838A /* ChangeColorMenuViewController.swift */,
+				3AA8D12F22E22EC600911D0C /* ChangeColorFullViewController.swift */,
 				3A19530522648F95006C4FC5 /* colors.json */,
 			);
 			path = ChangeColor;
+			sourceTree = "<group>";
+		};
+		3A76C3AD22E21CE300DD5EAA /* ChangeAppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				3A76C3B222E21F7700DD5EAA /* AppImageTableViewCell.swift */,
+				3A76C3B022E21D5400DD5EAA /* ChangeAppIconNewViewController.swift */,
+			);
+			path = ChangeAppIcon;
 			sourceTree = "<group>";
 		};
 		3AABCEE0216503FB00395E99 /* MGSwipe */ = {
@@ -805,6 +813,7 @@
 				"${BUILT_PRODUCTS_DIR}/SPFakeBar/SPFakeBar.framework",
 				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeableTabBarController/SwipeableTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/WhatsNewKit/WhatsNewKit.framework",
@@ -829,6 +838,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPFakeBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeableTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WhatsNewKit.framework",
@@ -867,11 +877,11 @@
 			files = (
 				3A3A1D6822984B5100D81453 /* WholeTabBarController.swift in Sources */,
 				3A3BE9F12299BA6100F67AA0 /* FoodAllViewController.swift in Sources */,
-				3AA0E64021F9FFE30012ED20 /* ChangeIconViewController.swift in Sources */,
 				3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */,
 				3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */,
 				3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */,
 				3A0F5713207BD0B700D9F701 /* SecondViewController.swift in Sources */,
+				3AA8D13022E22EC600911D0C /* ChangeColorFullViewController.swift in Sources */,
 				3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */,
 				3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */,
 				3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */,
@@ -883,21 +893,21 @@
 				3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */,
 				3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */,
 				3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */,
-				3A7135672263625B0017838A /* ChangeColorPickerViewController.swift in Sources */,
 				3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */,
 				3A0AA43B215D13CB00458415 /* RememberViewController.swift in Sources */,
-				3A71356422635B9E0017838A /* ChangeColorMenuViewController.swift in Sources */,
-				3AA0E64221FA02C90012ED20 /* ChangeAppIconTableViewCell.swift in Sources */,
 				3A0F5711207BD0B700D9F701 /* FirstViewController.swift in Sources */,
 				3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */,
 				3AC2202A22998BE100204C8D /* HomeworkWeekViewController.swift in Sources */,
 				3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */,
+				3AF00EAC22DB9BEB00C5548E /* Appearances.swift in Sources */,
+				3AB8DFA422E2040700975E51 /* TimeTableNewViewController.swift in Sources */,
+				3A76C3B322E21F7700DD5EAA /* AppImageTableViewCell.swift in Sources */,
+				3A76C3B122E21D5400DD5EAA /* ChangeAppIconNewViewController.swift in Sources */,
 				3AC2202C2299AA3C00204C8D /* AllTestsViewController.swift in Sources */,
 				3AE242EF2137110100953BF4 /* WelcomeFunc1ViewController.swift in Sources */,
 				3AE242ED213710E000953BF4 /* Welcome1ViewController.swift in Sources */,
 				3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */,
 				3A3BE9F32299C53500F67AA0 /* TimeTableAllViewController.swift in Sources */,
-				3A75AB4D2152973700EED57A /* TimeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

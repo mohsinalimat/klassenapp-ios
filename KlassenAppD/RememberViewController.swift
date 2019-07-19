@@ -15,6 +15,8 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
     
     var LIST: [String] = []
     
+    var style = Appearances()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LIST.count
     }
@@ -25,12 +27,12 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         cell?.textLabel?.numberOfLines = 0
         cell?.textLabel?.lineBreakMode = .byTruncatingTail
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            cell!.textLabel!.textColor = UIColor.white
-            cell!.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            cell!.textLabel!.textColor = style.darkText
+            cell!.backgroundColor = style.darkBackground
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            cell!.textLabel!.textColor = UIColor.black
-            cell!.backgroundColor = UIColor.white
+            cell!.textLabel!.textColor = style.lightText
+            cell!.backgroundColor = style.lightBackground
         }
         cell!.textLabel?.text = LIST[indexPath.row]
         return cell!
@@ -91,17 +93,17 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         LIST = UserDefaults.standard.stringArray(forKey: "RememberList") ?? [String]()
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            navigationbar.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .white
-            TableViewRemember!.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            navigationbar.backgroundColor = style.darkTitleBackground
+            navigationbar.titleLabel.textColor = style.darkText
+            TableViewRemember!.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            navigationbar.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .black
-            TableViewRemember!.backgroundColor = UIColor.white
+            view.backgroundColor = style.lightBackground
+            navigationbar.backgroundColor = style.lightTitleBackground
+            navigationbar.titleLabel.textColor = style.lightText
+            TableViewRemember!.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
     }

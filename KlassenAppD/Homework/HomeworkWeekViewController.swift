@@ -14,6 +14,10 @@ class HomeworkWeekViewController: UIViewController {
     let navigationbar = SPFakeBarView(style: .stork)
     private var hwtextview: UITextView!
     
+    var HomeworkValues: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    
+    var style = Appearances()
+    
     override func viewDidLoad() {
         navigationbar.titleLabel.text = "Download..."
         navigationbar.titleLabel.font = navigationbar.titleLabel.font.withSize(23)
@@ -40,26 +44,34 @@ class HomeworkWeekViewController: UIViewController {
         
         view.addSubview(hwtextview)
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            navigationbar.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .white
-            hwtextview.textColor = .white
-            hwtextview.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+            view.backgroundColor = style.darkBackground
+            navigationbar.backgroundColor = style.darkTitleBackground
+            navigationbar.titleLabel.textColor = style.darkText
+            hwtextview.textColor = style.darkText
+            hwtextview.backgroundColor = style.darkBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            navigationbar.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-            navigationbar.titleLabel.textColor = .black
-            hwtextview.textColor = .black
-            hwtextview.backgroundColor = .white
+            view.backgroundColor = style.lightBackground
+            navigationbar.backgroundColor = style.lightTitleBackground
+            navigationbar.titleLabel.textColor = style.lightText
+            hwtextview.textColor = style.lightText
+            hwtextview.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
         }
         
         reloadData()
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("homework").observe(.childChanged) { _ in
+            self.reloadData()
+        }
     }
     
     @objc func reloadData() {
+        hwtextview.text = ""
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
@@ -68,28 +80,14 @@ class HomeworkWeekViewController: UIViewController {
             self.navigationbar.titleLabel.text = DateLE
         }
         
-        ref.child("homework").child(HWWeekVC.selectedWeek).child("Monday").observe(.value) { MondayWeek1Snap in
-            let MondayWeek1Home = MondayWeek1Snap.value as? String
-            HWWeekVC.monday = MondayWeek1Home!
-            
-            ref.child("homework").child(HWWeekVC.selectedWeek).child("Tuesday").observe(.value) { TuesdayWeek1Snap in
-                let TuesdayWeek1Home = TuesdayWeek1Snap.value as? String
-                HWWeekVC.tuesday = TuesdayWeek1Home!
-                
-                ref.child("homework").child(HWWeekVC.selectedWeek).child("Wednesday").observe(.value) { WednesdayWeek1Snap in
-                    let WednesdayWeek1Home = WednesdayWeek1Snap.value as? String
-                    HWWeekVC.wednesday = WednesdayWeek1Home!
-                    
-                    ref.child("homework").child(HWWeekVC.selectedWeek).child("Thursday").observe(.value) { ThursdayWeek1Snap in
-                        let ThursdayWeek1Home = ThursdayWeek1Snap.value as? String
-                        HWWeekVC.thursday = ThursdayWeek1Home!
-                        
-                        ref.child("homework").child(HWWeekVC.selectedWeek).child("Friday").observe(.value) { FridayWeek1Snap in
-                            let FridayWeek1Home = FridayWeek1Snap.value as? String
-                            HWWeekVC.friday = FridayWeek1Home!
-                            self.hwtextview.text = "\(HWWeekVC.monday)\n\n\(HWWeekVC.tuesday)\n\n\(HWWeekVC.wednesday)\n\n\(HWWeekVC.thursday)\n\n\(HWWeekVC.friday)"
-                        }
-                    }
+        for day in HomeworkValues {
+            ref.child("homework").child(HWWeekVC.selectedWeek).child(day).observeSingleEvent(of: .value) { HwSnap in
+                let SnapLE = HwSnap.value as? String
+                if self.hwtextview.text == "" {
+                    self.hwtextview.text = self.hwtextview.text + SnapLE!
+                }
+                else {
+                    self.hwtextview.text = self.hwtextview.text + "\n\n" + SnapLE!
                 }
             }
         }
