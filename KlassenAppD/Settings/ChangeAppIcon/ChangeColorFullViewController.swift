@@ -91,7 +91,8 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
         
         view.addSubview(ButtonChangeBtn)
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+        changeAppearance()
+        /*if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = style.darkBackground
             navigationbar.backgroundColor = style.darkTitleBackground
             navigationbar.titleLabel.textColor = style.darkText
@@ -102,10 +103,63 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
             navigationbar.backgroundColor = style.lightTitleBackground
             navigationbar.titleLabel.textColor = style.lightText
             setNeedsStatusBarAppearanceUpdate()
-        }
+        }*/
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    func changeAppearance() {
+        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                 view.backgroundColor = style.darkBackground
+                 navigationbar.backgroundColor = style.darkTitleBackground
+                 navigationbar.titleLabel.textColor = style.darkText
+                 setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                   view.backgroundColor = style.lightBackground
+                   navigationbar.backgroundColor = style.lightTitleBackground
+                   navigationbar.titleLabel.textColor = style.lightText
+                   setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                navigationbar.backgroundColor = style.darkTitleBackground
+                navigationbar.titleLabel.textColor = style.darkText
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = style.lightBackground
+                navigationbar.backgroundColor = style.lightTitleBackground
+                navigationbar.titleLabel.textColor = style.lightText
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            
+            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                    self.changeAppearance()
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+    }
+    
+
     
     @objc func setTitleBarColor() {
         if tempColorSave.red != nil, tempColorSave.green != nil, tempColorSave.blue != nil {
@@ -122,7 +176,7 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
                 }
             }
             
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+         /*   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
                 doneAlert.backgroundColor = .black
                 let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -137,7 +191,48 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
                 blurEffectView.frame = view.bounds
                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 doneAlert.insertSubview(blurEffectView, at: 0)
+            }*/
+            
+            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                if #available(iOS 13.0, *) {
+                    if traitCollection.userInterfaceStyle == .dark {
+                     doneAlert.backgroundColor = .black
+                     let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+                     let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                     blurEffectView.frame = view.bounds
+                     blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                     doneAlert.insertSubview(blurEffectView, at: 0)
+                    }
+                    else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                       doneAlert.backgroundColor = .white
+                       let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+                       let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                       blurEffectView.frame = view.bounds
+                       blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                       doneAlert.insertSubview(blurEffectView, at: 0)
+                    }
+                }
             }
+            else {
+                if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                    doneAlert.backgroundColor = .black
+                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+                    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                    blurEffectView.frame = view.bounds
+                    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    doneAlert.insertSubview(blurEffectView, at: 0)
+                }
+                else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    doneAlert.backgroundColor = .white
+                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+                    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                    blurEffectView.frame = view.bounds
+                    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    doneAlert.insertSubview(blurEffectView, at: 0)
+                }
+            }
+            
+            
             doneAlert.duration = 1
             doneAlert.present()
             
@@ -171,7 +266,7 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
                 }
             }
             
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+          /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
                 doneAlert.backgroundColor = .black
                 let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -186,7 +281,49 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
                 blurEffectView.frame = view.bounds
                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 doneAlert.insertSubview(blurEffectView, at: 0)
+            }*/
+            
+            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                if #available(iOS 13.0, *) {
+                    if traitCollection.userInterfaceStyle == .dark {
+                     doneAlert.backgroundColor = .black
+                     let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+                     let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                     blurEffectView.frame = view.bounds
+                     blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                     doneAlert.insertSubview(blurEffectView, at: 0)
+                    }
+                    else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                       doneAlert.backgroundColor = .white
+                       let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+                       let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                       blurEffectView.frame = view.bounds
+                       blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                       doneAlert.insertSubview(blurEffectView, at: 0)
+                    }
+                }
             }
+            else {
+                if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                    doneAlert.backgroundColor = .black
+                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+                    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                    blurEffectView.frame = view.bounds
+                    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    doneAlert.insertSubview(blurEffectView, at: 0)
+                }
+                else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    doneAlert.backgroundColor = .white
+                    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+                    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                    blurEffectView.frame = view.bounds
+                    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    doneAlert.insertSubview(blurEffectView, at: 0)
+                }
+            }
+            
+            
+            
             doneAlert.duration = 1
             doneAlert.present()
             
@@ -217,7 +354,7 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
             }
         }
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+     /*   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             doneAlert.backgroundColor = .black
             let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -232,7 +369,48 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
             blurEffectView.frame = view.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             doneAlert.insertSubview(blurEffectView, at: 0)
-        }
+        }*/
+        
+        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                       if #available(iOS 13.0, *) {
+                           if traitCollection.userInterfaceStyle == .dark {
+                            doneAlert.backgroundColor = .black
+                            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+                            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                            blurEffectView.frame = view.bounds
+                            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                            doneAlert.insertSubview(blurEffectView, at: 0)
+                           }
+                           else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                              doneAlert.backgroundColor = .white
+                              let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+                              let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                              blurEffectView.frame = view.bounds
+                              blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                              doneAlert.insertSubview(blurEffectView, at: 0)
+                           }
+                       }
+                   }
+                   else {
+                       if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                           doneAlert.backgroundColor = .black
+                           let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+                           let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                           blurEffectView.frame = view.bounds
+                           blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                           doneAlert.insertSubview(blurEffectView, at: 0)
+                       }
+                       else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                           doneAlert.backgroundColor = .white
+                           let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+                           let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                           blurEffectView.frame = view.bounds
+                           blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                           doneAlert.insertSubview(blurEffectView, at: 0)
+                       }
+                   }
+        
+        
         doneAlert.duration = 1
         doneAlert.present()
         

@@ -31,12 +31,35 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "imagecell", for: indexPath)
         cell.imageView!.image = allIcons[indexPath.row].Image
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+     /*   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             cell.backgroundColor = style.darkBackground
         }
         else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
             cell.backgroundColor = style.lightBackground
-        }
+        }*/
+        
+        func changeAppearance() {
+              if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                  if #available(iOS 13.0, *) {
+                      if traitCollection.userInterfaceStyle == .dark {
+                       cell.backgroundColor = style.darkBackground
+                      }
+                      else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                         cell.backgroundColor = style.lightBackground
+                      }
+                  }
+              }
+              else {
+                  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                        cell.backgroundColor = style.darkBackground
+                  }
+                  else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                        cell.backgroundColor = style.lightBackground
+                  }
+              }
+          }
+        
+        
         
         return cell
     }
@@ -111,7 +134,7 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         ImageTV.delegate = self
         view.addSubview(ImageTV!)
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+       /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = style.darkBackground
             navigationbar.backgroundColor = style.darkTitleBackground
             navigationbar.titleLabel.textColor = style.darkText
@@ -124,13 +147,71 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
             navigationbar.titleLabel.textColor = style.lightText
             ImageTV.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
-        }
+        }*/
+        changeAppearance()
         ImageTV.allowsSelection = true
         ImageTV.rowHeight = 80
         // ImageTV.rowHeight = UITableView.automaticDimension
         
         // Do any additional setup after loading the view.
     }
+    
+    func changeAppearance() {
+        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                 view.backgroundColor = style.darkBackground
+                 navigationbar.backgroundColor = style.darkTitleBackground
+                 navigationbar.titleLabel.textColor = style.darkText
+                 ImageTV.backgroundColor = style.darkBackground
+                 setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                   view.backgroundColor = style.lightBackground
+                   navigationbar.backgroundColor = style.lightTitleBackground
+                   navigationbar.titleLabel.textColor = style.lightText
+                   ImageTV.backgroundColor = style.lightBackground
+                   setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                navigationbar.backgroundColor = style.darkTitleBackground
+                navigationbar.titleLabel.textColor = style.darkText
+                ImageTV.backgroundColor = style.darkBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+               view.backgroundColor = style.lightBackground
+                navigationbar.backgroundColor = style.lightTitleBackground
+                navigationbar.titleLabel.textColor = style.lightText
+                ImageTV.backgroundColor = style.lightBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            
+            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                    self.changeAppearance()
+                self.setNeedsStatusBarAppearanceUpdate()
+             ImageTV.reloadData()
+            }
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+    }
+    
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
