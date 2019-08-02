@@ -42,6 +42,8 @@ class FoodAllViewController: UIViewController {
         foodtextview.text = "Download..."
         foodtextview.font = .systemFont(ofSize: 16)
         
+        view.addSubview(foodtextview)
+        
         changeAppearance()
         reloadData()
     }
@@ -120,6 +122,7 @@ class FoodAllViewController: UIViewController {
                         ref.child("Speiseplan").child("Friday").observe(.value) { fridayfood in
                             FoodVC.friday = fridayfood.value as! String
                             self.foodtextview.text = "Montag: \(FoodVC.monday)\n\nDienstag: \(FoodVC.tuesday)\n\nMittwoch: \(FoodVC.wednesday)\n\nDonnerstag: \(FoodVC.thursday)\n\nFreitag: \(FoodVC.friday)"
+                            print(self.foodtextview.text)
                         }
                     }
                 }

@@ -332,6 +332,7 @@ class HomeViewController: UIViewController {
             let buildCurrent = dictionary["CFBundleVersion"] as? String
             let build = Int(buildCurrent!)
             let NEWESTBUILD = NewestBuildDB.value as? Int
+            print("\(NEWESTBUILD)")
             
             if build! < NEWESTBUILD! {
                 if HomeVar.UpdateReminderSession != "1" {

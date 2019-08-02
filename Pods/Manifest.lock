@@ -156,7 +156,6 @@ PODS:
   - NVActivityIndicatorView/Presenter (4.7.0)
   - Protobuf (3.9.0)
   - RevealingSplashView (0.6.0)
-  - SAConfettiView (0.1.8)
   - SCLAlertView (0.8)
   - SnapKit (5.0.0)
   - SPAlert (1.1.1)
@@ -184,7 +183,6 @@ DEPENDENCIES:
   - IGColorPicker (from `https://github.com/AdriBoy21/IGColorPicker.git`, tag `0.4.4`)
   - NVActivityIndicatorView
   - RevealingSplashView
-  - SAConfettiView
   - SCLAlertView
   - SnapKit (~> 5.0.0)
   - SPAlert
@@ -228,7 +226,6 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - Protobuf
     - RevealingSplashView
-    - SAConfettiView
     - SCLAlertView
     - SnapKit
     - SPAlert
@@ -282,7 +279,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
-  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
@@ -293,6 +289,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   WhatsNewKit: 3fc7e34db0902b086fa2760e05d4d4403a38a0e0
 
-PODFILE CHECKSUM: 0a76d2f1a069224783bd708f4072e68738bb6a6f
+PODFILE CHECKSUM: 3f03f62d7c5d3c8106e88667707026af04cf4cd6
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.5.2

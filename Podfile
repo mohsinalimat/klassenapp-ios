@@ -19,7 +19,6 @@ pod 'SwipeableTabBarController'
 pod 'Firebase/Functions'
 pod 'WhatsNewKit'
 pod 'IGColorPicker', :git => 'https://github.com/AdriBoy21/IGColorPicker.git', :tag => '0.4.4'
-pod "SAConfettiView"
 pod 'EZAlertController', '3.2'
 pod 'UITextView+Placeholder'
 pod 'NVActivityIndicatorView'
