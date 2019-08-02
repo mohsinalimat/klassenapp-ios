@@ -31,13 +31,6 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "imagecell", for: indexPath)
         cell.imageView!.image = allIcons[indexPath.row].Image
         
-        /*   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             cell.backgroundColor = style.darkBackground
-         }
-         else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             cell.backgroundColor = style.lightBackground
-         }*/
-        
         if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
             if #available(iOS 13.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
@@ -86,21 +79,6 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    func setAppIcon(selectedImage: String) {
-        if #available(iOS 10.3, *) {
-            if UIApplication.shared.supportsAlternateIcons {
-            }
-            else {
-                return
-            }
-            if let name = UIApplication.shared.alternateIconName {
-                UIApplication.shared.setAlternateIconName(selectedImage) { (_: Error?) in
-                }
-            }
-        }
-        else {}
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -130,26 +108,9 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         ImageTV.delegate = self
         view.addSubview(ImageTV!)
         
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             ImageTV.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             ImageTV.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }*/
         changeAppearance()
         ImageTV.allowsSelection = true
         ImageTV.rowHeight = 80
-        // ImageTV.rowHeight = UITableView.automaticDimension
-        
-        // Do any additional setup after loading the view.
     }
     
     func changeAppearance() {
@@ -201,9 +162,6 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
-        else {
-            // Fallback on earlier versions
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -214,14 +172,4 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         var Image: UIImage
         var Number: String
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }

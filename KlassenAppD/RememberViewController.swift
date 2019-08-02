@@ -108,20 +108,6 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         LIST.removeAll()
         LIST = UserDefaults.standard.stringArray(forKey: "RememberList") ?? [String]()
         
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             TableViewRemember!.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             TableViewRemember!.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }*/
         changeAppearance()
     }
     
@@ -173,9 +159,6 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     

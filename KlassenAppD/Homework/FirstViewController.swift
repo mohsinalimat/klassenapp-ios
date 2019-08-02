@@ -187,9 +187,6 @@ class FirstViewController: UIViewController {
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
-        else {
-            // Fallback on earlier versions
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -234,16 +231,6 @@ class FirstViewController: UIViewController {
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
-        if UserDefaults.standard.integer(forKey: "Checker") != 1, UserDefaults.standard.string(forKey: "TEALOGGER") != "tea", UserDefaults.standard.string(forKey: "EDITOR") != "1" {
-            if Auth.auth().currentUser == nil {
-                do {
-                    try Auth.auth().signOut()
-                    self.performSegue(withIdentifier: "homeworktologinsegue", sender: nil)
-                }
-                catch let signOutError as NSError {
-                }
-            }
-        }
         
         for value in self.buttonValues {
             ref.child("homework").child(value.child).child("Datum").observe(.value) { WeekDatumSnap in
@@ -253,17 +240,6 @@ class FirstViewController: UIViewController {
             }
         }
     }
-    
-    /* override var preferredStatusBarStyle: UIStatusBarStyle {
-         var style: UIStatusBarStyle!
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             style = .lightContent
-         }
-         else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             style = .default
-         }
-         return style
-     }*/
     
     func randomString(length: Int) -> String {
         let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!§$%&/()=?`´*'#+^°<>,;.:-_"

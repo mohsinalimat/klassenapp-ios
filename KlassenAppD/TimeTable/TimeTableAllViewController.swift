@@ -63,24 +63,6 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
         TimeTableTV.delegate = self
         view.addSubview(TimeTableTV!)
         
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             TimeTableTV.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             TimeTableTV!.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             TimeTableTV.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             TimeTableTV!.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         } */
-        
         changeAppearance()
     }
     
@@ -136,9 +118,6 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     

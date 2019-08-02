@@ -48,7 +48,7 @@ class TimeTableNewViewController: UIViewController {
         
         for button in createdButtons {
             let sbutton = UIButton(type: .system)
-            sbutton.frame = CGRect(x: 0 /* (screenWidth / 2) - ((screenWidth - 60) / 2) */, y: button.yfactor, width: screenWidth - 60, height: /* 80 */ buttonheight)
+            sbutton.frame = CGRect(x: 0, y: button.yfactor, width: screenWidth - 60, height: buttonheight)
             sbutton.center.x = view.center.x
             sbutton.setTitle(button.title, for: .normal)
             sbutton.titleLabel?.font = .boldSystemFont(ofSize: 21.0)
@@ -64,23 +64,7 @@ class TimeTableNewViewController: UIViewController {
             view.addSubview(sbutton)
         }
         
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             setNeedsStatusBarAppearanceUpdate()
-         } */
-        
         changeAppearance()
-        
-        // Do any additional setup after loading the view.
     }
     
     func changeAppearance() {
@@ -126,9 +110,6 @@ class TimeTableNewViewController: UIViewController {
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     
@@ -186,16 +167,6 @@ class TimeTableNewViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
     
     struct crtbutton {
         var title: String

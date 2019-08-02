@@ -32,14 +32,6 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
         cell?.textLabel?.numberOfLines = 0
         cell?.textLabel?.lineBreakMode = .byTruncatingTail
         cell?.textLabel!.text = n1[indexPath.row]
-        /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             cell?.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-             cell?.textLabel!.textColor = UIColor.white
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             cell?.backgroundColor = UIColor.white
-             cell?.textLabel!.textColor = UIColor.black
-         }*/
         
         if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
             if #available(iOS 13.0, *) {
@@ -96,21 +88,6 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
         InfoTV.delegate = self
         view.addSubview(InfoTV!)
         
-        /*   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             InfoTV.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             InfoTV.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }*/
-        
         changeAppearance()
         
         InfoTV.allowsSelection = false
@@ -166,9 +143,6 @@ class AppInfosViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     

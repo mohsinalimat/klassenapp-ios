@@ -42,23 +42,6 @@ class FoodAllViewController: UIViewController {
         foodtextview.text = "Download..."
         foodtextview.font = .systemFont(ofSize: 16)
         
-        view.addSubview(foodtextview)
-        /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             foodtextview.textColor = style.darkText
-             foodtextview.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             foodtextview.textColor = style.lightText
-             foodtextview.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }*/
         changeAppearance()
         reloadData()
     }
@@ -114,9 +97,6 @@ class FoodAllViewController: UIViewController {
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     

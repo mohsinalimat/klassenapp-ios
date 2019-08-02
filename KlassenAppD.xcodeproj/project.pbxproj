@@ -45,12 +45,6 @@
 		3AC2202A22998BE100204C8D /* HomeworkWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2202922998BE100204C8D /* HomeworkWeekViewController.swift */; };
 		3AC2202C2299AA3C00204C8D /* AllTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2202B2299AA3C00204C8D /* AllTestsViewController.swift */; };
 		3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF16F922414B660087217A /* HomeViewController.swift */; };
-		3AE242ED213710E000953BF4 /* Welcome1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242EC213710E000953BF4 /* Welcome1ViewController.swift */; };
-		3AE242EF2137110100953BF4 /* WelcomeFunc1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242EE2137110100953BF4 /* WelcomeFunc1ViewController.swift */; };
-		3AE242F42137113000953BF4 /* WelcomeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F32137113000953BF4 /* WelcomeSettingsViewController.swift */; };
-		3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */; };
-		3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */; };
-		3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */; };
 		3AF00EAC22DB9BEB00C5548E /* Appearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF00EAB22DB9BEB00C5548E /* Appearances.swift */; };
 		676E8642C723D75792FD0928 /* Pods_KlassenAppDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F47FC3AF3B5F58E5354C8BD /* Pods_KlassenAppDUITests.framework */; };
 		7940003BFBB15BC36F93C365 /* Pods_KlassenAppDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E77634D9E4F7E1B0D8BD74 /* Pods_KlassenAppDTests.framework */; };
@@ -177,12 +171,6 @@
 		3ADA9CC1218CDA75001D2C30 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADA9CC3218CDAA1001D2C30 /* Pods_KlassenAppD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_KlassenAppD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADF16F922414B660087217A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		3AE242EC213710E000953BF4 /* Welcome1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome1ViewController.swift; sourceTree = "<group>"; };
-		3AE242EE2137110100953BF4 /* WelcomeFunc1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFunc1ViewController.swift; sourceTree = "<group>"; };
-		3AE242F32137113000953BF4 /* WelcomeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSettingsViewController.swift; sourceTree = "<group>"; };
-		3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBugViewController.swift; sourceTree = "<group>"; };
-		3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeLGViewController.swift; sourceTree = "<group>"; };
-		3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInformationsViewController.swift; sourceTree = "<group>"; };
 		3AF00EAB22DB9BEB00C5548E /* Appearances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearances.swift; sourceTree = SOURCE_ROOT; };
 		3D6E1F712B4E48DA8A4E9137 /* Pods-KlassenAppD.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlassenAppD.beta.xcconfig"; path = "Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD.beta.xcconfig"; sourceTree = "<group>"; };
 		67BDC8C3900CAA0B9C9B9561 /* Pods-KlassenAppD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlassenAppD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KlassenAppD/Pods-KlassenAppD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -265,7 +253,6 @@
 				3A2CB09E226235B9002F0E0A /* Homework */,
 				3A2CB0A32262372D002F0E0A /* Storyboards */,
 				3A2CB0A422623759002F0E0A /* Settings */,
-				3AE242EB213710C800953BF4 /* WelcomeScreen */,
 				3A2CB09D226235A1002F0E0A /* TimeTable */,
 				3A2CB09F226235E4002F0E0A /* Food */,
 				3A0F570E207BD0B700D9F701 /* AppDelegate.swift */,
@@ -418,19 +405,6 @@
 				3AABCEE4216503FB00395E99 /* MGSwipeButton.m */,
 			);
 			path = MGSwipe;
-			sourceTree = "<group>";
-		};
-		3AE242EB213710C800953BF4 /* WelcomeScreen */ = {
-			isa = PBXGroup;
-			children = (
-				3AE242EC213710E000953BF4 /* Welcome1ViewController.swift */,
-				3AE242EE2137110100953BF4 /* WelcomeFunc1ViewController.swift */,
-				3AE242F9213711F300953BF4 /* WelcomeInformationsViewController.swift */,
-				3AE242F32137113000953BF4 /* WelcomeSettingsViewController.swift */,
-				3AE242F52137113E00953BF4 /* WelcomeBugViewController.swift */,
-				3AE242F72137114F00953BF4 /* WelcomeLGViewController.swift */,
-			);
-			path = WelcomeScreen;
 			sourceTree = "<group>";
 		};
 		3AF5B0A522A1B8A2006C5764 /* DZNEmptyDataSet */ = {
@@ -857,7 +831,6 @@
 			files = (
 				3A3A1D6822984B5100D81453 /* WholeTabBarController.swift in Sources */,
 				3A3BE9F12299BA6100F67AA0 /* FoodAllViewController.swift in Sources */,
-				3AE242FA213711F300953BF4 /* WelcomeInformationsViewController.swift in Sources */,
 				3AB1BCD622A1B90000A7FCE7 /* UIScrollView+EmptyDataSet.m in Sources */,
 				3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */,
 				3A0F5713207BD0B700D9F701 /* SecondViewController.swift in Sources */,
@@ -865,12 +838,10 @@
 				3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */,
 				3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */,
 				3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */,
-				3AE242F42137113000953BF4 /* WelcomeSettingsViewController.swift in Sources */,
 				3A0F570F207BD0B700D9F701 /* AppDelegate.swift in Sources */,
 				3A6B2C2422A1940900EBB792 /* HwRequestLogViewController.swift in Sources */,
 				3A8932B7229858FC000E6395 /* PlansViewController.swift in Sources */,
 				3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */,
-				3AE242F62137113E00953BF4 /* WelcomeBugViewController.swift in Sources */,
 				3AC1E9922261E7390048030A /* UIViewController+Utils.swift in Sources */,
 				3ADF16FA22414B660087217A /* HomeViewController.swift in Sources */,
 				3AC1E9932261E7390048030A /* UIVIew+Utils.swift in Sources */,
@@ -884,9 +855,6 @@
 				3A76C3B322E21F7700DD5EAA /* AppImageTableViewCell.swift in Sources */,
 				3A76C3B122E21D5400DD5EAA /* ChangeAppIconNewViewController.swift in Sources */,
 				3AC2202C2299AA3C00204C8D /* AllTestsViewController.swift in Sources */,
-				3AE242EF2137110100953BF4 /* WelcomeFunc1ViewController.swift in Sources */,
-				3AE242ED213710E000953BF4 /* Welcome1ViewController.swift in Sources */,
-				3AE242F82137114F00953BF4 /* WelcomeLGViewController.swift in Sources */,
 				3A3BE9F32299C53500F67AA0 /* TimeTableAllViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

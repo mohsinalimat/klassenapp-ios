@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func AppearanceAction(_ sender: Any) {
         switch self.AppearanceControl.selectedSegmentIndex {
-        case 0: // Automatic
+        case 0:
             
             UserDefaults.standard.set(1, forKey: "AutoAppearance")
             
@@ -50,11 +50,8 @@ class SettingsViewController: UIViewController {
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-            else {
-                // Fallback on earlier versions
-            }
             
-        case 1: // Light
+        case 1:
             
             UserDefaults.standard.set(0, forKey: "AutoAppearance")
             UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
@@ -63,7 +60,7 @@ class SettingsViewController: UIViewController {
             }
             self.setNeedsStatusBarAppearanceUpdate()
             
-        case 2: // Dark
+        case 2:
             
             UserDefaults.standard.set(0, forKey: "AutoAppearance")
             UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
@@ -137,9 +134,6 @@ class SettingsViewController: UIViewController {
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
-        else {
-            // Fallback on earlier versions
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -184,29 +178,6 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    /* @IBAction func DarkmodeSwitch(_ sender: UISwitch) {
-         if sender.isOn == true {
-                 self.view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-                 self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-                 self.SettingsLabel.textColor = UIColor.white
-                 self.DarkmodeLabel.textColor = UIColor.white
-                 UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
-                 self.setNeedsStatusBarAppearanceUpdate()
-                 self.tabBarController!.tabBar.barTintColor = .black
-                 self.tabBarController!.tabBar.tintColor = UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0)
-         }
-         if sender.isOn != true {
-                 self.view.backgroundColor = UIColor.white
-                 self.backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-                 self.SettingsLabel.textColor = UIColor.black
-                 self.DarkmodeLabel.textColor = UIColor.black
-                 UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
-                 self.setNeedsStatusBarAppearanceUpdate()
-                 self.tabBarController!.tabBar.barTintColor = .white
-                 self.tabBarController!.tabBar.tintColor = UIColor(red: 0.00, green: 0.48, blue: 1.00, alpha: 1.0)
-         }
-     }*/
-    
     @IBAction func SiriShortcutReadHomework(_ sender: UISwitch) {
         if sender.isOn == true {
             UserDefaults.standard.set("YES", forKey: "ReadSiriShortcutHomework")
@@ -223,9 +194,6 @@ class SettingsViewController: UIViewController {
     @IBAction func ChangeAppIcon(_ sender: Any) {
         if #available(iOS 10.3, *) {
             presentStork(controller: ChangeAppIconNewViewController())
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     
@@ -258,21 +226,11 @@ class SettingsViewController: UIViewController {
         
         if UserDefaults.standard.integer(forKey: "AutoAppearance") == 0 {
             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                /* view.backgroundColor = style.darkBackground
-                 backgroundTitleView.backgroundColor = style.darkTitleBackground
-                 SettingsLabel.textColor = style.darkText
-                 DarkmodeLabel.textColor = style.darkText
-                 AppearanceLabel.textColor = style.darkText */
                 self.changeAppearance()
                 setNeedsStatusBarAppearanceUpdate()
                 self.AppearanceControl.selectedSegmentIndex = 2
             }
             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                /* view.backgroundColor = style.lightBackground
-                 backgroundTitleView.backgroundColor = style.lightTitleBackground
-                 SettingsLabel.textColor = style.lightText
-                 DarkmodeLabel.textColor = style.lightText
-                 AppearanceLabel.textColor = style.lightText */
                 self.changeAppearance()
                 setNeedsStatusBarAppearanceUpdate()
                 self.AppearanceControl.selectedSegmentIndex = 1
@@ -304,7 +262,6 @@ class SettingsViewController: UIViewController {
     }
 }
 
-// Helper function inserted by Swift 4.2 migrator.
 private func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
     return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value) })
 }

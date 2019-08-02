@@ -49,20 +49,18 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
         }
         view.addSubview(titlebar)
         
-        ColorPicker = ColorPickerView(frame: CGRect(x: 0, y: 110, width: view.frame.width, height: view.frame.height - 300)) // x: 10, y: 110
+        ColorPicker = ColorPickerView(frame: CGRect(x: 0, y: 110, width: view.frame.width, height: view.frame.height - 300))
         
         ColorPicker.center.x = view.center.x
-        // ColorPicker.layoutDelegate = self as! ColorPickerViewDelegateFlowLayout
         ColorPicker.delegate = self
         ColorPicker.layoutDelegate = self
-        // ColorPicker.layoutDelegate = self as! ColorPickerViewDelegateFlowLayout
         ColorPicker.style = .circle
         ColorPicker.selectionStyle = .check
         ColorPicker.isSelectedColorTappable = false
         view.addSubview(ColorPicker)
         
         let TitleBarButton = UIButton(type: .system)
-        TitleBarButton.frame = CGRect(x: 10, y: view.frame.height - 180, width: (view.frame.width / 2) - 20, height: 80) // y: view.frame.height - 140
+        TitleBarButton.frame = CGRect(x: 10, y: view.frame.height - 180, width: (view.frame.width / 2) - 20, height: 80)
         TitleBarButton.setTitle("Titelleiste", for: .normal)
         TitleBarButton.titleLabel?.font = .boldSystemFont(ofSize: 21.0)
         TitleBarButton.setTitleColor(.white, for: .normal)
@@ -77,7 +75,7 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
         view.addSubview(TitleBarButton)
         
         let ButtonChangeBtn = UIButton(type: .system)
-        ButtonChangeBtn.frame = CGRect(x: view.frame.width - (view.frame.width / 2) + 10, y: view.frame.height - 180, width: (view.frame.width / 2) - 20, height: 80) // y: view.frame.height - 140
+        ButtonChangeBtn.frame = CGRect(x: view.frame.width - (view.frame.width / 2) + 10, y: view.frame.height - 180, width: (view.frame.width / 2) - 20, height: 80)
         ButtonChangeBtn.setTitle("Knöpfe", for: .normal)
         ButtonChangeBtn.titleLabel?.font = .boldSystemFont(ofSize: 21.0)
         ButtonChangeBtn.setTitleColor(.white, for: .normal)
@@ -92,20 +90,6 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
         view.addSubview(ButtonChangeBtn)
         
         changeAppearance()
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             setNeedsStatusBarAppearanceUpdate()
-         } */
-        
-        // Do any additional setup after loading the view.
     }
     
     func changeAppearance() {
@@ -152,9 +136,6 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
-        else {
-            // Fallback on earlier versions
-        }
     }
     
     @objc func setTitleBarColor() {
@@ -171,23 +152,6 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
                     subview.removeFromSuperview()
                 }
             }
-            
-            /*   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                 doneAlert.backgroundColor = .black
-                 let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                 blurEffectView.frame = view.bounds
-                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                 doneAlert.insertSubview(blurEffectView, at: 0)
-             }
-             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                 doneAlert.backgroundColor = .white
-                 let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                 blurEffectView.frame = view.bounds
-                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                 doneAlert.insertSubview(blurEffectView, at: 0)
-             }*/
             
             if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
                 if #available(iOS 13.0, *) {
@@ -261,23 +225,6 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
                 }
             }
             
-            /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                 doneAlert.backgroundColor = .black
-                 let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                 blurEffectView.frame = view.bounds
-                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                 doneAlert.insertSubview(blurEffectView, at: 0)
-             }
-             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                 doneAlert.backgroundColor = .white
-                 let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                 blurEffectView.frame = view.bounds
-                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                 doneAlert.insertSubview(blurEffectView, at: 0)
-             }*/
-            
             if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
                 if #available(iOS 13.0, *) {
                     if traitCollection.userInterfaceStyle == .dark {
@@ -347,23 +294,6 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
             }
         }
         
-        /*   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             doneAlert.backgroundColor = .black
-             let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-             let blurEffectView = UIVisualEffectView(effect: blurEffect)
-             blurEffectView.frame = view.bounds
-             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-             doneAlert.insertSubview(blurEffectView, at: 0)
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             doneAlert.backgroundColor = .white
-             let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-             let blurEffectView = UIVisualEffectView(effect: blurEffect)
-             blurEffectView.frame = view.bounds
-             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-             doneAlert.insertSubview(blurEffectView, at: 0)
-         }*/
-        
         if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
             if #available(iOS 13.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
@@ -426,8 +356,6 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
     }
     
     func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath) {
-        let colorTypeTitleBar = UserDefaults.standard.string(forKey: "TitleBarColor")
-        let colorTypeButton = UserDefaults.standard.string(forKey: "ButtonColor")
         guard let path = Bundle.main.path(forResource: "colors", ofType: "json") else { return }
         let url = URL(fileURLWithPath: path)
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
@@ -454,16 +382,6 @@ class ChangeColorFullViewController: UIViewController, ColorPickerViewDelegate, 
         }
         task.resume()
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
     
     struct tempColorSave {
         static var red: Any?

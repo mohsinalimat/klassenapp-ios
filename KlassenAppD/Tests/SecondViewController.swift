@@ -150,9 +150,6 @@ class SecondViewController: UIViewController {
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
-        else {
-            // Fallback on earlier versions
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

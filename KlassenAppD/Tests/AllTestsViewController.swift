@@ -41,22 +41,6 @@ class AllTestsViewController: UIViewController {
         teststextview.font = .systemFont(ofSize: 16)
         
         view.addSubview(teststextview)
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             teststextview.textColor = style.darkText
-             teststextview.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             teststextview.textColor = style.lightText
-             teststextview.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }*/
         changeAppearance()
         reloadData()
     }
@@ -112,9 +96,6 @@ class AllTestsViewController: UIViewController {
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     

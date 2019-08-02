@@ -9,7 +9,6 @@
 import EZAlertController
 import Firebase
 import NVActivityIndicatorView
-import SAConfettiView
 import SCLAlertView
 import UIKit
 import WhatsNewKit
@@ -36,13 +35,6 @@ class HomeViewController: UIViewController {
     
     func viewLoadSetup() {
         changeAppearance()
-        
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             setAppearance(mode: "dark")
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             setAppearance(mode: "light")
-         }*/
         
         loader = NVActivityIndicatorView(frame: CGRect(x: view.center.x - 25, y: view.center.y - 25, width: 50, height: 50))
         loader.type = .ballPulseSync
@@ -87,27 +79,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    /* override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-         super.traitCollectionDidChange(previousTraitCollection)
-     
-         if #available(iOS 12.0, *) {
-             let userInterfaceStyle = traitCollection.userInterfaceStyle
-     
-             if userInterfaceStyle == .dark {
-                 UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
-                 setAppearance(mode: "dark")
-             }
-             else if userInterfaceStyle == .light || userInterfaceStyle == .unspecified {
-                 UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
-                 setAppearance(mode: "light")
-             }
-     
-         } else {
-             // Fallback on earlier versions
-         }
-     
-     } */
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -115,26 +86,6 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         viewLoadSetup()
     }
-    
-    /* func setAppearance(mode: String) {
-         if mode == "dark" {
-             view.backgroundColor = style.darkBackground
-             HomeTitleBackground.backgroundColor = style.darkTitleBackground
-             HomeTitle.textColor = style.darkText
-             HomeTV.textColor = style.darkText
-             HomeTV.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         else if mode == "light" {
-             view.backgroundColor = style.lightBackground
-             HomeTitleBackground.backgroundColor = style.lightTitleBackground
-     
-             HomeTitle.textColor = style.lightText
-             HomeTV.textColor = style.lightText
-             HomeTV.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-     } */
     
     func changeAppearance() {
         if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
@@ -195,9 +146,6 @@ class HomeViewController: UIViewController {
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     
@@ -283,43 +231,6 @@ class HomeViewController: UIViewController {
         
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        
-        ref.child("standardData").child("bd1event").observeSingleEvent(of: .value) { birthdaysnap in
-            let BDSnap = birthdaysnap.value as? String
-            
-            let confettiView2 = SAConfettiView(frame: self.HomeTitleBackground.bounds)
-            confettiView2.tag = 5
-            
-            if BDSnap == "1" {
-                if UserDefaults.standard.integer(forKey: "FirstBDE") != 1 {
-                    let confettiView = SAConfettiView(frame: self.view.bounds)
-                    confettiView.type = .Confetti
-                    self.view.addSubview(confettiView)
-                    confettiView.startConfetti()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                        confettiView.stopConfetti()
-                        confettiView.removeFromSuperview()
-                        EZAlertController.alert("Hallo", message: "Entschuldigung für die Störung, aber bitte lies dir die nächsten Nachrichten durch.", acceptMessage: "Weiter") { () -> () in
-                            EZAlertController.alert("Nachricht", message: "Diese Woche feiert die KlassenApp ihren ersten Geburtstag.", acceptMessage: "Weiter") { () -> () in
-                                EZAlertController.alert("Nachricht", message: "Ich möchte mich bedanken, dass ihr die App seit einem Jahr verwendet.", acceptMessage: "Weiter") { () -> () in
-                                    EZAlertController.alert("Nachricht", message: "Jetzt viel Spaß bei der Verwendung der App! Auf ein neues Jahr!")
-                                }
-                            }
-                        }
-                    }
-                    UserDefaults.standard.set(1, forKey: "FirstBDE")
-                }
-                confettiView2.type = .Confetti
-                self.HomeTitleBackground.addSubview(confettiView2)
-                confettiView2.startConfetti()
-            }
-            else {
-                if let viewWithTag = self.view.viewWithTag(5) {
-                    viewWithTag.removeFromSuperview()
-                }
-                else {}
-            }
-        }
         
         ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { LDUSnap in
             let LDUSNAP = LDUSnap.value as? String
@@ -418,7 +329,6 @@ class HomeViewController: UIViewController {
         
         ref.child("standardData").child("iosCurrentVer").child("build").observeSingleEvent(of: .value) { NewestBuildDB in
             let dictionary = Bundle.main.infoDictionary!
-            let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
             let buildCurrent = dictionary["CFBundleVersion"] as? String
             let build = Int(buildCurrent!)
             let NEWESTBUILD = NewestBuildDB.value as? Int
@@ -554,14 +464,6 @@ class HomeViewController: UIViewController {
                 .bold("LDU: ")
                 .normal("\(HomeViewController.HomeVar.LDU)")
             HomeTV.attributedText = formattedString
-            /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                 HomeTV.textColor = UIColor.white
-                 HomeTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-             }
-             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                 HomeTV.textColor = UIColor.black
-                 HomeTV.backgroundColor = UIColor.white
-             }*/
             changeAppearance()
             timer.invalidate()
             loader.stopAnimating()

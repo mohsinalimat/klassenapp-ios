@@ -100,33 +100,11 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         
         ContentTextView = UITextView(frame: CGRect(x: 8, y: 285, width: view.frame.width - 16, height: view.frame.height - 355))
         ContentTextView.isEditable = true
-        // ContentTextView.text = "Text hier eingeben"
-        // ContentTextView.textColor = UIColor.lightGray
         ContentTextView.placeholder = "Text hier eingeben"
         ContentTextView.font = .systemFont(ofSize: 16)
         
         view.addSubview(ContentTextView)
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             ContentTextView.textColor = style.darkText
-             ContentTextView.backgroundColor = style.darkBackground
-             Picker.backgroundColor = style.darkBackground
-             Coloro = style.darkText
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             ContentTextView.textColor = style.lightText
-             ContentTextView.backgroundColor = style.lightBackground
-             Picker.backgroundColor = style.lightBackground
-             Picker.tintColor = style.lightText
-             Coloro = style.lightText
-             setNeedsStatusBarAppearanceUpdate()
-         } */
+        
         changeAppearance()
     }
     
@@ -192,9 +170,6 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
-        else {
-            // Fallback on earlier versions
-        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -251,7 +226,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
                 ref.child("requests").child(random).child("time").setValue(fulldate)
                 ref.child("requests").child(random).child("client").setValue("iOS")
                 view.endEditing(true)
-                var requests = UserDefaults.standard.stringArray(forKey: "RequestLog")
+                let requests = UserDefaults.standard.stringArray(forKey: "RequestLog")
                 var request2: [String] = []
                 if requests != nil {
                     request2.append(contentsOf: requests!)
@@ -309,14 +284,12 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
 }
 
 extension UITextView: UITextViewDelegate {
-    /// Resize the placeholder when the UITextView bounds change
     open override var bounds: CGRect {
         didSet {
             resizePlaceholder()
         }
     }
     
-    /// The UITextView placeholder text
     public var placeholder: String? {
         get {
             var placeholderText: String?
@@ -338,16 +311,12 @@ extension UITextView: UITextViewDelegate {
         }
     }
     
-    /// When the UITextView did change, show or hide the label based on if the UITextView is empty or not
-    ///
-    /// - Parameter textView: The UITextView that got updated
     public func textViewDidChange(_ textView: UITextView) {
         if let placeholderLabel = self.viewWithTag(100) as? UILabel {
             placeholderLabel.isHidden = text.characters.count > 0
         }
     }
     
-    /// Resize the placeholder UILabel to make sure it's in the same position as the UITextView text
     private func resizePlaceholder() {
         if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
             let labelX = textContainer.lineFragmentPadding
@@ -359,7 +328,6 @@ extension UITextView: UITextViewDelegate {
         }
     }
     
-    /// Adds a placeholder UILabel to this UITextView
     private func addPlaceholder(_ placeholderText: String) {
         let placeholderLabel = UILabel()
         

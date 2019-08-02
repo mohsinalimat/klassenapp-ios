@@ -145,20 +145,7 @@ class HwRequestLogViewController: UIViewController, UITableViewDelegate, UITable
         InfoTV.tableFooterView = UIView()
         
         changeAppearance()
-        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-             view.backgroundColor = style.darkBackground
-             navigationbar.backgroundColor = style.darkTitleBackground
-             navigationbar.titleLabel.textColor = style.darkText
-             InfoTV.backgroundColor = style.darkBackground
-             setNeedsStatusBarAppearanceUpdate()
-         }
-         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-             view.backgroundColor = style.lightBackground
-             navigationbar.backgroundColor = style.lightTitleBackground
-             navigationbar.titleLabel.textColor = style.lightText
-             InfoTV.backgroundColor = style.lightBackground
-             setNeedsStatusBarAppearanceUpdate()
-         } */
+        
         InfoTV.allowsSelection = false
         InfoTV.estimatedRowHeight = 85
         InfoTV.rowHeight = UITableView.automaticDimension
@@ -213,9 +200,6 @@ class HwRequestLogViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-        }
-        else {
-            // Fallback on earlier versions
         }
     }
     
