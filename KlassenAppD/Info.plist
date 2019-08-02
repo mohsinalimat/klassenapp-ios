@@ -14,53 +14,25 @@
 	<dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
-			<key>AppIconBlueIco</key>
+			<key>BlueGreenQuer9D</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>AppIconBlueIco</string>
+					<string>BlueGreenQuer9D</string>
 				</array>
 			</dict>
-			<key>AppIconCustomIco</key>
+			<key>PinkOrangeHoch9D</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>AppIconCustomIco</string>
+					<string>PinkOrangeHoch9D</string>
 				</array>
 			</dict>
-			<key>AppIconGoldIco</key>
+			<key>RedYellowQuer9D</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>AppIconGoldIco</string>
-				</array>
-			</dict>
-			<key>AppIconGrayIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconGrayIco</string>
-				</array>
-			</dict>
-			<key>AppIconGreenIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconGreenIco</string>
-				</array>
-			</dict>
-			<key>AppIconPinkIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconPinkIco</string>
-				</array>
-			</dict>
-			<key>AppIconRedGoldIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconRedGoldIco</string>
+					<string>RedYellowQuer9D</string>
 				</array>
 			</dict>
 		</dict>
@@ -111,7 +83,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2630</string>
+	<string>2727</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>

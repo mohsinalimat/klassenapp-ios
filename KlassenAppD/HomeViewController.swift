@@ -35,6 +35,17 @@ class HomeViewController: UIViewController {
     }
     
     func viewLoadSetup() {
+        
+        
+        changeAppearance()
+        
+       /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            setAppearance(mode: "dark")
+        }
+        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            setAppearance(mode: "light")
+        }*/
+        
         loader = NVActivityIndicatorView(frame: CGRect(x: view.center.x - 25, y: view.center.y - 25, width: 50, height: 50))
         loader.type = .ballPulseSync
         loader.color = UIColor.red
@@ -48,26 +59,6 @@ class HomeViewController: UIViewController {
         
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
-        }
-        
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            
-            view.backgroundColor = style.darkBackground
-            HomeTitleBackground.backgroundColor = style.darkTitleBackground
-            HomeTitle.textColor = style.darkText
-            HomeTV.textColor = style.darkText
-            HomeTV.backgroundColor = style.darkBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            
-            view.backgroundColor = style.lightBackground
-            HomeTitleBackground.backgroundColor = style.lightTitleBackground
-            
-            HomeTitle.textColor = style.lightText
-            HomeTV.textColor = style.lightText
-            HomeTV.backgroundColor = style.lightBackground
-            setNeedsStatusBarAppearanceUpdate()
         }
         
         var ref: DatabaseReference!
@@ -98,12 +89,154 @@ class HomeViewController: UIViewController {
         }
     }
     
+    /*override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            let userInterfaceStyle = traitCollection.userInterfaceStyle
+            
+            if userInterfaceStyle == .dark {
+                UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+                setAppearance(mode: "dark")
+            }
+            else if userInterfaceStyle == .light || userInterfaceStyle == .unspecified {
+                UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+                setAppearance(mode: "light")
+            }
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewLoadSetup()
+    }
+    
+    /*func setAppearance(mode: String) {
+        if mode == "dark" {
+            view.backgroundColor = style.darkBackground
+            HomeTitleBackground.backgroundColor = style.darkTitleBackground
+            HomeTitle.textColor = style.darkText
+            HomeTV.textColor = style.darkText
+            HomeTV.backgroundColor = style.darkBackground
+            setNeedsStatusBarAppearanceUpdate()
+        }
+        else if mode == "light" {
+            view.backgroundColor = style.lightBackground
+            HomeTitleBackground.backgroundColor = style.lightTitleBackground
+                        
+            HomeTitle.textColor = style.lightText
+            HomeTV.textColor = style.lightText
+            HomeTV.backgroundColor = style.lightBackground
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }*/
+    
+    func changeAppearance() {
+        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    print("hi")
+                    view.backgroundColor = style.darkBackground
+                    HomeTitleBackground.backgroundColor = style.darkTitleBackground
+                    HomeTitle.textColor = style.darkText
+                    HomeTV.textColor = style.darkText
+                    HomeTV.backgroundColor = style.darkBackground
+                    self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
+                    self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    view.backgroundColor = style.lightBackground
+                    HomeTitleBackground.backgroundColor = style.lightTitleBackground
+                    HomeTitle.textColor = style.lightText
+                    HomeTV.textColor = style.lightText
+                    HomeTV.backgroundColor = style.lightBackground
+                    self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
+                    self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                HomeTitleBackground.backgroundColor = style.darkTitleBackground
+                HomeTitle.textColor = style.darkText
+                HomeTV.textColor = style.darkText
+                HomeTV.backgroundColor = style.darkBackground
+                self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
+                self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = style.lightBackground
+                HomeTitleBackground.backgroundColor = style.lightTitleBackground
+                HomeTitle.textColor = style.lightText
+                HomeTV.textColor = style.lightText
+                HomeTV.backgroundColor = style.lightBackground
+                self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
+                self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            
+            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                    self.changeAppearance()
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+    }
+    
+   override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+    if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if #available(iOS 13.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+            style = .lightContent
+        }
+        else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                style = .darkContent
+        }
+        }
+    }
+    else {
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                       style = .lightContent
+                   }
+                   else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                           style = .darkContent
+                   }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                style = .lightContent
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    style = .default
+            }
+        }
+    }
+        return style
     }
     
     func reloadData() {
@@ -213,18 +346,13 @@ class HomeViewController: UIViewController {
             let NEWSLSNAP = NewsLSnap.value as? String
             HomeViewController.HomeVar.NewsL = NEWSLSNAP!
         }
+        ref.child("homework").child("Week1").child("Datum").observeSingleEvent(of: .value) { (HomeworkWeekSnap) in
+            let HWWeek = HomeworkWeekSnap.value as? String
+            HomeViewController.HomeVar.HomeworkWeek = HWWeek!
+        }
         ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { NewestBuildDB in
             let NEWESTBUILD = NewestBuildDB.value as? String
             HomeViewController.HomeVar.NewestVersion = NEWESTBUILD!
-        }
-        let dictionary = Bundle.main.infoDictionary!
-        let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
-        
-        if versionCurrent.compare(HomeViewController.HomeVar.NewestVersion, options: .numeric) == .orderedAscending {
-            HomeViewController.HomeVar.NewVersionAvailable = "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)"
-        }
-        else {
-            HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
         }
         
         if currentday == 2 {
@@ -289,14 +417,22 @@ class HomeViewController: UIViewController {
             self.loader.stopAnimating()
         }
         
-        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { NewestBuildDB in
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestVersionSnap) in
+            HomeViewController.HomeVar.NewestVersion = NewestVersionSnap.value as! String
+        }
+        
+        ref.child("standardData").child("iosCurrentVer").child("build").observeSingleEvent(of: .value) { NewestBuildDB in
             let dictionary = Bundle.main.infoDictionary!
             let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
-            let NEWESTBUILD = NewestBuildDB.value as? String
-            HomeViewController.HomeVar.NewestVersion = NEWESTBUILD ?? versionCurrent
+            let buildCurrent = dictionary["CFBundleVersion"] as? String
+            let build = Int(buildCurrent!)
+            let NEWESTBUILD = NewestBuildDB.value as? Int
             
-            if versionCurrent.compare(NEWESTBUILD!, options: .numeric) == .orderedAscending {
+            print("\(build) | \(NEWESTBUILD)")
+            
+            if build! < NEWESTBUILD! {
                 if HomeVar.UpdateReminderSession != "1" {
+                    HomeViewController.HomeVar.NewVersionAvailable = "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion) (Build: \(NEWESTBUILD!))"
                     ref.child("standardData").child("iosCurrentVer").child("description").observeSingleEvent(of: .value, with: { Descrip in
                         let UpdateDescripton = Descrip.value as! String
                         
@@ -328,10 +464,16 @@ class HomeViewController: UIViewController {
                             HomeVar.UpdateReminderSession = "1"
                         })
                         
-                        UpdateAlert.showInfo("Update verfügbar (Version: \(NEWESTBUILD!))", subTitle: "Ein neues Update ist verfügbar mit folgenden Änderungen:\n\n \(UpdateDescripton)\n\nEs wird empfohlen das Update zu installieren.")
+                        UpdateAlert.showInfo("Update verfügbar (Version: \(HomeViewController.HomeVar.NewestVersion) | Build: \(NEWESTBUILD!)", subTitle: "Ein neues Update ist verfügbar mit folgenden Änderungen:\n\n \(UpdateDescripton)\n\nEs wird empfohlen das Update zu installieren.")
                         
                     })
                 }
+                else {
+                    HomeViewController.HomeVar.NewVersionAvailable = "Neues Update verfügbar. Neuste Version: \(HomeViewController.HomeVar.NewestVersion)"
+                }
+            }
+            else {
+                 HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
             }
         }
     }
@@ -415,17 +557,20 @@ class HomeViewController: UIViewController {
                 .normal("\(HomeViewController.HomeVar.HabmTime)\n")
                 .bold("Speiseplanwoche: ")
                 .normal("\(HomeViewController.HomeVar.essenDate)\n")
+                .bold("Hausaufgabenwoche: ")
+                .normal("\(HomeViewController.HomeVar.HomeworkWeek)\n")
                 .bold("LDU: ")
                 .normal("\(HomeViewController.HomeVar.LDU)")
             HomeTV.attributedText = formattedString
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+          /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
                 HomeTV.textColor = UIColor.white
                 HomeTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
             }
             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
                 HomeTV.textColor = UIColor.black
                 HomeTV.backgroundColor = UIColor.white
-            }
+            }*/
+            changeAppearance()
             timer.invalidate()
             loader.stopAnimating()
             HomeTV.scrollRangeToVisible(NSMakeRange(0, 0))
@@ -437,16 +582,6 @@ class HomeViewController: UIViewController {
         return String((0...length - 1).map { _ in letters.randomElement()! })
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        var style: UIStatusBarStyle!
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            style = .lightContent
-        }
-        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            style = .default
-        }
-        return style
-    }
     
     struct HomeVar {
         static var Full = NSMutableAttributedString()
@@ -464,6 +599,7 @@ class HomeViewController: UIViewController {
         static var NewVersionAvailable = ""
         static var LDU = ""
         static var HomeworkToday = ""
+        static var HomeworkWeek = ""
     }
     
     struct AutomaticMover {

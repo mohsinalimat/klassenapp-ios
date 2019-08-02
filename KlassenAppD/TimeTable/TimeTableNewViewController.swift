@@ -64,7 +64,7 @@ class TimeTableNewViewController: UIViewController {
             view.addSubview(sbutton)
         }
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+        /*if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = style.darkBackground
             navigationbar.backgroundColor = style.darkTitleBackground
             navigationbar.titleLabel.textColor = style.darkText
@@ -76,10 +76,62 @@ class TimeTableNewViewController: UIViewController {
             navigationbar.backgroundColor = style.lightTitleBackground
             navigationbar.titleLabel.textColor = style.lightText
             setNeedsStatusBarAppearanceUpdate()
-        }
+        }*/
+        
+        changeAppearance()
         
         // Do any additional setup after loading the view.
     }
+    
+    func changeAppearance() {
+           if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+               if #available(iOS 13.0, *) {
+                   if traitCollection.userInterfaceStyle == .dark {
+                    view.backgroundColor = style.darkBackground
+                    navigationbar.backgroundColor = style.darkTitleBackground
+                    navigationbar.titleLabel.textColor = style.darkText
+                    setNeedsStatusBarAppearanceUpdate()
+                   }
+                   else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                      view.backgroundColor = style.lightBackground
+                       navigationbar.backgroundColor = style.lightTitleBackground
+                       navigationbar.titleLabel.textColor = style.lightText
+                       setNeedsStatusBarAppearanceUpdate()
+                   }
+               }
+           }
+           else {
+               if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                   view.backgroundColor = style.darkBackground
+                   navigationbar.backgroundColor = style.darkTitleBackground
+                   navigationbar.titleLabel.textColor = style.darkText
+                   setNeedsStatusBarAppearanceUpdate()
+               }
+               else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                   view.backgroundColor = style.lightBackground
+                   navigationbar.backgroundColor = style.lightTitleBackground
+                   navigationbar.titleLabel.textColor = style.lightText
+                   setNeedsStatusBarAppearanceUpdate()
+               }
+           }
+       }
+       
+       override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+           super.traitCollectionDidChange(previousTraitCollection)
+           
+           if #available(iOS 12.0, *) {
+               
+               if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                       self.changeAppearance()
+                   self.setNeedsStatusBarAppearanceUpdate()
+               }
+               
+           } else {
+               // Fallback on earlier versions
+           }
+           
+           
+       }
     
     @objc func mainReciever(sender: UIButton) {
         if sender.title(for: .normal) == "Montag" {

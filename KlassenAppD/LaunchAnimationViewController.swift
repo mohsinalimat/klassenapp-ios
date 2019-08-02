@@ -29,13 +29,13 @@ class LaunchAnimationViewController: UIViewController {
         revealingSplashView.duration = 1
         self.view.addSubview(revealingSplashView)
         revealingSplashView.startAnimation {
-            if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
+            /*if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
                 let vc = (self.storyboard?.instantiateViewController(withIdentifier: "welcome1"))!
                 self.present(vc, animated: true)
-            }
-            else {
+            }*/
+           // else {
                 self.performSegue(withIdentifier: "directtotb", sender: nil)
-            }
+            //}
         }
     }
 

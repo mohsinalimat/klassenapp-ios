@@ -43,7 +43,7 @@ class HomeworkWeekViewController: UIViewController {
         hwtextview.font = .systemFont(ofSize: 16)
         
         view.addSubview(hwtextview)
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+        /*if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             view.backgroundColor = style.darkBackground
             navigationbar.backgroundColor = style.darkTitleBackground
             navigationbar.titleLabel.textColor = style.darkText
@@ -58,7 +58,9 @@ class HomeworkWeekViewController: UIViewController {
             hwtextview.textColor = style.lightText
             hwtextview.backgroundColor = style.lightBackground
             setNeedsStatusBarAppearanceUpdate()
-        }
+        }*/
+        
+        changeAppearance()
         
         reloadData()
         
@@ -68,6 +70,64 @@ class HomeworkWeekViewController: UIViewController {
         ref.child("homework").observe(.childChanged) { _ in
             self.reloadData()
         }
+    }
+    
+    func changeAppearance() {
+        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                  view.backgroundColor = style.darkBackground
+                  navigationbar.backgroundColor = style.darkTitleBackground
+                  navigationbar.titleLabel.textColor = style.darkText
+                  hwtextview.textColor = style.darkText
+                  hwtextview.backgroundColor = style.darkBackground
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    view.backgroundColor = style.lightBackground
+                    navigationbar.backgroundColor = style.lightTitleBackground
+                    navigationbar.titleLabel.textColor = style.lightText
+                    hwtextview.textColor = style.lightText
+                    hwtextview.backgroundColor = style.lightBackground
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                navigationbar.backgroundColor = style.darkTitleBackground
+                navigationbar.titleLabel.textColor = style.darkText
+                hwtextview.textColor = style.darkText
+                hwtextview.backgroundColor = style.darkBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = style.lightBackground
+                navigationbar.backgroundColor = style.lightTitleBackground
+                navigationbar.titleLabel.textColor = style.lightText
+                hwtextview.textColor = style.lightText
+                hwtextview.backgroundColor = style.lightBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            
+            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                    self.changeAppearance()
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
     }
     
     @objc func reloadData() {

@@ -30,35 +30,49 @@ class SettingsViewController: UIViewController {
     var style = Appearances()
     
     @IBAction func AppearanceAction(_ sender: Any) {
+        
         switch AppearanceControl.selectedSegmentIndex {
             
-        case 0: //Light
+        case 0: // Automatic
             
-            UIView.animate(withDuration: 0.1) {
-                self.view.backgroundColor = self.style.lightBackground
-                self.backgroundTitleView.backgroundColor = self.style.lightTitleBackground
-                self.SettingsLabel.textColor = self.style.lightText
-                self.DarkmodeLabel.textColor = self.style.lightText
-                self.AppearanceLabel.textColor = self.style.lightText
-                self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
-                self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+            UserDefaults.standard.set(0, forKey: "ManualAppearance")
+            
+            if #available(iOS 12.0, *) {
+                let status = traitCollection.userInterfaceStyle
+                
+                if status == .dark {
+                    UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+                }
+                else if status == .light {
+                    UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+                }
+                
+                UIView.animate(withDuration: 0.1) {
+                    self.changeAppearance()
+                }
+                self.setNeedsStatusBarAppearanceUpdate()
+                
+            } else {
+                // Fallback on earlier versions
             }
+            
+            
+        case 1: //Light
+            
+            UserDefaults.standard.set(1, forKey: "ManualAppearance")
             UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+            UIView.animate(withDuration: 0.1) {
+                self.changeAppearance()
+            }
             self.setNeedsStatusBarAppearanceUpdate()
             
-        case 1: //Dark
+        case 2: //Dark
             
-            UIView.animate(withDuration: 0.1) {
-                self.view.backgroundColor = self.style.darkBackground
-                self.backgroundTitleView.backgroundColor = self.style.darkTitleBackground
-                self.SettingsLabel.textColor = self.style.darkText
-                self.DarkmodeLabel.textColor = self.style.darkText
-                self.AppearanceLabel.textColor = self.style.darkText
-                self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
-                self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
-            }
-            
+            UserDefaults.standard.set(1, forKey: "ManualAppearance")
             UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+            UIView.animate(withDuration: 0.1) {
+                self.changeAppearance()
+            }
             setNeedsStatusBarAppearanceUpdate()
             
         default:
@@ -67,6 +81,106 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    func changeAppearance() {
+        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    self.view.backgroundColor = self.style.darkBackground
+                    self.backgroundTitleView.backgroundColor = self.style.darkTitleBackground
+                    self.SettingsLabel.textColor = self.style.darkText
+                    self.DarkmodeLabel.textColor = self.style.darkText
+                    self.AppearanceLabel.textColor = self.style.darkText
+                    self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
+                    self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    self.view.backgroundColor = self.style.lightBackground
+                    self.backgroundTitleView.backgroundColor = self.style.lightTitleBackground
+                    self.SettingsLabel.textColor = self.style.lightText
+                    self.DarkmodeLabel.textColor = self.style.lightText
+                    self.AppearanceLabel.textColor = self.style.lightText
+                    self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
+                    self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                self.view.backgroundColor = self.style.darkBackground
+                self.backgroundTitleView.backgroundColor = self.style.darkTitleBackground
+                self.SettingsLabel.textColor = self.style.darkText
+                self.DarkmodeLabel.textColor = self.style.darkText
+                self.AppearanceLabel.textColor = self.style.darkText
+                self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
+                self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                self.view.backgroundColor = self.style.lightBackground
+                self.backgroundTitleView.backgroundColor = self.style.lightTitleBackground
+                self.SettingsLabel.textColor = self.style.lightText
+                self.DarkmodeLabel.textColor = self.style.lightText
+                self.AppearanceLabel.textColor = self.style.lightText
+                self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
+                self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            
+            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+                UIView.animate(withDuration: 0.1) {
+                    self.changeAppearance()
+                }
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+    }
+    
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+    if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if #available(iOS 13.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+            style = .lightContent
+        }
+        else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                style = .darkContent
+        }
+        }
+    }
+    else {
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                       style = .lightContent
+                   }
+                   else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                           style = .darkContent
+                   }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                style = .lightContent
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    style = .default
+            }
+        }
+    }
+        return style
+    }
     
     @IBAction func InformationForRequestsAction(_ sender: Any) {
         if #available(iOS 10.0, *) {
@@ -76,17 +190,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        var style: UIStatusBarStyle!
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            style = .lightContent
-        } else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            style = .default
-        }
-        return style
-    }
-    
-    @IBAction func DarkmodeSwitch(_ sender: UISwitch) {
+   /* @IBAction func DarkmodeSwitch(_ sender: UISwitch) {
         if sender.isOn == true {
                 self.view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
                 self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
@@ -107,7 +211,7 @@ class SettingsViewController: UIViewController {
                 self.tabBarController!.tabBar.barTintColor = .white
                 self.tabBarController!.tabBar.tintColor = UIColor(red: 0.00, green: 0.48, blue: 1.00, alpha: 1.0)
         }
-    }
+    }*/
     
     @IBAction func SiriShortcutReadHomework(_ sender: UISwitch) {
         if sender.isOn == true {
@@ -147,27 +251,39 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = style.darkBackground
-            backgroundTitleView.backgroundColor = style.darkTitleBackground
-            SettingsLabel.textColor = style.darkText
-            DarkmodeLabel.textColor = style.darkText
-            AppearanceLabel.textColor = style.darkText
-            setNeedsStatusBarAppearanceUpdate()
-            
-            DarkmodeSwitchOut.setOn(true, animated: false)
-            AppearanceControl.selectedSegmentIndex = 1
+        if #available(iOS 13.0, *) {
+            AppearanceControl.setEnabled(true, forSegmentAt: 0)
         }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = style.lightBackground
-            backgroundTitleView.backgroundColor = style.lightTitleBackground
-            SettingsLabel.textColor = style.lightText
-            DarkmodeLabel.textColor = style.lightText
-            AppearanceLabel.textColor = style.lightText
-            setNeedsStatusBarAppearanceUpdate()
-            
-            DarkmodeSwitchOut.setOn(false, animated: false)
+        else {
+            AppearanceControl.setEnabled(false, forSegmentAt: 0)
+            UserDefaults.standard.set(1, forKey: "ManualAppearance")
+        }
+        
+        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 1 {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                /*view.backgroundColor = style.darkBackground
+                backgroundTitleView.backgroundColor = style.darkTitleBackground
+                SettingsLabel.textColor = style.darkText
+                DarkmodeLabel.textColor = style.darkText
+                AppearanceLabel.textColor = style.darkText*/
+                changeAppearance()
+                setNeedsStatusBarAppearanceUpdate()
+                AppearanceControl.selectedSegmentIndex = 2
+            }
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                /*view.backgroundColor = style.lightBackground
+                backgroundTitleView.backgroundColor = style.lightTitleBackground
+                SettingsLabel.textColor = style.lightText
+                DarkmodeLabel.textColor = style.lightText
+                AppearanceLabel.textColor = style.lightText*/
+                changeAppearance()
+                setNeedsStatusBarAppearanceUpdate()
+                AppearanceControl.selectedSegmentIndex = 1
+            }
+        }
+        else {
             AppearanceControl.selectedSegmentIndex = 0
+            changeAppearance()
         }
     }
     

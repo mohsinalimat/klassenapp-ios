@@ -12,9 +12,37 @@ import UIKit
 class WholeTabBarController: SwipeableTabBarController {
     var style = Appearances()
     
+    
+    /*override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+           super.traitCollectionDidChange(previousTraitCollection)
+           
+           if #available(iOS 12.0, *) {
+               let userInterfaceStyle = traitCollection.userInterfaceStyle
+               
+               if userInterfaceStyle == .dark {
+                   UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+                    tabBar.barTintColor = style.darkBarTintColor
+                    tabBar.tintColor = style.darkTintColor
+                    self.setNeedsStatusBarAppearanceUpdate()
+               }
+               else if userInterfaceStyle == .light || userInterfaceStyle == .unspecified {
+                   UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+                    tabBar.barTintColor = style.lightBarTintColor
+                    tabBar.tintColor = style.lightTintColor
+                    self.setNeedsStatusBarAppearanceUpdate()
+               }
+               
+           } else {
+               // Fallback on earlier versions
+           }
+           
+           
+       }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeAnimatedTransitioning?.animationType = SwipeAnimationType.sideBySide
+        
         
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
             tabBar.barTintColor = style.darkBarTintColor
@@ -31,6 +59,17 @@ class WholeTabBarController: SwipeableTabBarController {
         tabBarItems[2].imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         tabBarItems[3].imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         tabBarItems[4].imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+    }
+    
+    func setAppearance(mode: String) {
+        if mode == "light" {
+            tabBar.barTintColor = style.lightBarTintColor
+            tabBar.tintColor = style.lightTintColor
+        }
+        else if mode == "dark" {
+            tabBar.barTintColor = style.darkBarTintColor
+            tabBar.tintColor = style.darkTintColor
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

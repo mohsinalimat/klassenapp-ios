@@ -23,20 +23,15 @@
 		3A3BE9F12299BA6100F67AA0 /* FoodAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */; };
 		3A3BE9F32299C53500F67AA0 /* TimeTableAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BE9F22299C53500F67AA0 /* TimeTableAllViewController.swift */; };
 		3A46464F21667DC9001C2B30 /* LaunchAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */; };
-		3A5B8AB921FBB7F900669F2B /* AppIconCustomIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */; };
+		3A5B114322F061160030BC3F /* CurrentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B114222F061160030BC3F /* CurrentIcon.png */; };
 		3A6B2C2422A1940900EBB792 /* HwRequestLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */; };
+		3A6D0B3722F0613900A0126D /* BlueGreenQuer9D.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6D0B3622F0613800A0126D /* BlueGreenQuer9D.png */; };
+		3A6D0B3922F0613E00A0126D /* PinkOrangeHoch9D.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6D0B3822F0613E00A0126D /* PinkOrangeHoch9D.png */; };
+		3A6D0B3B22F0614300A0126D /* RedYellowQuer9D.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6D0B3A22F0614300A0126D /* RedYellowQuer9D.png */; };
 		3A76C3B122E21D5400DD5EAA /* ChangeAppIconNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A76C3B022E21D5400DD5EAA /* ChangeAppIconNewViewController.swift */; };
 		3A76C3B322E21F7700DD5EAA /* AppImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A76C3B222E21F7700DD5EAA /* AppImageTableViewCell.swift */; };
 		3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A82CDE6218E0CC2009DE910 /* Main.storyboard */; };
 		3A8932B7229858FC000E6395 /* PlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8932B6229858FC000E6395 /* PlansViewController.swift */; };
-		3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */; };
-		3A9192BD22511C8C00ED32F9 /* AppIconRedGoldIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */; };
-		3AA0E64721FA100A0012ED20 /* AppIconGrayIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */; };
-		3AA0E64921FA11560012ED20 /* AppIconBlueIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64821FA11560012ED20 /* AppIconBlueIco.png */; };
-		3AA0E64B21FA11710012ED20 /* AppIconGoldIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64A21FA11710012ED20 /* AppIconGoldIco.png */; };
-		3AA0E64D21FA11790012ED20 /* AppIconGreenIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64C21FA11790012ED20 /* AppIconGreenIco.png */; };
-		3AA0E64F21FA11800012ED20 /* AppIconPinkIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E64E21FA117F0012ED20 /* AppIconPinkIco.png */; };
-		3AA0E65121FA16EE0012ED20 /* AppIconNormalIco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */; };
 		3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */; };
 		3AA8D13022E22EC600911D0C /* ChangeColorFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8D12F22E22EC600911D0C /* ChangeColorFullViewController.swift */; };
 		3AABCEE7216503FC00395E99 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AABCEE1216503FB00395E99 /* MGSwipeTableCell.m */; };
@@ -125,24 +120,19 @@
 		3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllViewController.swift; sourceTree = "<group>"; };
 		3A3BE9F22299C53500F67AA0 /* TimeTableAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableAllViewController.swift; sourceTree = "<group>"; };
 		3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationViewController.swift; sourceTree = "<group>"; };
-		3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCustomIco.png; sourceTree = "<group>"; };
+		3A5B114222F061160030BC3F /* CurrentIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CurrentIcon.png; sourceTree = "<group>"; };
 		3A5D31E22164DF020064B9EA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwRequestLogViewController.swift; sourceTree = "<group>"; };
+		3A6D0B3622F0613800A0126D /* BlueGreenQuer9D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueGreenQuer9D.png; sourceTree = "<group>"; };
+		3A6D0B3822F0613E00A0126D /* PinkOrangeHoch9D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinkOrangeHoch9D.png; sourceTree = "<group>"; };
+		3A6D0B3A22F0614300A0126D /* RedYellowQuer9D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedYellowQuer9D.png; sourceTree = "<group>"; };
 		3A76C3B022E21D5400DD5EAA /* ChangeAppIconNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconNewViewController.swift; sourceTree = "<group>"; };
 		3A76C3B222E21F7700DD5EAA /* AppImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3A7C41BE21275C010099D805 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A82CDE7218E0CC2009DE910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A8932B6229858FC000E6395 /* PlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewController.swift; sourceTree = "<group>"; };
-		3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconCurrentIco.png; sourceTree = "<group>"; };
-		3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconRedGoldIco.png; sourceTree = "<group>"; };
 		3A99D713210BAC3B0038CE25 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		3A99D728210BAEC40038CE25 /* KlassenAppD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlassenAppD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconGrayIco.png; sourceTree = "<group>"; };
-		3AA0E64821FA11560012ED20 /* AppIconBlueIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconBlueIco.png; sourceTree = "<group>"; };
-		3AA0E64A21FA11710012ED20 /* AppIconGoldIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconGoldIco.png; sourceTree = "<group>"; };
-		3AA0E64C21FA11790012ED20 /* AppIconGreenIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconGreenIco.png; sourceTree = "<group>"; };
-		3AA0E64E21FA117F0012ED20 /* AppIconPinkIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconPinkIco.png; sourceTree = "<group>"; };
-		3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIconNormalIco.png; sourceTree = "<group>"; };
 		3AA4A90E21D64FD6000240CC /* AppInfosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfosViewController.swift; sourceTree = "<group>"; };
 		3AA8D12F22E22EC600911D0C /* ChangeColorFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeColorFullViewController.swift; path = KlassenAppD/Settings/ChangeAppIcon/ChangeColorFullViewController.swift; sourceTree = SOURCE_ROOT; };
 		3AABCEE1216503FB00395E99 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
@@ -327,15 +317,10 @@
 		3A2CB09C22623578002F0E0A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3A9192BA22511B6B00ED32F9 /* AppIconCurrentIco.png */,
-				3AA0E65021FA16EE0012ED20 /* AppIconNormalIco.png */,
-				3A5B8AB821FBB7F800669F2B /* AppIconCustomIco.png */,
-				3AA0E64E21FA117F0012ED20 /* AppIconPinkIco.png */,
-				3AA0E64C21FA11790012ED20 /* AppIconGreenIco.png */,
-				3AA0E64A21FA11710012ED20 /* AppIconGoldIco.png */,
-				3AA0E64821FA11560012ED20 /* AppIconBlueIco.png */,
-				3A9192BC22511C8C00ED32F9 /* AppIconRedGoldIco.png */,
-				3AA0E64621FA100A0012ED20 /* AppIconGrayIco.png */,
+				3A5B114222F061160030BC3F /* CurrentIcon.png */,
+				3A6D0B3A22F0614300A0126D /* RedYellowQuer9D.png */,
+				3A6D0B3822F0613E00A0126D /* PinkOrangeHoch9D.png */,
+				3A6D0B3622F0613800A0126D /* BlueGreenQuer9D.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -675,20 +660,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5B8AB921FBB7F900669F2B /* AppIconCustomIco.png in Resources */,
-				3AA0E64F21FA11800012ED20 /* AppIconPinkIco.png in Resources */,
-				3AA0E64721FA100A0012ED20 /* AppIconGrayIco.png in Resources */,
 				3A0F571B207BD0B700D9F701 /* LaunchScreen.storyboard in Resources */,
-				3AA0E64921FA11560012ED20 /* AppIconBlueIco.png in Resources */,
-				3AA0E64B21FA11710012ED20 /* AppIconGoldIco.png in Resources */,
 				3A19530622648F95006C4FC5 /* colors.json in Resources */,
-				3AA0E64D21FA11790012ED20 /* AppIconGreenIco.png in Resources */,
 				3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */,
-				3A9192BB22511B6B00ED32F9 /* AppIconCurrentIco.png in Resources */,
 				3A0F5718207BD0B700D9F701 /* Assets.xcassets in Resources */,
+				3A6D0B3922F0613E00A0126D /* PinkOrangeHoch9D.png in Resources */,
 				3A82CDE8218E0CC2009DE910 /* Main.storyboard in Resources */,
-				3AA0E65121FA16EE0012ED20 /* AppIconNormalIco.png in Resources */,
-				3A9192BD22511C8C00ED32F9 /* AppIconRedGoldIco.png in Resources */,
+				3A5B114322F061160030BC3F /* CurrentIcon.png in Resources */,
+				3A6D0B3722F0613900A0126D /* BlueGreenQuer9D.png in Resources */,
+				3A6D0B3B22F0614300A0126D /* RedYellowQuer9D.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
