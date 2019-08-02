@@ -27,29 +27,28 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         cell?.textLabel?.numberOfLines = 0
         cell?.textLabel?.lineBreakMode = .byTruncatingTail
         
-        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
-                   if #available(iOS 13.0, *) {
-                       if traitCollection.userInterfaceStyle == .dark {
-                        cell!.textLabel!.textColor = style.darkText
-                        cell!.backgroundColor = style.darkBackground
-                       }
-                       else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
-                          cell!.textLabel!.textColor = style.lightText
-                          cell!.backgroundColor = style.lightBackground
-                       }
-                   }
-               }
-               else {
-                   if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                       cell!.textLabel!.textColor = style.darkText
-                       cell!.backgroundColor = style.darkBackground
-                   }
-                   else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                       cell!.textLabel!.textColor = style.lightText
-                       cell!.backgroundColor = style.lightBackground
-                   }
-               }
-        
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    cell!.textLabel!.textColor = style.darkText
+                    cell!.backgroundColor = style.darkBackground
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    cell!.textLabel!.textColor = style.lightText
+                    cell!.backgroundColor = style.lightBackground
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                cell!.textLabel!.textColor = style.darkText
+                cell!.backgroundColor = style.darkBackground
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                cell!.textLabel!.textColor = style.lightText
+                cell!.backgroundColor = style.lightBackground
+            }
+        }
         
         cell!.textLabel?.text = LIST[indexPath.row]
         return cell!
@@ -109,77 +108,76 @@ class RememberViewController: UIViewController, UITableViewDelegate, UITableView
         LIST.removeAll()
         LIST = UserDefaults.standard.stringArray(forKey: "RememberList") ?? [String]()
         
-       /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = style.darkBackground
-            navigationbar.backgroundColor = style.darkTitleBackground
-            navigationbar.titleLabel.textColor = style.darkText
-            TableViewRemember!.backgroundColor = style.darkBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = style.lightBackground
-            navigationbar.backgroundColor = style.lightTitleBackground
-            navigationbar.titleLabel.textColor = style.lightText
-            TableViewRemember!.backgroundColor = style.lightBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }*/
+        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+             view.backgroundColor = style.darkBackground
+             navigationbar.backgroundColor = style.darkTitleBackground
+             navigationbar.titleLabel.textColor = style.darkText
+             TableViewRemember!.backgroundColor = style.darkBackground
+             setNeedsStatusBarAppearanceUpdate()
+         }
+         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+             view.backgroundColor = style.lightBackground
+             navigationbar.backgroundColor = style.lightTitleBackground
+             navigationbar.titleLabel.textColor = style.lightText
+             TableViewRemember!.backgroundColor = style.lightBackground
+             setNeedsStatusBarAppearanceUpdate()
+         }*/
         changeAppearance()
     }
     
     func changeAppearance() {
-           if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
-               if #available(iOS 13.0, *) {
-                   if traitCollection.userInterfaceStyle == .dark {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
                     view.backgroundColor = style.darkBackground
                     navigationbar.backgroundColor = style.darkTitleBackground
                     navigationbar.titleLabel.textColor = style.darkText
                     TableViewRemember!.backgroundColor = style.darkBackground
                     setNeedsStatusBarAppearanceUpdate()
-                   }
-                   else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
-                      view.backgroundColor = style.lightBackground
-                      navigationbar.backgroundColor = style.lightTitleBackground
-                      navigationbar.titleLabel.textColor = style.lightText
-                      TableViewRemember!.backgroundColor = style.lightBackground
-                      setNeedsStatusBarAppearanceUpdate()
-                   }
-               }
-           }
-           else {
-               if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                   view.backgroundColor = style.darkBackground
-                   navigationbar.backgroundColor = style.darkTitleBackground
-                   navigationbar.titleLabel.textColor = style.darkText
-                   TableViewRemember!.backgroundColor = style.darkBackground
-                   setNeedsStatusBarAppearanceUpdate()
-               }
-               else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                   view.backgroundColor = style.lightBackground
-                   navigationbar.backgroundColor = style.lightTitleBackground
-                   navigationbar.titleLabel.textColor = style.lightText
-                   TableViewRemember!.backgroundColor = style.lightBackground
-                   setNeedsStatusBarAppearanceUpdate()
-               }
-           }
-       }
-       
-       override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-           super.traitCollectionDidChange(previousTraitCollection)
-           
-           if #available(iOS 12.0, *) {
-               
-               if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
-                       self.changeAppearance()
-                   self.setNeedsStatusBarAppearanceUpdate()
-                TableViewRemember.reloadData()
-               }
-               
-           } else {
-               // Fallback on earlier versions
-           }
-           
-           
-       }
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    view.backgroundColor = style.lightBackground
+                    navigationbar.backgroundColor = style.lightTitleBackground
+                    navigationbar.titleLabel.textColor = style.lightText
+                    TableViewRemember!.backgroundColor = style.lightBackground
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                navigationbar.backgroundColor = style.darkTitleBackground
+                navigationbar.titleLabel.textColor = style.darkText
+                TableViewRemember!.backgroundColor = style.darkBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = style.lightBackground
+                navigationbar.backgroundColor = style.lightTitleBackground
+                navigationbar.titleLabel.textColor = style.lightText
+                TableViewRemember!.backgroundColor = style.lightBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+                UIView.animate(withDuration: 0.1) {
+                    self.changeAppearance()
+                    self.TableViewRemember.reloadData()
+                }
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+        else {
+            // Fallback on earlier versions
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {}
     

@@ -11,9 +11,9 @@ import UIKit
 class Welcome1ViewController: UIViewController {
     @IBOutlet var WelcomeTitle: UILabel!
     @IBOutlet var NoteRightClick: UILabel!
-    
+
     var style = Appearances()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {

@@ -12,7 +12,7 @@ class WelcomeFunc1ViewController: UIViewController {
     @IBOutlet var FuncTitle: UILabel!
     @IBOutlet var FunctionsDes: UITextView!
     @IBOutlet var FunctionsMore: UILabel!
-    
+
     var style = Appearances()
 
     override func viewDidLoad() {

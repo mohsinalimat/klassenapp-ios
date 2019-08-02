@@ -23,19 +23,17 @@ class SettingsViewController: UIViewController {
     @IBOutlet var InformationForRequests: UIButton!
     @IBOutlet var SettingsLabel: UILabel!
     @IBOutlet var DarkmodeLabel: UILabel!
-    @IBOutlet weak var AppearanceControl: UISegmentedControl!
-    @IBOutlet weak var AppearanceLabel: UILabel!
+    @IBOutlet var AppearanceControl: UISegmentedControl!
+    @IBOutlet var AppearanceLabel: UILabel!
     @IBOutlet var backgroundTitleView: UIView!
     
     var style = Appearances()
     
     @IBAction func AppearanceAction(_ sender: Any) {
-        
-        switch AppearanceControl.selectedSegmentIndex {
-            
+        switch self.AppearanceControl.selectedSegmentIndex {
         case 0: // Automatic
             
-            UserDefaults.standard.set(0, forKey: "ManualAppearance")
+            UserDefaults.standard.set(1, forKey: "AutoAppearance")
             
             if #available(iOS 12.0, *) {
                 let status = traitCollection.userInterfaceStyle
@@ -51,24 +49,23 @@ class SettingsViewController: UIViewController {
                     self.changeAppearance()
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
-                
-            } else {
+            }
+            else {
                 // Fallback on earlier versions
             }
             
+        case 1: // Light
             
-        case 1: //Light
-            
-            UserDefaults.standard.set(1, forKey: "ManualAppearance")
+            UserDefaults.standard.set(0, forKey: "AutoAppearance")
             UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
             UIView.animate(withDuration: 0.1) {
                 self.changeAppearance()
             }
             self.setNeedsStatusBarAppearanceUpdate()
             
-        case 2: //Dark
+        case 2: // Dark
             
-            UserDefaults.standard.set(1, forKey: "ManualAppearance")
+            UserDefaults.standard.set(0, forKey: "AutoAppearance")
             UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
             UIView.animate(withDuration: 0.1) {
                 self.changeAppearance()
@@ -77,12 +74,11 @@ class SettingsViewController: UIViewController {
             
         default:
             break
-            
         }
     }
     
     func changeAppearance() {
-        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
             if #available(iOS 13.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
                     self.view.backgroundColor = self.style.darkBackground
@@ -134,84 +130,82 @@ class SettingsViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         
         if #available(iOS 12.0, *) {
-            
-            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+            if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
                 UIView.animate(withDuration: 0.1) {
                     self.changeAppearance()
                 }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-            
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        
-    }
-    
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-        var style: UIStatusBarStyle!
-    if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
-        if #available(iOS 13.0, *) {
-            if traitCollection.userInterfaceStyle == .dark {
-            style = .lightContent
-        }
-        else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
-                style = .darkContent
-        }
-        }
-    }
-    else {
-        if #available(iOS 13.0, *) {
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                       style = .lightContent
-                   }
-                   else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                           style = .darkContent
-                   }
         }
         else {
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                style = .lightContent
-            }
-            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                    style = .default
-            }
+            // Fallback on earlier versions
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    style = .lightContent
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    style = .darkContent
+                }
+            }
+        }
+        else {
+            if #available(iOS 13.0, *) {
+                if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                    style = .lightContent
+                }
+                else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    style = .darkContent
+                }
+            }
+            else {
+                if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                    style = .lightContent
+                }
+                else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    style = .default
+                }
+            }
+        }
         return style
     }
     
     @IBAction func InformationForRequestsAction(_ sender: Any) {
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
-        } else {
+        }
+        else {
             UIApplication.shared.openURL(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
         }
     }
     
-   /* @IBAction func DarkmodeSwitch(_ sender: UISwitch) {
-        if sender.isOn == true {
-                self.view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-                self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
-                self.SettingsLabel.textColor = UIColor.white
-                self.DarkmodeLabel.textColor = UIColor.white
-                UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.tabBarController!.tabBar.barTintColor = .black
-                self.tabBarController!.tabBar.tintColor = UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0)
-        }
-        if sender.isOn != true {
-                self.view.backgroundColor = UIColor.white
-                self.backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
-                self.SettingsLabel.textColor = UIColor.black
-                self.DarkmodeLabel.textColor = UIColor.black
-                UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.tabBarController!.tabBar.barTintColor = .white
-                self.tabBarController!.tabBar.tintColor = UIColor(red: 0.00, green: 0.48, blue: 1.00, alpha: 1.0)
-        }
-    }*/
+    /* @IBAction func DarkmodeSwitch(_ sender: UISwitch) {
+         if sender.isOn == true {
+                 self.view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+                 self.backgroundTitleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
+                 self.SettingsLabel.textColor = UIColor.white
+                 self.DarkmodeLabel.textColor = UIColor.white
+                 UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+                 self.setNeedsStatusBarAppearanceUpdate()
+                 self.tabBarController!.tabBar.barTintColor = .black
+                 self.tabBarController!.tabBar.tintColor = UIColor(red: 1.00, green: 0.58, blue: 0.00, alpha: 1.0)
+         }
+         if sender.isOn != true {
+                 self.view.backgroundColor = UIColor.white
+                 self.backgroundTitleView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+                 self.SettingsLabel.textColor = UIColor.black
+                 self.DarkmodeLabel.textColor = UIColor.black
+                 UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+                 self.setNeedsStatusBarAppearanceUpdate()
+                 self.tabBarController!.tabBar.barTintColor = .white
+                 self.tabBarController!.tabBar.tintColor = UIColor(red: 0.00, green: 0.48, blue: 1.00, alpha: 1.0)
+         }
+     }*/
     
     @IBAction func SiriShortcutReadHomework(_ sender: UISwitch) {
         if sender.isOn == true {
@@ -223,17 +217,20 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func AppInformationsAction(_ sender: Any) {
-        presentStork(controller: AppInfosViewController())
+        self.presentStork(controller: AppInfosViewController())
     }
+    
     @IBAction func ChangeAppIcon(_ sender: Any) {
         if #available(iOS 10.3, *) {
             presentStork(controller: ChangeAppIconNewViewController())
-        } else {
+        }
+        else {
             // Fallback on earlier versions
         }
     }
+    
     @IBAction func ChangeColor(_ sender: Any) {
-        presentStork(controller: ChangeColorFullViewController())
+        self.presentStork(controller: ChangeColorFullViewController())
     }
     
     func presentStork(controller: UIViewController) {
@@ -255,50 +252,50 @@ class SettingsViewController: UIViewController {
             AppearanceControl.setEnabled(true, forSegmentAt: 0)
         }
         else {
-            AppearanceControl.setEnabled(false, forSegmentAt: 0)
-            UserDefaults.standard.set(1, forKey: "ManualAppearance")
+            self.AppearanceControl.setEnabled(false, forSegmentAt: 0)
+            UserDefaults.standard.set(0, forKey: "AutoAppearance")
         }
         
-        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 1 {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 0 {
             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                /*view.backgroundColor = style.darkBackground
-                backgroundTitleView.backgroundColor = style.darkTitleBackground
-                SettingsLabel.textColor = style.darkText
-                DarkmodeLabel.textColor = style.darkText
-                AppearanceLabel.textColor = style.darkText*/
-                changeAppearance()
+                /* view.backgroundColor = style.darkBackground
+                 backgroundTitleView.backgroundColor = style.darkTitleBackground
+                 SettingsLabel.textColor = style.darkText
+                 DarkmodeLabel.textColor = style.darkText
+                 AppearanceLabel.textColor = style.darkText */
+                self.changeAppearance()
                 setNeedsStatusBarAppearanceUpdate()
-                AppearanceControl.selectedSegmentIndex = 2
+                self.AppearanceControl.selectedSegmentIndex = 2
             }
             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                /*view.backgroundColor = style.lightBackground
-                backgroundTitleView.backgroundColor = style.lightTitleBackground
-                SettingsLabel.textColor = style.lightText
-                DarkmodeLabel.textColor = style.lightText
-                AppearanceLabel.textColor = style.lightText*/
-                changeAppearance()
+                /* view.backgroundColor = style.lightBackground
+                 backgroundTitleView.backgroundColor = style.lightTitleBackground
+                 SettingsLabel.textColor = style.lightText
+                 DarkmodeLabel.textColor = style.lightText
+                 AppearanceLabel.textColor = style.lightText */
+                self.changeAppearance()
                 setNeedsStatusBarAppearanceUpdate()
-                AppearanceControl.selectedSegmentIndex = 1
+                self.AppearanceControl.selectedSegmentIndex = 1
             }
         }
         else {
-            AppearanceControl.selectedSegmentIndex = 0
-            changeAppearance()
+            self.AppearanceControl.selectedSegmentIndex = 0
+            self.changeAppearance()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
-            ChangeColorsBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            self.ChangeColorsBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
-            ChangeAppIconBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            self.ChangeAppIconBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
-            AppInfoBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            self.AppInfoBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
             
-            InformationForRequests.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+            self.InformationForRequests.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
         }
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
-            TItleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
+            self.TItleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
         }
     }
     

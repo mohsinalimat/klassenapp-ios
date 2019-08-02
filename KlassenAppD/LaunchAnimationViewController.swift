@@ -25,17 +25,24 @@ class LaunchAnimationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         UserDefaults.standard.set(1, forKey: "Checker")
 
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "LaunchedBefore") == 0 {
+                UserDefaults.standard.set(1, forKey: "AutoAppearance")
+                UserDefaults.standard.set(1, forKey: "LaunchedBefore")
+            }
+        }
+
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "LaunchScreenW")!, iconInitialSize: CGSize(width: 300, height: 300), backgroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
         revealingSplashView.duration = 1
         self.view.addSubview(revealingSplashView)
         revealingSplashView.startAnimation {
-            /*if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
-                let vc = (self.storyboard?.instantiateViewController(withIdentifier: "welcome1"))!
-                self.present(vc, animated: true)
-            }*/
-           // else {
-                self.performSegue(withIdentifier: "directtotb", sender: nil)
-            //}
+            /* if UserDefaults.standard.string(forKey: "WelcomeTour") != "done" {
+                 let vc = (self.storyboard?.instantiateViewController(withIdentifier: "welcome1"))!
+                 self.present(vc, animated: true)
+             } */
+            // else {
+            self.performSegue(withIdentifier: "directtotb", sender: nil)
+            // }
         }
     }
 

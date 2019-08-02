@@ -11,9 +11,9 @@ import UIKit
 class WelcomeInformationsViewController: UIViewController {
     @IBOutlet var InformationsTitle: UILabel!
     @IBOutlet var InformationsDes: UITextView!
-    
+
     var style = Appearances()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         InformationsDes.scrollRangeToVisible(NSMakeRange(0, 0))

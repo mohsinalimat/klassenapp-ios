@@ -35,16 +35,14 @@ class HomeViewController: UIViewController {
     }
     
     func viewLoadSetup() {
-        
-        
         changeAppearance()
         
-       /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            setAppearance(mode: "dark")
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            setAppearance(mode: "light")
-        }*/
+        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+             setAppearance(mode: "dark")
+         }
+         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+             setAppearance(mode: "light")
+         }*/
         
         loader = NVActivityIndicatorView(frame: CGRect(x: view.center.x - 25, y: view.center.y - 25, width: 50, height: 50))
         loader.type = .ballPulseSync
@@ -89,27 +87,26 @@ class HomeViewController: UIViewController {
         }
     }
     
-    /*override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if #available(iOS 12.0, *) {
-            let userInterfaceStyle = traitCollection.userInterfaceStyle
-            
-            if userInterfaceStyle == .dark {
-                UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
-                setAppearance(mode: "dark")
-            }
-            else if userInterfaceStyle == .light || userInterfaceStyle == .unspecified {
-                UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
-                setAppearance(mode: "light")
-            }
-            
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        
-    }*/
+    /* override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+         super.traitCollectionDidChange(previousTraitCollection)
+     
+         if #available(iOS 12.0, *) {
+             let userInterfaceStyle = traitCollection.userInterfaceStyle
+     
+             if userInterfaceStyle == .dark {
+                 UserDefaults.standard.set(1, forKey: "DarkmodeStatus")
+                 setAppearance(mode: "dark")
+             }
+             else if userInterfaceStyle == .light || userInterfaceStyle == .unspecified {
+                 UserDefaults.standard.set(0, forKey: "DarkmodeStatus")
+                 setAppearance(mode: "light")
+             }
+     
+         } else {
+             // Fallback on earlier versions
+         }
+     
+     } */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,31 +116,30 @@ class HomeViewController: UIViewController {
         viewLoadSetup()
     }
     
-    /*func setAppearance(mode: String) {
-        if mode == "dark" {
-            view.backgroundColor = style.darkBackground
-            HomeTitleBackground.backgroundColor = style.darkTitleBackground
-            HomeTitle.textColor = style.darkText
-            HomeTV.textColor = style.darkText
-            HomeTV.backgroundColor = style.darkBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }
-        else if mode == "light" {
-            view.backgroundColor = style.lightBackground
-            HomeTitleBackground.backgroundColor = style.lightTitleBackground
-                        
-            HomeTitle.textColor = style.lightText
-            HomeTV.textColor = style.lightText
-            HomeTV.backgroundColor = style.lightBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }
-    }*/
+    /* func setAppearance(mode: String) {
+         if mode == "dark" {
+             view.backgroundColor = style.darkBackground
+             HomeTitleBackground.backgroundColor = style.darkTitleBackground
+             HomeTitle.textColor = style.darkText
+             HomeTV.textColor = style.darkText
+             HomeTV.backgroundColor = style.darkBackground
+             setNeedsStatusBarAppearanceUpdate()
+         }
+         else if mode == "light" {
+             view.backgroundColor = style.lightBackground
+             HomeTitleBackground.backgroundColor = style.lightTitleBackground
+     
+             HomeTitle.textColor = style.lightText
+             HomeTV.textColor = style.lightText
+             HomeTV.backgroundColor = style.lightBackground
+             setNeedsStatusBarAppearanceUpdate()
+         }
+     } */
     
     func changeAppearance() {
-        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
             if #available(iOS 13.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
-                    print("hi")
                     view.backgroundColor = style.darkBackground
                     HomeTitleBackground.backgroundColor = style.darkTitleBackground
                     HomeTitle.textColor = style.darkText
@@ -172,8 +168,8 @@ class HomeViewController: UIViewController {
                 HomeTitle.textColor = style.darkText
                 HomeTV.textColor = style.darkText
                 HomeTV.backgroundColor = style.darkBackground
-                self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
-                self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
+                tabBarController!.tabBar.barTintColor = style.darkBarTintColor
+                tabBarController!.tabBar.tintColor = style.darkTintColor
                 setNeedsStatusBarAppearanceUpdate()
             }
             else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -182,8 +178,8 @@ class HomeViewController: UIViewController {
                 HomeTitle.textColor = style.lightText
                 HomeTV.textColor = style.lightText
                 HomeTV.backgroundColor = style.lightBackground
-                self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
-                self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+                tabBarController!.tabBar.barTintColor = style.lightBarTintColor
+                tabBarController!.tabBar.tintColor = style.lightTintColor
                 setNeedsStatusBarAppearanceUpdate()
             }
         }
@@ -192,50 +188,49 @@ class HomeViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        if #available(iOS 12.0, *) {
-            
-            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+                UIView.animate(withDuration: 0.1) {
                     self.changeAppearance()
+                }
                 self.setNeedsStatusBarAppearanceUpdate()
             }
-            
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        
-    }
-    
-   override var preferredStatusBarStyle: UIStatusBarStyle {
-        var style: UIStatusBarStyle!
-    if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
-        if #available(iOS 13.0, *) {
-            if traitCollection.userInterfaceStyle == .dark {
-            style = .lightContent
-        }
-        else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
-                style = .darkContent
-        }
-        }
-    }
-    else {
-        if #available(iOS 13.0, *) {
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                       style = .lightContent
-                   }
-                   else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                           style = .darkContent
-                   }
         }
         else {
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                style = .lightContent
-            }
-            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                    style = .default
-            }
+            // Fallback on earlier versions
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        var style: UIStatusBarStyle!
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    style = .lightContent
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    style = .darkContent
+                }
+            }
+        }
+        else {
+            if #available(iOS 13.0, *) {
+                if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                    style = .lightContent
+                }
+                else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    style = .darkContent
+                }
+            }
+            else {
+                if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                    style = .lightContent
+                }
+                if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                    style = .default
+                }
+            }
+        }
         return style
     }
     
@@ -346,7 +341,7 @@ class HomeViewController: UIViewController {
             let NEWSLSNAP = NewsLSnap.value as? String
             HomeViewController.HomeVar.NewsL = NEWSLSNAP!
         }
-        ref.child("homework").child("Week1").child("Datum").observeSingleEvent(of: .value) { (HomeworkWeekSnap) in
+        ref.child("homework").child("Week1").child("Datum").observeSingleEvent(of: .value) { HomeworkWeekSnap in
             let HWWeek = HomeworkWeekSnap.value as? String
             HomeViewController.HomeVar.HomeworkWeek = HWWeek!
         }
@@ -417,7 +412,7 @@ class HomeViewController: UIViewController {
             self.loader.stopAnimating()
         }
         
-        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { (NewestVersionSnap) in
+        ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { NewestVersionSnap in
             HomeViewController.HomeVar.NewestVersion = NewestVersionSnap.value as! String
         }
         
@@ -427,8 +422,6 @@ class HomeViewController: UIViewController {
             let buildCurrent = dictionary["CFBundleVersion"] as? String
             let build = Int(buildCurrent!)
             let NEWESTBUILD = NewestBuildDB.value as? Int
-            
-            print("\(build) | \(NEWESTBUILD)")
             
             if build! < NEWESTBUILD! {
                 if HomeVar.UpdateReminderSession != "1" {
@@ -473,13 +466,12 @@ class HomeViewController: UIViewController {
                 }
             }
             else {
-                 HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
+                HomeViewController.HomeVar.NewVersionAvailable = "Kein neues Update"
             }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         let dictionary = Bundle.main.infoDictionary!
         let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
         if UserDefaults.standard.string(forKey: "\(versionCurrent)") != "1" {
@@ -538,7 +530,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func setToTV() {
-        if HomeVar.essenDate != "" && HomeVar.essenHeute != "" && HomeVar.HabmText != "" && HomeVar.HabmTime != "" && HomeVar.LDU != "" && HomeVar.News1 != "" && HomeVar.NewsL != "" && HomeVar.NextEvent != "" && HomeVar.HomeworkToday != "" {
+        if HomeVar.essenDate != "", HomeVar.essenHeute != "", HomeVar.HabmText != "", HomeVar.HabmTime != "", HomeVar.LDU != "", HomeVar.News1 != "", HomeVar.NewsL != "", HomeVar.NextEvent != "", HomeVar.HomeworkToday != "" {
             let formattedString = NSMutableAttributedString()
             formattedString
                 .bold("Hausaufgaben bis morgen:")
@@ -562,14 +554,14 @@ class HomeViewController: UIViewController {
                 .bold("LDU: ")
                 .normal("\(HomeViewController.HomeVar.LDU)")
             HomeTV.attributedText = formattedString
-          /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                HomeTV.textColor = UIColor.white
-                HomeTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            }
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                HomeTV.textColor = UIColor.black
-                HomeTV.backgroundColor = UIColor.white
-            }*/
+            /*  if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                 HomeTV.textColor = UIColor.white
+                 HomeTV.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+             }
+             if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                 HomeTV.textColor = UIColor.black
+                 HomeTV.backgroundColor = UIColor.white
+             }*/
             changeAppearance()
             timer.invalidate()
             loader.stopAnimating()
@@ -581,7 +573,6 @@ class HomeViewController: UIViewController {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
         return String((0...length - 1).map { _ in letters.randomElement()! })
     }
-    
     
     struct HomeVar {
         static var Full = NSMutableAttributedString()

@@ -63,45 +63,45 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
         TimeTableTV.delegate = self
         view.addSubview(TimeTableTV!)
         
-        /*if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = style.darkBackground
-            TimeTableTV.backgroundColor = style.darkBackground
-            navigationbar.backgroundColor = style.darkTitleBackground
-            navigationbar.titleLabel.textColor = style.darkText
-            TimeTableTV!.backgroundColor = style.darkBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }
-        
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = style.lightBackground
-            TimeTableTV.backgroundColor = style.lightBackground
-            navigationbar.backgroundColor = style.lightTitleBackground
-            navigationbar.titleLabel.textColor = style.lightText
-            TimeTableTV!.backgroundColor = style.lightBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }*/
+        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+             view.backgroundColor = style.darkBackground
+             TimeTableTV.backgroundColor = style.darkBackground
+             navigationbar.backgroundColor = style.darkTitleBackground
+             navigationbar.titleLabel.textColor = style.darkText
+             TimeTableTV!.backgroundColor = style.darkBackground
+             setNeedsStatusBarAppearanceUpdate()
+         }
+         
+         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+             view.backgroundColor = style.lightBackground
+             TimeTableTV.backgroundColor = style.lightBackground
+             navigationbar.backgroundColor = style.lightTitleBackground
+             navigationbar.titleLabel.textColor = style.lightText
+             TimeTableTV!.backgroundColor = style.lightBackground
+             setNeedsStatusBarAppearanceUpdate()
+         } */
         
         changeAppearance()
     }
     
     func changeAppearance() {
-        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
             if #available(iOS 13.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
-                 view.backgroundColor = style.darkBackground
-                 TimeTableTV.backgroundColor = style.darkBackground
-                 navigationbar.backgroundColor = style.darkTitleBackground
-                 navigationbar.titleLabel.textColor = style.darkText
-                 TimeTableTV!.backgroundColor = style.darkBackground
-                 setNeedsStatusBarAppearanceUpdate()
+                    view.backgroundColor = style.darkBackground
+                    TimeTableTV.backgroundColor = style.darkBackground
+                    navigationbar.backgroundColor = style.darkTitleBackground
+                    navigationbar.titleLabel.textColor = style.darkText
+                    TimeTableTV!.backgroundColor = style.darkBackground
+                    setNeedsStatusBarAppearanceUpdate()
                 }
                 else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
-                   view.backgroundColor = style.lightBackground
-                   TimeTableTV.backgroundColor = style.lightBackground
-                   navigationbar.backgroundColor = style.lightTitleBackground
-                   navigationbar.titleLabel.textColor = style.lightText
-                   TimeTableTV!.backgroundColor = style.lightBackground
-                   setNeedsStatusBarAppearanceUpdate()
+                    view.backgroundColor = style.lightBackground
+                    TimeTableTV.backgroundColor = style.lightBackground
+                    navigationbar.backgroundColor = style.lightTitleBackground
+                    navigationbar.titleLabel.textColor = style.lightText
+                    TimeTableTV!.backgroundColor = style.lightBackground
+                    setNeedsStatusBarAppearanceUpdate()
                 }
             }
         }
@@ -128,20 +128,18 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        if #available(iOS 12.0, *) {
-            
-            if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+                UIView.animate(withDuration: 0.1) {
                     self.changeAppearance()
+                    self.TimeTableTV.reloadData()
+                }
                 self.setNeedsStatusBarAppearanceUpdate()
-                TimeTableTV.reloadData()
             }
-            
-        } else {
+        }
+        else {
             // Fallback on earlier versions
         }
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -179,15 +177,15 @@ class TimeTableAllViewController: UIViewController, UITableViewDelegate, UITable
         let cellmon = TimeTableTV.dequeueReusableCell(withIdentifier: "timetablecell", for: indexPath)
         cellmon.textLabel?.text = timeTableArray[indexPath.row]
         
-        if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
             if #available(iOS 13.0, *) {
                 if traitCollection.userInterfaceStyle == .dark {
-                 cellmon.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-                 cellmon.textLabel!.textColor = UIColor.white
+                    cellmon.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
+                    cellmon.textLabel!.textColor = UIColor.white
                 }
                 else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
-                   cellmon.backgroundColor = UIColor.white
-                   cellmon.textLabel!.textColor = UIColor.black
+                    cellmon.backgroundColor = UIColor.white
+                    cellmon.textLabel!.textColor = UIColor.black
                 }
             }
         }

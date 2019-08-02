@@ -10,9 +10,9 @@ import UIKit
 
 class WelcomeLGViewController: UIViewController {
     @IBOutlet var WelcomeFinishedTitle: UILabel!
-    
+
     var style = Appearances()
-    
+
     @IBAction func WelcomeFinishedBtn(_ sender: UIButton) {
         UserDefaults.standard.set("done", forKey: "WelcomeTour")
         self.performSegue(withIdentifier: "welcomefinishedSegue", sender: nil)
@@ -21,13 +21,13 @@ class WelcomeLGViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = style.darkBackground
-            self.WelcomeFinishedTitle.textColor = style.darkText
+            view.backgroundColor = self.style.darkBackground
+            self.WelcomeFinishedTitle.textColor = self.style.darkText
             self.setNeedsStatusBarAppearanceUpdate()
         }
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = style.lightBackground
-            self.WelcomeFinishedTitle.textColor = style.lightText
+            view.backgroundColor = self.style.lightBackground
+            self.WelcomeFinishedTitle.textColor = self.style.lightText
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }

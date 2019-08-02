@@ -100,103 +100,102 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         
         ContentTextView = UITextView(frame: CGRect(x: 8, y: 285, width: view.frame.width - 16, height: view.frame.height - 355))
         ContentTextView.isEditable = true
-        //ContentTextView.text = "Text hier eingeben"
-        //ContentTextView.textColor = UIColor.lightGray
+        // ContentTextView.text = "Text hier eingeben"
+        // ContentTextView.textColor = UIColor.lightGray
         ContentTextView.placeholder = "Text hier eingeben"
         ContentTextView.font = .systemFont(ofSize: 16)
         
         view.addSubview(ContentTextView)
-        /*if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = style.darkBackground
-            navigationbar.backgroundColor = style.darkTitleBackground
-            navigationbar.titleLabel.textColor = style.darkText
-            ContentTextView.textColor = style.darkText
-            ContentTextView.backgroundColor = style.darkBackground
-            Picker.backgroundColor = style.darkBackground
-            Coloro = style.darkText
-            setNeedsStatusBarAppearanceUpdate()
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = style.lightBackground
-            navigationbar.backgroundColor = style.lightTitleBackground
-            navigationbar.titleLabel.textColor = style.lightText
-            ContentTextView.textColor = style.lightText
-            ContentTextView.backgroundColor = style.lightBackground
-            Picker.backgroundColor = style.lightBackground
-            Picker.tintColor = style.lightText
-            Coloro = style.lightText
-            setNeedsStatusBarAppearanceUpdate()
-        }*/
+        /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+             view.backgroundColor = style.darkBackground
+             navigationbar.backgroundColor = style.darkTitleBackground
+             navigationbar.titleLabel.textColor = style.darkText
+             ContentTextView.textColor = style.darkText
+             ContentTextView.backgroundColor = style.darkBackground
+             Picker.backgroundColor = style.darkBackground
+             Coloro = style.darkText
+             setNeedsStatusBarAppearanceUpdate()
+         }
+         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+             view.backgroundColor = style.lightBackground
+             navigationbar.backgroundColor = style.lightTitleBackground
+             navigationbar.titleLabel.textColor = style.lightText
+             ContentTextView.textColor = style.lightText
+             ContentTextView.backgroundColor = style.lightBackground
+             Picker.backgroundColor = style.lightBackground
+             Picker.tintColor = style.lightText
+             Coloro = style.lightText
+             setNeedsStatusBarAppearanceUpdate()
+         } */
         changeAppearance()
     }
     
     func changeAppearance() {
-          if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
-              if #available(iOS 13.0, *) {
-                  if traitCollection.userInterfaceStyle == .dark {
-                   view.backgroundColor = style.darkBackground
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    view.backgroundColor = style.darkBackground
                     navigationbar.backgroundColor = style.darkTitleBackground
                     navigationbar.titleLabel.textColor = style.darkText
                     ContentTextView.textColor = style.darkText
                     ContentTextView.backgroundColor = style.darkBackground
                     Picker.backgroundColor = style.darkBackground
                     Coloro = style.darkText
-                      setNeedsStatusBarAppearanceUpdate()
-                  }
-                  else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
-                      view.backgroundColor = style.lightBackground
-                      navigationbar.backgroundColor = style.lightTitleBackground
-                      navigationbar.titleLabel.textColor = style.lightText
-                      ContentTextView.textColor = style.lightText
-                      ContentTextView.backgroundColor = style.lightBackground
-                      Picker.backgroundColor = style.lightBackground
-                      Picker.tintColor = style.lightText
-                      Coloro = style.lightText
-                      setNeedsStatusBarAppearanceUpdate()
-                  }
-              }
-          }
-          else {
-              if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-                  view.backgroundColor = style.darkBackground
-                  navigationbar.backgroundColor = style.darkTitleBackground
-                  navigationbar.titleLabel.textColor = style.darkText
-                  ContentTextView.textColor = style.darkText
-                  ContentTextView.backgroundColor = style.darkBackground
-                  Picker.backgroundColor = style.darkBackground
-                  Coloro = style.darkText
-                  setNeedsStatusBarAppearanceUpdate()
-              }
-              else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-                  view.backgroundColor = style.lightBackground
-                  navigationbar.backgroundColor = style.lightTitleBackground
-                  navigationbar.titleLabel.textColor = style.lightText
-                  ContentTextView.textColor = style.lightText
-                  ContentTextView.backgroundColor = style.lightBackground
-                  Picker.backgroundColor = style.lightBackground
-                  Picker.tintColor = style.lightText
-                  Coloro = style.lightText
-                  setNeedsStatusBarAppearanceUpdate()
-              }
-          }
-      }
-      
-      override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-          super.traitCollectionDidChange(previousTraitCollection)
-          
-          if #available(iOS 12.0, *) {
-              
-              if UserDefaults.standard.integer(forKey: "ManualAppearance") == 0 {
-                      self.changeAppearance()
-                  self.setNeedsStatusBarAppearanceUpdate()
-              }
-              
-          } else {
-              // Fallback on earlier versions
-          }
-          
-          
-      }
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    view.backgroundColor = style.lightBackground
+                    navigationbar.backgroundColor = style.lightTitleBackground
+                    navigationbar.titleLabel.textColor = style.lightText
+                    ContentTextView.textColor = style.lightText
+                    ContentTextView.backgroundColor = style.lightBackground
+                    Picker.backgroundColor = style.lightBackground
+                    Picker.tintColor = style.lightText
+                    Coloro = style.lightText
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                navigationbar.backgroundColor = style.darkTitleBackground
+                navigationbar.titleLabel.textColor = style.darkText
+                ContentTextView.textColor = style.darkText
+                ContentTextView.backgroundColor = style.darkBackground
+                Picker.backgroundColor = style.darkBackground
+                Coloro = style.darkText
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = style.lightBackground
+                navigationbar.backgroundColor = style.lightTitleBackground
+                navigationbar.titleLabel.textColor = style.lightText
+                ContentTextView.textColor = style.lightText
+                ContentTextView.backgroundColor = style.lightBackground
+                Picker.backgroundColor = style.lightBackground
+                Picker.tintColor = style.lightText
+                Coloro = style.lightText
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+                UIView.animate(withDuration: 0.1) {
+                    self.changeAppearance()
+                }
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+        else {
+            // Fallback on earlier versions
+        }
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
@@ -310,11 +309,10 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
 }
 
 extension UITextView: UITextViewDelegate {
-    
     /// Resize the placeholder when the UITextView bounds change
-    override open var bounds: CGRect {
+    open override var bounds: CGRect {
         didSet {
-            self.resizePlaceholder()
+            resizePlaceholder()
         }
     }
     
@@ -333,8 +331,9 @@ extension UITextView: UITextViewDelegate {
             if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
                 placeholderLabel.text = newValue
                 placeholderLabel.sizeToFit()
-            } else {
-                self.addPlaceholder(newValue!)
+            }
+            else {
+                addPlaceholder(newValue!)
             }
         }
     }
@@ -344,18 +343,18 @@ extension UITextView: UITextViewDelegate {
     /// - Parameter textView: The UITextView that got updated
     public func textViewDidChange(_ textView: UITextView) {
         if let placeholderLabel = self.viewWithTag(100) as? UILabel {
-            placeholderLabel.isHidden = self.text.characters.count > 0
+            placeholderLabel.isHidden = text.characters.count > 0
         }
     }
     
     /// Resize the placeholder UILabel to make sure it's in the same position as the UITextView text
     private func resizePlaceholder() {
         if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
-            let labelX = self.textContainer.lineFragmentPadding
-            let labelY = self.textContainerInset.top - 2
-            let labelWidth = self.frame.width - (labelX * 2)
+            let labelX = textContainer.lineFragmentPadding
+            let labelY = textContainerInset.top - 2
+            let labelWidth = frame.width - (labelX * 2)
             let labelHeight = placeholderLabel.frame.height
-
+            
             placeholderLabel.frame = CGRect(x: labelX, y: labelY, width: labelWidth, height: labelHeight)
         }
     }
@@ -367,15 +366,14 @@ extension UITextView: UITextViewDelegate {
         placeholderLabel.text = placeholderText
         placeholderLabel.sizeToFit()
         
-        placeholderLabel.font = self.font
+        placeholderLabel.font = font
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.tag = 100
         
-        placeholderLabel.isHidden = self.text.characters.count > 0
+        placeholderLabel.isHidden = text.characters.count > 0
         
-        self.addSubview(placeholderLabel)
-        self.resizePlaceholder()
-        self.delegate = self
+        addSubview(placeholderLabel)
+        resizePlaceholder()
+        delegate = self
     }
-    
 }

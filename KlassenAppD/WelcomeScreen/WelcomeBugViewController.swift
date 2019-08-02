@@ -12,9 +12,9 @@ class WelcomeBugViewController: UIViewController {
     @IBOutlet var EvenMoreInformations: UILabel!
     @IBOutlet var EvenMoreInformationsNote1: UITextView!
     @IBOutlet var EvenMoreInformationsNote2: UITextView!
-    
+
     var style = Appearances()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {

@@ -13,9 +13,9 @@ class WelcomeSettingsViewController: UIViewController {
     @IBOutlet var SettingsMessage: UILabel!
     @IBOutlet var WelcomeDarkmodeLabel: UILabel!
     @IBOutlet var WelcomeDarkmodeOut: UISwitch!
-    
+
     var style = Appearances()
-    
+
     @IBAction func WelcomeDarkmodeSwitch(_ sender: UISwitch) {
         if sender.isOn == true {
             view.backgroundColor = style.darkBackground
