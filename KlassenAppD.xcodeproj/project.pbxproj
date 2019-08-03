@@ -98,7 +98,6 @@
 		3A0F5710207BD0B700D9F701 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3A0F5712207BD0B700D9F701 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3A0F5717207BD0B700D9F701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A0F571A207BD0B700D9F701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A0F571C207BD0B700D9F701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A0F5725207BD0B700D9F701 /* KlassenAppDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlassenAppDTests.swift; sourceTree = "<group>"; };
 		3A0F5727207BD0B700D9F701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,14 +105,14 @@
 		3A0F5732207BD0B700D9F701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A12FAC32125856600276495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A19530522648F95006C4FC5 /* colors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
-		3A2CB0A722623AD5002F0E0A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		3A2CB0A822623AD5002F0E0A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3A37CC5D21935D6D003F7BF8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3A37CC5E21935D6D003F7BF8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3A3A1D6722984B5100D81453 /* WholeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WholeTabBarController.swift; sourceTree = "<group>"; };
 		3A3BE9F02299BA6100F67AA0 /* FoodAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllViewController.swift; sourceTree = "<group>"; };
 		3A3BE9F22299C53500F67AA0 /* TimeTableAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableAllViewController.swift; sourceTree = "<group>"; };
 		3A46464E21667DC9001C2B30 /* LaunchAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationViewController.swift; sourceTree = "<group>"; };
+		3A488FDF22F5B91B0086D3F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A488FE022F5B91B0086D3F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A5B114222F061160030BC3F /* CurrentIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CurrentIcon.png; sourceTree = "<group>"; };
 		3A5D31E22164DF020064B9EA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A6B2C2322A1940900EBB792 /* HwRequestLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HwRequestLogViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		3A76C3B022E21D5400DD5EAA /* ChangeAppIconNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconNewViewController.swift; sourceTree = "<group>"; };
 		3A76C3B222E21F7700DD5EAA /* AppImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3A7C41BE21275C010099D805 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A82CDE7218E0CC2009DE910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A8932B6229858FC000E6395 /* PlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewController.swift; sourceTree = "<group>"; };
 		3A99D713210BAC3B0038CE25 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		3A99D728210BAEC40038CE25 /* KlassenAppD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlassenAppD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -614,8 +612,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
-				de,
 			);
 			mainGroup = 3A0F5702207BD0B700D9F701;
 			productRefGroup = 3A0F5702207BD0B700D9F701;
@@ -892,8 +888,7 @@
 		3A0F5719207BD0B700D9F701 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3A0F571A207BD0B700D9F701 /* Base */,
-				3A2CB0A822623AD5002F0E0A /* de */,
+				3A488FE022F5B91B0086D3F3 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -901,8 +896,7 @@
 		3A82CDE6218E0CC2009DE910 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3A82CDE7218E0CC2009DE910 /* Base */,
-				3A2CB0A722623AD5002F0E0A /* de */,
+				3A488FDF22F5B91B0086D3F3 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
