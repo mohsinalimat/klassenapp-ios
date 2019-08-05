@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D8D2751C5F0C2E845398BA4D7969D44"
+               BlueprintIdentifier = "46B77907E120F51E1B8C2D46E916B914"
                BuildableName = "IGColorPicker.framework"
                BlueprintName = "IGColorPicker"
                ReferencedContainer = "container:Pods.xcodeproj">

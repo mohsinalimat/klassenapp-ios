@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8FDCAE246D99A1A234C578D5D10DDA73"
+               BlueprintIdentifier = "024EE761C19C027DAFB37AE453EFB1E6"
                BuildableName = "EZAlertController.framework"
                BlueprintName = "EZAlertController"
                ReferencedContainer = "container:Pods.xcodeproj">

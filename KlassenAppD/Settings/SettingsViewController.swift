@@ -15,6 +15,7 @@ import SPStorkController
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
     @IBOutlet var TItleBar: UIView!
     @IBOutlet var ChangeColorsBtn: UIButton!
     @IBOutlet var AppInfoBtn: UIButton!
@@ -26,8 +27,11 @@ class SettingsViewController: UIViewController {
     @IBOutlet var AppearanceControl: UISegmentedControl!
     @IBOutlet var AppearanceLabel: UILabel!
     @IBOutlet var backgroundTitleView: UIView!
+    @IBOutlet weak var PrivacyPolicy: UIButton!
     
     var style = Appearances()
+    
+    var buttons:[UIButton] = [UIButton]()
     
     @IBAction func AppearanceAction(_ sender: Any) {
         switch self.AppearanceControl.selectedSegmentIndex {
@@ -72,6 +76,50 @@ class SettingsViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @IBAction func ChangeAppIcon(_ sender: Any) {
+           if #available(iOS 10.3, *) {
+               presentStork(controller: ChangeAppIconNewViewController())
+           }
+       }
+       
+    @IBAction func ChangeColor(_ sender: Any) {
+           self.presentStork(controller: ChangeColorFullViewController())
+    }
+
+    @IBAction func InformationForRequestsAction(_ sender: Any) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
+        }
+        else {
+            UIApplication.shared.openURL(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
+        }
+    }
+    
+    @IBAction func PrivacyPolicyBtn(_ sender: Any) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Privacy-Policy")!)
+        }
+        else {
+            UIApplication.shared.openURL(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Privacy-Policy")!)
+        }
+    }
+    
+    @IBAction func AppInformationsAction(_ sender: Any) {
+           self.presentStork(controller: AppInfosViewController())
+       }
+    
+    func presentStork(controller: UIViewController) {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
+        let controller1 = controller
+        let transitionDelegate = SPStorkTransitioningDelegate()
+        controller1.transitioningDelegate = transitionDelegate
+        controller1.modalPresentationStyle = .custom
+        controller1.modalPresentationCapturesStatusBarAppearance = true
+        present(controller1, animated: true, completion: nil)
     }
     
     func changeAppearance() {
@@ -169,52 +217,10 @@ class SettingsViewController: UIViewController {
         return style
     }
     
-    @IBAction func InformationForRequestsAction(_ sender: Any) {
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
-        }
-        else {
-            UIApplication.shared.openURL(URL(string: "https://github.com/AdriBoy21/klassenapp-ios/wiki/Hausaufgabenanfragen-(de)")!)
-        }
-    }
-    
-    @IBAction func SiriShortcutReadHomework(_ sender: UISwitch) {
-        if sender.isOn == true {
-            UserDefaults.standard.set("YES", forKey: "ReadSiriShortcutHomework")
-        }
-        if sender.isOn != true {
-            UserDefaults.standard.set("NO", forKey: "ReadSiriShortcutHomework")
-        }
-    }
-    
-    @IBAction func AppInformationsAction(_ sender: Any) {
-        self.presentStork(controller: AppInfosViewController())
-    }
-    
-    @IBAction func ChangeAppIcon(_ sender: Any) {
-        if #available(iOS 10.3, *) {
-            presentStork(controller: ChangeAppIconNewViewController())
-        }
-    }
-    
-    @IBAction func ChangeColor(_ sender: Any) {
-        self.presentStork(controller: ChangeColorFullViewController())
-    }
-    
-    func presentStork(controller: UIViewController) {
-        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .light)
-        impactFeedbackgenerator.prepare()
-        impactFeedbackgenerator.impactOccurred()
-        let controller1 = controller
-        let transitionDelegate = SPStorkTransitioningDelegate()
-        controller1.transitioningDelegate = transitionDelegate
-        controller1.modalPresentationStyle = .custom
-        controller1.modalPresentationCapturesStatusBarAppearance = true
-        present(controller1, animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buttons = [self.ChangeColorsBtn, self.ChangeAppIconBtn, self.AppInfoBtn, self.InformationForRequests, self.PrivacyPolicy]
         
         if #available(iOS 13.0, *) {
             AppearanceControl.setEnabled(true, forSegmentAt: 0)
@@ -243,14 +249,11 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
-            self.ChangeColorsBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.ChangeAppIconBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.AppInfoBtn.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
-            
-            self.InformationForRequests.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+        
+        for button in buttons {
+            if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
+                       button.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
+                   }
         }
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             self.TItleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)

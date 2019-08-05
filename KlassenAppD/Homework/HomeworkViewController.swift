@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  HomeworkViewController.swift
 //  KlassenAppD
 //
 //  Created by Adrian Baumgart on 09.04.18.
@@ -18,7 +18,7 @@ import SPStorkController
 import UIKit
 import UserNotifications
 
-class FirstViewController: UIViewController {
+class HomeworkViewController: UIViewController {
     var loader: NVActivityIndicatorView!
     
     @IBOutlet var Week1Out: UIButton!

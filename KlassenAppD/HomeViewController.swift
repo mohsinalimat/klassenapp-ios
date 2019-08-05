@@ -52,7 +52,6 @@ class HomeViewController: UIViewController {
         }
         
         var ref: DatabaseReference!
-        
         ref = Database.database().reference()
         
         reloadData()
@@ -332,7 +331,6 @@ class HomeViewController: UIViewController {
             let buildCurrent = dictionary["CFBundleVersion"] as? String
             let build = Int(buildCurrent!)
             let NEWESTBUILD = NewestBuildDB.value as? Int
-            print("\(NEWESTBUILD)")
             
             if build! < NEWESTBUILD! {
                 if HomeVar.UpdateReminderSession != "1" {
@@ -405,17 +403,17 @@ class HomeViewController: UIViewController {
                     WhatsNew.Item(
                         title: "Aktualisierte Ansichten",
                         subtitle: "Ab dieser Version erscheinen alle Menüs als Popover (über der vorherigen Ansicht). Darunter auch die Farbauswahl und der Stundenplan!",
-                        image: UIImage(named: "icons8-ios-screenshot-30")
+                        image: UIImage(named: "screen_route")
                     ),
                     WhatsNew.Item(
                         title: "Ausrichtung",
                         subtitle: "Auf iPads lässt sich die App nun um 90 Grad drehen!",
-                        image: UIImage(named: "icons8-ipad-30")
+                        image: UIImage(named: "ipad")
                     ),
                     WhatsNew.Item(
                         title: "Aufgeräumt & kleinere Änderungen",
                         subtitle: "Es wurden unnötige Codeteile entfernt, überflüssige Ansichten gelöscht und der Code wurde verkleinert. Das kann u.a. zu Performanceverbesserungen führren! Auch wurden kleinere Sachen an der App verändert.",
-                        image: UIImage(named: "icons8-haushälter-30")
+                        image: UIImage(named: "cleaner")
                     ),
                     WhatsNew.Item(
                         title: "Danke",

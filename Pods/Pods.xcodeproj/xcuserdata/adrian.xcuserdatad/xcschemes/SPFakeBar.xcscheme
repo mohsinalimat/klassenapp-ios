@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FE1F4DC41D026DFDC4D3FAD64E8A4732"
+               BlueprintIdentifier = "30D3EFD447FCC8B52243731911EBC15C"
                BuildableName = "SPFakeBar.framework"
                BlueprintName = "SPFakeBar"
                ReferencedContainer = "container:Pods.xcodeproj">

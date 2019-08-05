@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  EventsViewController.swift
 //  KlassenAppD
 //
 //  Created by Adrian Baumgart on 09.04.18.
@@ -12,7 +12,7 @@ import NVActivityIndicatorView
 import SPStorkController
 import UIKit
 
-class SecondViewController: UIViewController {
+class EventsViewController: UIViewController {
     @IBOutlet var Arbeit1BtnOut: UIButton!
     @IBOutlet var Arbeit2BtnOut: UIButton!
     @IBOutlet var Arbeit3BtnOut: UIButton!

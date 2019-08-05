@@ -83,7 +83,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2792</string>
+	<string>2833</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -112,7 +112,12 @@
 		<true/>
 	</dict>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Die App verwendet FaceID, damit man sich im Loginscreen mit FaceID anmelden kann.</string>
+	<string>Die App verwendet FaceID, damit man sich mit FaceID anmelden kann.</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -122,7 +127,7 @@
 		<string>armv7</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
-	<true/>
+	<false/>
 	<key>UIRequiresPersistentWiFi</key>
 	<true/>
 	<key>UIStatusBarTintParameters</key>

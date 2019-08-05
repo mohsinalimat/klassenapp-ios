@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5DB97764EAC0469875014A631C660ACA"
+               BlueprintIdentifier = "1016C571C523F9095F5BBD8CDBAC827F"
                BuildableName = "FirebaseInAppMessaging.framework"
                BlueprintName = "FirebaseInAppMessaging"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A16BB753FC705C22DAFCD8B7C1071A09"
+               BlueprintIdentifier = "158BE3FEBC90706BC022A0361D6B8328"
                BuildableName = "RevealingSplashView.framework"
                BlueprintName = "RevealingSplashView"
                ReferencedContainer = "container:Pods.xcodeproj">

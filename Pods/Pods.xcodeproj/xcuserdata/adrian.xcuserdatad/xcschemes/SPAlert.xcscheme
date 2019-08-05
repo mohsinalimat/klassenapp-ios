@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4652B2924FE3B941944F77DA8477ABD"
+               BlueprintIdentifier = "68C8F4107000A2913895FC56910AF52E"
                BuildableName = "SPAlert.framework"
                BlueprintName = "SPAlert"
                ReferencedContainer = "container:Pods.xcodeproj">
