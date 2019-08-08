@@ -155,15 +155,14 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
   - Protobuf (3.9.0)
-  - RevealingSplashView (0.6.0)
+  - RevealingSplashView (0.8.0)
   - SCLAlertView (0.8)
   - SnapKit (5.0.0)
   - SPAlert (1.1.1)
   - SPFakeBar (1.0.9)
   - SPStorkController (1.7.5)
-  - SwiftyJSON (4.2.0)
+  - SwiftyJSON (5.0.0)
   - SwipeableTabBarController (2.1.1)
-  - "UITextView+Placeholder (1.2.1)"
   - WhatsNewKit (1.2.0)
 
 DEPENDENCIES:
@@ -182,15 +181,14 @@ DEPENDENCIES:
   - Firebase/Storage
   - IGColorPicker (from `https://github.com/AdriBoy21/IGColorPicker.git`, tag `0.4.4`)
   - NVActivityIndicatorView
-  - RevealingSplashView
+  - RevealingSplashView (from `https://github.com/weakfl/RevealingSplashView.git`, branch `swift-5`)
   - SCLAlertView
   - SnapKit (~> 5.0.0)
   - SPAlert
   - SPFakeBar
   - SPStorkController
-  - SwiftyJSON (~> 4.2.0)
+  - SwiftyJSON (~> 5.0.0)
   - SwipeableTabBarController
-  - "UITextView+Placeholder"
   - WhatsNewKit
 
 SPEC REPOS:
@@ -225,7 +223,6 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - Protobuf
-    - RevealingSplashView
     - SCLAlertView
     - SnapKit
     - SPAlert
@@ -233,18 +230,23 @@ SPEC REPOS:
     - SPStorkController
     - SwiftyJSON
     - SwipeableTabBarController
-    - "UITextView+Placeholder"
     - WhatsNewKit
 
 EXTERNAL SOURCES:
   IGColorPicker:
     :git: https://github.com/AdriBoy21/IGColorPicker.git
     :tag: 0.4.4
+  RevealingSplashView:
+    :branch: swift-5
+    :git: https://github.com/weakfl/RevealingSplashView.git
 
 CHECKOUT OPTIONS:
   IGColorPicker:
     :git: https://github.com/AdriBoy21/IGColorPicker.git
     :tag: 0.4.4
+  RevealingSplashView:
+    :commit: 62a54f3164ed84e1a18c6981d7ff50a90af6525f
+    :git: https://github.com/weakfl/RevealingSplashView.git
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
@@ -278,17 +280,16 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
-  RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
+  RevealingSplashView: 830eb5d52142f2c6121f9a4805ff4de903f583b7
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
   SPFakeBar: b74ebaa7ff9ca06a39f13dbe668238f15825ee88
   SPStorkController: be4ae2a5ee052ad78782f6144ffe7e951300ea67
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwipeableTabBarController: 8f7f04275f510c5babb630f7be1161b5f28567e0
-  "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   WhatsNewKit: 3fc7e34db0902b086fa2760e05d4d4403a38a0e0
 
-PODFILE CHECKSUM: 3f03f62d7c5d3c8106e88667707026af04cf4cd6
+PODFILE CHECKSUM: 84082db7dffaef1941f94d64412f00d74a681e56
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.7.4

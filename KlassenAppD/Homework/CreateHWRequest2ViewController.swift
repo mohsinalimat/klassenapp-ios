@@ -62,7 +62,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var attributedString: NSAttributedString!
-        attributedString = NSAttributedString(string: days[row], attributes: [NSAttributedString.Key.foregroundColor: Coloro])
+        attributedString = NSAttributedString(string: days[row], attributes: [NSAttributedString.Key.foregroundColor: Coloro!])
         return attributedString
     }
     
@@ -313,7 +313,7 @@ extension UITextView: UITextViewDelegate {
     
     public func textViewDidChange(_ textView: UITextView) {
         if let placeholderLabel = self.viewWithTag(100) as? UILabel {
-            placeholderLabel.isHidden = text.characters.count > 0
+            placeholderLabel.isHidden = text.count > 0
         }
     }
     
@@ -338,7 +338,7 @@ extension UITextView: UITextViewDelegate {
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.tag = 100
         
-        placeholderLabel.isHidden = text.characters.count > 0
+        placeholderLabel.isHidden = text.count > 0
         
         addSubview(placeholderLabel)
         resizePlaceholder()

@@ -75,7 +75,7 @@ class WholeTabBarController: SwipeableTabBarController {
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
         
-        guard let idx = tabBar.items?.index(of: item), tabBar.subviews.count > idx + 1, let imageView = tabBar.subviews[idx + 1].subviews.compactMap({ $0 as? UIImageView }).first else {
+        guard let idx = tabBar.items?.firstIndex(of: item), tabBar.subviews.count > idx + 1, let imageView = tabBar.subviews[idx + 1].subviews.compactMap({ $0 as? UIImageView }).first else {
             return
         }
         

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0AD9EA3A571E732EF565B6B2447A3EE6"
+               BlueprintIdentifier = "E110DB89C521B9A63369BDA124CDAF9E"
                BuildableName = "InAppMessagingDisplayResources.bundle"
                BlueprintName = "FirebaseInAppMessagingDisplay-InAppMessagingDisplayResources"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -40,15 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0AD9EA3A571E732EF565B6B2447A3EE6"
-            BuildableName = "InAppMessagingDisplayResources.bundle"
-            BlueprintName = "FirebaseInAppMessagingDisplay-InAppMessagingDisplayResources"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
