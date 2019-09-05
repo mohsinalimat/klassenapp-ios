@@ -30,7 +30,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var PrivacyPolicy: UIButton!
     
     var style = Appearances()
-    
     var buttons:[UIButton] = [UIButton]()
     
     @IBAction func AppearanceAction(_ sender: Any) {
