@@ -18,6 +18,8 @@
 		3A0F5731207BD0B700D9F701 /* KlassenAppDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F5730207BD0B700D9F701 /* KlassenAppDUITests.swift */; };
 		3A12FAC42125856700276495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A12FAC32125856600276495 /* GoogleService-Info.plist */; };
 		3A19530622648F95006C4FC5 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A19530522648F95006C4FC5 /* colors.json */; };
+		3A2FDB91231EFECC002068FE /* EventsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2FDB90231EFECC002068FE /* EventsNewViewController.swift */; };
+		3A2FDB95231F0506002068FE /* AllNewEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2FDB94231F0506002068FE /* AllNewEventsViewController.swift */; };
 		3A30A2E822F8761F0050ED0E /* Appearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30A2E722F8761F0050ED0E /* Appearances.swift */; };
 		3A30A2EA22F8763E0050ED0E /* AppImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30A2E922F8763D0050ED0E /* AppImageTableViewCell.swift */; };
 		3A30A2EC22F8764D0050ED0E /* ChangeColorFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30A2EB22F8764D0050ED0E /* ChangeColorFullViewController.swift */; };
@@ -107,6 +109,8 @@
 		3A0FC97322F5CA4900100497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A12FAC32125856600276495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A19530522648F95006C4FC5 /* colors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
+		3A2FDB90231EFECC002068FE /* EventsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsNewViewController.swift; sourceTree = "<group>"; };
+		3A2FDB94231F0506002068FE /* AllNewEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNewEventsViewController.swift; sourceTree = "<group>"; };
 		3A30A2E722F8761F0050ED0E /* Appearances.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearances.swift; sourceTree = "<group>"; };
 		3A30A2E922F8763D0050ED0E /* AppImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageTableViewCell.swift; sourceTree = "<group>"; };
 		3A30A2EB22F8764D0050ED0E /* ChangeColorFullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeColorFullViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 			children = (
 				3A0F5712207BD0B700D9F701 /* EventsViewController.swift */,
 				3AC2202B2299AA3C00204C8D /* AllTestsViewController.swift */,
+				3A2FDB94231F0506002068FE /* AllNewEventsViewController.swift */,
+				3A2FDB90231EFECC002068FE /* EventsNewViewController.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -844,6 +850,7 @@
 				3AA4A90F21D64FD6000240CC /* AppInfosViewController.swift in Sources */,
 				3AABCEE8216503FC00395E99 /* MGSwipeButton.m in Sources */,
 				3A0F570F207BD0B700D9F701 /* AppDelegate.swift in Sources */,
+				3A2FDB95231F0506002068FE /* AllNewEventsViewController.swift in Sources */,
 				3A6B2C2422A1940900EBB792 /* HwRequestLogViewController.swift in Sources */,
 				3A8932B7229858FC000E6395 /* PlansViewController.swift in Sources */,
 				3ABFEF28207CE8AA00900935 /* SettingsViewController.swift in Sources */,
@@ -855,6 +862,7 @@
 				3A37CC5F21935D6D003F7BF8 /* MBProgressHUD.m in Sources */,
 				3AC2202A22998BE100204C8D /* HomeworkWeekViewController.swift in Sources */,
 				3AB8DA7022A0602900646CCA /* CreateHWRequest2ViewController.swift in Sources */,
+				3A2FDB91231EFECC002068FE /* EventsNewViewController.swift in Sources */,
 				3AB8DFA422E2040700975E51 /* TimeTableNewViewController.swift in Sources */,
 				3A76C3B122E21D5400DD5EAA /* ChangeAppIconNewViewController.swift in Sources */,
 				3A30A2EC22F8764D0050ED0E /* ChangeColorFullViewController.swift in Sources */,

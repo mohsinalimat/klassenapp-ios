@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     var timer: Timer!
     var disappearUpdate: Timer!
     var loader: NVActivityIndicatorView!
+    var WhatsNewDarkMode: Bool!
     
     var style = Appearances()
     
@@ -97,6 +98,7 @@ class HomeViewController: UIViewController {
                     HomeTV.backgroundColor = style.darkBackground
                     self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
                     self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
+                    WhatsNewDarkMode = true
                     setNeedsStatusBarAppearanceUpdate()
                 }
                 else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
@@ -107,6 +109,7 @@ class HomeViewController: UIViewController {
                     HomeTV.backgroundColor = style.lightBackground
                     self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
                     self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
+                    WhatsNewDarkMode = false
                     setNeedsStatusBarAppearanceUpdate()
                 }
             }
@@ -120,6 +123,7 @@ class HomeViewController: UIViewController {
                 HomeTV.backgroundColor = style.darkBackground
                 tabBarController!.tabBar.barTintColor = style.darkBarTintColor
                 tabBarController!.tabBar.tintColor = style.darkTintColor
+                WhatsNewDarkMode = true
                 setNeedsStatusBarAppearanceUpdate()
             }
             else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -130,6 +134,7 @@ class HomeViewController: UIViewController {
                 HomeTV.backgroundColor = style.lightBackground
                 tabBarController!.tabBar.barTintColor = style.lightBarTintColor
                 tabBarController!.tabBar.tintColor = style.lightTintColor
+                WhatsNewDarkMode = false
                 setNeedsStatusBarAppearanceUpdate()
             }
         }
@@ -384,10 +389,10 @@ class HomeViewController: UIViewController {
         let dictionary = Bundle.main.infoDictionary!
         let versionCurrent = dictionary["CFBundleShortVersionString"] as! String
         if UserDefaults.standard.string(forKey: "\(versionCurrent)") != "1" {
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+            if WhatsNewDarkMode == true {
                 HomeVar.WhatsNewConfig = WhatsNewViewController.Configuration(theme: .darkRed)
             }
-            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+            if WhatsNewDarkMode == false {
                 HomeVar.WhatsNewConfig = WhatsNewViewController.Configuration(theme: .whiteRed)
             }
             

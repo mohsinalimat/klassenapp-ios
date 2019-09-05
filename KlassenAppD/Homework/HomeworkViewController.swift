@@ -237,6 +237,12 @@ class HomeworkViewController: UIViewController {
                 let datumSnap = WeekDatumSnap.value as? String
                 self.loader.stopAnimating()
                 value.button.setTitle(datumSnap, for: .normal)
+                if datumSnap == "-" {
+                    value.button.isEnabled = false
+                }
+                else {
+                    value.button.isEnabled = true
+                }
             }
         }
     }
