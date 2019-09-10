@@ -12,14 +12,11 @@ import EZAlertController
 import Fabric
 import Firebase
 import FirebaseDatabase
-import FirebaseMessaging
-import NVActivityIndicatorView
 import SPStorkController
 import UIKit
 import UserNotifications
 
 class HomeworkViewController: UIViewController {
-    var loader: NVActivityIndicatorView!
     
     @IBOutlet var Week1Out: UIButton!
     @IBOutlet var Week2Out: UIButton!
@@ -107,16 +104,6 @@ class HomeworkViewController: UIViewController {
     
     func viewLoadSetup() {
         self.setArrays()
-        self.loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 25, y: self.view.center.y - 25, width: 50, height: 50))
-        self.loader.type = .ballPulseSync
-        self.loader.color = UIColor.red
-        view.addSubview(self.loader)
-        if self.Week1Out.titleLabel?.text == "Download..." {
-            self.loader.startAnimating()
-        }
-        else {
-            self.loader.stopAnimating()
-        }
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
             for button in self.buttons {
                 button.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "ButtonRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "ButtonGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "ButtonBlue")) / 255, alpha: 1)
@@ -235,7 +222,6 @@ class HomeworkViewController: UIViewController {
         for value in self.buttonValues {
             ref.child("homework").child(value.child).child("Datum").observe(.value) { WeekDatumSnap in
                 let datumSnap = WeekDatumSnap.value as? String
-                self.loader.stopAnimating()
                 value.button.setTitle(datumSnap, for: .normal)
                 if datumSnap == "-" {
                     value.button.isEnabled = false

@@ -100,7 +100,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         
         ContentTextView = UITextView(frame: CGRect(x: 8, y: 285, width: view.frame.width - 16, height: view.frame.height - 355))
         ContentTextView.isEditable = true
-        ContentTextView.placeholder = "Text hier eingeben"
+        ContentTextView.placeholder = "Hausaufgaben hier eingeben"
         ContentTextView.font = .systemFont(ofSize: 16)
         
         view.addSubview(ContentTextView)
@@ -269,7 +269,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         }
         else {
             notificationFeedbackGenerator.notificationOccurred(.warning)
-            EZAlertController.alert("Fehler", message: "Bitte gib die Hausaufgaben in das Feld ein.")
+            EZAlertController.alert("Fehler", message: "Bitte trage die Hausaufgaben in das Feld ein.")
         }
     }
     
@@ -280,6 +280,9 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 

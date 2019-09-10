@@ -6,9 +6,7 @@
 //  Copyright © 2018 Adrian Baumgart. All rights reserved.
 //
 
-import FirebaseAuth
 import FirebaseDatabase
-import NVActivityIndicatorView
 import SPStorkController
 import UIKit
 
@@ -22,7 +20,6 @@ class EventsViewController: UIViewController {
     @IBOutlet var TitleBar: UIView!
     @IBOutlet var TestsLabel: UILabel!
     
-    var loader: NVActivityIndicatorView!
     var style = Appearances()
     
     var buttons: [UIButton] = [UIButton]()
@@ -68,16 +65,6 @@ class EventsViewController: UIViewController {
     
     func viewLoadSetup() {
         self.setArrays()
-        self.loader = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 25, y: self.view.center.y - 25, width: 50, height: 50))
-        self.loader.type = .ballPulseSync
-        self.loader.color = UIColor.red
-        view.addSubview(self.loader)
-        if self.Arbeit1BtnOut.titleLabel?.text == "Download..." {
-            self.loader.startAnimating()
-        }
-        else {
-            self.loader.stopAnimating()
-        }
         
         if UserDefaults.standard.string(forKey: "ButtonColor") != nil, UserDefaults.standard.string(forKey: "ButtonColor") != "" {
             for button in self.buttons {
@@ -197,7 +184,6 @@ class EventsViewController: UIViewController {
         for value in self.buttonValues {
             ref.child("arbeiten").child(value.child).child("buttonname").observe(.value) { ArbeitButtonSnap in
                 let ArbeitLabel = ArbeitButtonSnap.value as? String
-                self.loader.stopAnimating()
                 if ArbeitLabel != "-" {
                     value.button.isEnabled = true
                 }

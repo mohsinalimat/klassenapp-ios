@@ -8,7 +8,6 @@
 
 import EZAlertController
 import Firebase
-import NVActivityIndicatorView
 import SCLAlertView
 import UIKit
 import WhatsNewKit
@@ -16,7 +15,6 @@ import WhatsNewKit
 class HomeViewController: UIViewController {
     var timer: Timer!
     var disappearUpdate: Timer!
-    var loader: NVActivityIndicatorView!
     var WhatsNewDarkMode: Bool!
     
     var style = Appearances()
@@ -30,23 +28,11 @@ class HomeViewController: UIViewController {
     @IBOutlet var HomeTitleBackground: UIView!
     @IBOutlet var HomeTV: UITextView!
     @IBAction func reloadEverything(_ sender: Any) {
-        loader.startAnimating()
         reloadData()
     }
     
     func viewLoadSetup() {
         changeAppearance()
-        
-        loader = NVActivityIndicatorView(frame: CGRect(x: view.center.x - 25, y: view.center.y - 25, width: 50, height: 50))
-        loader.type = .ballPulseSync
-        loader.color = UIColor.red
-        view.addSubview(loader)
-        if HomeTV.text == "Download..." {
-            loader.startAnimating()
-        }
-        else {
-            loader.stopAnimating()
-        }
         
         if UserDefaults.standard.string(forKey: "TitleBarColor") != nil, UserDefaults.standard.string(forKey: "TitleBarColor") != "" {
             TitleBar.backgroundColor = UIColor(red: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarRed")) / 255, green: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarGreen")) / 255, blue: CGFloat(UserDefaults.standard.integer(forKey: "TitleBarBlue")) / 255, alpha: 1)
@@ -324,7 +310,6 @@ class HomeViewController: UIViewController {
             let TEST1LABELSNAP = Test1LabelSnap.value as? String
             HomeViewController.HomeVar.NextEvent = TEST1LABELSNAP!
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setToTV), userInfo: nil, repeats: true)
-            self.loader.stopAnimating()
         }
         
         ref.child("standardData").child("iosCurrentVer").child("versionnumber").observeSingleEvent(of: .value) { NewestVersionSnap in
@@ -470,7 +455,6 @@ class HomeViewController: UIViewController {
             HomeTV.attributedText = formattedString
             changeAppearance()
             timer.invalidate()
-            loader.stopAnimating()
             HomeTV.scrollRangeToVisible(NSMakeRange(0, 0))
         }
     }

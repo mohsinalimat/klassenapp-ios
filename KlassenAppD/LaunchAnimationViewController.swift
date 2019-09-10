@@ -10,9 +10,6 @@ import RevealingSplashView
 import UIKit
 import Firebase
 import FirebaseDatabase
-import FirebaseFunctions
-import FirebaseInstanceID
-import FirebaseMessaging
 import AppCenter
 import AppCenterAnalytics
 import AppCenterCrashes
@@ -26,14 +23,6 @@ class LaunchAnimationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeAppearance()
-       /* if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0)
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = UIColor.white
-            self.setNeedsStatusBarAppearanceUpdate()
-        }*/
     }
     
     func changeAppearance() {
@@ -88,6 +77,11 @@ class LaunchAnimationViewController: UIViewController {
         revealingSplashView.duration = 1
         self.view.addSubview(revealingSplashView)
         revealingSplashView.startAnimation {
+            
+            self.performSegue(withIdentifier: "directtotb", sender: nil)
+            
+        }
+        if FirebaseApp.app() == nil {
             FirebaseApp.configure()
             Database.database().isPersistenceEnabled = true
             Fabric.with([Crashlytics.self])
@@ -95,7 +89,8 @@ class LaunchAnimationViewController: UIViewController {
                 MSAnalytics.self,
                 MSCrashes.self
             ])
-            self.performSegue(withIdentifier: "directtotb", sender: nil)
+            let buildNr = Database.database().reference(withPath: "standardData/iosCurrentVer/build")
+            buildNr.keepSynced(true)
         }
     }
 
