@@ -49,3 +49,4 @@ typedef BOOL(^ MGSwipeButtonCallback)(MGSwipeTableCell * _Nonnull cell);
 
 
 @end
+

@@ -15,7 +15,6 @@ import SPAlert
 import SPFakeBar
 import SPStorkController
 import UIKit
-import UITextView_Placeholder
 
 class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let navigationbar = SPFakeBarView(style: .stork)
@@ -63,7 +62,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var attributedString: NSAttributedString!
-        attributedString = NSAttributedString(string: days[row], attributes: [NSAttributedString.Key.foregroundColor: Coloro])
+        attributedString = NSAttributedString(string: days[row], attributes: [NSAttributedString.Key.foregroundColor: Coloro!])
         return attributedString
     }
     
@@ -101,31 +100,89 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         
         ContentTextView = UITextView(frame: CGRect(x: 8, y: 285, width: view.frame.width - 16, height: view.frame.height - 355))
         ContentTextView.isEditable = true
-        ContentTextView.placeholder = "Text hier eingeben"
-        ContentTextView.placeholderColor = UIColor.lightGray
+        ContentTextView.placeholder = "Hausaufgaben hier eingeben"
         ContentTextView.font = .systemFont(ofSize: 16)
         
         view.addSubview(ContentTextView)
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = style.darkBackground
-            navigationbar.backgroundColor = style.darkTitleBackground
-            navigationbar.titleLabel.textColor = style.darkText
-            ContentTextView.textColor = style.darkText
-            ContentTextView.backgroundColor = style.darkBackground
-            Picker.backgroundColor = style.darkBackground
-            Coloro = style.darkText
-            setNeedsStatusBarAppearanceUpdate()
+        
+        changeAppearance()
+    }
+    
+    func changeAppearance() {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    view.backgroundColor = style.darkBackground
+                    navigationbar.backgroundColor = style.darkTitleBackground
+                    navigationbar.titleLabel.textColor = style.darkText
+                    ContentTextView.textColor = style.darkText
+                    ContentTextView.backgroundColor = style.darkBackground
+                    Picker.backgroundColor = style.darkBackground
+                    Coloro = style.darkText
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    view.backgroundColor = style.lightBackground
+                    navigationbar.backgroundColor = style.lightTitleBackground
+                    navigationbar.titleLabel.textColor = style.lightText
+                    ContentTextView.textColor = style.lightText
+                    ContentTextView.backgroundColor = style.lightBackground
+                    Picker.backgroundColor = style.lightBackground
+                    Picker.tintColor = style.lightText
+                    Coloro = style.lightText
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+            }
         }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = style.lightBackground
-            navigationbar.backgroundColor = style.lightTitleBackground
-            navigationbar.titleLabel.textColor = style.lightText
-            ContentTextView.textColor = style.lightText
-            ContentTextView.backgroundColor = style.lightBackground
-            Picker.backgroundColor = style.lightBackground
-            Picker.tintColor = style.lightText
-            Coloro = style.lightText
-            setNeedsStatusBarAppearanceUpdate()
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                navigationbar.backgroundColor = style.darkTitleBackground
+                navigationbar.titleLabel.textColor = style.darkText
+                ContentTextView.textColor = style.darkText
+                ContentTextView.backgroundColor = style.darkBackground
+                Picker.backgroundColor = style.darkBackground
+                Coloro = style.darkText
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = style.lightBackground
+                navigationbar.backgroundColor = style.lightTitleBackground
+                navigationbar.titleLabel.textColor = style.lightText
+                ContentTextView.textColor = style.lightText
+                ContentTextView.backgroundColor = style.lightBackground
+                Picker.backgroundColor = style.lightBackground
+                Picker.tintColor = style.lightText
+                Coloro = style.lightText
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+                UIView.animate(withDuration: 0.1) {
+                    self.changeAppearance()
+                }
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.lightGray
         }
     }
     
@@ -169,7 +226,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
                 ref.child("requests").child(random).child("time").setValue(fulldate)
                 ref.child("requests").child(random).child("client").setValue("iOS")
                 view.endEditing(true)
-                var requests = UserDefaults.standard.stringArray(forKey: "RequestLog")
+                let requests = UserDefaults.standard.stringArray(forKey: "RequestLog")
                 var request2: [String] = []
                 if requests != nil {
                     request2.append(contentsOf: requests!)
@@ -212,7 +269,7 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
         }
         else {
             notificationFeedbackGenerator.notificationOccurred(.warning)
-            EZAlertController.alert("Fehler", message: "Bitte gib die Hausaufgaben in das Feld ein.")
+            EZAlertController.alert("Fehler", message: "Bitte trage die Hausaufgaben in das Feld ein.")
         }
     }
     
@@ -223,5 +280,71 @@ class CreateHWRequest2ViewController: UIViewController, UIPickerViewDelegate, UI
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
+
+extension UITextView: UITextViewDelegate {
+    open override var bounds: CGRect {
+        didSet {
+            resizePlaceholder()
+        }
+    }
+    
+    public var placeholder: String? {
+        get {
+            var placeholderText: String?
+            
+            if let placeholderLabel = self.viewWithTag(100) as? UILabel {
+                placeholderText = placeholderLabel.text
+            }
+            
+            return placeholderText
+        }
+        set {
+            if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
+                placeholderLabel.text = newValue
+                placeholderLabel.sizeToFit()
+            }
+            else {
+                addPlaceholder(newValue!)
+            }
+        }
+    }
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        if let placeholderLabel = self.viewWithTag(100) as? UILabel {
+            placeholderLabel.isHidden = text.count > 0
+        }
+    }
+    
+    private func resizePlaceholder() {
+        if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
+            let labelX = textContainer.lineFragmentPadding
+            let labelY = textContainerInset.top - 2
+            let labelWidth = frame.width - (labelX * 2)
+            let labelHeight = placeholderLabel.frame.height
+            
+            placeholderLabel.frame = CGRect(x: labelX, y: labelY, width: labelWidth, height: labelHeight)
+        }
+    }
+    
+    private func addPlaceholder(_ placeholderText: String) {
+        let placeholderLabel = UILabel()
+        
+        placeholderLabel.text = placeholderText
+        placeholderLabel.sizeToFit()
+        
+        placeholderLabel.font = font
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.tag = 100
+        
+        placeholderLabel.isHidden = text.count > 0
+        
+        addSubview(placeholderLabel)
+        resizePlaceholder()
+        delegate = self
     }
 }

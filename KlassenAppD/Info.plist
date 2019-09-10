@@ -14,53 +14,25 @@
 	<dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
-			<key>AppIconBlueIco</key>
+			<key>BlueGreenQuer9D</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>AppIconBlueIco</string>
+					<string>BlueGreenQuer9D</string>
 				</array>
 			</dict>
-			<key>AppIconCustomIco</key>
+			<key>PinkOrangeHoch9D</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>AppIconCustomIco</string>
+					<string>PinkOrangeHoch9D</string>
 				</array>
 			</dict>
-			<key>AppIconGoldIco</key>
+			<key>RedYellowQuer9D</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>AppIconGoldIco</string>
-				</array>
-			</dict>
-			<key>AppIconGrayIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconGrayIco</string>
-				</array>
-			</dict>
-			<key>AppIconGreenIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconGreenIco</string>
-				</array>
-			</dict>
-			<key>AppIconPinkIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconPinkIco</string>
-				</array>
-			</dict>
-			<key>AppIconRedGoldIco</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AppIconRedGoldIco</string>
+					<string>RedYellowQuer9D</string>
 				</array>
 			</dict>
 		</dict>
@@ -94,7 +66,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.12.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -111,7 +83,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2630</string>
+	<string>2987</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -140,7 +112,12 @@
 		<true/>
 	</dict>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Die App verwendet FaceID, damit man sich im Loginscreen mit FaceID anmelden kann.</string>
+	<string>Die App verwendet FaceID, damit man sich mit FaceID anmelden kann.</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -150,7 +127,7 @@
 		<string>armv7</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
-	<true/>
+	<false/>
 	<key>UIRequiresPersistentWiFi</key>
 	<true/>
 	<key>UIStatusBarTintParameters</key>

@@ -6,30 +6,22 @@ target 'KlassenAppD' do
   use_frameworks!
 pod 'Firebase/Core'
 pod 'Firebase/Database'
-pod 'Firebase/Auth'
-pod 'Firebase/Storage'
-pod 'Firebase/Messaging'
-pod 'Firebase/InAppMessagingDisplay'
 pod 'Firebase/Performance'
 pod 'Fabric'
 pod 'Crashlytics', '~>  3.13'
 pod 'Alamofire', '~> 5.0.0-beta.6'
-pod 'RevealingSplashView'
+pod 'RevealingSplashView', :git => 'https://github.com/weakfl/RevealingSplashView.git', :branch => 'swift-5'
 pod 'SwipeableTabBarController'
-pod 'Firebase/Functions'
 pod 'WhatsNewKit'
 pod 'IGColorPicker', :git => 'https://github.com/AdriBoy21/IGColorPicker.git', :tag => '0.4.4'
-pod "SAConfettiView"
 pod 'EZAlertController', '3.2'
-pod 'UITextView+Placeholder'
-pod 'NVActivityIndicatorView'
 pod 'SnapKit', '~> 5.0.0'
 pod 'SPStorkController'
 pod 'SPFakeBar'
 pod 'SPAlert'
 pod 'AppCenter'
 pod 'SCLAlertView'
-pod 'SwiftyJSON', '~> 4.2.0'
+pod 'SwiftyJSON', '~> 5.0.0'
 
 
 

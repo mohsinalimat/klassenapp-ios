@@ -17,11 +17,11 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
     
     var style = Appearances()
     
-    var icons = [UIImage(named: "AppIconCurrentIco"), UIImage(named: "AppIconRedGoldIco"), UIImage(named: "AppIconGrayIco"), UIImage(named: "AppIconGoldIco"), UIImage(named: "AppIconGreenIco"), UIImage(named: "AppIconPinkIco"), UIImage(named: "AppIconBlueIco")]
+    var icons = [UIImage(named: "CurrentIcon"), UIImage(named: "RedYellowQuer9D"), UIImage(named: "PinkOrangeHoch9D"), UIImage(named: "BlueGreenQuer9D")]
     
     var numicon = ["1", "2", "3", "4", "5", "6", "7"]
     
-    var allIcons: [SingleImage] = [SingleImage(Image: UIImage(named: "AppIconCurrentIco") ?? UIImage(named: "AppIconCurrentIco")!, Number: "1"), SingleImage(Image: UIImage(named: "AppIconRedGoldIco")!, Number: "2"), SingleImage(Image: UIImage(named: "AppIconGrayIco")!, Number: "3"), SingleImage(Image: UIImage(named: "AppIconGoldIco")!, Number: "4"), SingleImage(Image: UIImage(named: "AppIconGreenIco")!, Number: "5"), SingleImage(Image: UIImage(named: "AppIconPinkIco")!, Number: "6"), SingleImage(Image: UIImage(named: "AppIconBlueIco")!, Number: "7")]
+    var allIcons: [SingleImage] = [SingleImage(Image: UIImage(named: "CurrentIcon") ?? UIImage(named: "CurrentIcon")!, Number: "1"), SingleImage(Image: UIImage(named: "RedYellowQuer9D")!, Number: "2"), SingleImage(Image: UIImage(named: "PinkOrangeHoch9D")!, Number: "3"), SingleImage(Image: UIImage(named: "BlueGreenQuer9D")!, Number: "4")]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return icons.count
@@ -31,11 +31,23 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "imagecell", for: indexPath)
         cell.imageView!.image = allIcons[indexPath.row].Image
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            cell.backgroundColor = style.darkBackground
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    cell.backgroundColor = style.darkBackground
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    cell.backgroundColor = style.lightBackground
+                }
+            }
         }
-        else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            cell.backgroundColor = style.lightBackground
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                cell.backgroundColor = style.darkBackground
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                cell.backgroundColor = style.lightBackground
+            }
         }
         
         return cell
@@ -44,78 +56,27 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let number = allIcons[indexPath.row].Number
         
-        print(number)
-        
         if number == "1" {
-            //    setAppIcon(selectedImage: "AppIconCurrentIco")
             changeIcon(to: nil)
         }
         else if number == "2" {
-            //   setAppIcon(selectedImage: "AppIconRedGoldIco")
-            changeIcon(to: "AppIconRedGoldIco")
+            changeIcon(to: "RedYellowQuer9D")
         }
         else if number == "3" {
-            //  setAppIcon(selectedImage: "AppIconGrayIco")
-            changeIcon(to: "AppIconGrayIco")
+            changeIcon(to: "PinkOrangeHoch9D")
         }
         else if number == "4" {
-            // setAppIcon(selectedImage: "AppIconGoldIco")
-            changeIcon(to: "AppIconGoldIco")
-        }
-        else if number == "5" {
-            // setAppIcon(selectedImage: "AppIconGreenIco")
-            changeIcon(to: "AppIconGreenIco")
-        }
-        else if number == "6" {
-            // setAppIcon(selectedImage: "AppIconPinkIco")
-            changeIcon(to: "AppIconPinkIco")
-        }
-        else if number == "7" {
-            changeIcon(to: "AppIconBlueIco")
-            /*    if #available(iOS 10.3, *) {
-                 if UIApplication.shared.supportsAlternateIcons {
-                 } else {
-                     return
-                 }
-                 if let name = UIApplication.shared.alternateIconName {
-                     UIApplication.shared.setAlternateIconName("AppIconBlueIco") { (_: Error?) in
-                     }
-                 }
-             } else {}*/
+            changeIcon(to: "BlueGreenQuer9D")
         }
     }
     
     func changeIcon(to name: String?) {
-        // Check if the app supports alternating icons
         guard UIApplication.shared.supportsAlternateIcons else {
             return
         }
         
-        // Change the icon to a specific image with given name
-        UIApplication.shared.setAlternateIconName(name) { error in
-            // After app icon changed, print our error or success message
-            if let error = error {
-                print("App icon failed to due to \(error.localizedDescription)")
-            }
-            else {
-                print("App icon changed successfully.")
-            }
+        UIApplication.shared.setAlternateIconName(name) { _ in
         }
-    }
-    
-    func setAppIcon(selectedImage: String) {
-        if #available(iOS 10.3, *) {
-            if UIApplication.shared.supportsAlternateIcons {
-            }
-            else {
-                return
-            }
-            if let name = UIApplication.shared.alternateIconName {
-                UIApplication.shared.setAlternateIconName(selectedImage) { (_: Error?) in
-                }
-            }
-        }
-        else {}
     }
     
     override func viewDidLoad() {
@@ -147,25 +108,60 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         ImageTV.delegate = self
         view.addSubview(ImageTV!)
         
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
-            view.backgroundColor = style.darkBackground
-            navigationbar.backgroundColor = style.darkTitleBackground
-            navigationbar.titleLabel.textColor = style.darkText
-            ImageTV.backgroundColor = style.darkBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }
-        if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
-            view.backgroundColor = style.lightBackground
-            navigationbar.backgroundColor = style.lightTitleBackground
-            navigationbar.titleLabel.textColor = style.lightText
-            ImageTV.backgroundColor = style.lightBackground
-            setNeedsStatusBarAppearanceUpdate()
-        }
+        changeAppearance()
         ImageTV.allowsSelection = true
         ImageTV.rowHeight = 80
-        // ImageTV.rowHeight = UITableView.automaticDimension
+    }
+    
+    func changeAppearance() {
+        if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+            if #available(iOS 13.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    view.backgroundColor = style.darkBackground
+                    navigationbar.backgroundColor = style.darkTitleBackground
+                    navigationbar.titleLabel.textColor = style.darkText
+                    ImageTV.backgroundColor = style.darkBackground
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+                else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
+                    view.backgroundColor = style.lightBackground
+                    navigationbar.backgroundColor = style.lightTitleBackground
+                    navigationbar.titleLabel.textColor = style.lightText
+                    ImageTV.backgroundColor = style.lightBackground
+                    setNeedsStatusBarAppearanceUpdate()
+                }
+            }
+        }
+        else {
+            if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 1 {
+                view.backgroundColor = style.darkBackground
+                navigationbar.backgroundColor = style.darkTitleBackground
+                navigationbar.titleLabel.textColor = style.darkText
+                ImageTV.backgroundColor = style.darkBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
+                view.backgroundColor = style.lightBackground
+                navigationbar.backgroundColor = style.lightTitleBackground
+                navigationbar.titleLabel.textColor = style.lightText
+                ImageTV.backgroundColor = style.lightBackground
+                setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
         
-        // Do any additional setup after loading the view.
+        if #available(iOS 13.0, *) {
+            if UserDefaults.standard.integer(forKey: "AutoAppearance") == 1 {
+                UIView.animate(withDuration: 0.1) {
+                    self.changeAppearance()
+                    self.ImageTV.reloadData()
+                }
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -176,14 +172,4 @@ class ChangeAppIconNewViewController: UIViewController, UITableViewDelegate, UIT
         var Image: UIImage
         var Number: String
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }
