@@ -110,6 +110,8 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         loadWhatsNew()
         
+        ref.removeAllObservers()
+        
         ref.observe(.value) { _ in
             self.loadUpdateAlert()
             self.allHomeEntries.removeAll()
@@ -175,6 +177,7 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
                     self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
                     HomeTableView.reloadData()
+                    WhatsNewDarkMode = true
                     setNeedsStatusBarAppearanceUpdate()
                 }
                 else if traitCollection.userInterfaceStyle == .light || traitCollection.userInterfaceStyle == .unspecified {
@@ -185,6 +188,7 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
                     self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
                     HomeTableView.reloadData()
+                    WhatsNewDarkMode = false
                     setNeedsStatusBarAppearanceUpdate()
                 }
             }
@@ -199,6 +203,7 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.tabBarController!.tabBar.barTintColor = self.style.darkBarTintColor
                 self.tabBarController!.tabBar.tintColor = self.style.darkTintColor
                 HomeTableView.reloadData()
+                WhatsNewDarkMode = true
                 setNeedsStatusBarAppearanceUpdate()
             }
             else if UserDefaults.standard.integer(forKey: "DarkmodeStatus") == 0 {
@@ -210,6 +215,7 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.tabBarController!.tabBar.barTintColor = self.style.lightBarTintColor
                 self.tabBarController!.tabBar.tintColor = self.style.lightTintColor
                 HomeTableView.reloadData()
+                WhatsNewDarkMode = false
                 setNeedsStatusBarAppearanceUpdate()
             }
         }
@@ -283,29 +289,24 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
                     title: "Version \(versionCurrent)",
                     items: [
                         WhatsNew.Item(
-                            title: "Hausaufgaben von heute",
-                            subtitle: "Auf der Homeseite kann man nun die Hausaufgaben sehen, die an diesem Tag aufgegeben wurden",
+                            title: "Neue Home-Seite",
+                            subtitle: "Die Home-Seite wurde komplett neu geschrieben, um unnötigen Code auszuschließen. Ausserdem wurde das Aussehen verändert, welches alles noch übersichtlicher macht.",
                             image: UIImage(named: "homeicon")
                         ),
                         WhatsNew.Item(
-                            title: "Aktualisierte Ansichten",
-                            subtitle: "Ab dieser Version erscheinen alle Menüs als Popover (über der vorherigen Ansicht). Darunter auch die Farbauswahl und der Stundenplan!",
-                            image: UIImage(named: "screen_route")
+                            title: "iOS 13 Ready",
+                            subtitle: "Alles ist fertig für das kommende iOS 13, welches in wenigen Tagen veröffentlicht wird! (Stand: 10.09.)",
+                            image: UIImage(named: "apple_logo")
                         ),
                         WhatsNew.Item(
-                            title: "Ausrichtung",
-                            subtitle: "Auf iPads lässt sich die App nun um 90 Grad drehen!",
-                            image: UIImage(named: "ipad")
+                            title: "Bereit für das neue Schuljahr",
+                            subtitle: "Die App ist bereit im neuen Schuljahr verwendet werden.",
+                            image: UIImage(named: "new_view")
                         ),
                         WhatsNew.Item(
-                            title: "Aufgeräumt & kleinere Änderungen",
-                            subtitle: "Es wurden unnötige Codeteile entfernt, überflüssige Ansichten gelöscht und der Code wurde verkleinert. Das kann u.a. zu Performanceverbesserungen führren! Auch wurden kleinere Sachen an der App verändert.",
-                            image: UIImage(named: "cleaner")
-                        ),
-                        WhatsNew.Item(
-                            title: "Danke",
-                            subtitle: "Falls du das liest: Nochmal vielen Dank, dass du diese App verwendest. Jede Person hat zur App beigetragen, sei es auch nur durch das Herunterladen. Das zweite Jahr hat begonnen!",
-                            image: UIImage(named: "designicon")
+                            title: "Kleinere Änderungen",
+                            subtitle: "Es wurden einige Änderungen vorgenommen, wie eine neue Datenschutzerklärung, kleinere Änderungen am Design und Änderungen am Updatesystem.",
+                            image: UIImage(named: "change_arrow")
                         )
                     ]
                 )
@@ -388,7 +389,10 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
         let fulllabelstring = "\(weekdaystring), \(day2).\(month2)."
         DateLabel.text = fulllabelstring
         
+        allHomeEntries.removeAll()
+        
         ref.child("homework").child("bismorgen").child("hausaufgaben").observeSingleEvent(of: .value) { (snapshot1) in
+            self.allHomeEntries.removeAll()
             self.allHomeEntries.append(homeEntry(title: "Hausaufgaben bis morgen", content: snapshot1.value as! String, sorter: 1))
             
             ref.child("homework").child("Week1").child(homeworkWeekString).observeSingleEvent(of: .value) { (snapshot2) in
@@ -433,7 +437,11 @@ class NewHomeViewController: UIViewController, UITableViewDelegate, UITableViewD
                                                     ref.child("standardData").child("LDU").observeSingleEvent(of: .value) { (snapshot7_4) in
                                                         self.allHomeEntries.append(homeEntry(title: "Zeiten", content: "-Hausaufgabenwoche: \(snapshot7_1.value as! String)\n\n-Speiseplanwoche: \(snapshot7_2.value as! String)\n\n-HABM-Updatezeit: \(snapshot7_3.value as! String)\n\n-LDU: \(snapshot7_4.value as! String)", sorter: 7))
                                                         
+                                                        self.allHomeEntries.sort(by: { $0.sorter < $1.sorter })
+                                                        
                                                         self.HomeTableView.reloadData()
+                                                        
+                                                        print("ARRAY!!!: \(self.allHomeEntries)")
                                                     }
                                                 }
                                             }
