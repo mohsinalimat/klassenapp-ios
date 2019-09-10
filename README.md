@@ -4,7 +4,7 @@ The iOS Version of the KlassenApp (english: "ClassApp")
 ## Usage:
 This app was programmed for a school class to have an overview over homework, tests, etc. quickly.
 ## Used Libraries (CocoaPods):
-1. Firebase/* - Google (https://firebase.google.com/)
+1. Firebase (Core/Database/Performance) - Google (https://firebase.google.com/)
 2. Fabric - Fabric (https://get.fabric.io/)
 3. Crashlytics - Fabric (https://get.fabric.io/)
 4. Alamofire - Alamofire (https://github.com/Alamofire/Alamofire)
